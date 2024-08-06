@@ -1,0 +1,6 @@
+O trabalho de conclusão de curso (TCC) aborda o desenvolvimento e a implementação de um gerenciador online de CPAs (Comissões Próprias de Avaliação) para instituições de ensino superior no Brasil. Este sistema tem como objetivo principal aprimorar a gestão de documentos, campanhas e arquivos associados às Comissões Próprias de Avaliação, facilitando o acesso e a organização das informações essenciais para o funcionamento eficiente dessas comissões.
+
+O gerenciador online proposto visa resolver problemas comuns enfrentados pelas CPAs, como a dificuldade de gerenciamento de grandes volumes de documentos e a comunicação entre os membros da comissão e a comunidade acadêmica. Ao centralizar as informações e permitir um gerenciamento mais eficaz, o sistema pretende otimizar os processos internos das CPAs, promover maior transparência e assegurar que todas as partes envolvidas possam acessar e contribuir para as atividades da comissão de maneira mais ágil e coordenada.
+
+Além de simplificar a administração de arquivos e campanhas, o gerenciador online busca facilitar a colaboração e o acompanhamento das ações da CPA, assegurando que as diretrizes de avaliação institucional sejam cumpridas de forma eficaz e organizada.
+
