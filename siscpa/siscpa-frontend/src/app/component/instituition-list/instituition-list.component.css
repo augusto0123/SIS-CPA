@@ -1,0 +1,93 @@
+/* Table container */
+.card {
+   box-shadow: 0 4px 8px 0 #1f3972;
+   max-width: 300px;
+   margin: auto;
+   margin-top: 1%;
+   margin-bottom: 1%;
+   text-align: center;
+ }
+ 
+ .title {
+   color: grey;
+   font-size: 18px;
+ }
+ 
+ button {
+   border: none;
+   outline: 0;
+   display: inline-block;
+   padding: 8px;
+   color: #fafafa;
+   background-color: #1f3972;
+   text-align: center;
+   cursor: pointer;
+   width: 100%;
+   font-size: 18px;
+ }
+ 
+ a {
+   text-decoration: none;
+   font-size: 22px;
+   color: #1f3972;
+ }
+ 
+ button:hover, a:hover {
+   opacity: 0.7;
+ }
+
+#divBusca{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color:#0477c4;
+    border:solid 2px #5F9EA0;
+    border-radius:10px;
+    width: 300px;;
+    height: 36px;
+  }
+  
+  #txtBusca{
+    float:left;
+    background-color:transparent;
+    padding-left:10px;
+    font-size:18px;
+    border:none;
+    height:32px;
+    width:191px;
+  }
+  
+  #btnBusca{
+    border:none;
+    float:left;
+    height:32px;
+    border-radius:0 7px 7px 0;
+    width:70px;
+    font-weight:bold;
+    background:#1f3972;
+  }
+  
+  #divBusca img{
+    float:left;
+  }
+
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #fafafa;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #fafafa;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #fafafa;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #fafafa;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #fafafa;;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:    #fafafa;
+}

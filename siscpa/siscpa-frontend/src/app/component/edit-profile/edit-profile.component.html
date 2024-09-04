@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<!-- Main -->
+<main>
+    <section class="register-container">
+        <div  class="main-title">
+            <h1>Editar</h1>
+        </div>
+        <div class="row">
+            <div class="col-6 register1">
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" name="name" placeholder="Nome Completo" class="name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <input type="text" name="email" placeholder="Email" class="email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" name="confirm-password" placeholder="Outras Informações" class="name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button [routerLink]="['/user-profile']" class="btn btn-register" type="button">Editar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <img src="../../../assets/images/sala1.png" alt="sala1" class="sala1">
+            </div>
+        </div>
+    </section>
+</main>  
+
+
+<app-footer></app-footer>
