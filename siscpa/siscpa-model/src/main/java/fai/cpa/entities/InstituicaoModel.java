@@ -4,18 +4,15 @@ public class InstituicaoModel {
 
     private int id;
     private String email;
-    private String documento;
+    private String cnpj;
     private String razao_social;
     private String nome_fantasia;
     private int telefone;
-    private String tipo;
-    private String instituicaoLogradouro;
-    private int instituicaoNumero;
-    private String instituicaoBairro;
-    private int instituicaoCep;
     private String responsavelNome;
     private String resposavelEmail;
     private int responsavelTelefone;
+    private String situacao;
+
 
     public int getId() {
         return id;
@@ -25,20 +22,26 @@ public class InstituicaoModel {
         this.id = id;
     }
 
+    public String getSituacao() {
+        return situacao;
+    }
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
     }
 
     public String getRazao_social() {
@@ -63,46 +66,6 @@ public class InstituicaoModel {
 
     public void setTelefone(int telefone) {
         this.telefone = telefone;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getInstituicaoLogradouro() {
-        return instituicaoLogradouro;
-    }
-
-    public void setInstituicaoLogradouro(String instituicaoLogradouro) {
-        this.instituicaoLogradouro = instituicaoLogradouro;
-    }
-
-    public int getInstituicaoNumero() {
-        return instituicaoNumero;
-    }
-
-    public void setInstituicaoNumero(int instituicaoNumero) {
-        this.instituicaoNumero = instituicaoNumero;
-    }
-
-    public String getInstituicaoBairro() {
-        return instituicaoBairro;
-    }
-
-    public void setInstituicaoBairro(String instituicaoBairro) {
-        this.instituicaoBairro = instituicaoBairro;
-    }
-
-    public int getInstituicaoCep() {
-        return instituicaoCep;
-    }
-
-    public void setInstituicaoCep(int instituicaoCep) {
-        this.instituicaoCep = instituicaoCep;
     }
 
     public String getResponsavelNome() {

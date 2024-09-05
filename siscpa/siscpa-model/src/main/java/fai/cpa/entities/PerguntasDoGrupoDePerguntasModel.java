@@ -1,6 +1,6 @@
 package fai.cpa.entities;
 
-public class PerguntaModel {
+public class PerguntasDoGrupoDePerguntasModel {
 
     private int id;
     private String descricao;

@@ -1,12 +1,40 @@
 package fai.cpa.entities;
 
+import java.time.LocalDate;
+
 public class UsuarioModel {
 
     private int id;
     private String nome;
     private String email;
-    private String tipo;
+    private String senha;
+    private String situacao;
+    private LocalDate dataCadastro;
     private int telefone;
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDate dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
 
     public int getId() {
         return id;
@@ -30,14 +58,6 @@ public class UsuarioModel {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public int getTelefone() {
