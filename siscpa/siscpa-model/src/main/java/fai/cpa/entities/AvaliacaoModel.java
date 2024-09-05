@@ -1,10 +1,12 @@
 package fai.cpa.entities;
 
+import java.time.LocalDate;
+
 public class AvaliacaoModel {
 
     private int id;
-    private int data_inicio;
-    private int data_fim;
+    private LocalDate data_inicio;
+    private LocalDate data_fim;
     private String status;
     private String descricao;
     private String observacao;
@@ -17,19 +19,19 @@ public class AvaliacaoModel {
         this.id = id;
     }
 
-    public int getData_inicio() {
+    public LocalDate getData_inicio() {
         return data_inicio;
     }
 
-    public void setData_inicio(int data_inicio) {
+    public void setData_inicio(LocalDate data_inicio) {
         this.data_inicio = data_inicio;
     }
 
-    public int getData_fim() {
+    public LocalDate getData_fim() {
         return data_fim;
     }
 
-    public void setData_fim(int data_fim) {
+    public void setData_fim(LocalDate data_fim) {
         this.data_fim = data_fim;
     }
 
