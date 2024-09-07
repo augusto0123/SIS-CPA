@@ -65,9 +65,9 @@ a {
     width: 66%;
 }
 .sala1 {
-    width: 30%;
+    width: 23%;
     grid-column: 2;
     position: absolute;
-    top: 300px;
-    right: 200px;
+    top: 200px;
+    right: 290px;
 }

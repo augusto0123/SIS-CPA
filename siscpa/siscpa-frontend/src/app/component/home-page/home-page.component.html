@@ -6,7 +6,7 @@
             <div class="institution-container">
                 <div class="register">
                     <h1>SIS CPA</h1>
-                    <button [routerLink]="['/register-instituition']" class="btn btn-light" type="button">Cadastrar Instituição</button>
+                    <button [routerLink]="['/register']" class="btn btn-light" type="button">Cadastrar</button>
                 </div>
                 <img src="../../../assets/images/estudantes.png" alt="estudantes" class="students">
             </div>
@@ -52,17 +52,17 @@
 
             <div class="a1">
                 <i class="fas fa-solid fa-user"></i>
-                <a href="#" class="a1">Cadastre-se como usuário</a>
+                <a [routerLink]="['/register']" class="a1">Cadastre-se como usuário</a>
             </div>
 
             <div class="a2">
                 <i class="fas fa-solid fa-landmark"></i>
-                <a href="#" class="a2">Cadastre-se na instituição</a>
+                <a [routerLink]="['/instituition-list']" class="a2">Cadastre-se na instituição</a>
             </div>
 
             <div class="a3">
                 <i class="fas fa-solid fa-file-contract"></i>
-                <a href="#" class="a3">Participe de uma avaliação</a>
+                <a class="a3">Participe de uma avaliação</a>
             </div>
         </section>
     </main>

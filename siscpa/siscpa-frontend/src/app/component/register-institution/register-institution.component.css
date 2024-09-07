@@ -80,13 +80,6 @@ a {
     border-radius: 20px;
     margin-left: 74px;
 }
-.university {
-    width: 30%;
-    grid-column: 2;
-    position: absolute;
-    top: 360px;
-    right: 200px;
-}
 
 /* Section institution */
 .register-institution-container {
@@ -123,10 +116,27 @@ a {
     width: 45%;
     justify-content: space-between;
 }
-.sala2 {
-    width: 30%;
+
+
+.university {
+    width: 35%;
     grid-column: 2;
     position: absolute;
-    top: 910px;
-    right: 200px;
+    top: 35%;
+    right: 8%;
+}
+
+.sala2 {
+    width: 25%;
+    grid-column: 2;
+    position: absolute;
+    top: 98%;
+    right: 12%;
+}
+.sala1 {
+    width: 17%;
+    grid-column: 2;
+    position: absolute;
+    top: 155%;
+    right: 18%;
 }

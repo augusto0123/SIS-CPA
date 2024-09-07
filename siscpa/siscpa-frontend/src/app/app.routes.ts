@@ -15,6 +15,7 @@ import { ForgetPasswordComponent } from './component/forget-password/forget-pass
 import { UserProfileComponent } from './component/user-profile/user-profile.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
 import { InstituitionSignUpComponent } from './component/instituition-sign-up/instituition-sign-up.component';
+import { AdminPageComponent } from './component/admin-page/admin-page.component';
 
 export const routes: Routes = [
     {path:'login', component:LoginComponent},
@@ -31,5 +32,6 @@ export const routes: Routes = [
     {path:'forget-password', component:ForgetPasswordComponent},
     {path:'instituition-sign-up', component:InstituitionSignUpComponent},
     {path:'edit-profile', component:EditProfileComponent},
+    {path:'admin-18341-001087', component:AdminPageComponent},
     {path:'**', redirectTo:'/login'}
 ];
