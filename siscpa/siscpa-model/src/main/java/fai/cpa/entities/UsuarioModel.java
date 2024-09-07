@@ -11,7 +11,7 @@ public class UsuarioModel {
     private String senha;
     private String situacao;
     private LocalDate dataCadastro;
-    private int telefone;
+    private String telefone;
 
     public String getTipo() {
         return tipo;
@@ -69,11 +69,11 @@ public class UsuarioModel {
         this.email = email;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 }

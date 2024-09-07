@@ -27,7 +27,8 @@ public class CreateInstituicao {
                 ||instituicaoModel.getNome_fantasia().isEmpty()
                 ||instituicaoModel.getRazao_social().isEmpty()
                 ||instituicaoModel.getResponsavelNome().isEmpty()
-                ||instituicaoModel.getResponsavelTelefone() <=0
+                ||instituicaoModel.getResponsavelTelefone().isEmpty()
+                ||instituicaoModel.getTelefone().isEmpty()
                 ||instituicaoModel.getResposavelEmail().isEmpty()){
             return -1;
         }

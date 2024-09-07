@@ -18,7 +18,7 @@ public class CreateUsuario {
                 || usuarioModel.getEmail().isEmpty()
                 || usuarioModel.getNome().isEmpty()
                 || usuarioModel.getSituacao().isEmpty()
-                || usuarioModel.getTelefone() == -1
+                || usuarioModel.getTelefone().isEmpty()
                 || usuarioModel.getTipo().isEmpty()
                 || usuarioModel.getSenha().isEmpty()){
             return -1;

@@ -7,12 +7,21 @@ public class InstituicaoModel {
     private String cnpj;
     private String razao_social;
     private String nome_fantasia;
-    private int telefone;
+    private String telefone;
     private String responsavelNome;
     private String resposavelEmail;
-    private int responsavelTelefone;
+    private String responsavelTelefone;
     private String situacao;
+    private int usuarioId;
 
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
 
     public int getId() {
         return id;
@@ -60,11 +69,11 @@ public class InstituicaoModel {
         this.nome_fantasia = nome_fantasia;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -84,11 +93,11 @@ public class InstituicaoModel {
         this.resposavelEmail = resposavelEmail;
     }
 
-    public int getResponsavelTelefone() {
+    public String getResponsavelTelefone() {
         return responsavelTelefone;
     }
 
-    public void setResponsavelTelefone(int responsavelTelefone) {
+    public void setResponsavelTelefone(String responsavelTelefone) {
         this.responsavelTelefone = responsavelTelefone;
     }
 }

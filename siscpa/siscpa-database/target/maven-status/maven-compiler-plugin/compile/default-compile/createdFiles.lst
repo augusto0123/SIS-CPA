@@ -1,2 +1,2 @@
-fai\cpa\connection\ConectionFactory.class
-fai\cpa\connection\repository\FakeInstituicaoDao.class
+fai\cpa\repository\implementation\repository\connection\ConnectionFactory.class
+fai\cpa\repository\implementation\repository\InstituicaoDaoRepository.class
