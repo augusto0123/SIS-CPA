@@ -1,0 +1,15 @@
+fai\cpa\entities\GrupoDePerguntasDoQuestionarioModel.class
+fai\cpa\entities\GrupoDePerguntasModel.class
+fai\cpa\entities\RepostaModel.class
+fai\cpa\entities\AvaliacaoModel.class
+fai\cpa\entities\EdicaoDeAutoAvaliacaoModel.class
+fai\cpa\entities\EnderecoModel.class
+fai\cpa\entities\BaseEntity.class
+fai\cpa\entities\QuestionarioModel.class
+fai\cpa\entities\PerguntasDoGrupoDePerguntasModel.class
+fai\cpa\entities\UsuarioModel.class
+fai\cpa\entities\InstituicaoModel.class
+fai\cpa\entities\PerguntaModel.class
+fai\cpa\entities\AvaliacaoQuestionarioModel.class
+fai\cpa\entities\MembroCpaModel.class
+fai\cpa\entities\ReuniaoCpaModel.class

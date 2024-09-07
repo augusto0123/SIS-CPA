@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<!-- Main -->
+<main>
+    <section class="register-container">
+        <div  class="main-title">
+            <h1>Inscrever</h1>
+        </div>
+        <div class="row">
+            <div class="col-6 register1">
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" name="confirm-password" placeholder="Matricula" class="name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" name="confirm-password" placeholder="Ano de Inscrção" class="name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button [routerLink]="['/instituition-profile']" class="btn btn-register" type="button">Inscrever</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <img src="../../../assets/images/estudantes.png" alt="sala1" class="sala1">
+            </div>
+        </div>
+    </section>
+</main>  
+
+
+<app-footer></app-footer>

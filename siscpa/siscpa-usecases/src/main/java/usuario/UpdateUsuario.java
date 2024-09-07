@@ -1,0 +1,32 @@
+package usuario;
+
+import fai.cpa.entities.UsuarioModel;
+import port.UsuarioRepositorty;
+
+public class UpdateUsuario {
+
+    private final UsuarioRepositorty usuarioRepositorty;
+
+    public UpdateUsuario(UsuarioRepositorty usuarioRepositorty) {
+        this.usuarioRepositorty = usuarioRepositorty;
+    }
+
+    public boolean update(final UsuarioModel usuarioModel){
+        final UsuarioModel byId = usuarioRepositorty.findById(usuarioModel.getId());
+        byId.setSituacao(usuarioModel.getSituacao());
+        byId.setTelefone(usuarioModel.getTelefone());
+        byId.setEmail(usuarioModel.getEmail());
+        byId.setNome(usuarioModel.getNome());
+        byId.setDataCadastro(usuarioModel.getDataCadastro());
+        byId.setSenha(usuarioModel.getSenha());
+        byId.setTipo(usuarioModel.getTipo());
+
+        boolean updateUsuario = false;
+        try {
+            updateUsuario = usuarioRepositorty.update(byId);
+            return updateUsuario;
+        } catch (Exception e){
+            return true;
+        }
+    }
+}

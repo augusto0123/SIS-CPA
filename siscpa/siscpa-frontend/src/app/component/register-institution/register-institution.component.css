@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+    color: #fafafa;
+}
+p {
+    color: #fafafa;
+}
+a {
+    font-size: 22px;
+    color: #fafafa;
+    text-decoration: none
+}
+.a1:hover,
+.a2:hover,
+.a3:hover {
+    color: #ccc;
+}
+
+/* Main title */
+.main-title h1{
+    margin-top: 70px;
+    text-align: center;
+    font-size: 50px;
+    color: #0477c4;
+    color: #1f3972;
+    margin-bottom: 50px;
+}
+.second-title {
+    font-size: 35px;
+    color: #0477c4;
+    color: #1f3972;
+    margin-left: 325px;
+    margin-bottom: 25px;
+}
+
+/* Section Address */
+.register-address-container {
+    margin-bottom: 50px;
+}
+#register1 input {
+    margin-bottom: 50px;
+    font-size: 20px;
+    padding: 10px;
+    border: 5px solid #0477c4;
+    border-radius: 20px;
+}
+#register1 {
+    margin-left: 150px;
+}
+#register1 .street {
+    width: 45%;
+}
+#register1 .city-state {
+    display: flex;
+    width: 45%;
+    justify-content:space-between;
+}
+#register1 .number-neighborhood {
+    display: flex;
+    width: 45%;
+    justify-content:space-between;
+}
+#register1 .cep-reference {
+    display: flex;
+    width: 45%;
+    justify-content:space-between;
+}
+.btn-register {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 275px;
+    background-color:#0a4696;
+    border-radius: 20px;
+    margin-left: 74px;
+}
+
+/* Section institution */
+.register-institution-container {
+    margin-bottom: 100px;
+}
+#register2 {
+    margin-left: 150px;
+}
+#register2 input {
+    margin-bottom: 50px;
+    font-size: 20px;
+    padding: 10px;
+    border: 5px solid #0477c4;
+    border-radius: 20px;
+}
+#register2 .fantasy-name {
+    width: 45%;
+}
+#register2 .corporate-reason {
+    width: 45%;
+}
+#register2 .cpf-tel {
+    display: flex;
+    width: 45%;
+    justify-content:space-between;
+}
+#register2 .email {
+    display: flex;
+    width: 45%;
+    justify-content:space-between;
+}
+#register2 .password {
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+}
+
+
+.university {
+    width: 35%;
+    grid-column: 2;
+    position: absolute;
+    top: 35%;
+    right: 8%;
+}
+
+.sala2 {
+    width: 25%;
+    grid-column: 2;
+    position: absolute;
+    top: 98%;
+    right: 12%;
+}
+.sala1 {
+    width: 17%;
+    grid-column: 2;
+    position: absolute;
+    top: 155%;
+    right: 18%;
+}
