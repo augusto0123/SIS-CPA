@@ -1,10 +1,8 @@
 package fai.cpa.repository.implementation.repository;
 
-import com.sun.source.tree.TryTree;
 import fai.cpa.entities.InstituicaoModel;
 import fai.cpa.repository.implementation.repository.connection.ConnectionFactory;
 import port.InstituicaoRepository;
-import port.PerguntaRepository;
 
 import java.sql.*;
 import java.sql.PreparedStatement;
@@ -13,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class InstituicaoDaoRepository implements InstituicaoRepository {
+public class InstituicaoDaoPostgres implements InstituicaoRepository {
     @Override
     public InstituicaoModel findById(int id) {
 
