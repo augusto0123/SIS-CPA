@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionarios</title>
+
+    <link rel="stylesheet" href="css/questionnaire.css">
+
+        <!-- Icones -->
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+</head>
+<body> 
+    <div class="sidebar">
+        <i class="fa-solid fa-building-columns"></i>     
+        <header>Instituição X</header>
+        <ul>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-house"></i></i>Início</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-circle-user"></i></i>Perfil</i></a>
+            </li>
+            <li><a href="#"><i class="fa-solid fa-circle-check"></i>Avaliações</a></li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-file-lines"></i></i>Relatórios</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-folder-open"></i></i>Documentos</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-address-card"></i></i>Contato</i></a>
+            </li>
+            <li><a href="#"><i class="fa-solid fa-image"></i>Galeria</a></li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-rotate-left"></i></i>Voltar</i></a>
+            </li>
+        </ul>
+   </div>
+    <!-- Nav bar -->
+    <div class="navbar-container">
+        <nav>
+            <ul class="navbar-items">
+                <li>
+                    <a href="#">Sobre Nós</a>
+                </li>
+                <li>
+                    <a href="#">O que é CPA?</a>
+                </li>
+                <li>
+                    <a href="#">Instituições</a>
+                </li>
+                <li>
+                    <a href="#"> Cadastre-se</a>
+                </li>
+                <li>
+                    <a href="#" class="login-btn">Entrar</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Instituição -->
+
+    <main>
+        <section class="main-section">
+
+            <div class="title-questionnaire">
+                <span id="questionario-nome"><i class="fa-solid fa-clipboard-question"></i>NOME DO QUESTIONÁRIO</span>
+            </div>
+        
+            <div class="container-questionnaire">
+                <form action="" id="form-questionnaire">
+                    <textarea name="textDescriptionQuestionnaire" id="text-questionnaire" required>Texto descritivo do questionario</textarea>
+
+                    <div class="objective-question">
+                        
+                        <div class="question-text">
+                            <input type="number" id="number" value="1">
+                            <span id="question">Texto da Questão</span>
+                        </div>
+                    
+                        <div class="radio">
+                            <input type="radio" id="objective1" name="objectiveType" value="Péssimo" required>
+                            <label for="objective1"><span>Péssimo</span></label>
+                        </div>
+                    
+                        <div class="radio">
+                            <input type="radio" id="objective2" name="objectiveType" value="Ruim" required>
+                            <label for="objective2"><span>Ruim</span></label>
+                        </div>
+                    
+                        <div class="radio">
+                            <input type="radio" id="objective3" name="objectiveType" value="Razoável" required>
+                            <label for="objective3"><span>Razoável</span></label>
+                        </div>
+                    
+                        <div class="radio">
+                            <input type="radio" id="objective4" name="objectiveType" value="Bom" required>
+                            <label for="objective4"><span>Bom</span></label>
+                        </div>
+                    
+                        <div class="radio">
+                            <input type="radio" id="objective5" name="objectiveType" value="Excelente" required>
+                            <label for="objective5"><span>Excelente</span></label>
+                        </div>
+                    </div>
+
+                    <div class="subjective-question">
+                        <div class="question-text">
+                            <input type="number" name="" id="number" value="1">
+                            <span id="question">Texto da Questão</span>
+                        </div>
+                        <textarea name="textQuestion" id="text-question" placeholder="Digite aqui..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn-questionnaire">ENVIAR</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <img src="images/icone1.jpeg" alt="Icone CPA" class="logo">
+        <p>SIS CPA - 2024</p>
+    </footer>
+    
+</body>
+</html>

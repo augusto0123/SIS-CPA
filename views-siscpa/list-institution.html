@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Instituições Cadastradas</title>
+
+    <link rel="stylesheet" href="css/list-institution.css">
+
+    <!-- Icones -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+    <!-- Nav bar -->
+    <div class="sidebar">
+        <a href="#">
+            <img src="images/icone1.jpeg" alt="Icone CPA" class="logo">
+        </a>    
+        <ul>
+            <li>
+                <a href="#"><i class="fa-solid fa-gear"></i></i>Instituições</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-gear"></i>Cadastrar Instituição</a>
+            </li>
+        </ul>
+   </div>
+    <div class="navbar-container">
+        <nav>
+            <ul class="navbar-items">
+                <li>
+                    <a href="#">Sobre Nós</a>
+                </li>
+                <li>
+                    <a href="#">O que é CPA?</a>
+                </li>
+                <li>
+                    <a href="#">Instituições</a>
+                </li>
+                <li>
+                    <a href="#"> Cadastre-se</a>
+                </li>
+                <li>
+                    <a href="#" class="login-btn">Entrar</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <section class="main-section">
+
+            <section class="cpa-member">
+                
+                <div class="container-cpa-member">
+
+                    <div class="title">
+                        <span><i class="fa-solid fa-user-tie"></i>VINCULAR MEMBRO DA CPA</span>
+                    </div>
+
+                    <div class="container-add-member-cpa">
+
+                        <p>Vincule um membro da CPA á sua respectiva instituição</p>
+                        
+                        <form action="submit-member-cpa" id="form-member">
+
+                            <div class="member">
+                                <span>Instituição Educacional:</span>
+                                <select id="select-institution" name="select-institution" class="custom-select" required>
+                                    <option value="default">---</option>
+                                    <option value="1">FAI - Centro de Ensino Superior em Getão, Tecnologia e Educação</option>
+                                </select> 
+                            </div>
+                           
+                            <div class="member">
+                                <span>Professor (Membro da CPA):</span>
+                                <select id="select-member" name="select-member" class="custom-select" required>
+                                    <option value="default">---</option>
+                                    <option value="1">Wanderley Rodrigues de Souza</option>
+                                </select> 
+                            </div>
+
+                            <button type="submit" class="submit-btn-member" >Vincular</button>
+                        </form>
+                    </div>
+                 </div>
+            </section>
+
+            <section class="list-institution-container">
+
+                <h1>Lista de Instituições Cadastradas:</h1>
+                
+                <!-- <div class="search">
+                    <input type="text" name="search" placeholder="Pesquisar instituição">
+                    <a href="#" class="search-btn"><i class="fas fa-solid fa-magnifying-glass"></i></a>
+                </div> -->
+    
+                <div class="all-institutions">
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-right-to-bracket"></i></i></a>   
+                            <span class="institution">Nome da Instituição</span>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-right-to-bracket"></i></i></a>   
+                            <span class="institution">Nome da Instituição</span>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-right-to-bracket"></i></i></a>   
+                            <span class="institution">Nome da Instituição</span>
+                        </li>
+                    </ul> 
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <img src="images/icone1.jpeg" alt="Icone CPA" class="logo">
+        <p>SIS CPA - 2024</p>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoavaliação</title>
+
+    <link rel="stylesheet" href="css/assessment.css">
+
+    <!-- Icones -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <script src="js/scripts.js"></script>
+</head>
+<body> 
+    <div class="sidebar">
+        <i class="fa-solid fa-building-columns"></i>    
+
+        <header>Instituição X</header>
+        <ul>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-house"></i></i>Início</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-circle-user"></i></i>Perfil</i></a>
+            </li>
+            <li><a href="#"><i class="fa-solid fa-circle-check"></i>Avaliações</a></li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-file-lines"></i></i>Relatórios</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-folder-open"></i></i>Documentos</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-address-card"></i></i>Contato</i></a>
+            </li>
+            <li><a href="#"><i class="fa-solid fa-image"></i>Galeria</a></li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-rotate-left"></i></i>Voltar</i></a>
+            </li>
+        </ul>
+   </div>
+
+    <!-- Nav bar -->
+    <div class="navbar-container">
+        <nav>
+            <ul class="navbar-items">
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">O que é CPA?</a></li>
+                <li><a href="#">Instituições</a></li>
+                <li><a href="#">Cadastre-se</a></li>
+                <li><a href="#" class="login-btn">Entrar</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <section class="main-section">
+
+            <!-- Reunião -->
+            <div class="title">
+                <a href="#"><i class="fa-regular fa-calendar"></i> REUNIÃO CPA</a>
+            </div>
+
+            <div class="container-meeting">
+
+                <form action="" id="form-meeting">
+                    <div class="next-meeting">
+                        <p>Data:</p>
+                        <input type="date" name="next-meeting-date" class="small-date-input" required>
+                        <p>Horário:</p>
+                        <input type="time" name="next-meeting-time" class="small-time-input" required>
+                    </div>
+            
+                    <div class="next-about">
+                        <p>Pauta da Reunião:</p>
+                        <textarea name="next-meeting-text" placeholder="Digite aqui..." class="large-textarea" required></textarea>
+                    </div>
+        
+                    <button type="submit" class="submit-btn-meeting">Cadastrar</button>
+                </form>
+            </div>
+            
+            <!-- Edição de Autoavaliação -->
+            <div class="title">
+                <a href="#"><i class="fa-solid fa-eye"></i> EDIÇÃO DE AUTOAVALIAÇÃO</a>
+            </div>
+
+            <div class="container-edition">
+                <form action="" id="form-edition" method="post">
+                    <div class="date-edition">
+                        <div class="form-group">
+                            <p>Ano da Avaliação:</p>
+                            <input type="date" name="evaluation-year" required>
+                        </div>
+                        <div class="form-group">
+                            <p>Data de Início:</p>
+                            <input type="date" name="start-date" required>
+                        </div>
+                        <div class="form-group">
+                            <p>Data de Finalização:</p>
+                            <input type="date" name="end-date" required>
+                        </div>
+                        <div class="form-group">
+                            <p>Situação</p>
+                            <select id="contract-situation" name="contract-situation" class="custom-select" required>
+                                <option value="default">---</option>
+                                <option value="prevista">Prevista</option>
+                                <option value="andamento">Em andamento</option>
+                                <option value="encerrada">Encerrada</option>
+                            </select>                                                          
+                        </div>
+                    </div>
+            
+                    <div class="edition-about">
+                        <div class="form-group">
+                            <p>Edição:</p>
+                            <input type="number" name="edition-number" id="numberEdition" placeholder="---" required>
+                        </div>
+                        <div class="form-group">
+                            <p>Descrição:</p>
+                            <textarea name="edition-description" placeholder="Digite aqui..." required></textarea>
+                        </div>
+                    </div>
+            
+                    <button type="submit" class="submit-btn-edition">Cadastrar</button>
+                </form>
+            </div>
+                
+            <!-- Questionário -->
+            <div class="title">
+                <a href="#"><i class="fa-solid fa-clipboard-question"></i>QUESTIONÁRIO</a>
+            </div>
+        
+            <div class="container-questionnaire">
+
+                <form action="" id="form-questionnaire" method="post">
+                    
+                    <div class="questionnaire-about">
+
+                        <div class="form-group">
+                            <p>Situação:</p>
+                            <select id="contract-situation" name="contract-situation" class="custom-select" required>
+                                <option value="default">---</option>
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
+                            </select>
+                        </div>
+                    
+                        <div class="form-group">
+                            <p>Edição de Autoavaliação:</p>
+                            <select id="contract-edition" name="contract-edition" class="custom-select" required>
+                                <option value="default">Selecione a Edição</option>
+                                <!-- <option value="um">1</option>
+                                <option value="dois">2</option> -->
+                            </select>
+
+                            <p>Categoria de aplicação:</p>
+                            <select id="contract-category" name="contract-category" class="custom-select" required>
+                                <option value="default">---</option>
+                                <option value="professor">Professor</option>
+                                <option value="aluno">Aluno</option>
+                                <option value="colaborador">Colaborador</option>
+                                <option value="comunidade-externa">Comunidade Externa</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="date-questionnaire">
+                        <div class="form-group">
+                            <p>Nome do Questionário:</p>
+                            <input type="text" name="name-questionnaire" placeholder="Digite aqui..." required>
+                        </div>
+                
+                        <div class="form-group">
+                            <p>Descrição:</p>
+                            <textarea name="edition-description" placeholder="Digite aqui..." required></textarea>
+
+                            <p>Observação:</p>
+                            <textarea name="edition-description" placeholder="(Opcional) Digite aqui..." required></textarea>
+                        </div>
+                    </div>
+                    </div>
+                        
+                    
+                    <button type="submit" class="submit-btn-questionnaire">Cadastrar</button>
+                </form>
+            </div>
+
+            <!-- Perguntas -->
+                <div class="title">
+                    <a href="#"><i class="fa-solid fa-question"></i> GRUPO DE PERGUNTAS</a>
+                </div>
+
+            <div class="container-questions">
+
+                <div class="container">
+
+                    <div class="title2">
+                        <h2>Cadastrar Pergunta</h2>
+                    </div>
+
+                    <form id="questionForm">
+
+                        <div class="form-row">
+                            <div class="part1">
+                                
+                                <div class="form-group">
+                                    <div class="configuration3">
+                                        <p>Edição de Autoavaliação:</p>
+                                        <select id="group-edition" name="group" required>
+                                            <option value="">Selecione a edição</option>
+                                            <!-- Opções serão preenchidas dinamicamente -->
+                                        </select>
+                                    </div>
+                                                                     
+                                    <p>Questionário:</p>
+                                    <select id="group-questionnaire" name="group" required>
+                                        <option value="">Selecione um questionário</option>
+                                        <!-- Opções serão preenchidas dinamicamente -->
+                                    </select>
+                                </div>
+            
+                                <div class="configuration1">
+
+                                    <div class="form-group">
+                                        <p>Grupo de Perguntas:</p>
+                                        <input type="number" id="numberGroup" name="numberGroup" placeholder="Selecione o grupo" required>
+                                    </div>
+                
+                                    <div class="form-group">
+                                        <p>Ranking no Grupo:</p>
+                                        <input type="number" id="position" name="position" min="1" placeholder="Selecione a posição" required>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="part2">
+                                <div class="form-group">
+                                    <p>Texto da Pergunta:</p>
+                                    <textarea id="questionText" name="edition-description" placeholder="Digite aqui..." required></textarea>
+                                </div>
+            
+                                <div class="form-group-subject">
+
+                                    <p>Tipo de Pergunta:</p>
+                                    
+                                    <div class="configuration2">
+                                        <div>
+                                            <input type="radio" id="typeSubjective" name="questionType" value="subjective" required>
+                                            <label for="typeSubjective">Subjetiva</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="typeObjective" name="questionType" value="objective">
+                                            <label for="typeObjective">Objetiva</label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>             
+                        </div>
+            
+                        <button type="submit" class="submit-btn-questions">Cadastrar</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <img src="images/icone1.jpeg" alt="Icone CPA" class="logo">
+        <p>SIS CPA - 2024</p>
+    </footer>
+</body>
+</html>

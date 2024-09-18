@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+main {
+    margin-left: 300px;
+}
+
+h1,
+h2,
+h3 {
+    color: #fff;
+}
+p {
+    color: #fff;
+}
+a {
+    font-size: 22px;
+    color: #fff;
+    text-decoration: none
+}
+.a1:hover,
+.a2:hover,
+.a3:hover {
+    color: #ccc;
+}
+
+/* Navbar */
+.navbar-container {
+    width:100%;
+    height: 150px;
+    background-color: #0477c4;
+    padding: 0 2rem;
+}
+nav {
+    position: relative;
+}
+.logo {
+    margin-left: 14px;
+    width: 9%;
+}
+.navbar-items {
+    font-size: 17px;
+    position: absolute;
+    right: 0;
+    height: 80px;
+    line-height: 150px;
+    margin: 0;
+    display: inline-block;
+}
+.navbar-items li {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-left: 75px;
+}
+.navbar-items a{
+    color: #fff;
+    text-decoration: none;
+    
+}
+.navbar-items a:hover {
+    color: #ccc;
+}
+.login-btn {
+    padding: 15px 20px;
+    background-color: #2cc76a;
+    border-radius: 7px;
+}
+.navbar-items .login-btn:hover {
+    background-color: #14b353;
+    color: #fff;
+}
+
+/* Icones */
+.fa-circle-user,
+.fa-circle-check,
+.fa-image {
+    color: #fff;
+    font-size: 30px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.fas,
+.fa-building-columns{
+    color: #fff;
+    font-size: 30px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.fa-calendar, 
+.fa-question,
+.fa-eye {
+    color: #0477c4;
+    font-size: 60px;
+    padding: 10px;
+    border-radius: 100%;
+    margin-bottom: 15px;
+}
+.fa-building-columns {
+    margin-top: 30px;
+    color: #0477c4;
+    margin-left: 85px;
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 100%;
+    margin-bottom: 30px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    background-color: #0477c4;
+    height: 100%;
+}
+.sidebar header {
+    padding: 10px 10px;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    background-color: #0a4696;
+    line-height: 25px;
+    user-select: none;
+}
+.sidebar ul a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-top: 3px solid rgba(255, 255, 255, .1);
+}
+.sidebar ul a i {
+    margin-left: 15px;
+}
+.sidebar ul li:hover {
+    background-color: #0767a7;
+}
+/* Main body */
+.main-title1, 
+.main-title1 a {
+    font-style: normal;
+    margin-left: 70px;
+    font-size: 40px;
+    line-height: 200px;
+    color: #0477c4;
+}
+.main-title2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #0477c4;
+    font-size: 35px;
+}
+.main-section {
+    margin-bottom: 100px;
+}
+.main-section p {
+    line-height: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: #0477c4;
+}
+.main-section h1 {
+    line-height: 200px;
+    color: #0477c4;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+/* novo designe */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.main-section {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.container-contact {
+    max-width: 1300px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    margin: auto;
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #007bff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #0477c4;
+    color: white;
+    font-size: 20px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+td {
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+.container-contact p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #0477c4;
+    padding: 50PX;
+    text-align: center;
+    font-weight: bold;
+    border-top: 3px solid #138ee0;
+}

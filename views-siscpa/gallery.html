@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Fotos</title>
+
+    <link rel="stylesheet" href="css/gallery.css">
+
+        <!-- Icones -->
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+</head>
+<body> 
+    <div class="sidebar">
+        <i class="fa-solid fa-building-columns"></i>    
+
+        <header>Instituição X</header>
+        <ul>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-house"></i></i>Início</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-circle-user"></i></i>Perfil</i></a>
+            </li>
+            <li><a href="#"><i class="fa-solid fa-circle-check"></i>Avaliações</a></li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-file-lines"></i></i>Relatórios</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-folder-open"></i></i>Documentos</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-address-card"></i></i>Contato</i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-image"></i>Galeria</a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-solid fa-rotate-left"></i></i>Voltar</i></a>
+            </li>
+        </ul>
+   </div>
+    <!-- Nav bar -->
+    <div class="navbar-container">
+        <nav>
+            <ul class="navbar-items">
+                <li>
+                    <a href="#">Sobre Nós</a>
+                </li>
+                <li>
+                    <a href="#">O que é CPA?</a>
+                </li>
+                <li>
+                    <a href="#">Instituições</a>
+                </li>
+                <li>
+                    <a href="#"> Cadastre-se</a>
+                </li>
+                <li>
+                    <a href="#" class="login-btn">Entrar</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Instituição -->
+
+    <main>
+        <section class="main-section">
+
+            <div class="add-album">
+                 <span>ADICIONAR ÁLBUM</span>
+                 <button type="submit" class="submit-btn-addAlbum">+</button>
+            </div>
+
+            <div class="containers">
+                <div class="title">
+                    <span><i class="fa-solid fa-camera-retro"></i>TÍTULO DO ÁLBUM</span>
+                    <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="#"><i class="fa-solid fa-trash"></i></a>
+                </div>
+                <div class="container-gallery">
+                    <div class="file-upload">
+                        <label for="gallery" class="custom-file-upload">Inserir foto:</label>
+                        <input type="file" id="gallery" name="gallery">    
+                    </div>
+                </div>
+                <div class="configuration">
+                    <span class="description-gallery">Descrição do album</span>
+                    <a href="#"><i class="fa-solid fa-pen"></i></a>
+                </div>
+             </div>
+
+            <!-- <div class="containers">
+                <div class="title">
+                    <span><i class="fa-solid fa-camera-retro"></i>TÍTULO DO ÁLBUM</span>
+                    <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="#"><i class="fa-solid fa-trash"></i></a>
+                </div>
+                <div class="container-gallery">
+                    <div class="file-upload">
+                        <label for="gallery" class="custom-file-upload">Inserir foto:</label>
+                        <input type="file" id="gallery" name="gallery">    
+                    </div>
+                </div>
+                <div class="configuration">
+                    <span class="description-gallery">Descrição do album</span>
+                    <a href="#"><i class="fa-solid fa-pen"></i></a>
+                </div>
+             </div> -->
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <img src="images/icone1.jpeg" alt="Icone CPA" class="logo">
+        <p>SIS CPA - 2024</p>
+    </footer>
+    
+</body>
+</html>
