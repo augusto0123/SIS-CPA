@@ -69,24 +69,15 @@ nav {
     color: #fff;
 }
 /* Main title */
-.main-title {
-    margin-top: 70px;
-    margin-bottom: 40px;
-    margin-bottom: 60px;
-}
+
 .fa-user {
-    margin-top: 30px;
     color: #fff;
-    margin-left: 85px;
     text-align: center;
     padding: 30px 40px;
     background-color: #0477c4;
     border-radius: 100%;
     font-size: 80px;
-    position: absolute;
-    top: 140px;
-    left: 360px;
-    border: 9px solid #0a4696;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
 }
 .register-container {
     padding: 0 0 0 60px;
@@ -103,7 +94,8 @@ nav {
     border: 5px solid #0477c4;
     border-radius: 20px;
 }
-.register1 {
+.register1 {    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
     display: block;
     border: 5px solid #0477c4;
     width: 40%;
@@ -116,9 +108,10 @@ nav {
 }
 .register1 .name {
     margin-top:40px;
-    width: 80%;
+    width: 80%
 }
-.register1 .email {
+.register1 .email,
+.register1 .phonenumber {
     width: 80%;
 }
 .register1 .password {

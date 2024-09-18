@@ -63,10 +63,27 @@ nav {
     padding: 15px 20px;
     background-color: #2cc76a;
     border-radius: 7px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 .navbar-items .login-btn:hover {
     background-color: #14b353;
     color: #fff;
+}
+#profile:hover {
+    background-color: #ebe8e8;
+    
+}
+#profile {
+    background-color: #fff;
+    padding: 15px 20px;
+    color: #0477c4;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.fa-circle-user {
+    font-size: 25px;
+    margin: 0 10px 0 0;
 }
 
 /* Register institution */
@@ -88,6 +105,7 @@ nav {
     background-color: #fff;
     padding: 15px 79px;
     border-radius: 35px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
 }
 .create-user-btn:hover {
     background-color: #ccc;
@@ -159,6 +177,7 @@ nav {
     border-radius: 20px;
 }
 .cpa1 {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
     background-color: #0477c4;
     border-radius: 20px;
     margin-right: 50px;

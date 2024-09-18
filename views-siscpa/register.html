@@ -45,34 +45,38 @@
 
     <!-- Main -->
     <main>
-        <div  class="main-title">
-            <i class="fas fa-user"></i> 
-        </div>
         
-        <section class="register-container">    
+        <section class="register-container">   
+             
             <div class="register1">
+                <div  class="main-title">
+                    <i class="fas fa-user"></i> 
+                </div>
                 <form action="cadastrar_usuario" method="POST" id="registrationForm">
                     <input type="text" name="name" placeholder="Nome Completo" class="name" required>
                     <input type="text" name="email" placeholder="Email" class="email" required>
+                    <input type="number" name="phonenumber" placeholder="Telefone" class="phonenumber" required>
 
                     <div class="password">
                         <input type="password" name="password" placeholder="Senha" class="password-camp" required>
                         <input type="password" name="confirm-password" placeholder="Confirmar Senha" class="password-camp" required>
                     </div>
 
-                    <div class="link-institution">
+                    <!-- <div class="link-institution">
                         <select id="contract-situation" name="contract-situation" class="custom-select" required>
                             <option value="default">Selecione uma instituição para se vincular</option>
-                            <!-- Outras opções podem ser adicionadas aqui -->
+                            
                         </select>
-                    </div>
+                    </div> -->
 
                     <div class="type-user">
                         <select id="contract-situation" name="contract-situation" class="custom-select" required>
                             <option value="default">Selecione seu papel na instituição</option>
-                            <!-- Outras opções podem ser adicionadas aqui -->
+                            <option value="aluno">Aluno</option>
+                            <option value="aluno">Professor</option>
+                            <option value="aluno">Colaborador</option>
+                            <option value="aluno">Comunidade Externa</option>
                         </select>
-                            
                     </div>
                         
                     <button type="submit" class="btn-register">Cadastrar</button>
