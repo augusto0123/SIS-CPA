@@ -2,7 +2,9 @@ package com.siscpa.api.configuration;
 
 import fai.cpa.repository.implementation.repository.InstituicaoDaoPostgres;
 import instituicao.CreateInstituicao;
+import instituicao.DeleteInstituicao;
 import instituicao.FindInstituicao;
+import instituicao.UpdateInstituicao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import port.InstituicaoRepository;
@@ -24,5 +26,15 @@ public class InstituicaoBackendConfiguration {
     @Bean
     public CreateInstituicao createInstituicao(){
         return new CreateInstituicao(instituicaoRepository);
+    }
+
+    @Bean
+    public DeleteInstituicao deleteInstituicao(){
+        return new DeleteInstituicao(instituicaoRepository);
+    }
+
+    @Bean
+    public UpdateInstituicao updateInstituicao(){
+        return new UpdateInstituicao(instituicaoRepository);
     }
 }

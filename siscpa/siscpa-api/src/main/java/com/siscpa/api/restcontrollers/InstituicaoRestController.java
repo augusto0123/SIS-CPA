@@ -2,9 +2,7 @@ package com.siscpa.api.restcontrollers;
 
 import com.siscpa.api.configuration.InstituicaoBackendConfiguration;
 import fai.cpa.entities.InstituicaoModel;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,20 @@ public class InstituicaoRestController {
     public List<InstituicaoModel> getInstituicoes(){
         List<InstituicaoModel> instituicoes = instituicaoBackendConfiguration.findInstituicao().find();
         return instituicoes;
+    }
+
+    @PostMapping("/add")
+    public int getCreateInstituicao(@RequestBody InstituicaoModel instituicaoModel){
+        return instituicaoBackendConfiguration.createInstituicao().createInstituicao(instituicaoModel);
+    }
+
+    @PutMapping("/update")
+    public boolean getUpdateInstituicao(@RequestBody InstituicaoModel instituicaoModel){
+        return instituicaoBackendConfiguration.updateInstituicao().update(instituicaoModel);
+    }
+
+    @DeleteMapping("/delete")
+    public boolean delete(@PathVariable("id") final int id){
+        return instituicaoBackendConfiguration.deleteInstituicao().delete(id);
     }
 }

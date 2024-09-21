@@ -163,7 +163,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
         ResultSet resultSet = null;
 
         String sql = "INSERT INTO instituicao (email, cnpj, razao_social, nome_fantasia, telefone, email_responsavel, telefone_responsavel, nome_responsavel, situacao, id_endereco)";
-        sql += " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        sql += " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();

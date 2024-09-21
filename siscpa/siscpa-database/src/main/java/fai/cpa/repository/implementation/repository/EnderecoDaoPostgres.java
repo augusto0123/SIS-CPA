@@ -8,7 +8,6 @@ import java.sql.*;
 
 public class EnderecoDaoPostgres implements EnderecoRepository {
 
-
     @Override
     public int create(EnderecoModel enderecoModel) {
 

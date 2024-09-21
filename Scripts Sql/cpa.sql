@@ -8,6 +8,14 @@ begin;
 \c cpa;
 
 
+CREATE TABLE Endereco (id SERIAL PRIMARY KEY,
+                                         logradouro VARCHAR(100) NOT NULL,
+                                                                 numero VARCHAR(100) NOT NULL,
+                                                                                     bairro VARCHAR(100) NOT NULL,
+                                                                                                         cep VARCHAR(100) NOT NULL,
+                                                                                                                          complemento VARCHAR(100));
+
+
 CREATE TABLE instituicao
     (id SERIAL PRIMARY KEY,
                        email VARCHAR(100) NOT NULL,
@@ -19,6 +27,7 @@ CREATE TABLE instituicao
                                                                                                                                                                     telefone_responsavel VARCHAR(20) NOT NULL,
                                                                                                                                                                                                      nome_responsavel VARCHAR(100) NOT NULL,
                                                                                                                                                                                                                                    situacao VARCHAR(20) NOT NULL,
+                                                                                                                                                                                                                                                        id_endereco INTEGER NOT NULL
      FOREIGN KEY (id_endereco) REFERENCES endereco(id) ON DELETE CASCADE);
 
 
@@ -54,22 +63,14 @@ CREATE TABLE reuniao_cpa
      FOREIGN KEY (id_membro_cpa) REFERENCES Membro_CPA(id) ON DELETE CASCADE);
 
 
-CREATE TABLE Endereco (id SERIAL PRIMARY KEY,
-                                         logradouro VARCHAR(100) NOT NULL,
-                                                                 numero VARCHAR(100) NOT NULL,
-                                                                                     bairro VARCHAR(100) NOT NULL,
-                                                                                                         cep VARCHAR(100) NOT NULL,
-                                                                                                                          complemento VARCHAR(100),);
-
-
 CREATE TABLE edicao_autoavaliacao
     (id SERIAL PRIMARY KEY,
                        id_instituicao INTEGER NOT NULL,
-                                              edicao VARCHAR(100) NOT NULL,
-                                                                  ano_avaliacao VARCHAR(4) NOT NULL,
-                                                                                           descricao VARCHAR(300) NOT NULL,
-                                                                                                                  data_inicio TIMESTAMP NOT NULL,
-                                                                                                                                        data_fim TIMESTAMP NOT NULL,
+                                              edicao INTEGER NOT NULL,
+                                                             ano_avaliacao VARCHAR(4) NOT NULL,
+                                                                                      descricao VARCHAR(300) NOT NULL,
+                                                                                                             data_inicio TIMESTAMP NOT NULL,
+                                                                                                                                   data_fim TIMESTAMP NOT NULL,
      FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE);
 
 
