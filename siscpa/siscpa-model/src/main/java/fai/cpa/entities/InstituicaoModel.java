@@ -14,6 +14,15 @@ public class InstituicaoModel {
     private String situacao;
     private int usuarioId;
 
+    private int endereco_id;
+
+    public int getEndereco_id() {
+        return endereco_id;
+    }
+
+    public void setEndereco_id(int endereco_id) {
+        this.endereco_id = endereco_id;
+    }
 
     public int getUsuarioId() {
         return usuarioId;

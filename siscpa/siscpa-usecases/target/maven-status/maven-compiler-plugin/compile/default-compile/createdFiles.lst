@@ -2,7 +2,9 @@ instituicao\UpdateInstituicao.class
 membroCpa\FindMembroCpa.class
 port\PerguntaRepository.class
 port\InstituicaoRepository.class
+endereco\CreateEndereco.class
 exception\NotFoundException.class
+port\EnderecoRepository.class
 port\MembroCpaRepository.class
 usuario\UpdateUsuario.class
 instituicao\CreateInstituicao.class

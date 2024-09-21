@@ -2,6 +2,7 @@ D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\port\EdicaoDeAutoavaliaca
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\port\QuestionarioRepository.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\port\GrupoDePerguntasRepository.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\exception\InvalidException.java
+D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\port\EnderecoRepository.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\port\InstituicaoRepository.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\instituicao\DeleteInstituicao.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\autoavaliacao\CreateGrupoDoQuestionario.java
@@ -10,6 +11,7 @@ D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\association\AssociarUsuar
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\port\GrupoDoQuestionarioRepository.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\usuario\FindUsuario.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\membroCpa\CreateMembroCpa.java
+D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\endereco\CreateEndereco.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\instituicao\UpdateInstituicao.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\port\MembroCpaRepository.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\autoavaliacao\CreateEdicaoDeAutoavaliacao.java

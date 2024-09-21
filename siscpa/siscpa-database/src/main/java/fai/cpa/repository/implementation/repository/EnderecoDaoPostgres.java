@@ -1,0 +1,58 @@
+package fai.cpa.repository.implementation.repository;
+
+import fai.cpa.entities.EnderecoModel;
+import fai.cpa.repository.implementation.repository.connection.ConnectionFactory;
+import port.EnderecoRepository;
+
+import java.sql.*;
+
+public class EnderecoDaoPostgres implements EnderecoRepository {
+
+
+    @Override
+    public int create(EnderecoModel enderecoModel) {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        String sql = "INSERT INTO endereco (cep, logradouro, numero, bairro)";
+        sql += "VALUES(?, ?, ?, ?)";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            connection.setAutoCommit(false);
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            preparedStatement.setString(1, enderecoModel.getCep());
+            preparedStatement.setString(2, enderecoModel.getNumero());
+            preparedStatement.setString(3, enderecoModel.getLogradouro());
+            preparedStatement.setString(4, enderecoModel.getBairro());
+
+            preparedStatement.execute();
+
+            resultSet = preparedStatement.getGeneratedKeys();
+            if (resultSet.next()){
+                final int id = resultSet.getInt(1);
+                enderecoModel.setId(id);
+            }
+
+            connection.commit();
+
+            resultSet.close();
+            preparedStatement.close();
+
+            return enderecoModel.getId();
+
+        } catch (Exception e) {
+            if (connection != null){
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+            throw new RuntimeException(e);
+        }
+    }
+}

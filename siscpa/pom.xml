@@ -13,6 +13,9 @@
 		<module>siscpa-database</module>
 		<module>siscpa-usecases</module>
 		<module>siscpa-api</module>
+        <module>frontend</module>
+		<module>frontend/frontend-spring</module>
+		<module>frontend/frontend-usecases</module>
 	</modules>
 
 	<properties>

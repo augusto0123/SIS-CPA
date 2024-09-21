@@ -162,7 +162,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO instituicao (email, cnpj, razao_social, nome_fantasia, telefone, email_responsavel, telefone_responsavel, nome_responsavel, situacao)";
+        String sql = "INSERT INTO instituicao (email, cnpj, razao_social, nome_fantasia, telefone, email_responsavel, telefone_responsavel, nome_responsavel, situacao, id_endereco)";
         sql += " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
@@ -180,6 +180,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
             preparedStatement.setString(8,instituicao.getNome_fantasia());
             preparedStatement.setString(9,instituicao.getRazao_social());
             preparedStatement.setInt(10,instituicao.getUsuarioId());
+            preparedStatement.setInt(11, instituicao.getEndereco_id());
 
             preparedStatement.execute();
 

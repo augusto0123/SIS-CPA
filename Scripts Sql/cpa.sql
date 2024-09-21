@@ -8,16 +8,18 @@ begin;
 \c cpa;
 
 
-CREATE TABLE instituicao (id SERIAL PRIMARY KEY,
-                                            email VARCHAR(100) NOT NULL,
-                                                               cnpj VARCHAR(19) NOT NULL,
-                                                                                razao_social VARCHAR(100) NOT NULL,
-                                                                                                          nome_fantasia VARCHAR(100) NOT NULL,
-                                                                                                                                     telefone VARCHAR(20) NOT NULL,
-                                                                                                                                                          email_responsavel VARCHAR(100) NOT NULL,
-                                                                                                                                                                                         telefone_responsavel VARCHAR(20) NOT NULL,
-                                                                                                                                                                                                                          nome_responsavel VARCHAR(100) NOT NULL,
-                                                                                                                                                                                                                                                        situacao VARCHAR(20) NOT NULL);
+CREATE TABLE instituicao
+    (id SERIAL PRIMARY KEY,
+                       email VARCHAR(100) NOT NULL,
+                                          cnpj VARCHAR(19) NOT NULL,
+                                                           razao_social VARCHAR(100) NOT NULL,
+                                                                                     nome_fantasia VARCHAR(100) NOT NULL,
+                                                                                                                telefone VARCHAR(20) NOT NULL,
+                                                                                                                                     email_responsavel VARCHAR(100) NOT NULL,
+                                                                                                                                                                    telefone_responsavel VARCHAR(20) NOT NULL,
+                                                                                                                                                                                                     nome_responsavel VARCHAR(100) NOT NULL,
+                                                                                                                                                                                                                                   situacao VARCHAR(20) NOT NULL,
+     FOREIGN KEY (id_endereco) REFERENCES endereco(id) ON DELETE CASCADE);
 
 
 CREATE TABLE usuario
@@ -52,16 +54,12 @@ CREATE TABLE reuniao_cpa
      FOREIGN KEY (id_membro_cpa) REFERENCES Membro_CPA(id) ON DELETE CASCADE);
 
 
-CREATE TABLE Endereco
-    (id SERIAL PRIMARY KEY,
-                       id_instituicao INTEGER NOT NULL,
-                                              logradouro VARCHAR(100) NOT NULL,
-                                                                      numero VARCHAR(100) NOT NULL,
-                                                                                          bairro VARCHAR(100) NOT NULL,
-                                                                                                              cep VARCHAR(100) NOT NULL,
-                                                                                                                               complemento VARCHAR(100), -- Campo opcional
-
-     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE);
+CREATE TABLE Endereco (id SERIAL PRIMARY KEY,
+                                         logradouro VARCHAR(100) NOT NULL,
+                                                                 numero VARCHAR(100) NOT NULL,
+                                                                                     bairro VARCHAR(100) NOT NULL,
+                                                                                                         cep VARCHAR(100) NOT NULL,
+                                                                                                                          complemento VARCHAR(100),);
 
 
 CREATE TABLE edicao_autoavaliacao
@@ -82,8 +80,7 @@ CREATE TABLE avaliacao
                                                                         data_fim DATE NOT NULL,
                                                                                       status VARCHAR(100) NOT NULL,
                                                                                                           descricao VARCHAR(100) NOT NULL,
-                                                                                                                                 observacao VARCHAR(100), -- Campo opcional
-
+                                                                                                                                 observacao VARCHAR(100),
      FOREIGN KEY (id_edicao_autoavaliacao) REFERENCES Edicao_Autoavaliacao(id) ON DELETE CASCADE);
 
 
@@ -100,8 +97,7 @@ CREATE TABLE avaliacao_questionario
      FOREIGN KEY (id_avaliacao) REFERENCES Avaliacao(id) ON DELETE CASCADE,
      FOREIGN KEY (id_questionario) REFERENCES Questionario(id) ON DELETE CASCADE,
                                                                          UNIQUE (id_avaliacao,
-                                                                                 id_questionario)-- Garante que a combinação de avaliação e questionário seja única
-);
+                                                                                 id_questionario));
 
 
 CREATE TABLE pergunta (id SERIAL PRIMARY KEY,
@@ -136,8 +132,7 @@ CREATE TABLE perguntas_grupo_perguntas
      FOREIGN KEY (id_grupo_perguntas) REFERENCES grupo_perguntas(id) ON DELETE CASCADE,
      FOREIGN KEY (id_pergunta) REFERENCES pergunta(id) ON DELETE CASCADE,
                                                                  UNIQUE (id_grupo_perguntas,
-                                                                         id_pergunta)-- Garante que a combinação de grupo de perguntas e pergunta seja única
-);
+                                                                         id_pergunta));
 
 
 CREATE TABLE grupo_perguntas_questionario
@@ -148,10 +143,7 @@ CREATE TABLE grupo_perguntas_questionario
      FOREIGN KEY (id_questionario) REFERENCES questionario(id) ON DELETE CASCADE,
      FOREIGN KEY (id_grupo_perguntas) REFERENCES grupo_perguntas(id) ON DELETE CASCADE,
                                                                                UNIQUE (id_questionario,
-                                                                                       id_grupo_perguntas)-- Garante que a combinação de questionário e grupo de perguntas seja única
-);
+                                                                                       id_grupo_perguntas));
 
--- ALTER TABLE usuario
--- ADD COLUMN tipo VARCHAR(20) NOT NULL;
 
 commit;

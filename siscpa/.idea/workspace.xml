@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b4e5d936-abe4-410c-a643-68af6137c959" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/frontend-spring/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/frontend-usecases/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Scripts Sql/cpa.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Scripts Sql/cpa.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-api/target/siscpa-api-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-api/target/siscpa-api-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-api/target/siscpa-api-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-api/target/siscpa-api-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/UsuarioDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/UsuarioDaoPostgres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/UsuarioDaoPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/UsuarioDaoPostgres.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/siscpa-database-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/siscpa-database-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/app.config.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/app.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/app.routes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/about-us/about-us.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/about-us/about-us.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/about-us/about-us.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/about-us/about-us.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/admin-page/admin-page.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/admin-page/admin-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/admin-page/admin-page.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/admin-page/admin-page.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/edit-profile/edit-profile.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/edit-profile/edit-profile.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/edit-profile/edit-profile.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/edit-profile/edit-profile.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/forget-password/forget-password.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/forget-password/forget-password.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/forget-password/forget-password.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/forget-password/forget-password.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/home-page/home-page.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/home-page/home-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/home-page/home-page.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/home-page/home-page.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-evaluation-questionnaire/instituition-evaluation-questionnaire.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-evaluation-questionnaire/instituition-evaluation-questionnaire.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-evaluation-questionnaire/instituition-evaluation-questionnaire.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-evaluation-questionnaire/instituition-evaluation-questionnaire.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-evaluation/instituition-evaluation.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-evaluation/instituition-evaluation.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-evaluation/instituition-evaluation.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-evaluation/instituition-evaluation.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-list/instituition-list.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-list/instituition-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-list/instituition-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-list/instituition-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-profile/instituition-profile.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-profile/instituition-profile.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-profile/instituition-profile.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-profile/instituition-profile.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-sign-up/instituition-sign-up.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-sign-up/instituition-sign-up.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-sign-up/instituition-sign-up.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/instituition-sign-up/instituition-sign-up.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/login/login.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/login/login.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/login/login.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/login/login.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/register-institution/register-institution.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/register-institution/register-institution.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/register-institution/register-institution.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/register-institution/register-institution.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/register/register.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/register/register.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/register/register.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/register/register.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/shared/footer/footer.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/shared/footer/footer.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/shared/footer/footer.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/shared/footer/footer.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/shared/navbar/navbar.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/shared/navbar/navbar.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/shared/navbar/navbar.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/shared/navbar/navbar.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/user-profile/user-profile.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/user-profile/user-profile.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/user-profile/user-profile.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/user-profile/user-profile.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/what-is-cpa/what-is-cpa.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/what-is-cpa/what-is-cpa.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/what-is-cpa/what-is-cpa.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/app/component/what-is-cpa/what-is-cpa.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/Default_imagem_de_uma_estudante_sorrindo_na_frente_de_uma_facu_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/Default_imagem_de_uma_universidade_atual_em_uma_cidade_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/SISCPA_FUNDO_CLARO_SEM-FUNDO.jpeg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/SISCPA_FUNDO_ESCURO_SEM-FUNDO.jpeg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/estudantes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/estudantes2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/faculdade.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/icone2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/sala1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/sala2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/assets/images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/main.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-frontend/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/InstituicaoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/InstituicaoModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/UsuarioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/UsuarioModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/InstituicaoModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/InstituicaoModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/target/siscpa-model-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/target/siscpa-model-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/src/main/java/port/InstituicaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/src/main/java/port/InstituicaoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/siscpa-usecases-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/siscpa-usecases-0.0.1-SNAPSHOT.jar" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2mNfZ4nmh5uKXrKUWiZ5aetoOYM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ApiApplication.executor": "Run",
+    "Maven.siscpa [clean,install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/default parking/Default-Parking/default-parking"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b4e5d936-abe4-410c-a643-68af6137c959" name="Changes" comment="" />
+      <created>1726922006720</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1726922006720</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,1 +1,3 @@
+com\siscpa\api\restcontrollers\InstituicaoRestController.class
+com\siscpa\api\configuration\InstituicaoBackendConfiguration.class
 com\siscpa\api\ApiApplication.class
