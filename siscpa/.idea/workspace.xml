@@ -5,14 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4e5d936-abe4-410c-a643-68af6137c959" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Scripts Sql/cpa.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Scripts Sql/cpa.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-api/src/main/java/com/siscpa/api/configuration/InstituicaoBackendConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-api/src/main/java/com/siscpa/api/configuration/InstituicaoBackendConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-api/src/main/java/com/siscpa/api/restcontrollers/InstituicaoRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-api/src/main/java/com/siscpa/api/restcontrollers/InstituicaoRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-api/target/classes/com/siscpa/api/configuration/InstituicaoBackendConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-api/target/classes/com/siscpa/api/configuration/InstituicaoBackendConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-api/target/classes/com/siscpa/api/restcontrollers/InstituicaoRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-api/target/classes/com/siscpa/api/restcontrollers/InstituicaoRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/EnderecoDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/EnderecoDaoPostgres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-spring/src/main/java/fai/cpa/FrontendAplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/src/main/java/fai/cpa/FrontendAplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-spring/target/classes/fai/cpa/FrontendAplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/target/classes/fai/cpa/FrontendAplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-spring/target/frontend-spring-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/target/frontend-spring-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-spring/target/frontend-spring-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/target/frontend-spring-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-spring/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-spring/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-spring/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-spring/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-spring/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-api/src/main/java/com/siscpa/api/configuration/EnderecoBackendConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-api/src/main/java/com/siscpa/api/configuration/EnderecoBackendConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/EdicaoDeAutoAvaliacaoDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/EdicaoDeAutoavaliacaoDaoPostgres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/EnderecoDaoPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/EnderecoDaoPostgres.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,17 +49,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ApiApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.siscpa [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/default parking/Default-Parking/default-parking&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ApiApplication.executor": "Run",
+    "Maven.siscpa [clean,install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/default parking/Default-Parking/default-parking",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.siscpa.api.ApiApplication" />

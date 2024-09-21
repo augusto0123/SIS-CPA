@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
     <groupId>fai.cpa</groupId>
-    <artifactId>frontend-spring</artifactId>
+    <artifactId>frontend-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>frontend-spring</name>
     <description>Projeto TCC</description>

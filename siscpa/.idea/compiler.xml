@@ -8,8 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="frontend-usecases" />
         <module name="siscpa-usecases" />
+        <module name="frontend-api" />
         <module name="siscpa-database" />
-        <module name="frontend-spring" />
         <module name="frontend" />
         <module name="siscpa-model" />
         <module name="siscpa-api" />
@@ -18,7 +18,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="frontend-spring" options="-parameters" />
+      <module name="frontend-api" options="-parameters" />
       <module name="siscpa-api" options="-parameters" />
     </option>
   </component>

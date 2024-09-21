@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class EdicaoDeAutoAvaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRepository {
+public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRepository {
 
     @Override
     public EdicaoDeAutoAvaliacaoModel findById(int id) {
