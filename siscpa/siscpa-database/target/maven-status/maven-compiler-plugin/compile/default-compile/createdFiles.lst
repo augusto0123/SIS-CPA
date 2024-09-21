@@ -1,2 +1,3 @@
 fai\cpa\repository\implementation\repository\connection\ConnectionFactory.class
-fai\cpa\repository\implementation\repository\InstituicaoDaoRepository.class
+fai\cpa\repository\implementation\repository\InstituicaoDaoPostgres.class
+fai\cpa\repository\implementation\repository\UsuarioDaoPostgres.class

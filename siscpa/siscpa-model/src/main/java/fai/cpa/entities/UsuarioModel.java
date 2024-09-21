@@ -1,5 +1,6 @@
 package fai.cpa.entities;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class UsuarioModel {
@@ -37,7 +38,7 @@ public class UsuarioModel {
         this.situacao = situacao;
     }
 
-    public LocalDate getDataCadastro() {
+    public Date getDataCadastro() {
         return dataCadastro;
     }
 

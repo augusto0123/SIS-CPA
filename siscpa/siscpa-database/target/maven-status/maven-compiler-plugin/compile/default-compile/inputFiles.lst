@@ -1,2 +1,3 @@
 D:\siscpa\SIS-CPA\siscpa\siscpa-database\src\main\java\fai\cpa\repository\implementation\repository\connection\ConnectionFactory.java
-D:\siscpa\SIS-CPA\siscpa\siscpa-database\src\main\java\fai\cpa\repository\implementation\repository\InstituicaoDaoRepository.java
+D:\siscpa\SIS-CPA\siscpa\siscpa-database\src\main\java\fai\cpa\repository\implementation\repository\InstituicaoDaoPostgres.java
+D:\siscpa\SIS-CPA\siscpa\siscpa-database\src\main\java\fai\cpa\repository\implementation\repository\UsuarioDaoPostgres.java
