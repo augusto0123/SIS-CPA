@@ -25,7 +25,7 @@ public class FindInstituicao {
     }
     public InstituicaoModel find(final int id){
         if(id < 0){
-            throw new InvalidException("Id inválido");
+            throw new InvalidException();
         }
         final InstituicaoModel instituicao =instituicaoRepository.findById(id);
         if (instituicao == null){

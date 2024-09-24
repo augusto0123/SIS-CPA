@@ -15,8 +15,7 @@ public class CreateQuestionario {
         if(questionarioModel == null){
             return -1;
         }
-        if (questionarioModel.getCategoria().isEmpty()
-                || questionarioModel.getDescricao().isEmpty()
+        if (questionarioModel.getDescricao().isEmpty()
                 || questionarioModel.getTipo().isEmpty()){
             return -1;
         }

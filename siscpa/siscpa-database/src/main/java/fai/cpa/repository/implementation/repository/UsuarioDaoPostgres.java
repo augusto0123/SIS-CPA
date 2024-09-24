@@ -88,8 +88,8 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
             preparedStatement.setString(3, usuarioModel.getSenha());
             preparedStatement.setString(4, usuarioModel.getTelefone());
             preparedStatement.setString(5, usuarioModel.getTipo());
-            preparedStatement.setString(6, usuarioModel.getSituacao());
-            preparedStatement.setDate(7, Date.valueOf(usuarioModel.getDataCadastro()));
+            preparedStatement.setDate(6, Date.valueOf(usuarioModel.getDataCadastro()));
+            preparedStatement.setString(7, usuarioModel.getSituacao());
 
             preparedStatement.execute();
 

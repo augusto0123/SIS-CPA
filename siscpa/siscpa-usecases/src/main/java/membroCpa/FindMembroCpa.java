@@ -26,7 +26,7 @@ public class FindMembroCpa {
     }
     public MembroCpaModel find(final int id){
         if(id < 0){
-            throw new InvalidException("Id inválido");
+            throw new InvalidException();
         }
         final MembroCpaModel membrosCpa =membroCpaRepository.findById(id);
         if (membrosCpa == null){

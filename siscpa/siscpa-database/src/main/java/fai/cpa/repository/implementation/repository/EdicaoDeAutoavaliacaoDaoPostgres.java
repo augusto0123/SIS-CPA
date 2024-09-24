@@ -36,7 +36,7 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
                 final EdicaoDeAutoAvaliacaoModel edicao = new EdicaoDeAutoAvaliacaoModel();
                 edicao.setId(resultSet.getInt("id"));
                 edicao.setEdicao(resultSet.getInt("edicao"));
-                edicao.setAnoDaAvaliacao(resultSet.getInt("ano_avaliacao"));
+                edicao.setAnoDaAvaliacao(resultSet.getString("ano_avaliacao"));
                 edicao.setDescricao(resultSet.getString("descricao"));
                 edicao.setDataInicio(resultSet.getDate("data_inicio").toLocalDate());
                 edicao.setDataFim(resultSet.getDate("data_fim").toLocalDate());
@@ -75,7 +75,7 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO edicao_autoavaliacao (edicao, ano_avaliacao, descricao, data_inicio, data_fim)";
+        String sql = "INSERT INTO edicao_autoavaliacao (descricao, edicao, ano_avaliacao, data_inicio, data_fim, instituicao_id)";
         sql += "VALUES(?, ?, ?, ?, ?)";
 
         try {
@@ -85,9 +85,10 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
 
             preparedStatement.setString(1, edicaoDeAutoAvaliacaoModel.getDescricao());
             preparedStatement.setInt(2, edicaoDeAutoAvaliacaoModel.getEdicao());
-            preparedStatement.setInt(3, edicaoDeAutoAvaliacaoModel.getAnoDaAvaliacao());
-            preparedStatement.setDate(4, Date.valueOf(edicaoDeAutoAvaliacaoModel.getDataFim()));
+            preparedStatement.setString(3, edicaoDeAutoAvaliacaoModel.getAnoDaAvaliacao());
+            preparedStatement.setDate(4, Date.valueOf(edicaoDeAutoAvaliacaoModel.getDataInicio()));
             preparedStatement.setDate(5, Date.valueOf(edicaoDeAutoAvaliacaoModel.getDataFim()));
+            preparedStatement.setInt(6, edicaoDeAutoAvaliacaoModel.getInstituicao_id());
 
             preparedStatement.execute();
 

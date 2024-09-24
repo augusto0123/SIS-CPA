@@ -1,13 +1,24 @@
 package fai.cpa.entities;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class ReuniaoCpaModel {
 
     private int id;
     private LocalDate dataReuniao;
-    private LocalDate horario;
+    private LocalTime horario;
     private String pauta;
+
+    private int membroCpaId;
+
+    public int getMembroCpaId() {
+        return membroCpaId;
+    }
+
+    public void setMembroCpaId(int membroCpaId) {
+        this.membroCpaId = membroCpaId;
+    }
 
     public int getId() {
         return id;
@@ -24,11 +35,11 @@ public class ReuniaoCpaModel {
         this.dataReuniao = dataReuniao;
     }
 
-    public LocalDate getHorario() {
+    public LocalTime getHorario() {
         return horario;
     }
 
-    public void setHorario(LocalDate horario) {
+    public void setHorario(LocalTime horario) {
         this.horario = horario;
     }
 

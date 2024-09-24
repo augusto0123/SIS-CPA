@@ -17,7 +17,7 @@ public class CreateEdicaoDeAutoavaliacao {
         }
         if(edicaoDeAutoAvaliacaoModel.getDescricao().isEmpty()
                 || edicaoDeAutoAvaliacaoModel.getEdicao() < 1
-                || edicaoDeAutoAvaliacaoModel.getAnoDaAvaliacao() < 1
+                || edicaoDeAutoAvaliacaoModel.getAnoDaAvaliacao().isEmpty()
                 || edicaoDeAutoAvaliacaoModel.getDataFim() == null
                 || edicaoDeAutoAvaliacaoModel.getDataInicio() == null){
             return -1;

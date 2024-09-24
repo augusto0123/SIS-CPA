@@ -19,8 +19,8 @@ public class UpdateInstituicao {
         byId.setResposavelEmail(instituicaoModel.getResposavelEmail());
         byId.setResponsavelTelefone(instituicaoModel.getResponsavelTelefone());
         byId.setResponsavelNome(instituicaoModel.getResponsavelNome());
-        byId.setRazao_social(instituicaoModel.getRazao_social());
-        byId.setNome_fantasia(instituicaoModel.getNome_fantasia());
+        byId.setRazaoSocial(instituicaoModel.getRazaoSocial());
+        byId.setNomeFantasia(instituicaoModel.getNomeFantasia());
 
         boolean updateInstituicao = false;
         try {

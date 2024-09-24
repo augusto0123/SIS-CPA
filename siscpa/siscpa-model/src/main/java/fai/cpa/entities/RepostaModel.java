@@ -4,7 +4,6 @@ public class RepostaModel {
 
     private int id;
     private String texto;
-    private int data;
 
     public int getId() {
         return id;
@@ -22,11 +21,4 @@ public class RepostaModel {
         this.texto = texto;
     }
 
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
-    }
 }

@@ -24,8 +24,8 @@ public class CreateInstituicao {
         instituicaoModel.setSituacao(normVar);
         if(instituicaoModel.getCnpj().isEmpty()
                 ||instituicaoModel.getEmail().isEmpty()
-                ||instituicaoModel.getNome_fantasia().isEmpty()
-                ||instituicaoModel.getRazao_social().isEmpty()
+                ||instituicaoModel.getNomeFantasia().isEmpty()
+                ||instituicaoModel.getRazaoSocial().isEmpty()
                 ||instituicaoModel.getResponsavelNome().isEmpty()
                 ||instituicaoModel.getResponsavelTelefone().isEmpty()
                 ||instituicaoModel.getTelefone().isEmpty()

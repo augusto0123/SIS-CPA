@@ -34,8 +34,8 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
             while (resultSet.next()){
                 instituicao.setId(resultSet.getInt("id"));
                 instituicao.setSituacao(resultSet.getString("situacao"));
-                instituicao.setNome_fantasia(resultSet.getString("nome_fantasia"));
-                instituicao.setRazao_social(resultSet.getString("razao_social"));
+                instituicao.setNomeFantasia(resultSet.getString("nome_fantasia"));
+                instituicao.setRazaoSocial(resultSet.getString("razao_social"));
                 instituicao.setTelefone(resultSet.getString("telefone"));
                 instituicao.setCnpj(resultSet.getString("cnpj"));
                 instituicao.setEmail(resultSet.getString("email"));
@@ -71,8 +71,8 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
                 final InstituicaoModel instituicao = new InstituicaoModel();
                 instituicao.setId(resultSet.getInt("id"));
                 instituicao.setSituacao(resultSet.getString("situacao"));
-                instituicao.setNome_fantasia(resultSet.getString("nome_fantasia"));
-                instituicao.setRazao_social(resultSet.getString("razao_social"));
+                instituicao.setNomeFantasia(resultSet.getString("nome_fantasia"));
+                instituicao.setRazaoSocial(resultSet.getString("razao_social"));
                 instituicao.setTelefone(resultSet.getString("telefone"));
                 instituicao.setCnpj(resultSet.getString("cnpj"));
                 instituicao.setEmail(resultSet.getString("email"));
@@ -102,7 +102,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String sql = "UPDATE instituicao SET email = ?, cnpj = ?, razao-social = ?, nome_fantasia = ?, telefone = ?, email_responsavel = ?, telefone_responsavel = ?, nome_responsavel = ?, situacao = ?";
+        String sql = "UPDATE instituicao SET email = ?, cnpj = ?, razao_social = ?, nome_fantasia = ?, telefone = ?, email_responsavel = ?, telefone_responsavel = ?, nome_responsavel = ?, situacao = ?";
         sql += "WHERE id = ?;";
 
         try {
@@ -110,14 +110,14 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
             preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1,instituicaoModel.getEmail());
-            preparedStatement.setString(2,instituicaoModel.getTelefone());
-            preparedStatement.setString(3,instituicaoModel.getCnpj());
-            preparedStatement.setString(4,instituicaoModel.getSituacao());
-            preparedStatement.setString(5,instituicaoModel.getResponsavelNome());
-            preparedStatement.setString(6,instituicaoModel.getResponsavelTelefone());
-            preparedStatement.setString(7,instituicaoModel.getResposavelEmail());
-            preparedStatement.setString(8,instituicaoModel.getNome_fantasia());
-            preparedStatement.setString(9,instituicaoModel.getRazao_social());
+            preparedStatement.setString(2,instituicaoModel.getCnpj());
+            preparedStatement.setString(3,instituicaoModel.getRazaoSocial());
+            preparedStatement.setString(4,instituicaoModel.getNomeFantasia());
+            preparedStatement.setString(5,instituicaoModel.getTelefone());
+            preparedStatement.setString(6,instituicaoModel.getResposavelEmail());
+            preparedStatement.setString(7,instituicaoModel.getResponsavelTelefone());
+            preparedStatement.setString(8,instituicaoModel.getResponsavelNome());
+            preparedStatement.setString(9,instituicaoModel.getSituacao());
             preparedStatement.setInt(10,instituicaoModel.getId());
 
             preparedStatement.execute();
@@ -162,7 +162,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO instituicao (email, cnpj, razao_social, nome_fantasia, telefone, email_responsavel, telefone_responsavel, nome_responsavel, situacao, id_endereco)";
+        String sql = "INSERT INTO instituicao (email, telefone, cnpj, situacao, nome_responsavel, telefone_responsavel, email_responsavel, nome_fantasia, razao_social, endereco_id)";
         sql += " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
@@ -177,10 +177,9 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
             preparedStatement.setString(5,instituicao.getResponsavelNome());
             preparedStatement.setString(6,instituicao.getResponsavelTelefone());
             preparedStatement.setString(7,instituicao.getResposavelEmail());
-            preparedStatement.setString(8,instituicao.getNome_fantasia());
-            preparedStatement.setString(9,instituicao.getRazao_social());
-            preparedStatement.setInt(10,instituicao.getUsuarioId());
-            preparedStatement.setInt(11, instituicao.getEndereco_id());
+            preparedStatement.setString(8,instituicao.getNomeFantasia());
+            preparedStatement.setString(9,instituicao.getRazaoSocial());
+            preparedStatement.setInt(10, instituicao.getEndereco_id());
 
             preparedStatement.execute();
 
