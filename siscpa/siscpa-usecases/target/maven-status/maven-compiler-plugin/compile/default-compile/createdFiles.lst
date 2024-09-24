@@ -13,6 +13,7 @@ port\UsuarioRepositorty.class
 exception\InvalidException.class
 instituicao\FindInstituicao.class
 port\GrupoDoQuestionarioRepository.class
+autoavaliacao\FindEdicaoDeAutoavaliacao.class
 autoavaliacao\CreateEdicaoDeAutoavaliacao.class
 autoavaliacao\CreateReuniaoCpa.class
 membroCpa\UpdateMembroCpa.class

@@ -10,7 +10,6 @@
         <module name="siscpa-usecases" />
         <module name="frontend-api" />
         <module name="siscpa-database" />
-        <module name="frontend" />
         <module name="siscpa-model" />
         <module name="siscpa-api" />
       </profile>

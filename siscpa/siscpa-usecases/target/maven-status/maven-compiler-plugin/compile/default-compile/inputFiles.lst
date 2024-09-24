@@ -21,6 +21,7 @@ D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\membroCpa\UpdateMembroCpa
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\membroCpa\DeleteMembroCpa.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\membroCpa\FindMembroCpa.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\autoavaliacao\CreateQuestionario.java
+D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\autoavaliacao\FindEdicaoDeAutoavaliacao.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\autoavaliacao\CreatePergunta.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\autoavaliacao\CreateGrupoDePerguntas.java
 D:\siscpa\SIS-CPA\siscpa\siscpa-usecases\src\main\java\usuario\UpdateUsuario.java
