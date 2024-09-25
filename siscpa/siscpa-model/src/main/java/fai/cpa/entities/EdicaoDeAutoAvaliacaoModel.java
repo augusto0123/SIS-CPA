@@ -10,7 +10,6 @@ public class EdicaoDeAutoAvaliacaoModel {
     private String descricao;
     private LocalDate dataInicio;
     private LocalDate dataFim;
-
     private int instituicao_id;
 
     public int getInstituicao_id() {

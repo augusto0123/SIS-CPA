@@ -4,57 +4,31 @@ import java.time.LocalDate;
 
 public class AvaliacaoQuestionarioModel {
     private int id;
-    private int edicao;
-    private int anoDaAvaliacao;
-    private String descricao;
-    private LocalDate dataInicio;
-    private LocalDate dataFim;
+    private int avaliacaoId;
+
+    private int questionarioId;
 
     public int getId() {
         return id;
-    }
-
-    public LocalDate getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setDataInicio(LocalDate dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
-    public LocalDate getDataFim() {
-        return dataFim;
-    }
-
-    public void setDataFim(LocalDate dataFim) {
-        this.dataFim = dataFim;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public int getEdicao() {
-        return edicao;
+    public int getAvaliacaoId() {
+        return avaliacaoId;
     }
 
-    public void setEdicao(int edicao) {
-        this.edicao = edicao;
+    public void setAvaliacaoId(int avaliacaoId) {
+        this.avaliacaoId = avaliacaoId;
     }
 
-    public int getAnoDaAvaliacao() {
-        return anoDaAvaliacao;
+    public int getQuestionarioId() {
+        return questionarioId;
     }
 
-    public void setAnoDaAvaliacao(int anoDaAvaliacao) {
-        this.anoDaAvaliacao = anoDaAvaliacao;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setQuestionarioId(int questionarioId) {
+        this.questionarioId = questionarioId;
     }
 }

@@ -86,9 +86,9 @@ CREATE TABLE avaliacao
 
 CREATE TABLE questionario 
     (id SERIAL PRIMARY KEY,
-    descricao VARCHAR(100) NOT NULL,
-    categoria VARCHAR(100) NOT NULL,
-    tipo VARCHAR(100) NOT NULL);
+    nome VARCHAR(100) NOT NULL,
+    descricao VARCHAR(200) NOT NULL,
+    categoria VARCHAR(20) NOT NULL);
 
 
 CREATE TABLE avaliacao_questionario

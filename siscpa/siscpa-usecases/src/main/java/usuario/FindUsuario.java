@@ -24,7 +24,7 @@ public class FindUsuario {
     }
     public UsuarioModel find(final int id){
         if(id < 0){
-            throw new InvalidException("Id inválido");
+            throw new InvalidException();
         }
         final UsuarioModel usuario = usuarioRepositorty.findById(id);
         if(usuario == null){

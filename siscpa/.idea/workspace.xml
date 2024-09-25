@@ -7,22 +7,33 @@
     <list default="true" id="b4e5d936-abe4-410c-a643-68af6137c959" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Scripts Sql/cpa.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Scripts Sql/cpa.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/EdicaoDeAutoavaliacaoDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/EdicaoDeAutoavaliacaoDaoPostgres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/EnderecoDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/EnderecoDaoPostgres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/UsuarioDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/src/main/java/fai/cpa/repository/implementation/repository/UsuarioDaoPostgres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-api/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend-api/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/frontend-api/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-api/target/classes/com/siscpa/api/ApiApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/EdicaoDeAutoavaliacaoDaoPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/EdicaoDeAutoavaliacaoDaoPostgres.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/EnderecoDaoPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/EnderecoDaoPostgres.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/InstituicaoDaoPostgres.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/UsuarioDaoPostgres.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-database/target/classes/fai/cpa/repository/implementation/repository/UsuarioDaoPostgres.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/AvaliacaoQuestionarioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/AvaliacaoQuestionarioModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/EdicaoDeAutoAvaliacaoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/EdicaoDeAutoAvaliacaoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/InstituicaoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/InstituicaoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/QuestionarioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/QuestionarioModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/RepostaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/RepostaModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/ReuniaoCpaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/ReuniaoCpaModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-usecases/src/main/java/autoavaliacao/CreateEdicaoDeAutoavaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/src/main/java/autoavaliacao/CreateEdicaoDeAutoavaliacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-usecases/src/main/java/autoavaliacao/CreateQuestionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/src/main/java/autoavaliacao/CreateQuestionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-usecases/src/main/java/exception/InvalidException.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/src/main/java/exception/InvalidException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-usecases/src/main/java/instituicao/CreateInstituicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/src/main/java/instituicao/CreateInstituicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-usecases/src/main/java/instituicao/FindInstituicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/src/main/java/instituicao/FindInstituicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-usecases/src/main/java/instituicao/UpdateInstituicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/src/main/java/instituicao/UpdateInstituicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siscpa-usecases/src/main/java/membroCpa/FindMembroCpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/src/main/java/membroCpa/FindMembroCpa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/GrupoDePerguntasDoQuestionarioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/src/main/java/fai/cpa/entities/GrupoDePerguntasDoQuestionarioModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/AvaliacaoQuestionarioModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/AvaliacaoQuestionarioModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/EdicaoDeAutoAvaliacaoModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/EdicaoDeAutoAvaliacaoModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/GrupoDePerguntasDoQuestionarioModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/GrupoDePerguntasDoQuestionarioModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/InstituicaoModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/InstituicaoModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/QuestionarioModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/QuestionarioModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/RepostaModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/RepostaModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/ReuniaoCpaModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-model/target/classes/fai/cpa/entities/ReuniaoCpaModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/src/main/java/usuario/FindUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/src/main/java/usuario/FindUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/classes/autoavaliacao/CreateEdicaoDeAutoavaliacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/classes/autoavaliacao/CreateEdicaoDeAutoavaliacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/classes/autoavaliacao/CreateQuestionario.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/classes/autoavaliacao/CreateQuestionario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/classes/autoavaliacao/CreateReuniaoCpa.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/classes/autoavaliacao/CreateReuniaoCpa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/classes/exception/InvalidException.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/classes/exception/InvalidException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/classes/instituicao/CreateInstituicao.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/classes/instituicao/CreateInstituicao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/classes/instituicao/FindInstituicao.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/classes/instituicao/FindInstituicao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/classes/instituicao/UpdateInstituicao.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/classes/instituicao/UpdateInstituicao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/classes/membroCpa/FindMembroCpa.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/classes/membroCpa/FindMembroCpa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siscpa-usecases/target/classes/usuario/FindUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/siscpa-usecases/target/classes/usuario/FindUsuario.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,32 +60,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ApiApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.FrontendAplication.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Maven.siscpa [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/default parking/Default-Parking/default-parking&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;D:/siscpa/SIS-CPA/siscpa/frontend/frontend-usecases/src/main/java/fai/cpa/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ApiApplication.executor": "Run",
+    "Application.BackendApplication.executor": "Run",
+    "Application.FrontendAplication.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Maven.siscpa [clean,install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "openjdk-22",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/siscpa/SIS-CPA/siscpa/frontend/frontend-api/src/main/resources",
+    "onboarding.tips.debug.path": "D:/siscpa/SIS-CPA/siscpa/frontend/frontend-usecases/src/main/java/fai/cpa/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\siscpa\SIS-CPA\siscpa\frontend\frontend-api\src\main\resources" />
+      <recent name="D:\siscpa\SIS-CPA\siscpa\frontend\frontend-api\src\main\resources\statics.assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\siscpa\SIS-CPA\siscpa\frontend\frontend-api\src\main\resources\templates\instituicao" />
       <recent name="D:\siscpa\SIS-CPA\siscpa\frontend\frontend-api\src\main\resources\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FrontendAplication">
+  <component name="RunManager" selected="Application.BackendApplication">
     <configuration name="BackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.siscpa.api.BackendApplication" />
       <module name="siscpa-api" />
@@ -103,8 +119,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FrontendAplication" />
         <item itemvalue="Application.BackendApplication" />
+        <item itemvalue="Application.FrontendAplication" />
       </list>
     </recent_temporary>
   </component>
