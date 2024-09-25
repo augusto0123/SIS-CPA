@@ -15,6 +15,15 @@ public class InstituicaoModel {
     private int usuarioId;
     private int endereco_id;
 
+    private EnderecoModel endereco;
+
+    public EnderecoModel getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(EnderecoModel endereco) {
+        this.endereco = endereco;
+    }
 
     public int getEndereco_id() {
         return endereco_id;

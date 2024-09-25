@@ -27,7 +27,7 @@ CREATE TABLE instituicao
     telefone_responsavel VARCHAR(20) NOT NULL,
     nome_responsavel VARCHAR(100) NOT NULL,
     situacao VARCHAR(20) NOT NULL,
-    id_endereco INTEGER NOT NULL
+    id_endereco INTEGER NOT NULL,
     FOREIGN KEY (id_endereco) REFERENCES endereco(id) ON DELETE CASCADE);
 
 

@@ -21,7 +21,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "SELECT * FROM instituicao";
+        String sql = "SELECT * FROM instituicao ";
         sql += "WHERE id = ?;";
 
         try {

@@ -1,6 +1,7 @@
 package fai.cpa.repository.implementation.repository;
 
 import fai.cpa.entities.EnderecoModel;
+import fai.cpa.entities.InstituicaoModel;
 import fai.cpa.repository.implementation.repository.connection.ConnectionFactory;
 import port.EnderecoRepository;
 
@@ -15,7 +16,7 @@ public class EnderecoDaoPostgres implements EnderecoRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO endereco (cep, numero, logradouro, bairro)";
+        String sql = "INSERT INTO endereco (logradouro, numero, bairro, cep)";
         sql += "VALUES(?, ?, ?, ?)";
 
         try {
@@ -23,10 +24,10 @@ public class EnderecoDaoPostgres implements EnderecoRepository {
             connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            preparedStatement.setString(1, enderecoModel.getCep());
+            preparedStatement.setString(1, enderecoModel.getLogradouro());
             preparedStatement.setString(2, enderecoModel.getNumero());
-            preparedStatement.setString(3, enderecoModel.getLogradouro());
-            preparedStatement.setString(4, enderecoModel.getBairro());
+            preparedStatement.setString(3, enderecoModel.getBairro());
+            preparedStatement.setString(4, enderecoModel.getCep());
 
             preparedStatement.execute();
 
@@ -53,5 +54,40 @@ public class EnderecoDaoPostgres implements EnderecoRepository {
             }
             throw new RuntimeException(e);
         }
+    }
+    @Override
+    public EnderecoModel findById(int id) {
+
+        final EnderecoModel endereco  =new EnderecoModel();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        String sql = "SELECT * FROM endereco ";
+        sql += "WHERE id = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                endereco.setId(resultSet.getInt("id"));
+                endereco.setLogradouro(resultSet.getString("logradouro"));
+                endereco.setNumero(resultSet.getString("numero"));
+                endereco.setBairro(resultSet.getString("bairro"));
+                endereco.setCep(resultSet.getString("cep"));
+                endereco.setComplemento(resultSet.getString("complemento"));
+            }
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return endereco;
     }
 }

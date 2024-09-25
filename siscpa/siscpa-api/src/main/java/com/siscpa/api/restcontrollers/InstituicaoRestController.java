@@ -2,6 +2,7 @@ package com.siscpa.api.restcontrollers;
 
 import com.siscpa.api.configuration.InstituicaoBackendConfiguration;
 import fai.cpa.entities.InstituicaoModel;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +32,10 @@ public class InstituicaoRestController {
     @DeleteMapping("/delete")
     public boolean delete(@PathVariable("id") final int id){
         return instituicaoBackendConfiguration.deleteInstituicao().delete(id);
+    }
+
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<InstituicaoModel> findById(@PathVariable("id") final int id){
+        return ResponseEntity.ok(instituicaoBackendConfiguration.findInstituicao().find(id));
     }
 }
