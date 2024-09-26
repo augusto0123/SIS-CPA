@@ -1,7 +1,0 @@
-com\siscpa\api\configuration\EnderecoBackendConfiguration.class
-com\siscpa\api\configuration\InstituicaoBackendConfiguration.class
-com\siscpa\api\ApiApplication.class
-com\siscpa\api\restcontrollers\EnderecoRestController.class
-com\siscpa\api\restcontrollers\InstituicaoRestController.class
-com\siscpa\api\configuration\EdicaoDeAutoavaliacaoBackendConfiguration.class
-com\siscpa\api\restcontrollers\EdicaoDeAutoavaliacaoRestController.class

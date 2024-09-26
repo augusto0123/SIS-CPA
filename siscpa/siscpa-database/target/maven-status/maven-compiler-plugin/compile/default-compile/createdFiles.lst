@@ -1,5 +1,0 @@
-fai\cpa\repository\implementation\repository\connection\ConnectionFactory.class
-fai\cpa\repository\implementation\repository\EnderecoDaoPostgres.class
-fai\cpa\repository\implementation\repository\EdicaoDeAutoavaliacaoDaoPostgres.class
-fai\cpa\repository\implementation\repository\InstituicaoDaoPostgres.class
-fai\cpa\repository\implementation\repository\UsuarioDaoPostgres.class
