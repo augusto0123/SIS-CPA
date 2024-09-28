@@ -7,7 +7,7 @@ public class AvaliacaoModel {
     private int id;
     private LocalDate data_inicio;
     private LocalDate data_fim;
-    private String status;
+    private String situacao;
     private String descricao;
     private String observacao;
 
@@ -35,14 +35,6 @@ public class AvaliacaoModel {
         this.data_fim = data_fim;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getDescricao() {
         return descricao;
     }
@@ -57,5 +49,13 @@ public class AvaliacaoModel {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
     }
 }

@@ -42,6 +42,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
                 instituicao.setResponsavelNome(resultSet.getString("nome_responsavel"));
                 instituicao.setResposavelEmail(resultSet.getString("email_responsavel"));
                 instituicao.setResponsavelTelefone(resultSet.getString("telefone_responsavel"));
+                instituicao.setEndereco_id(resultSet.getInt("id_endereco"));
             }
             resultSet.close();
             preparedStatement.close();
@@ -79,6 +80,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
                 instituicao.setResponsavelNome(resultSet.getString("nome_responsavel"));
                 instituicao.setResposavelEmail(resultSet.getString("email_responsavel"));
                 instituicao.setResponsavelTelefone(resultSet.getString("telefone_responsavel"));
+                instituicao.setEndereco_id(resultSet.getInt("id_endereco"));
 
                 instituicoes.add(instituicao);
             }

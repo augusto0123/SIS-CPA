@@ -14,6 +14,7 @@ public class InstituicaoRestController {
     private final InstituicaoBackendConfiguration instituicaoBackendConfiguration = new InstituicaoBackendConfiguration();
 
     @GetMapping("/all")
+    @CrossOrigin
     public List<InstituicaoModel> getInstituicoes(){
         List<InstituicaoModel> instituicoes = instituicaoBackendConfiguration.findInstituicao().find();
         return instituicoes;

@@ -10,14 +10,14 @@ public class EdicaoDeAutoAvaliacaoModel {
     private String descricao;
     private LocalDate dataInicio;
     private LocalDate dataFim;
-    private int instituicao_id;
+    private int instituicaoId;
 
-    public int getInstituicao_id() {
-        return instituicao_id;
+    public int getInstituicaoId() {
+        return instituicaoId;
     }
 
-    public void setInstituicao_id(int instituicao_id) {
-        this.instituicao_id = instituicao_id;
+    public void setInstituicaoId(int instituicaoId) {
+        this.instituicaoId = instituicaoId;
     }
 
     public String getAnoDaAvaliacao() {

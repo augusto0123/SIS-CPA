@@ -26,6 +26,9 @@ public class FindInstituicao {
         if (instituicoes == null){
             return null;
         }
+        for (InstituicaoModel instituicao:instituicoes){
+            instituicao.setEndereco(enderecoRepository.findById(instituicao.getEndereco_id()));
+        }
         return instituicoes;
     }
     public InstituicaoModel find(final int id){

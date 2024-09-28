@@ -88,7 +88,7 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
             preparedStatement.setString(3, edicaoDeAutoAvaliacaoModel.getAnoDaAvaliacao());
             preparedStatement.setDate(4, Date.valueOf(edicaoDeAutoAvaliacaoModel.getDataInicio()));
             preparedStatement.setDate(5, Date.valueOf(edicaoDeAutoAvaliacaoModel.getDataFim()));
-            preparedStatement.setInt(6, edicaoDeAutoAvaliacaoModel.getInstituicao_id());
+            preparedStatement.setInt(6, edicaoDeAutoAvaliacaoModel.getInstituicaoId());
 
             preparedStatement.execute();
 

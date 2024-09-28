@@ -4,7 +4,6 @@ public class PerguntaModel {
 
     private int id;
     private String descricao;
-    private String categoria;
     private String tipo;
     private int tipoEscala;
 
@@ -24,13 +23,6 @@ public class PerguntaModel {
         this.descricao = descricao;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
 
     public String getTipo() {
         return tipo;

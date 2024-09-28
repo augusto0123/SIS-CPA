@@ -15,8 +15,7 @@ public class CreatePergunta {
         if (perguntaModel == null){
             return -1;
         }
-        if (perguntaModel.getCategoria().isEmpty()
-                || perguntaModel.getDescricao().isEmpty()
+        if (perguntaModel.getDescricao().isEmpty()
                 || perguntaModel.getTipo().isEmpty()
                 || perguntaModel.getTipoEscala() < 1){
             return -1;

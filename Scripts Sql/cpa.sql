@@ -78,7 +78,7 @@ CREATE TABLE avaliacao
     id_edicao_autoavaliacao INTEGER NOT NULL,
     data_inicio DATE NOT NULL,
     data_fim DATE NOT NULL,
-    status VARCHAR(100) NOT NULL,
+    situacao VARCHAR(100) NOT NULL,
     descricao VARCHAR(100) NOT NULL,
     observacao VARCHAR(100),
     FOREIGN KEY (id_edicao_autoavaliacao) REFERENCES Edicao_Autoavaliacao(id) ON DELETE CASCADE);
