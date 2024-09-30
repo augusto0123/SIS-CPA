@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class InstituicaoConfiguration {
-
     @Bean
     public ShowAllInstituicoes showAllInstituicoes(){
         RestService<InstituicaoModel> restService = new RestApiController<>();

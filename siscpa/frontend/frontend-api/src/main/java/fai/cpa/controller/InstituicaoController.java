@@ -25,7 +25,7 @@ public class InstituicaoController {
         return "instituicao/inicio";
     }
 
-    @GetMapping("/listar")
+    @GetMapping("/listar-instituicao")
     public String getListarInstituicaoesPage(final Model model){
         List<InstituicaoModel> instituicoes = showAllInstituicoes.showAllInstituicoes();
 
@@ -35,5 +35,20 @@ public class InstituicaoController {
         model.addAttribute("instituicoes", instituicoes);
 
         return "instituicao/listar-instituicao";
+    }
+
+    @GetMapping("/adicionar-instituicao")
+    public String getAdicionarInstituicaoPage(final Model model){
+        return "instituicao/adicionar-instituicao";
+    }
+
+    @GetMapping("/adicionar-membro")
+    public String getAdicioarMembroPage(final Model model){
+        return "instituicao/adicionar-membro";
+    }
+
+    @GetMapping("/listar-membro")
+    public String getListarMembroPage(final Model model){
+        return "instituicao/listar-membro";
     }
 }

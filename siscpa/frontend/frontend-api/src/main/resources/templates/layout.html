@@ -186,7 +186,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="index-user.html">
+            <a class="nav-link " href="index-admin.html">
                 <i class="bi bi-grid"></i>
                 <span>Inicio</span>
             </a>
@@ -198,24 +198,29 @@
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="register-institution.html">
+                    <a th:href="@{/instituicao/adicionar-instituicao}">
                         <i class="bi bi-circle"></i><span>Cadastrar Instituição</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/instituicao/listar}">
-                        <i class="bi bi-circle"></i><span>Listar Instituição</span>
+                    <a th:href="@{/instituicao/adicionar-membro}">
+                        <i class="bi bi-circle"></i><span>Cadastrar Membro CPA</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="link-instituition.html">
-                        <i class="bi bi-circle"></i><span>Vincular-se a uma Instituição</span>
+                    <a th:href="@{/instituicao/listar-instituicao}">
+                        <i class="bi bi-circle"></i><span>Listar Instituição</span>
                     </a>
                 </li>
                 <li>
-                    <a href="carry-out-assessment.html">
-                        <i class="bi bi-circle"></i><span>Realizar AutoAvaliação</span>
+                    <a th:href="@{/instituicao/listar-membro}">
+                        <i class="bi bi-circle"></i><span>Listar Membro CPA</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="list-users.html">
+                        <i class="bi bi-circle"></i><span>Listar Usuarios</span>
                     </a>
                 </li>
             </ul>
@@ -255,17 +260,17 @@
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="docs.html">
+                    <a href="docs-admin.html">
                         <i class="bi bi-circle"></i><span>Documentos</span>
                     </a>
                 </li>
                 <li>
-                    <a href="timeline.html">
+                    <a href="timeline-admin.html">
                         <i class="bi bi-circle"></i><span>Cronogramas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="comunication.html">
+                    <a href="comunication-admin.html">
                         <i class="bi bi-circle"></i><span>Comunicação</span>
                     </a>
                 </li>
@@ -278,12 +283,12 @@
             </a>
             <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="report.html">
+                    <a href="report-admin.html">
                         <i class="bi bi-circle"></i><span>Relatório</span>
                     </a>
                 </li>
                 <li>
-                    <a href="graphic.html">
+                    <a href="graphic-admin.html">
                         <i class="bi bi-circle"></i><span>Gráfico</span>
                     </a>
                 </li>
@@ -296,7 +301,7 @@
             </a>
             <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="photo.html">
+                    <a href="photo-admin.html">
                         <i class="bi bi-circle"></i><span>Título do Álbum</span>
                     </a>
                 </li>
@@ -305,7 +310,7 @@
         <li class="nav-heading">Paginas</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.html">
+            <a class="nav-link collapsed" href="profile-admin.html">
                 <i class="bi bi-person"></i>
                 <span>Perfil</span>
             </a>
@@ -327,7 +332,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="error-404.html">
+            <a class="nav-link collapsed" href="error-admin.html">
                 <i class="bi bi-dash-circle"></i>
                 <span>Erro</span>
             </a>
