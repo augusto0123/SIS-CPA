@@ -13,7 +13,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/instituicao")
 public class InstituicaoController {
-
     private final ShowAllInstituicoes showAllInstituicoes;
 
     public InstituicaoController(ShowAllInstituicoes showAllInstituicoes) {
@@ -50,5 +49,10 @@ public class InstituicaoController {
     @GetMapping("/listar-membro")
     public String getListarMembroPage(final Model model){
         return "instituicao/listar-membro";
+    }
+
+    @GetMapping ("/listar-usuarios")
+    public String getListarUsuarioPage(final Model model){
+        return "instituicao/listar-usuarios";
     }
 }

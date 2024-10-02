@@ -32,6 +32,8 @@
 
 <body>
 
+<!--<a th:href="@{/instituicao/listar-membro}">-->
+
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
@@ -68,7 +70,7 @@
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
                     <li class="dropdown-header">
                         Você tem 3 novas notificações
-                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Visualizar Todss</span></a>
+                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Visualizar Todos</span></a>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
@@ -142,7 +144,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                        <a class="dropdown-item d-flex align-items-center" th:href="@{/conta/perfil}">
                             <i class="bi bi-person"></i>
                             <span>Meu Perfil</span>
                         </a>
@@ -186,7 +188,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="index-admin.html">
+            <a class="nav-link " th:href="@{/instituicao/inicio}">
                 <i class="bi bi-grid"></i>
                 <span>Inicio</span>
             </a>
@@ -219,7 +221,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="list-users.html">
+                    <a th:href="@{/instituicao/listar-usuarios}">
                         <i class="bi bi-circle"></i><span>Listar Usuarios</span>
                     </a>
                 </li>
