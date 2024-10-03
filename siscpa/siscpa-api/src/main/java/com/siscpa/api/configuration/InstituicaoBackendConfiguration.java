@@ -29,7 +29,7 @@ public class InstituicaoBackendConfiguration {
 
     @Bean
     public CreateInstituicao createInstituicao(){
-        return new CreateInstituicao(instituicaoRepository);
+        return new CreateInstituicao(instituicaoRepository, enderecoRepository);
     }
 
     @Bean

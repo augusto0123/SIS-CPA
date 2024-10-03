@@ -164,7 +164,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO instituicao (email, telefone, cnpj, situacao, nome_responsavel, telefone_responsavel, email_responsavel, nome_fantasia, razao_social, endereco_id)";
+        String sql = "INSERT INTO instituicao (email, telefone, cnpj, situacao, nome_responsavel, telefone_responsavel, email_responsavel, nome_fantasia, razao_social, id_endereco)";
         sql += " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {

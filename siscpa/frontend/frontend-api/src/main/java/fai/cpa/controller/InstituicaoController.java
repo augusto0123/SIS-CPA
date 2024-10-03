@@ -1,10 +1,12 @@
 package fai.cpa.controller;
 
 import fai.cpa.entities.InstituicaoModel;
+import fai.cpa.instituicao.CreateInstituicao;
 import fai.cpa.instituicao.ShowAllInstituicoes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -14,9 +16,11 @@ import java.util.List;
 @RequestMapping("/instituicao")
 public class InstituicaoController {
     private final ShowAllInstituicoes showAllInstituicoes;
+    private final CreateInstituicao createInstituicao;
 
-    public InstituicaoController(ShowAllInstituicoes showAllInstituicoes) {
+    public InstituicaoController(ShowAllInstituicoes showAllInstituicoes, CreateInstituicao createInstituicao) {
         this.showAllInstituicoes = showAllInstituicoes;
+        this.createInstituicao = createInstituicao;
     }
 
     @GetMapping("/inicio")
@@ -38,6 +42,9 @@ public class InstituicaoController {
 
     @GetMapping("/adicionar-instituicao")
     public String getAdicionarInstituicaoPage(final Model model){
+
+        model.addAttribute("instituicao", new InstituicaoModel());
+
         return "instituicao/adicionar-instituicao";
     }
 
@@ -54,5 +61,14 @@ public class InstituicaoController {
     @GetMapping ("/listar-usuarios")
     public String getListarUsuarioPage(final Model model){
         return "instituicao/listar-usuarios";
+    }
+
+    @PostMapping("/criar-instituicao")
+    public String criarInstituicao(final InstituicaoModel instituicao){
+        final int id = createInstituicao.createInstituicao(instituicao);
+        if (id > 0){
+            return "redirect:/instituicao/listar-instituicao";
+        }
+        return "redirect:/not-found";
     }
 }

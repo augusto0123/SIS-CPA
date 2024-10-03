@@ -1,7 +1,9 @@
 package instituicao;
 
 import exception.InvalidException;
+import fai.cpa.entities.EnderecoModel;
 import fai.cpa.entities.InstituicaoModel;
+import port.EnderecoRepository;
 import port.InstituicaoRepository;
 
 import java.text.Normalizer;
@@ -10,9 +12,11 @@ import java.util.regex.Pattern;
 public class CreateInstituicao {
 
     private final InstituicaoRepository instituicaoRepository;
+    private final EnderecoRepository enderecoRepository;
 
-    public CreateInstituicao(InstituicaoRepository instituicaoRepository) {
+    public CreateInstituicao(InstituicaoRepository instituicaoRepository, EnderecoRepository enderecoRepository) {
         this.instituicaoRepository = instituicaoRepository;
+        this.enderecoRepository = enderecoRepository;
     }
 
     public int createInstituicao(final InstituicaoModel instituicaoModel){
@@ -34,6 +38,7 @@ public class CreateInstituicao {
         }
         int id = 0;
         try {
+            instituicaoModel.setEndereco_id(enderecoRepository.create(instituicaoModel.getEndereco()));
             id = instituicaoRepository.create(instituicaoModel);
             instituicaoModel.setId(id);
         } catch (Exception e) {
