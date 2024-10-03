@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Início</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -21,6 +27,18 @@
                     <div class="row">
 
                         <div class="col-12">
+                            <div class="card recent-sales overflow-auto">
+                                <div class="display-flex">
+                                    <i class="fa-solid fa-people-group"></i>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Próxima Reunião</h5>
+                                        <input type="date" name="next-meeting" id="nextmeeting">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
                             <div class="card">
 
                                 <div class="filter">
@@ -37,7 +55,7 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">dashboard </h5>
+                                    <h5 class="card-title">Dashboard </h5>
 
 
                                     <div id="reportsChart"></div>
@@ -46,14 +64,20 @@
                                         document.addEventListener("DOMContentLoaded", () => {
                                           new ApexCharts(document.querySelector("#reportsChart"), {
                                             series: [{
-                                              name: 'Sales',
+                                              name: 'Péssimo',
                                               data: [31, 40, 28, 51, 42, 82, 56],
                                             }, {
-                                              name: 'Revenue',
+                                              name: 'Ruim',
                                               data: [11, 32, 45, 32, 34, 52, 41]
                                             }, {
-                                              name: 'Customers',
+                                              name: 'Regular',
                                               data: [15, 11, 32, 18, 9, 24, 11]
+                                            }, {
+                                              name: 'Bom',
+                                              data: [20, 6, 25, 16, 19, 22, 30]
+                                            }, {
+                                              name: 'Excelente',
+                                              data: [8, 14, 28, 32, 12, 22, 14]
                                             }],
                                             chart: {
                                               height: 350,
@@ -65,7 +89,7 @@
                                             markers: {
                                               size: 4
                                             },
-                                            colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                                            colors: ['#FF0000','#ff771d', '#FFD700', '#4154f1', '#2eca6a'],
                                             fill: {
                                               type: "gradient",
                                               gradient: {
@@ -84,11 +108,11 @@
                                             },
                                             xaxis: {
                                               type: 'datetime',
-                                              categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                                              categories: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"]
                                             },
                                             tooltip: {
                                               x: {
-                                                format: 'dd/MM/yy HH:mm'
+                                                format: '20yy'
                                               },
                                             }
                                           }).render();
@@ -99,9 +123,9 @@
 
                             </div>
                         </div>
+
                         <div class="col-12">
                             <div class="card recent-sales overflow-auto">
-
                                 <div class="filter">
                                     <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -116,47 +140,39 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Historico de Aprovações</h5>
+                                    <h5 class="card-title">Historico de Edições</h5>
 
                                     <table class="table table-borderless datatable">
                                         <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Usuario</th>
-                                            <th scope="col">Cargo</th>
-                                            <th scope="col">Pedido</th>
-                                            <th scope="col">Estatus</th>
+                                            <th scope="col">Número da Edição</th>
+                                            <th scope="col">Ano</th>
+                                            <th scope="col">Situação</th>
                                         </tr>
                                         </thead>
+
                                         <tbody>
                                         <tr>
-                                            <th scope="row"><a href="#">#2457</a></th>
-                                            <td>Brandon Jacob</td>
-                                            <td><a href="#" class="text-primary">Membro CPA</a></td>
-                                            <td>Cadastro de Reunião</td>
-                                            <td><span class="badge bg-success">Aprovado</span></td>
+                                            <th scope="row"><a href="#">4</a></th>
+                                            <td>2024</td>
+                                            <td><span class="badge bg-success">Em andamento</span></td>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><a href="#">#2147</a></th>
-                                            <td>Bridie Kessler</td>
-                                            <td><a href="#" class="text-primary">Professor</a></td>
-                                            <td>Respondeu Questionário</td>
-                                            <td><span class="badge bg-warning">Em analise</span></td>
+                                            <th scope="row"><a href="#">3</a></th>
+                                            <td>2023</td>
+                                            <td><span class="badge bg-danger">Encerrada</span></td>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><a href="#">#2049</a></th>
-                                            <td>Ashleigh Langosh</td>
-                                            <td><a href="#" class="text-primary">Estudante</a></td>
-                                            <td>Respondeu Questionário</td>
-                                            <td><span class="badge bg-success">Aprovado</span></td>
+                                            <th scope="row"><a href="#">2</a></th>
+                                            <td>2022</td>
+                                            <td><span class="badge bg-danger">Encerrada</span></td>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><a href="#">#2644</a></th>
-                                            <td>Angus Grady</td>
-                                            <td><a href="#" class="text-primar">Admin</a></td>
-                                            <td>Cadastro de Instituição</td>
-                                            <td><span class="badge bg-danger">Rejeitado</span></td>
+                                            <th scope="row"><a href="#">1</a></th>
+                                            <td>2021</td>
+                                            <td><span class="badge bg-danger">Encerrada</span></td>
                                         </tr>
+
                                         </tbody>
                                     </table>
 
@@ -164,6 +180,71 @@
 
                             </div>
                         </div>
+
+<!--                        <div class="col-12">-->
+<!--                            <div class="card recent-sales overflow-auto">-->
+<!--                                <div class="filter">-->
+<!--                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+<!--                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+<!--                                        <li class="dropdown-header text-start">-->
+<!--                                            <h6>Pesquisar</h6>-->
+<!--                                        </li>-->
+
+<!--                                        <li><a class="dropdown-item" href="#">Today</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">This Month</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">This Year</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+
+<!--                                <div class="card-body">-->
+<!--                                    <h5 class="card-title">Historico de Aprovações</h5>-->
+
+<!--                                    <table class="table table-borderless datatable">-->
+<!--                                        <thead>-->
+<!--                                        <tr>-->
+<!--                                            <th scope="col">#</th>-->
+<!--                                            <th scope="col">Usuario</th>-->
+<!--                                            <th scope="col">Cargo</th>-->
+<!--                                            <th scope="col">Pedido</th>-->
+<!--                                            <th scope="col">Estatus</th>-->
+<!--                                        </tr>-->
+<!--                                        </thead>-->
+<!--                                        <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <th scope="row"><a href="#">#2457</a></th>-->
+<!--                                            <td>Brandon Jacob</td>-->
+<!--                                            <td><a href="#" class="text-primary">Membro CPA</a></td>-->
+<!--                                            <td>Cadastro de Reunião</td>-->
+<!--                                            <td><span class="badge bg-success">Aprovado</span></td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <th scope="row"><a href="#">#2147</a></th>-->
+<!--                                            <td>Bridie Kessler</td>-->
+<!--                                            <td><a href="#" class="text-primary">Professor</a></td>-->
+<!--                                            <td>Respondeu Questionário</td>-->
+<!--                                            <td><span class="badge bg-warning">Em analise</span></td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <th scope="row"><a href="#">#2049</a></th>-->
+<!--                                            <td>Ashleigh Langosh</td>-->
+<!--                                            <td><a href="#" class="text-primary">Estudante</a></td>-->
+<!--                                            <td>Respondeu Questionário</td>-->
+<!--                                            <td><span class="badge bg-success">Aprovado</span></td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <th scope="row"><a href="#">#2644</a></th>-->
+<!--                                            <td>Angus Grady</td>-->
+<!--                                            <td><a href="#" class="text-primar">Admin</a></td>-->
+<!--                                            <td>Cadastro de Instituição</td>-->
+<!--                                            <td><span class="badge bg-danger">Rejeitado</span></td>-->
+<!--                                        </tr>-->
+<!--                                        </tbody>-->
+<!--                                    </table>-->
+
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
 
 
                     </div>
@@ -188,55 +269,55 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+                            <h5 class="card-title">Histórico de Reuniões<span>| Today</span></h5>
 
                             <div class="activity">
 
                                 <div class="activity-item d-flex">
-                                    <div class="activite-label">32 min</div>
+                                    <div class="activite-label">08/11/2024</div>
                                     <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                                     <div class="activity-content">
-                                        Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
+                                        <span>Reuniao sobre os Resultados</span>
                                     </div>
                                 </div><!-- End activity item-->
 
                                 <div class="activity-item d-flex">
-                                    <div class="activite-label">56 min</div>
+                                    <div class="activite-label">14/09/2024</div>
                                     <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
                                     <div class="activity-content">
-                                        Voluptatem blanditiis blanditiis eveniet
+                                        Reuniao de Recepção dos Novos Membros
                                     </div>
                                 </div><!-- End activity item-->
 
                                 <div class="activity-item d-flex">
-                                    <div class="activite-label">2 hrs</div>
+                                    <div class="activite-label">28/08/2024</div>
                                     <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                                     <div class="activity-content">
-                                        Voluptates corrupti molestias voluptatem
+                                        Reunião com a Coordenadoria
                                     </div>
                                 </div><!-- End activity item-->
 
                                 <div class="activity-item d-flex">
-                                    <div class="activite-label">1 day</div>
+                                    <div class="activite-label">02/06/2024</div>
                                     <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
                                     <div class="activity-content">
-                                        Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
+                                        Reunião sobre a Festa Junina
                                     </div>
                                 </div><!-- End activity item-->
 
                                 <div class="activity-item d-flex">
-                                    <div class="activite-label">2 days</div>
+                                    <div class="activite-label">16/05/2024</div>
                                     <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
                                     <div class="activity-content">
-                                        Est sit eum reiciendis exercitationem
+                                        Reunião sobre os Resultados
                                     </div>
                                 </div><!-- End activity item-->
 
                                 <div class="activity-item d-flex">
-                                    <div class="activite-label">4 weeks</div>
+                                    <div class="activite-label">22/03/2024</div>
                                     <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
                                     <div class="activity-content">
-                                        Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                                        Reunião sobre o Agendamento do MEC
                                     </div>
                                 </div><!-- End activity item-->
 
