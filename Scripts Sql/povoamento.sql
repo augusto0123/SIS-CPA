@@ -1,3 +1,19 @@
+-- Inserir dados na tabela Endereco
+
+INSERT INTO endereco (id_instituicao, logradouro, numero, bairro, cep, complemento, id_endereco)
+VALUES ('Rua das Flores',
+        '123',
+        'Jardim Botânico',
+        '12345-678',
+        'Apto 101', 1), 
+        
+        ('Avenida Central',
+        '456',
+        'Centro',
+        '23456-789',
+        NULL,
+        2);
+
 -- Inserir dados na tabela instituicao
 
 INSERT INTO instituicao (email, cnpj, razao_social, nome_fantasia, telefone, email_responsavel, telefone_responsavel, nome_responsavel, situacao)
@@ -56,21 +72,6 @@ VALUES (1,
                                                                    '2024-09-20',
                                                                    '11:00:00',
                                                                    'Revisão de Metas');
-
--- Inserir dados na tabela Endereco
-
-INSERT INTO endereco (id_instituicao, logradouro, numero, bairro, cep, complemento)
-VALUES (1,
-        'Rua das Flores',
-        '123',
-        'Jardim Botânico',
-        '12345-678',
-        'Apto 101'), (2,
-                      'Avenida Central',
-                      '456',
-                      'Centro',
-                      '23456-789',
-                      NULL);
 
 -- Inserir dados na tabela edicao_autoavaliacao
 

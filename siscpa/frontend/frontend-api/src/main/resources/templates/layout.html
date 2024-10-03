@@ -37,7 +37,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="index-user.html" class="logo d-flex align-items-center">
+        <a th:href="@{/instituicao/inicio}" class="logo d-flex align-items-center">
             <img src="/assets/img/logo_azul.png" alt="">
             <span class="d-none d-lg-block">SIS CPA</span>
         </a>
@@ -230,27 +230,60 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-journal-text"></i><span>Avaliação	</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-journal-text"></i><span>Avaliação(Membro)</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="cpa-metting.html">
+                    <a th:href="@{/avaliacao/reuniao}">
                         <i class="bi bi-circle"></i><span>Reunião CPA</span>
                     </a>
                 </li>
                 <li>
-                    <a href="edition_year.html">
+                    <a th:href="@{/avaliacao/edicao}">
                         <i class="bi bi-circle"></i><span>Edição do Ano</span>
                     </a>
                 </li>
                 <li>
-                    <a href="questionnaire.html">
+                    <a th:href="@{/avaliacao/pergunta}">
+                        <i class="bi bi-circle"></i><span>Perguntas</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/avaliacao/grupo}">
+                        <i class="bi bi-circle"></i><span>Grupo de Perguntas</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/avaliacao/questionario}">
                         <i class="bi bi-circle"></i><span>Questionário</span>
                     </a>
                 </li>
                 <li>
-                    <a href="questions_group.html">
-                        <i class="bi bi-circle"></i><span>Grupo de Perguntas</span>
+                    <a th:href="@{/avaliacao/listar-grupos}">
+                        <i class="bi bi-circle"></i><span>Listar Grupo de Perguntas</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/avaliacao/listar-questionarios}">
+                        <i class="bi bi-circle"></i><span>Listar Questionários</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/avaliacao/listar-perguntas}">
+                        <i class="bi bi-circle"></i><span>Listar Perguntas</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-journal-text"></i><span>Avaliação(Usuário)</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a th:href="@{/avaliacao/participar-questionario}">
+                        <i class="bi bi-circle"></i><span>Questionário</span>
                     </a>
                 </li>
             </ul>
@@ -262,17 +295,17 @@
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="docs-admin.html">
+                    <a th:href="@{/documentos/documentos}">
                         <i class="bi bi-circle"></i><span>Documentos</span>
                     </a>
                 </li>
                 <li>
-                    <a href="timeline-admin.html">
+                    <a th:href="@{/documentos/cronograma}">
                         <i class="bi bi-circle"></i><span>Cronogramas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="comunication-admin.html">
+                    <a th:href="@{/documentos/comunicacao}">
                         <i class="bi bi-circle"></i><span>Comunicação</span>
                     </a>
                 </li>
@@ -290,7 +323,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="graphic-admin.html">
+                    <a th:href="@{/relatorio/grafico}">
                         <i class="bi bi-circle"></i><span>Gráfico</span>
                     </a>
                 </li>
@@ -299,12 +332,12 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-gem"></i><span>Galeria de Fotos</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-gem"></i><span>Galeria</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="photo-admin.html">
-                        <i class="bi bi-circle"></i><span>Título do Álbum</span>
+                    <a th:href="@{/galeria/galeria}">
+                        <i class="bi bi-circle"></i><span>Galeria de Fotos</span>
                     </a>
                 </li>
             </ul>
@@ -312,7 +345,7 @@
         <li class="nav-heading">Paginas</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="profile-admin.html">
+            <a class="nav-link collapsed" th:href="@{/conta/perfil}">
                 <i class="bi bi-person"></i>
                 <span>Perfil</span>
             </a>
