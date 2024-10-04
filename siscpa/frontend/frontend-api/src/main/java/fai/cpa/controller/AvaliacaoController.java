@@ -1,19 +1,32 @@
 package fai.cpa.controller;
 
 
+import fai.cpa.avaliacao.CreateReuniao;
+import fai.cpa.avaliacao.ShowAllReunioes;
+import fai.cpa.entities.ReuniaoCpaModel;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/avaliacao")
 public class AvaliacaoController {
 
-    @GetMapping("/reuniao")
-    public String getReuniaoPage(){
-        return "avaliacao/reuniao";
+    private final CreateReuniao createReuniao;
+    private final ShowAllReunioes showAllReunioes;
+
+    public AvaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes) {
+        this.createReuniao = createReuniao;
+        this.showAllReunioes = showAllReunioes;
     }
 
+    @GetMapping("/reuniao")
+    public String getReuniaoPage(final Model model){
+        model.addAttribute("reuniao", new ReuniaoCpaModel());
+        return "avaliacao/reuniao";
+    }
     @GetMapping("/edicao")
     public String getEdicaoPage(){
         return "avaliacao/edicao";
@@ -49,14 +62,31 @@ public class AvaliacaoController {
         return "avaliacao/listar-grupos";
     }
 
-    @GetMapping("/participar-questionario")
-    public String getParticiparQuestionarioPage(){
-        return "avaliacao/participar-questionario";
-    }
-
     @GetMapping("/responder-questionario")
     public String getResponderQuestionarioPage(){
         return "avaliacao/responder-questionario";
     }
 
+    @GetMapping("/responder-grupos")
+    public String getResponderGrupos(){
+        return "avaliacao/responder-grupos";
+    }
+
+    @GetMapping("/responder-perguntas")
+    public String getResponderPerguntas(){ return "avaliacao/responder-perguntas";}
+
+
+    @GetMapping("/vincular-grupo")
+    public String getVincularGrupoPage() {
+        return "avaliacao/vincular-grupo";
+    }
+
+    @PostMapping("/criar-reuniao")
+    public String criarReuniao(final ReuniaoCpaModel reuniao){
+        final int id = createReuniao.createReuniao(reuniao);
+        if (id > 0){
+            return "redirect:/avaliacao/reuniao";
+        }
+        return "redirect:/conta/not-found";
+    }
 }

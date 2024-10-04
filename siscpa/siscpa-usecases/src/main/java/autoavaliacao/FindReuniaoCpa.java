@@ -5,12 +5,22 @@ import exception.NotFoundException;
 import fai.cpa.entities.ReuniaoCpaModel;
 import port.ReuniaoCpaRepository;
 
+import java.util.List;
+
 public class FindReuniaoCpa {
 
     private final ReuniaoCpaRepository reuniaoCpaRepository;
 
     public FindReuniaoCpa(ReuniaoCpaRepository reuniaoCpaRepository) {
         this.reuniaoCpaRepository = reuniaoCpaRepository;
+    }
+
+    public List<ReuniaoCpaModel> find(){
+        final List<ReuniaoCpaModel> reunioes = reuniaoCpaRepository.findAll();
+        if (reunioes == null){
+            return null;
+        }
+        return reunioes;
     }
 
     public ReuniaoCpaModel find(final int id){

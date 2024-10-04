@@ -236,6 +236,16 @@ h6 {
 .card-body {
   padding: 20px 20px 20px 20px;
 }
+.card-user{
+    display:flex;
+}
+.fa-circle-user {
+    padding:25px;
+    border-radius: 100%;
+    background-color:#37517e;
+    margin-right: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
 
 .card-img-overlay {
   background-color: rgba(255, 255, 255, 0.6);
@@ -1167,22 +1177,74 @@ h6 {
     border-radius: 100%;
 }
 .fa-building-columns{
-    padding:30px;
+    padding:20px 22px;
     border-radius: 100%;
     background-color:#37517e;
     margin-right: 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
-
-.display-flex{
-    font-size: 30px;
+.fa-clipboard-question {
+    padding:20px 28px;
+    border-radius: 100%;
+    background-color:#37517e;
+    margin-right: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.fa-pen-to-square {
+    padding:20px 22px;
+    border-radius: 100%;
+    background-color:#37517e;
+    margin-right: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.fa-user-tie {
+    padding:20px 25px;
+    border-radius: 100%;
+    background-color:#37517e;
+    margin-right: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.fa-user {
+    padding:20px 25px;
+     border-radius: 100%;
+     background-color:#37517e;
+     margin-right: 40px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.fa-people-group {
+    margin:30px;
+    font-size: 50px;
+    padding:20px 20px;
+    border-radius: 100%;
+    background-color:#37517e;
+    margin-right: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.display{
     display: flex;
     align-items: center;
 }
+.display-flex-meeting {
+    border-radius: 10px;
+    padding: 20px; /* Adicionei o ponto e vírgula aqui */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
 
-.display {
-    display: flex;
-    align-items: center
+.date-input input[type="date"] {
+            border: none; /* Remove a borda */
+            background-color: transparent; /* Torna o fundo transparente */
+            padding: 10px; /* Adiciona um pouco de espaço interno */
+            font-size: 20px; /* Tamanho da fonte */
+            outline: none; /* Remove a borda padrão ao focar */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            text-align:center;
+        }
+.date-input input[type="date"]::-webkit-calendar-picker-indicator {
+           display: none; /* Oculta o ícone no Chrome/Safari */
+}
+.date-input input[type="date"]:focus {
+     outline: none; /* Remove a borda de foco */
 }
 
 .btn-primary{

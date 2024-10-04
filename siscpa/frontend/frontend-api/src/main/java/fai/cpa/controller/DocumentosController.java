@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/documentos")
 public class DocumentosController {
 
-    @GetMapping("/documentos")
+    @GetMapping("/legislacao")
     public String getDocumentosPage(){
-        return "documentos/documentos";
+        return "documentos/legislacao";
     }
 
     @GetMapping("/cronograma")
@@ -21,5 +21,10 @@ public class DocumentosController {
     @GetMapping("/comunicacao")
     public String getComunicacaoPage(){
         return "documentos/comunicacao";
+    }
+
+    @GetMapping("/regulamentacao")
+    public String getRegulamentacaoPage(){
+        return "documentos/regulamentacao";
     }
 }

@@ -40,15 +40,12 @@
 
                             <div class="display">
                                 <i class="fa-solid fa-building-columns"></i>
+
                                 <div>
                                     <h5 class="card-title" th:text="${instituicao.nomeFantasia}"></h5>
                                     <p>Para saber mais sobre a Instituição, clique no botão abaixo</p>
 
-                                    <div class="text-end">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:data-bs-target="'#modal_' + ${instituicao.id}">
-                                            Visualizar
-                                        </button>
-                                    </div>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:data-bs-target="'#modal_' + ${instituicao.id}">Visualizar</button>
 
 
                                     <div class="modal fade" th:id="'modal_' + ${instituicao.id}" tabindex="-1">

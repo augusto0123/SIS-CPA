@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/relatorio")
 public class RelatorioController {
 
+    @GetMapping("/relatorio")
+    public String getRelatorioPage(){
+        return "relatorio/relatorio";
+    }
+
     @GetMapping("/grafico")
     public String getGraficoPage(){
         return "relatorio/grafico";

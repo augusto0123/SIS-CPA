@@ -28,29 +28,33 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Reunião CPA</h5>
+
+<!--                            novalidate method="POST" th:action="@{/avaliacao/criar-reuniao}" th:object="${reuniao}"-->
                             <form>
                                 <div class="row mb-3">
-                                    <label for="inputDate" class="col-sm-2 col-form-label">Data</label>
+                                    <label for="dataReuniao" class="col-sm-2 col-form-label">Data</label>
                                     <div class="col-sm-10">
-                                        <input type="date" class="form-control">
+                                        <input type="date" class="form-control" name="dataReuniao" id="dataReuniao" required>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputTime" class="col-sm-2 col-form-label">Hora</label>
+                                    <label for="horario" class="col-sm-2 col-form-label">Hora</label>
                                     <div class="col-sm-10">
-                                        <input type="time" class="form-control">
+                                        <input type="time" class="form-control" name="horario" id="horario" required>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Pauta</label>
+                                    <label for="pauta" class="col-sm-2 col-form-label">Pauta</label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control" style="height: 100px"></textarea>
+                                        <textarea class="form-control" style="height: 100px" name="pauta" id="pauta" required></textarea>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
                                     Cadastrar
                                 </button>
+
                                 <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
