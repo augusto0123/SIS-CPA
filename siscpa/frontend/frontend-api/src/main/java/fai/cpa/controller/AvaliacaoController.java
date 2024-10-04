@@ -75,10 +75,20 @@ public class AvaliacaoController {
     @GetMapping("/responder-perguntas")
     public String getResponderPerguntas(){ return "avaliacao/responder-perguntas";}
 
+    @GetMapping("/listar-edicoes")
+    public String getListarEdicoesPage(){
+        return "avaliacao/listar-edicoes";
+    }
+
 
     @GetMapping("/vincular-grupo")
     public String getVincularGrupoPage() {
         return "avaliacao/vincular-grupo";
+    }
+
+    @GetMapping("vincular-questionario")
+    public String getVincularQuestionarioPage(){
+        return "avaliacao/vincular-questionario";
     }
 
     @PostMapping("/criar-reuniao")
