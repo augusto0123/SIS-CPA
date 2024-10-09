@@ -37,18 +37,11 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a th:href="@{/instituicao/inicio}" class="logo d-flex align-items-center">
+        <a th:href="@{/}" class="logo d-flex align-items-center">
             <img src="/assets/img/logo_azul.png" alt="">
             <span class="d-none d-lg-block">SIS CPA</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div>
-
-    <div class="search-bar">
-        <form class="search-form d-flex align-items-center" method="POST" action="#">
-            <input type="text" name="query" placeholder="Pesquisar" title="Enter search keyword">
-            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-        </form>
     </div>
 
     <nav class="header-nav ms-auto">
@@ -234,28 +227,28 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a th:href="@{/avaliacao/reuniao}">
-                        <i class="bi bi-circle"></i><span>Reunião CPA</span>
+                    <a th:href="@{/avaliacao/cadastrar-reuniao}">
+                        <i class="bi bi-circle"></i><span>Agendar Reunião CPA</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/edicao}">
-                        <i class="bi bi-circle"></i><span>Edição do Ano</span>
+                    <a th:href="@{/avaliacao/cadastrar-edicao}">
+                        <i class="bi bi-circle"></i><span>Cadastrar Edição de Autoavaliação</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/pergunta}">
-                        <i class="bi bi-circle"></i><span>Perguntas</span>
+                    <a th:href="@{/avaliacao/cadastrar-pergunta}">
+                        <i class="bi bi-circle"></i><span>Cadastrar Perguntas</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/grupo}">
-                        <i class="bi bi-circle"></i><span>Grupo de Perguntas</span>
+                    <a th:href="@{/avaliacao/cadastrar-grupo}">
+                        <i class="bi bi-circle"></i><span>Cadastrar Grupo de Perguntas</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/questionario}">
-                        <i class="bi bi-circle"></i><span>Questionário</span>
+                    <a th:href="@{/avaliacao/cadastrar-questionario}">
+                        <i class="bi bi-circle"></i><span>Cadastrar Questionário</span>
                     </a>
                 </li>
                 <li>
@@ -288,8 +281,8 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a th:href="@{/avaliacao/responder-questionario}">
-                        <i class="bi bi-circle"></i><span>Questionário</span>
+                    <a th:href="@{/avaliacao/responder-edicao}">
+                        <i class="bi bi-circle"></i><span>Edições</span>
                     </a>
                 </li>
             </ul>

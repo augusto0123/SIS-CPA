@@ -29,35 +29,38 @@
         </div>
 
         <section class="section">
-            <div class="row">
-                <div class="col-lg-6">
 
-                    <div class="card">
-                        <div class="card-body">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4">
+
+                    <div class="card-edicao">
+
+                        <h5 class="card-title-edicao">Edição (Ano da Edição)</h5>
+                        <div class="card-body-edicao">
 
                             <div class="display">
                                 <i class="fa-solid fa-chart-simple"></i>
                                 <div>
-                                    <h5 class="card-title">Edição 2024</h5>
-                                    <p>Para saber mais sobre o Grupo de Pergunta, clique no botão abaixo</p>
+                                    <span>Descrição</span>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                        Visualizar
-                                    </button>
-                                    <div class="modal fade" id="basicModal" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Deseja inserir uma Questionário á Edição?</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                            Visualizar
+                        </button>
+                        <div class="modal fade" id="basicModal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Deseja inserir uma Questionário á Edição?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
 
-                                                <div class="modal-footer">
-                                                    <a th:href="@{/avaliacao/vincular-questionario}" class="btn btn-primary">Inserir Questionário</a>
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="modal-footer">
+                                        <a th:href="@{/avaliacao/vincular-questionario}" class="btn btn-primary">Inserir Questionário</a>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                                     </div>
                                 </div>
                             </div>
@@ -65,6 +68,7 @@
                     </div>
 
                 </div>
+            </div>
         </section>
 
     </main>

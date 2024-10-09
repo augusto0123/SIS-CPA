@@ -33,8 +33,6 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuarioModel.setSenha(resultSet.getString("senha"));
                 usuarioModel.setTelefone(resultSet.getString("telefone"));
                 usuarioModel.setTipo(resultSet.getString("tipo"));
-                usuarioModel.setDataCadastro(resultSet.getDate("dataCadastro").toLocalDate());
-                usuarioModel.setSituacao(resultSet.getString("situacao"));
 
                 resultSet.close();
                 preparedStatement.close();
@@ -75,7 +73,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO usuario(nome, email, senha, telefone, tipo, dataCadastro, situacao)";
+        String sql = "INSERT INTO usuario(nome, email, senha, telefone, tipo)";
         sql += "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
@@ -88,8 +86,6 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
             preparedStatement.setString(3, usuarioModel.getSenha());
             preparedStatement.setString(4, usuarioModel.getTelefone());
             preparedStatement.setString(5, usuarioModel.getTipo());
-            preparedStatement.setDate(6, Date.valueOf(usuarioModel.getDataCadastro()));
-            preparedStatement.setString(7, usuarioModel.getSituacao());
 
             preparedStatement.execute();
 

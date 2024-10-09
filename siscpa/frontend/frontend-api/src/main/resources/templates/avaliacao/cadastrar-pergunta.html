@@ -16,28 +16,27 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-membroCPA.html">Incio</a></li>
                     <li class="breadcrumb-item">Avaliação</li>
-                    <li class="breadcrumb-item active">Questionário</li>
+                    <li class="breadcrumb-item active">Perguntas</li>
                 </ol>
             </nav>
         </div>
 
         <section class="section">
             <div class="row">
-                <div class="col-lg-6">
 
-                    <h2>Cadastrar Pergunta Objetiva:</h2>
-                    <div class="card">
-                        <div class="card-body">
-
-                            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-lg-5">
+                    <h2 class="titlee-tipo-pergunta">Pergunta Objetiva:</h2>
+                    <div class="card-pergunta">
+                        <div class="card-body d-flex flex-column" style="height: 100%;">
+                            <form class="row g-3 needs-validation flex-grow-1" novalidate>
 
                                 <div class="mb-3">
-                                    <label for="descricao" class="form-label">Descrição</label>
-                                    <textarea class="form-control" id="descricao" rows="3"></textarea>
+                                    <label for="descricao-objetiva" class="form-label">Cadastrar enunciado:</label>
+                                    <textarea class="form-control" id="descricao-objetiva" rows="3" required></textarea>
                                 </div>
 
                                 <div class="mb-3">
-                                    <div>
+                                    <div class="container-perguntas1">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="likert" id="likert1" value="1">
                                             <label class="form-check-label" for="likert1">Péssimo</label>
@@ -61,72 +60,60 @@
                                     </div>
                                 </div>
 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                    Cadastrar
-                                </button>
-
-                                <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Cadastro de Perguntas</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Seu cadastro foi realizado com sucesso!
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="mt-auto" style="text-align: center;">
+                                    <button type="button" class="btn btn-primary" style="width: 30%;" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                        Cadastrar
+                                    </button>
                                 </div>
 
                             </form>
                         </div>
                     </div>
+                </div>
 
-                    <h2>Cadastrar Pergunta Subjetiva:</h2>
-                    <div class="card">
-                        <div class="card-body">
-
-                            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-lg-5">
+                    <h2 class="titlee-tipo-pergunta">Pergunta Subjetiva:</h2>
+                    <div class="card-pergunta">
+                        <div class="card-body d-flex flex-column" style="height: 100%;">
+                            <form class="row g-3 needs-validation flex-grow-1" novalidate>
 
                                 <div class="mb-3">
-                                    <label for="descricao" class="form-label">Descrição</label>
-                                    <textarea class="form-control" id="descricao" rows="3"></textarea>
+                                    <label for="descricao-subjetiva" class="form-label">Cadastrar enunciado:</label>
+                                    <textarea class="form-control" id="descricao-subjetiva" rows="3" required></textarea>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="resposta" class="form-label">Resposta</label>
+                                    <label for="resposta" class="form-label">(Campo de resposta)</label>
                                     <textarea class="form-control" id="resposta" rows="3"></textarea>
                                 </div>
 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                    Cadastrar
-                                </button>
-
-                                <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Cadastro de Perguntas</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Seu cadastro foi realizado com sucesso!
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="mt-auto" style="text-align: center;">
+                                    <button class="btn btn-primary" style="width: 30%;" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                        Cadastrar
+                                    </button>
                                 </div>
 
                             </form>
+
+                            <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Cadastro de Perguntas</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Seu cadastro foi realizado com sucesso!
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

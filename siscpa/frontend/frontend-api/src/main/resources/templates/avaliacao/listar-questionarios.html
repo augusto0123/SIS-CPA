@@ -30,138 +30,41 @@
 
         <section class="section">
             <div class="row">
-                <div class="col-lg-6">
 
-                    <div class="card">
-                        <div class="card-body">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4">
+                    <div class="card-questionario">
 
+                        <h5 class="card-title-questionario">Questionário do Aluno</h5>
+
+                        <div class="card-body-questionario">
                             <div class="display">
                                 <i class="fa-solid fa-pen-to-square"></i>
                                 <div>
-                                    <h5 class="card-title">Questionário do Aluno</h5>
-                                    <p>Para saber mais sobre o Questionário, clique no botão abaixo</p>
+                                    <span>Descrição do questionário</span>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                        Visualizar
-                                    </button>
-                                    <div class="modal fade" id="basicModal" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Deseja inserir um grupo de perguntas?</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                            Visualizar
+                        </button>
 
-                                                <div class="modal-footer">
-                                                    <a th:href="@{/avaliacao/vincular-grupo}" class="btn btn-primary">Inserir Grupo de Pergunta</a>
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="modal fade" id="basicModal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Deseja inserir um grupo de perguntas?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <a th:href="@{/avaliacao/vincular-grupo}" class="btn btn-primary">Inserir Grupo de Pergunta</a>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card">
-                        <div class="card-body">
-
-                            <div class="display">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                <div>
-                                    <h5 class="card-title">Questionário do Professor</h5>
-                                    <p>Para saber mais sobre o Questionário, clique no botão abaixo</p>
-
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                        Visualizar
-                                    </button>
-                                    <div class="modal fade" id="basicModal" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Deseja inserir um grupo de perguntas?</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-
-                                                <div class="modal-footer">
-                                                    <a th:href="@{/avaliacao/vincular-grupo}" class="btn btn-primary">Inserir Grupo de Pergunta</a>
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-
-                            <div class="display">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                <div>
-                                    <h5 class="card-title">Questionário do Colaborador</h5>
-                                    <p>Para saber mais sobre o Questionário, clique no botão abaixo</p>
-
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                        Visualizar
-                                    </button>
-                                    <div class="modal fade" id="basicModal" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Deseja inserir um grupo de perguntas?</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-
-                                                <div class="modal-footer">
-                                                    <a th:href="@{/avaliacao/vincular-grupo}" class="btn btn-primary">Inserir Grupo de Pergunta</a>
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-
-                            <div class="display">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                <div>
-                                    <h5 class="card-title">Questionário da Comunidade Externa</h5>
-                                    <p>Para saber mais sobre o Questionário, clique no botão abaixo</p>
-
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                        Vincular
-                                    </button>
-
-                                    <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Vincular Grupo de Perguntas</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Grupo de Perguntas vinculado com sucesso!
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>

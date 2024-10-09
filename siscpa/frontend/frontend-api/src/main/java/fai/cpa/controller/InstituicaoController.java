@@ -63,6 +63,11 @@ public class InstituicaoController {
         return "instituicao/listar-usuarios";
     }
 
+    @GetMapping("/menu-instituicao")
+    public String getMenuInstituicaoPage(){
+        return "instituicao/menu-instituicao";
+    }
+
     @PostMapping("/criar-instituicao")
     public String criarInstituicao(final InstituicaoModel instituicao){
         final int id = createInstituicao.createInstituicao(instituicao);

@@ -76,6 +76,11 @@ h6 {
   color: #fff;
   line-height: 0;
 }
+.alinhamento1 {
+    display:flex;
+    align-items: baseline;
+    justify-content: center;
+}
 
 .back-to-top:hover {
   background: #6776f4;
@@ -153,6 +158,9 @@ h6 {
   }
 }
 
+.modal-footer {
+    align-items: flex-end;
+}
 @keyframes dropdown-animate {
   0% {
     opacity: 0;
@@ -219,6 +227,210 @@ h6 {
   padding: 15px;
 }
 
+/*--------------------------------------------------------------
+# Card de grupo de perguntas
+--------------------------------------------------------------*/
+
+.card-title-grupo {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  padding: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background-color:#D2691E;
+}
+.card-grupo {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 12px;
+}
+.card-body-grupo {
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+}
+.form-label-pergunta{
+    font-size: 20px;
+}
+.form-check {
+    margin-bottom:12px;
+}
+/*--------------------------------------------------------------
+# Card de grupo de questionarios
+--------------------------------------------------------------*/
+.card-title-questionario {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  padding: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background-color:#228B22;
+}
+.card-questionario {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 12px;
+}
+.card-body-questionario {
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+/*--------------------------------------------------------------
+# Card de grupo de edicoes
+--------------------------------------------------------------*/
+.card-title-edicao {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  padding: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background-color:#1E90FF;
+}
+.card-edicao {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 12px;
+}
+.card-body-edicao {
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+/*--------------------------------------------------------------
+# Card de perguntas
+--------------------------------------------------------------*/
+.card-pergunta {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 12px;
+    background-color:white;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+    height:450px;
+}
+.card-body-pergunta {
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+  border-radius:12px;
+}
+
+.form-label-pergunta {
+    font-size: 20px;
+    margin-bottom: 25px;
+    align-items: justify;
+}
+.form-label-span {
+    font-size: 20px;
+    align-items: justify;
+}
+.form-label-span2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.body-pergunta{
+    background-color:#f1f1f1;
+}
+
+.card-body-responder {
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+/*--------------------------------------------------------------
+# Card de instituições
+--------------------------------------------------------------*/
+.card-instituicao {
+    margin-bottom: 100px;
+    border: none;
+    border-radius: 12px;
+    background-color:white;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+.card-instituicao:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
+    transform: translateY(-6px); /* Eleva um pouco o card */
+    background-color: rgba(240, 240, 240, 0.8); /* Altera a cor de fundo ao passar o mouse (opcional) */
+}
+
+.card-body-instituicao {
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  border-radius:12px;
+}
+
+.card-title-instituicao {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  padding: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background-color:#37517e;
+}
+
+.paragrafo1 {
+    font-size: 20px;
+    margin:0 40px;
+}
+
+.paragrafo2 {
+    font-size: 20px;
+    text-align:center;
+    margin-right: 50px;
+}
+
+.btn-instituicao {
+    background-color: red;
+}
+
+/*--------------------------------------------------------------
+# Card de membro
+--------------------------------------------------------------*/
+.card-membro {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+}
+.card-body-membro {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column; /* Alinha os elementos verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    border-radius: 12px;
+}
+
+.card-body-membro i {
+    font-size: 44px; /* Ajuste o tamanho do ícone conforme necessário */
+    margin-bottom: 10px; /* Espaçamento entre o ícone e o título */
+}
+
+.form-select-membro {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    text-align:center;
+    font-size:18px;
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+
 .card-title {
   padding: 20px 0 15px 0;
   font-size: 18px;
@@ -226,11 +438,31 @@ h6 {
   color: #012970;
   font-family: "Poppins", sans-serif;
 }
-
+.card-title-reuniao {
+    padding: 20px 0 15px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #012970;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 25px;
+}
 .card-title span {
   color: #899bbd;
   font-size: 14px;
   font-weight: 400;
+}
+
+.titlee-tipo-pergunta {
+    padding: 10px 20px;
+    background-color: #1E90FF;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    color:white;
+    font-weight:bold;
+}
+.container-perguntas1 {
+    display: flex;
+    flex-direction: column;
 }
 
 .card-body {
@@ -243,7 +475,6 @@ h6 {
     padding:25px;
     border-radius: 100%;
     background-color:#37517e;
-    margin-right: 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 
@@ -260,6 +491,7 @@ h6 {
 
 /* Close Button */
 .btn-close {
+  background-size: 25%;
   background-size: 25%;
 }
 
@@ -390,10 +622,23 @@ h6 {
   cursor: pointer;
   color: #012970;
 }
-
+.search-bar{
+    margin-bottom: 30px;
+}
+.search-bar input{
+    padding:7px;
+    width:30%;
+}
+.search-membro {
+    width: 3%;
+    border-radius: 0;
+}
 .header .search-bar {
   min-width: 360px;
   padding: 0 20px;
+}
+.email-membro{
+    margin-bottom:20px;
 }
 
 @media (max-width: 1199px) {
@@ -1180,8 +1425,16 @@ h6 {
     padding:20px 22px;
     border-radius: 100%;
     background-color:#37517e;
-    margin-right: 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    margin: 20px 70px 0 35px;
+}
+
+.fa-right-to-bracket {
+    padding:20px 22px;
+     border-radius: 100%;
+     background-color:#4CAF50;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+     margin: 20px 70px 0 35px;
 }
 .fa-clipboard-question {
     padding:20px 28px;
@@ -1191,7 +1444,7 @@ h6 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 .fa-chart-simple {
-    padding:20px 28px;
+    padding:20px 25px;
     border-radius: 100%;
     background-color:#37517e;
     margin-right: 40px;
@@ -1208,14 +1461,18 @@ h6 {
     padding:20px 25px;
     border-radius: 100%;
     background-color:#37517e;
-    margin-right: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.fa-up-right-from-square {
+    padding: 20px 22px;
+    border-radius: 100%;
+    background-color: #4CAF50;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 .fa-user {
     padding:20px 25px;
      border-radius: 100%;
      background-color:#37517e;
-     margin-right: 40px;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 .fa-people-group {
@@ -1227,10 +1484,28 @@ h6 {
     margin-right: 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
-.display{
+.display-instituicao{
     display: flex;
-    align-items: center;
+    align-items:flex-start;
+    justify-content: space-between;
 }
+.title-info-instituicao {
+    font-size: 20px;
+
+}
+.display {
+    display:flex;
+}
+
+.display-pergunta {
+    display:flex;
+    align-items:flex-start;
+}
+
+.display2-instituicao{
+    display: flex;
+}
+
 .display-flex-meeting {
     border-radius: 10px;
     padding: 20px; /* Adicionei o ponto e vírgula aqui */
@@ -1255,7 +1530,11 @@ h6 {
 }
 
 .btn-primary{
-    margin-right:0;
+    margin-top: 10px;
+}
+.botao-instituicao button {
+    padding: 10px 75px;
+    border-radius: 12px;
 }
 
 /*--------------------------------------------------------------

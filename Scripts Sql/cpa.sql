@@ -1,5 +1,6 @@
-drop database if exists cpa ;
 
+-- Excluir essa linhas: 3, 4 e 9 quando for criar banco
+drop database if exists cpa ;
 
 create database cpa;
 

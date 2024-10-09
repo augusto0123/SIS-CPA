@@ -27,4 +27,24 @@ public class DocumentosController {
     public String getRegulamentacaoPage(){
         return "documentos/regulamentacao";
     }
+
+    @GetMapping("/legislacao-membro")
+    public String getLegislacaoMembroPage(){
+        return "documentos/legislacao-membro";
+    }
+
+    @GetMapping("/regulamentacao-membro")
+    public String getRegulamentacaoMembroPage(){
+        return "documentos/regulamentacao-membro";
+    }
+
+    @GetMapping("/cronograma-membro")
+    public String getCronogramaMembroPage(){
+        return "documentos/cronograma-membro";
+    }
+
+    @GetMapping("/comunicacao-membro")
+    public String getComunicacaoMembroPage(){
+        return "documentos/comunicacao-membro";
+    }
 }

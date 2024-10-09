@@ -14,10 +14,8 @@ public class CreateUsuario {
         if(usuarioModel == null){
             return -1;
         }
-        if(usuarioModel.getDataCadastro() == null
-                || usuarioModel.getEmail().isEmpty()
+        if(usuarioModel.getEmail().isEmpty()
                 || usuarioModel.getNome().isEmpty()
-                || usuarioModel.getSituacao().isEmpty()
                 || usuarioModel.getTelefone().isEmpty()
                 || usuarioModel.getTipo().isEmpty()
                 || usuarioModel.getSenha().isEmpty()){

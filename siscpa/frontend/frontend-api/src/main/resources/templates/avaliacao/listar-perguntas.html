@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Listar Perguntas</title>
 </head>
-<body>
+<body class="body-pergunta">
 
 <div layout:fragment="body">
 
@@ -16,168 +16,67 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index-membroCPA.html">Incio</a></li>
                 <li class="breadcrumb-item">Avaliação</li>
-                <li class="breadcrumb-item active">Questionário</li>
+                <li class="breadcrumb-item active">Lista de Perguntas</li>
             </ol>
         </nav>
     </div>
 
-    <section class="section">
+    <section class="section-pergunta">
         <div class="row">
-            <div class="col-lg-6">
+
+            <div class="col-lg-11">
 
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body-responder">
                         <form class="row g-3 needs-validation" novalidate>
                             <div class="mb-3">
-                                <label for="descricao" class="form-label">Como você avaliaria a infraestrutura da Instituição?</label>
+                                <span for="pergunta" class="form-label-span">Texto da pergunta</span>
                             </div>
 
                             <div class="mb-3">
+                                <label class="form-label">Escolha uma opção:</label>
                                 <div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert1" value="1">
+                                        <input class="form-check-input" type="radio" name="likert" id="likert1" value="1" required>
                                         <label class="form-check-label" for="likert1">Péssimo</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert2" value="2">
+                                        <input class="form-check-input" type="radio" name="likert" id="likert2" value="2" required>
                                         <label class="form-check-label" for="likert2">Ruim</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert3" value="3">
+                                        <input class="form-check-input" type="radio" name="likert" id="likert3" value="3" required>
                                         <label class="form-check-label" for="likert3">Regular</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert4" value="4">
+                                        <input class="form-check-input" type="radio" name="likert" id="likert4" value="4" required>
                                         <label class="form-check-label" for="likert4">Bom</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert5" value="5">
+                                        <input class="form-check-input" type="radio" name="likert" id="likert5" value="5" required>
                                         <label class="form-check-label" for="likert5">Excelente</label>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                Cadastrar
-                            </button>
                         </form>
                     </div>
                 </div>
+            </div>
+
+            <div class="col-lg-11">
 
                 <div class="card">
-                    <div class="card-body">
-                        <form class="row g-3 needs-validation" novalidate>
-                            <div class="mb-3">
-                                <label for="descricao" class="form-label">Qualidade da metodologia de ensino utilizada pelos professores:</label>
-                            </div>
 
-                            <div class="mb-3">
-                                <div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert1" value="1">
-                                        <label class="form-check-label" for="likert1">Péssimo</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert2" value="2">
-                                        <label class="form-check-label" for="likert2">Ruim</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert3" value="3">
-                                        <label class="form-check-label" for="likert3">Regular</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert4" value="4">
-                                        <label class="form-check-label" for="likert4">Bom</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert5" value="5">
-                                        <label class="form-check-label" for="likert5">Excelente</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                Cadastrar
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <form class="row g-3 needs-validation" novalidate>
-                            <div class="mb-3">
-                                <label for="descricao" class="form-label">Avaliação das condições das salas de aula e laboratórios:</label>
-                            </div>
-
-                            <div class="mb-3">
-                                <div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert1" value="1">
-                                        <label class="form-check-label" for="likert1">Péssimo</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert2" value="2">
-                                        <label class="form-check-label" for="likert2">Ruim</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert3" value="3">
-                                        <label class="form-check-label" for="likert3">Regular</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert4" value="4">
-                                        <label class="form-check-label" for="likert4">Bom</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert5" value="5">
-                                        <label class="form-check-label" for="likert5">Excelente</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                Cadastrar
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-
+                    <div class="card-body-responder">
                         <form class="row g-3 needs-validation" novalidate>
 
                             <div class="mb-3">
-                                <label for="descricao" class="form-label">Quais aspectos da infraestrutura da instituição você considera mais positivos e quais poderiam ser melhorados?</label>
+                                <label for="resposta" class="form-label-pergunta">Texto da Pergunta</label>
+                                <textarea class="form-control" id="resposta" rows="3" placeholder="Responda aqui..."></textarea>
                             </div>
-
-                            <div class="mb-3">
-                                <label for="resposta" class="form-label">Resposta</label>
-                                <textarea class="form-control" id="resposta" rows="3"></textarea>
-                            </div>
-
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                Cadastrar
-                            </button>
-
-                            <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Cadastrar Pergunta ao Grupo</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Pergunta cadastrada com sucesso!
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

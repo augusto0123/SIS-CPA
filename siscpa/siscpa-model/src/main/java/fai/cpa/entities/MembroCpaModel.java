@@ -3,6 +3,9 @@ package fai.cpa.entities;
 public class MembroCpaModel {
 
     private int id;
+
+    private String nomeMembro;
+
     private String cargo;
 
     public int getId() {
@@ -20,5 +23,13 @@ public class MembroCpaModel {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    public String getNomeMembro() {
+        return nomeMembro;
+    }
+
+    public void setNomeMembro(String nomeMembro) {
+        this.nomeMembro = nomeMembro;
     }
 }

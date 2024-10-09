@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Vincular-se a Instituição</title>
+    <!-- Icones -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+    <link href="/assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 
@@ -23,43 +31,45 @@
 
         <section class="section">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-11">
+                    <!-- Card de listar instituição -->
+                    <div class="card-instituicao" th:each="instituicao : ${instituicoes}">
 
-                    <div class="card" th:each="instituicao : ${instituicoes}">
+                        <h5 class="card-title-instituicao" th:text="${instituicao.nomeFantasia}"></h5>
 
-                        <div class="card-body">
+                        <div class="card-body-instituicao">
 
-                            <h5 class="card-title" th:text="${instituicao.nomeFantasia}"></h5>
-                            <p>Para saber mais sobre a Instituição , clique no botão abaixo</p>
+                            <div class="display-instituicao">
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                Visualizar
-                            </button>
-                            <div class="modal fade" id="basicModal" tabindex="-1">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Nome da Instituição</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <h5>Endereço:  </h5>
-                                            <h5>Contato:  </h5>
-                                        </div>
-                                        <div class="modal-body">
-                                            Tem certeza que deseja se associar a essa Instituição?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a th:href="@{/conta/vincular-usuario}" class="btn btn-primary">Associar</a>
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                        </div>
+                                <div class="display2-instituicao">
+
+                                    <div class="paragrafo1">
+                                        <h5 class="title-info-instituicao"><strong>Endereço:</strong></h5>
+                                        <h5>Rua: <span th:text="${instituicao.endereco.logradouro}"></span></h5>
+                                        <h5>Bairro: <span th:text="${instituicao.endereco.bairro}"></span></h5>
+                                        <h5>CEP: <span th:text="${instituicao.endereco.cep}"></span></h5>
+                                        <h5>Complemento: <span th:text="${instituicao.endereco.complemento}"></span></h5>
+                                    </div>
+
+                                    <div class="paragrafo1">
+                                        <h5 class="title-info-instituicao"> <strong>Contato / Instituição:</strong></h5>
+                                        <h5>Email: <span th:text="${instituicao.email}"></span></h5>
+                                        <h5>Telefone: <span th:text="${instituicao.telefone}"></span></h5>
                                     </div>
                                 </div>
+
+                                <div class="paragrafo2">
+                                    <h5 class="title-info-instituicao"> <strong>Vincular-se:</strong></h5>
+                                    <a th:href="@{/conta/vincular-usuario}"><i class="fa-solid fa-up-right-from-square"></i></a>
+                                </div>
+
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </section>
 
     </main>

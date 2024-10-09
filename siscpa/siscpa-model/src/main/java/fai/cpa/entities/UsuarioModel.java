@@ -9,8 +9,6 @@ public class UsuarioModel {
     private String nome;
     private String email;
     private String senha;
-    private String situacao;
-    private LocalDate dataCadastro;
     private String telefone;
 
     public String getTipo() {
@@ -29,21 +27,6 @@ public class UsuarioModel {
         this.senha = senha;
     }
 
-    public String getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(String situacao) {
-        this.situacao = situacao;
-    }
-
-    public LocalDate getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(LocalDate dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
 
     public int getId() {
         return id;

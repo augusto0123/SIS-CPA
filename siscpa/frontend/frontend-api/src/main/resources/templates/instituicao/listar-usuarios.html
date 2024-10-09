@@ -29,147 +29,95 @@
             </nav>
         </div>
 
+        <div class="search-bar">
+            <form class="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" name="query" placeholder="Pesquisar" title="Enter search keyword">
+                <button type="submit" title="Search" class="search-membro"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
+
         <section class="section">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-3">
 
-                    <div class="card">
+                    <div class="card-membro">
+
                         <div class="card-body">
 
-                            <div class="display">
-                                <i class="fa-solid fa-user"></i>
-                                <div>
-                                    <h5 class="card-title">Ana</h5>
-                                    <p>Para saber mais sobre o Usuario , clique no botão abaixo</p>
+                            <form class="row g-3 needs-validation" novalidate>
 
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                        Visualizar
-                                    </button>
-                                    <div class="modal fade" id="basicModal" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Ana</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <h5>Instituição: Fai-Centro de Ensino Superior em Gestão,Tecnologia e Educação </h5>
-                                                    <h5>Tipo: Aluno </h5>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                </div>
+                                <div class="card-body-membro">
+
+                                    <i class="fa-solid fa-user"></i>
+
+                                    <h5 class="card-title">Nome</h5>
+                                    <label>Cargo</label>
+
+                                </div>
+
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                                    Visualizar
+                                </button>
+
+                                <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Informações de contato:</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h5>Email: </h5>
+                                                <h5>Telefone: </h5>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!--                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop" data-bs-backdrop="false">-->
+                                <!--                                        Visualizar-->
+                                <!--                                    </button>-->
+
+                                <!--                                    <div class="modal fade" id="basicModal" tabindex="-1" style="display: none;" aria-hidden="true">-->
+                                <!--                                        <div class="modal-dialog">-->
+                                <!--                                            <div class="modal-content">-->
+                                <!--                                                <div class="modal-header">-->
+                                <!--                                                    <h5 class="modal-title">Nome do Membro</h5>-->
+                                <!--                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="modal-body">-->
+                                <!--                                                    <h5>Instituição:  </h5>-->
+                                <!--                                                    <h5>Contato:  </h5>-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="modal-footer">-->
+                                <!--                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+
+                                <!--                                    <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">-->
+                                <!--                                        <div class="modal-dialog">-->
+                                <!--                                            <div class="modal-content">-->
+                                <!--                                                <div class="modal-header">-->
+                                <!--                                                    <h5 class="modal-title">Nome do Membro</h5>-->
+                                <!--                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="modal-body">-->
+                                <!--                                                    <h5>Instituição:  </h5>-->
+                                <!--                                                    <h5>Contato:  </h5>-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="modal-footer">-->
+                                <!--                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                            </form>
                         </div>
-                    </div>
-
-                </div>
-
-                    <div class="card">
-                        <div class="card-body">
-
-                            <div class="display">
-                                <i class="fa-solid fa-user"></i>
-                                <div>
-                                    <h5 class="card-title">Augusto</h5>
-                                    <p>Para saber mais sobre o Usuario , clique no botão abaixo</p>
-
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                        Visualizar
-                                    </button>
-                                    <div class="modal fade" id="basicModal" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Augusto</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <h5>Instituição: Fai-Centro de Ensino Superior em Gestão,Tecnologia e Educação </h5>
-                                                    <h5>Tipo: Aluno </h5>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-
-                            <div class="display">
-                                <i class="fa-solid fa-user"></i>
-                                <div>
-                                    <h5 class="card-title">João</h5>
-                                    <p>Para saber mais sobre o Usuario , clique no botão abaixo</p>
-
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                        Visualizar
-                                    </button>
-                                    <div class="modal fade" id="basicModal" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">João</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <h5>Instituição: Fai-Centro de Ensino Superior em Gestão,Tecnologia e Educação </h5>
-                                                    <h5>Tipo: Colaborador </h5>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-
-                            <div class="display">
-                                <i class="fa-solid fa-user"></i>
-                                <div>
-                                    <h5 class="card-title">Eunice</h5>
-                                    <p>Para saber mais sobre o Usuario , clique no botão abaixo</p>
-
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                        Visualizar
-                                    </button>
-                                    <div class="modal fade" id="basicModal" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Eunice</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <h5>Instituição: Fai-Centro de Ensino Superior em Gestão,Tecnologia e Educação </h5>
-                                                    <h5>Tipo: Colaborador </h5>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>

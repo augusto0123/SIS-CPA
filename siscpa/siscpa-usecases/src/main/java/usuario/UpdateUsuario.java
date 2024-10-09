@@ -13,11 +13,9 @@ public class UpdateUsuario {
 
     public boolean update(final UsuarioModel usuarioModel){
         final UsuarioModel byId = usuarioRepositorty.findById(usuarioModel.getId());
-        byId.setSituacao(usuarioModel.getSituacao());
         byId.setTelefone(usuarioModel.getTelefone());
         byId.setEmail(usuarioModel.getEmail());
         byId.setNome(usuarioModel.getNome());
-        byId.setDataCadastro(usuarioModel.getDataCadastro());
         byId.setSenha(usuarioModel.getSenha());
         byId.setTipo(usuarioModel.getTipo());
 

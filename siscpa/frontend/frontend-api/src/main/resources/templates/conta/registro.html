@@ -61,41 +61,38 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="yourEmail" class="form-label">Seu Email</label>
+                                        <label for="yourEmail" class="form-label">Email</label>
                                         <input type="email" name="email" class="form-control" id="yourEmail" required>
                                         <div class="invalid-feedback">Por favor, Digite um endereço de Email válido!</div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="yourPassword" class="form-label">Senha</label>
-                                        <input type="password" name="password" class="form-control" id="yourPassword" required>
+                                        <label for="Password" class="form-label">Senha</label>
+                                        <input type="password" name="Password" class="form-control" id="Password" required>
                                         <div class="invalid-feedback">Por Favor, entre com a sua senha!</div>
                                     </div>
 
-                                    <div class="col-12"></div>
-                                    <label for="yourPassword" class="form-label">Confirmar Senha</label>
-                                    <input type="password" name="password" class="form-control" id="yourPassword" required>
-                                    <div class="invalid-feedback">Por Favor, entre com a sua senha!</div>
+                                    <div class="col-12">
+                                        <div class="col-12">
+                                            <a class="btn btn-primary w-100" th:href="@{/conta/autenticacao}">Entrar</a>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="col-12">
+                                        <p class="small mb-0">Já possui uma conta?<a th:href="@{/conta/login}"> Entrar</a></p>
+                                    </div>
+
                                 </form>
                             </div>
 
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                                    <label class="form-check-label" for="acceptTerms">Eu concordo e aceito o <a href="#">Termo e Condições</a></label>
-                                    <div class="invalid-feedback">Você deve concordar antes de enviar.</div>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="col-12">
-                                    <a class="btn btn-primary w-100" th:href="@{/conta/autenticacao}">Entrar</a>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <p class="small mb-0">Já possui uma conta?<a href="login.html"> Entrar</a></p>
-                            </div>
+<!--                            <div class="col-12">-->
+<!--                                <div class="form-check">-->
+<!--                                    <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>-->
+<!--                                    <label class="form-check-label" for="acceptTerms">Eu concordo e aceito o <a href="#">Termo e Condições</a></label>-->
+<!--                                    <div class="invalid-feedback">Você deve concordar antes de enviar.</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
                         </div>
                     </div>

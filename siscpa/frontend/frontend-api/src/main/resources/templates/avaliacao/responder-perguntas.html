@@ -4,152 +4,79 @@
     <meta charset="UTF-8">
     <title>Responder Perguntas</title>
 </head>
-<body>
+<body class="body-pergunta">
 
 <div layout:fragment="body">
 
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Questionário</h1>
+            <h1>Listar Perguntas</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index-user.html">Inicio</a></li>
-                    <li class="breadcrumb-item">Avaliações</li>
-                    <li class="breadcrumb-item active">Questionário Abertos</li>
+                    <li class="breadcrumb-item"><a href="#">EDIÇÃO (Nº)</a></li>
+                    <li class="breadcrumb-item"><a href="#"> QUESTIONARIO DO (PAPEL)</a></li>
+                    <li class="breadcrumb-item active">TEMA DO GRUPO DE PERGUNTAS</li>
                 </ol>
             </nav>
         </div>
 
-        <section class="section">
+        <section class="section-pergunta">
             <div class="row">
-                <div class="col-lg-6">
 
+                <div class="col-lg-8">
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Grupo: Qualidade de Ensino</h5>
-                            <h6 class="card-subtitle mb-3">Edição: 2024</h6>
-
-                            <!-- Grupo 1 -->
-                            <div class="mb-4">
-
-                                <!-- Pergunta 2: Objetiva -->
-                                <div class="mb-3">
-                                    <label class="label1">1. Como você avaliaria a eficácia das metodologias de ensino utilizadas pelos professores?</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1a" name="pergunta2" value="a">
-                                        <label for="objetiva1a" class="form-check-label"> Excelente</label>
+                        <h5 class="card-title-grupo">(Tema do Grupo)</h5>
+                        <div class="card-body-responder">
+                            <form class="row g-3 needs-validation" novalidate>
+                                <div class="questao-objetiva">
+                                    <div class="mb-3">
+                                        <span class="form-label-span">Texto da pergunta</span>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1b" name="pergunta2" value="b">
-                                        <label for="objetiva1b" class="form-check-label"> Bom</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1c" name="pergunta2" value="c">
-                                        <label for="objetiva1c" class="form-check-label"> Regular</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1d" name="pergunta2" value="d">
-                                        <label for="objetiva1d" class="form-check-label"> Ruim</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1e" name="pergunta2" value="e">
-                                        <label for="objetiva1e" class="form-check-label"> Péssimo</label>
-                                    </div>
-                                </div>
-                                <br>
-
-                                <!-- Pergunta 2: Objetiva -->
-                                <div class="mb-3">
-                                    <label class="label1">2. Como você avaliaria a relação entre professores e alunos em termos de acessibilidade e apoio?</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1a" name="pergunta2" value="a">
-                                        <label for="objetiva1a" class="form-check-label"> Excelente</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1b" name="pergunta2" value="b">
-                                        <label for="objetiva1b" class="form-check-label"> Bom</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1c" name="pergunta2" value="c">
-                                        <label for="objetiva1c" class="form-check-label"> Regular</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1d" name="pergunta2" value="d">
-                                        <label for="objetiva1d" class="form-check-label"> Ruim</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1e" name="pergunta2" value="e">
-                                        <label for="objetiva1e" class="form-check-label"> Péssimo</label>
-                                    </div>
-                                </div>
-                                <br>
-
-                                <!-- Pergunta 2: Objetiva -->
-                                <div class="mb-3">
-                                    <label class="label1">3. Como você avaliaria a clareza dos critérios de avaliação utilizados pelos professores?</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1a" name="pergunta2" value="a">
-                                        <label for="objetiva1a" class="form-check-label"> Excelente</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1b" name="pergunta2" value="b">
-                                        <label for="objetiva1b" class="form-check-label"> Bom</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1c" name="pergunta2" value="c">
-                                        <label for="objetiva1c" class="form-check-label"> Regular</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1d" name="pergunta2" value="d">
-                                        <label for="objetiva1d" class="form-check-label"> Ruim</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="objetiva1e" name="pergunta2" value="e">
-                                        <label for="objetiva1e" class="form-check-label"> Péssimo</label>
-                                    </div>
-                                </div>
-                                <br>
-
-
-                                <!-- Pergunta 1: Subjetiva -->
-                                <div class="mb-3">
-                                    <label for="experiencia" class="form-label">4. Deixe uma sugestão ou observação de melhoria:</label>
-                                    <textarea class="form-control" id="experiencia" style="height: 100px"></textarea>
-                                </div>
-                            </div>
-
-                            <!-- Botão de Envio -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                Enviar
-                            </button>
-
-                            <!-- Modal de Confirmação -->
-                            <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Questionário do Aluno</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Suas respostas foram enviadas!
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                    <div class="mb-3">
+                                        <label class="form-label">Escolha uma opção:</label>
+                                        <div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="likert" id="likert1" value="1" required>
+                                                <label class="form-check-label" for="likert1">Péssimo</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="likert" id="likert2" value="2" required>
+                                                <label class="form-check-label" for="likert2">Ruim</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="likert" id="likert3" value="3" required>
+                                                <label class="form-check-label" for="likert3">Regular</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="likert" id="likert4" value="4" required>
+                                                <label class="form-check-label" for="likert4">Bom</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="likert" id="likert5" value="5" required>
+                                                <label class="form-check-label" for="likert5">Excelente</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
+                                <div class="questao-subjetiva">
+                                    <div class="mb-3">
+                                        <label for="resposta" class="form-label-span2">Texto da Pergunta</label>
+                                        <textarea class="form-control" id="resposta" rows="3" placeholder="Responda aqui..." required></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary btn-md">Enviar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
     </main>
-
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

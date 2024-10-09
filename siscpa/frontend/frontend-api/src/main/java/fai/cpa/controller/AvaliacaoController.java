@@ -22,29 +22,29 @@ public class AvaliacaoController {
         this.showAllReunioes = showAllReunioes;
     }
 
-    @GetMapping("/reuniao")
+    @GetMapping("/cadastrar-reuniao")
     public String getReuniaoPage(final Model model){
         model.addAttribute("reuniao", new ReuniaoCpaModel());
-        return "avaliacao/reuniao";
+        return "avaliacao/cadastrar-reuniao";
     }
-    @GetMapping("/edicao")
+    @GetMapping("/cadastrar-edicao")
     public String getEdicaoPage(){
-        return "avaliacao/edicao";
+        return "avaliacao/cadastrar-edicao";
     }
 
-    @GetMapping("/pergunta")
+    @GetMapping("/cadastrar-pergunta")
     public String getPerguntaPage(){
-        return "avaliacao/pergunta";
+        return "avaliacao/cadastrar-pergunta";
     }
 
-    @GetMapping("/grupo")
+    @GetMapping("/cadastrar-grupo")
     public String getGrupoPage(){
-        return "avaliacao/grupo";
+        return "avaliacao/cadastrar-grupo";
     }
 
-    @GetMapping("/questionario")
+    @GetMapping("/cadastrar-questionario")
     public String getQuestionarioPage(){
-        return "avaliacao/questionario";
+        return "avaliacao/cadastrar-questionario";
     }
 
     @GetMapping("/listar-perguntas")
@@ -60,6 +60,11 @@ public class AvaliacaoController {
     @GetMapping("/listar-grupos")
     public String getListarGruposPage(){
         return "avaliacao/listar-grupos";
+    }
+
+    @GetMapping("/responder-edicao")
+    public String getResponderEdicaoPage(){
+        return "avaliacao/responder-edicao";
     }
 
     @GetMapping("/responder-questionario")
@@ -80,6 +85,10 @@ public class AvaliacaoController {
         return "avaliacao/listar-edicoes";
     }
 
+    @GetMapping("/vincular-pergunta")
+    public String getVincularPerguntaPage(){
+        return "avaliacao/vincular-pergunta";
+    }
 
     @GetMapping("/vincular-grupo")
     public String getVincularGrupoPage() {
@@ -91,12 +100,4 @@ public class AvaliacaoController {
         return "avaliacao/vincular-questionario";
     }
 
-    @PostMapping("/criar-reuniao")
-    public String criarReuniao(final ReuniaoCpaModel reuniao){
-        final int id = createReuniao.createReuniao(reuniao);
-        if (id > 0){
-            return "redirect:/avaliacao/reuniao";
-        }
-        return "redirect:/conta/not-found";
-    }
 }
