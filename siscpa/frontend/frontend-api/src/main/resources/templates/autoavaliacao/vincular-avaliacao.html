@@ -2,7 +2,8 @@
 <html layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Listar Edições</title>
+    <title>Vincular Avaliação</title>
+    <!--  Icones   -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
           integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -18,61 +19,63 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Listar Edições de Autoavaliação</h1>
+            <h1>Vincular Questionário</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-membroCPA.html">Inicio</a></li>
-                    <li class="breadcrumb-item">Avaliação</li>
-                    <li class="breadcrumb-item active">Lista de Edições</li>
+                    <li class="breadcrumb-item">Autoavaliação</li>
+                    <li class="breadcrumb-item active">Vincular Avaliação</li>
                 </ol>
             </nav>
         </div>
 
         <section class="section">
-
             <div class="row">
 
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4">
 
-                    <div class="card-edicao">
+                    <div class="card-avaliacao">
 
-                        <h5 class="card-title-edicao">Edição (Ano da Edição)</h5>
-                        <div class="card-body-edicao">
+                        <h5 class="card-title-avaliacao">Tema da Avaliação</h5>
 
-                            <div class="display">
-                                <i class="fa-solid fa-chart-simple"></i>
-                                <div>
-                                    <span>Descrição</span>
-                                </div>
+                        <div class="card-body-avaliacao">
+                            <div>
+                                <i class="fa-solid fa-circle-check"></i>
                             </div>
+
+                            <div class="table-edicao">
+                                <span>Descrição</span>
+                            </div>
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                            Vincular
+                        </button>
                         </div>
 
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                            Visualizar
-                        </button>
-                        <div class="modal fade" id="basicModal" tabindex="-1">
+
+                        <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false" style="display: none;" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Deseja inserir uma Questionário á Edição?</h5>
+                                        <h5 class="modal-title">Vincular avaliação á edição</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-
+                                    <div class="modal-body">
+                                        Avaliação vinculada com sucesso!
+                                    </div>
                                     <div class="modal-footer">
-                                        <a th:href="@{/avaliacao/vincular-questionario}" class="btn btn-primary">Inserir Questionário</a>
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </section>
 
     </main>
-
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -87,6 +90,7 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
+
 
 </div>
 

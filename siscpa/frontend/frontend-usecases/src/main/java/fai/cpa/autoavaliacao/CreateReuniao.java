@@ -1,4 +1,4 @@
-package fai.cpa.avaliacao;
+package fai.cpa.autoavaliacao;
 
 
 import fai.cpa.entities.ReuniaoCpaModel;

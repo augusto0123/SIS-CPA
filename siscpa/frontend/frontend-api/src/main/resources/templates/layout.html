@@ -197,91 +197,100 @@
                         <i class="bi bi-circle"></i><span>Cadastrar Instituição</span>
                     </a>
                 </li>
-                <li>
-                    <a th:href="@{/instituicao/adicionar-membro}">
-                        <i class="bi bi-circle"></i><span>Cadastrar Membro CPA</span>
-                    </a>
-                </li>
+<!--                <li>-->
+<!--                    <a th:href="@{/instituicao/adicionar-membro}">-->
+<!--                        <i class="bi bi-circle"></i><span>Cadastrar Membro CPA</span>-->
+<!--                    </a>-->
+<!--                </li>-->
 
                 <li>
                     <a th:href="@{/instituicao/listar-instituicao}">
                         <i class="bi bi-circle"></i><span>Listar Instituição</span>
                     </a>
                 </li>
-                <li>
-                    <a th:href="@{/instituicao/listar-membro}">
-                        <i class="bi bi-circle"></i><span>Listar Membro CPA</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/instituicao/listar-usuarios}">
-                        <i class="bi bi-circle"></i><span>Listar Usuarios</span>
-                    </a>
-                </li>
+<!--                <li>-->
+<!--                    <a th:href="@{/instituicao/listar-membro}">-->
+<!--                        <i class="bi bi-circle"></i><span>Listar Membro CPA</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a th:href="@{/instituicao/listar-usuarios}">-->
+<!--                        <i class="bi bi-circle"></i><span>Listar Usuarios</span>-->
+<!--                    </a>-->
+<!--                </li>-->
             </ul>
         </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-journal-text"></i><span>Avaliação(Membro)</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-journal-text"></i><span>Autoavaliação(Membro)</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a th:href="@{/avaliacao/cadastrar-reuniao}">
+                    <a th:href="@{/autoavaliacao/cadastrar-reuniao}">
                         <i class="bi bi-circle"></i><span>Agendar Reunião CPA</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/cadastrar-edicao}">
+                    <a th:href="@{/autoavaliacao/cadastrar-edicao}">
                         <i class="bi bi-circle"></i><span>Cadastrar Edição de Autoavaliação</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/cadastrar-pergunta}">
-                        <i class="bi bi-circle"></i><span>Cadastrar Perguntas</span>
+                    <a th:href="@{/autoavaliacao/cadastrar-avaliacao}">
+                        <i class="bi bi-circle"></i><span>Cadastrar Avaliações</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/cadastrar-grupo}">
-                        <i class="bi bi-circle"></i><span>Cadastrar Grupo de Perguntas</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/avaliacao/cadastrar-questionario}">
+                    <a th:href="@{/autoavaliacao/cadastrar-questionario}">
                         <i class="bi bi-circle"></i><span>Cadastrar Questionário</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/listar-perguntas}">
-                        <i class="bi bi-circle"></i><span>Listar Perguntas</span>
+                    <a th:href="@{/autoavaliacao/cadastrar-grupo}">
+                        <i class="bi bi-circle"></i><span>Cadastrar Grupo de Perguntas</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/listar-grupos}">
-                        <i class="bi bi-circle"></i><span>Listar Grupo de Perguntas</span>
+                    <a th:href="@{/autoavaliacao/cadastrar-pergunta}">
+                        <i class="bi bi-circle"></i><span>Cadastrar Perguntas</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/listar-questionarios}">
+                    <a th:href="@{/autoavaliacao/listar-edicoes}">
+                        <i class="bi bi-circle"></i><span>Listar Edições</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/autoavaliacao/listar-avaliacoes}">
+                        <i class="bi bi-circle"></i><span>Listar Avaliações</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/autoavaliacao/listar-questionarios}">
                         <i class="bi bi-circle"></i><span>Listar Questionários</span>
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/listar-edicoes}">
-                        <i class="bi bi-circle"></i><span>Listar Edições</span>
+                    <a th:href="@{/autoavaliacao/listar-grupos}">
+                        <i class="bi bi-circle"></i><span>Listar Grupo de Perguntas</span>
                     </a>
                 </li>
-
+                <li>
+                    <a th:href="@{/autoavaliacao/listar-perguntas}">
+                        <i class="bi bi-circle"></i><span>Listar Perguntas</span>
+                    </a>
+                </li>
             </ul>
         </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-journal-text"></i><span>Avaliação(Usuário)</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-journal-text"></i><span>Autoavaliação(Usuário)</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a th:href="@{/avaliacao/responder-edicao}">
+                    <a th:href="@{/autoavaliacao/responder-edicao}">
                         <i class="bi bi-circle"></i><span>Edições</span>
                     </a>
                 </li>
@@ -327,7 +336,7 @@
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/relatorio/grafico}">
+                    <a th:href="@{/relatorio/grafico-edicao}">
                         <i class="bi bi-circle"></i><span>Gráfico</span>
                     </a>
                 </li>

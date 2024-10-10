@@ -73,8 +73,8 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO usuario(nome, email, senha, telefone, tipo)";
-        sql += "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario(nome, email, senha, telefone) ";
+        sql += "VALUES (?, ?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -85,7 +85,6 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
             preparedStatement.setString(2, usuarioModel.getEmail());
             preparedStatement.setString(3, usuarioModel.getSenha());
             preparedStatement.setString(4, usuarioModel.getTelefone());
-            preparedStatement.setString(5, usuarioModel.getTipo());
 
             preparedStatement.execute();
 

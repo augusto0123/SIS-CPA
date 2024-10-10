@@ -238,7 +238,7 @@ h6 {
   font-weight: 500;
   color: white;
   font-family: "Poppins", sans-serif;
-  background-color:#D2691E;
+  background-color:#D4AC0E;
 }
 .card-grupo {
     margin-bottom: 30px;
@@ -246,8 +246,11 @@ h6 {
     border-radius: 12px;
 }
 .card-body-grupo {
-  padding: 20px 20px 20px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+      display: flex;
+      padding: 20px 20px 20px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+      flex-direction: column;
+      align-items: center;
 }
 .form-label-pergunta{
     font-size: 20px;
@@ -273,31 +276,137 @@ h6 {
     border-radius: 12px;
 }
 .card-body-questionario {
-  padding: 20px 20px 20px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+      display: flex;
+      padding: 20px 20px 20px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+      flex-direction: column;
+      align-items: center;
 }
 
 /*--------------------------------------------------------------
 # Card de grupo de edicoes
 --------------------------------------------------------------*/
 .card-title-edicao {
+  display:flex;
+  justify-content: space-between;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
   padding: 12px;
   font-size: 20px;
   font-weight: 500;
   color: white;
   font-family: "Poppins", sans-serif;
-  background-color:#1E90FF;
+  background-color:#1C7ED6;
 }
 .card-edicao {
     margin-bottom: 30px;
     border: none;
     border-radius: 12px;
 }
+.card-edicao-grafico {
+    border: none;
+    border-radius: 12px;
+}
 .card-body-edicao {
+      display: flex;
+      padding: 20px 20px 20px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+      flex-direction: column;
+      align-items: center;
+}
+.card-body-edicao-grafico {
   padding: 20px 20px 20px 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  align-items:center;
 }
+
+.table-edicao {
+    font-size: 15px;
+    margin:15px 0;
+    text-align: justify;
+}
+
+/*--------------------------------------------------------------
+# Card de grupo de edicoes
+--------------------------------------------------------------*/
+.card-title-avaliacao {
+  display:flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  padding: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background-color:#F36944;
+}
+.card-avaliacao {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 12px;
+}
+.card-edicao-grafico {
+    border: none;
+    border-radius: 12px;
+}
+.card-body-avaliacao {
+      display: flex;
+      padding: 20px 20px 20px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+      flex-direction: column;
+      align-items: center;
+}
+.card-body-edicao-grafico {
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  align-items:center;
+}
+
+.table-edicao {
+    font-size: 15px;
+    margin:15px 0;
+    text-align: justify;
+}
+/*--------------------------------------------------------------
+#
+--------------------------------------------------------------*/
+
+    .situacao-lista {
+        list-style-type: none; /* Remove os marcadores da lista */
+        padding: 0;
+        margin: 0; /* Remove a margem da lista */
+    }
+
+    .situacao-lista li {
+        margin: 0.5rem 0; /* Espaço entre os itens da lista */
+        padding: 0.5rem;
+        border-radius: 5px; /* Bordas arredondadas */
+    }
+
+    .situacao.em-andamento {
+        background-color: #d4edda; /* Verde claro */
+        color: #155724; /* Texto verde escuro */
+    }
+
+    .situacao.prevista {
+        background-color: #fff3cd; /* Amarelo claro */
+        color: #856404; /* Texto amarelo escuro */
+    }
+
+    .situacao.encerrada {
+        background-color: #f8d7da; /* Vermelho claro */
+        color: #721c24; /* Texto vermelho escuro */
+    }
+
+    .data {
+        color: #6c757d; /* Cor de texto cinza */
+    }
+
+    .display-edicao {
+        display: flex; /* Usar flexbox */
+        justify-content: space-between; /* Espaçar os itens */
+        align-items: center; /* Alinha os itens verticalmente no centro */
+        margin-bottom: 1rem; /* Espaçamento embaixo, se necessário */
+    }
 
 /*--------------------------------------------------------------
 # Card de perguntas
@@ -451,8 +560,13 @@ button:hover {
   font-size: 14px;
   font-weight: 400;
 }
-
-.titlee-tipo-pergunta {
+.title-meeting {
+    background-color: #6776F4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    color:white;
+    padding:10px;
+}
+.title-tipo-pergunta {
     padding: 10px 20px;
     background-color: #1E90FF;
     font-size: 18px;
@@ -470,12 +584,6 @@ button:hover {
 }
 .card-user{
     display:flex;
-}
-.fa-circle-user {
-    padding:25px;
-    border-radius: 100%;
-    background-color:#37517e;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 
 .card-img-overlay {
@@ -498,6 +606,10 @@ button:hover {
 .btn-close:focus {
   outline: 0;
   box-shadow: none;
+}
+
+.display-grafico {
+    display:flex;
 }
 
 /* Accordion */
@@ -1439,26 +1551,42 @@ button:hover {
 .fa-clipboard-question {
     padding:20px 28px;
     border-radius: 100%;
-    background-color:#37517e;
-    margin-right: 40px;
+    background-color:#D4AC0E;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
+.fa-circle-check {
+        padding:20px 20px;
+        border-radius: 100%;
+        background-color:#F36944;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
 .fa-chart-simple {
+    margin-right:50px;
     padding:20px 25px;
     border-radius: 100%;
-    background-color:#37517e;
-    margin-right: 40px;
+    background-color:#1C7ED6;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 .fa-pen-to-square {
     padding:20px 22px;
     border-radius: 100%;
-    background-color:#37517e;
-    margin-right: 40px;
+    background-color: #228B22;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 .fa-user-tie {
     padding:20px 25px;
+    border-radius: 100%;
+    background-color:#37517e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.fa-people-group {
+    padding:20px 25px;
+    border-radius: 100%;
+    background-color:#37517e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.fa-user-plus {
+    padding:20px 18px;
     border-radius: 100%;
     background-color:#37517e;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
@@ -1476,14 +1604,18 @@ button:hover {
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 .fa-people-group {
-    margin:30px;
-    font-size: 50px;
-    padding:20px 20px;
+    padding:20px 18px;
+     border-radius: 100%;
+     background-color:#37517e;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.fa-circle-user {
+    padding:25px;
     border-radius: 100%;
     background-color:#37517e;
-    margin-right: 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
+
 .display-instituicao{
     display: flex;
     align-items:flex-start;
@@ -1516,10 +1648,8 @@ button:hover {
             border: none; /* Remove a borda */
             background-color: transparent; /* Torna o fundo transparente */
             padding: 10px; /* Adiciona um pouco de espaço interno */
-            font-size: 20px; /* Tamanho da fonte */
+            font-size: 50px; /* Tamanho da fonte */
             outline: none; /* Remove a borda padrão ao focar */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
-            border-radius: 10px;
             text-align:center;
         }
 .date-input input[type="date"]::-webkit-calendar-picker-indicator {
@@ -1527,6 +1657,11 @@ button:hover {
 }
 .date-input input[type="date"]:focus {
      outline: none; /* Remove a borda de foco */
+}
+.card-body-meeting {
+    display: flex;
+    padding: 20px 20px 20px 20px;
+    justify-content: center;
 }
 
 .btn-primary{

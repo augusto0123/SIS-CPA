@@ -1,7 +1,8 @@
 package fai.cpa.configuration;
 
-import fai.cpa.avaliacao.CreateReuniao;
-import fai.cpa.avaliacao.ShowAllReunioes;
+
+import fai.cpa.autoavaliacao.CreateReuniao;
+import fai.cpa.autoavaliacao.ShowAllReunioes;
 import fai.cpa.entities.ReuniaoCpaModel;
 import fai.cpa.port.RestService;
 import fai.cpa.port.impl.RestApiController;

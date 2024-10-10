@@ -1,5 +1,4 @@
-
--- Excluir essa linhas: 3, 4 e 9 quando for criar banco
+-- Excluir essa linhas: 2, 4 e 8 quando for criar banco
 drop database if exists cpa ;
 
 create database cpa;
@@ -34,14 +33,12 @@ CREATE TABLE instituicao
 
 CREATE TABLE usuario
     (id SERIAL PRIMARY KEY,
-    id_instituicao INTEGER NOT NULL,
+    id_instituicao INTEGER,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     senha VARCHAR(100) NOT NULL,
-    telefone VARCHAR(100) NOT NULL,
-    situacao VARCHAR(20) NOT NULL,
-    data_cadastro DATE NOT NULL,
-    tipo VARCHAR(20) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    tipo VARCHAR(30),
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE);
      
 

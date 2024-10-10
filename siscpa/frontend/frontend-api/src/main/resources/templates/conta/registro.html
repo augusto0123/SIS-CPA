@@ -53,28 +53,34 @@
                                     <p class="text-center small">Insira seus dados pessoais para criar uma conta</p>
                                 </div>
 
-                                <form class="row g-3 needs-validation" novalidate>
+                                <form class="row g-3 needs-validation" novalidate th:action="@{/conta/criar-usuario}" method="POST">
                                     <div class="col-12">
-                                        <label for="yourName" class="form-label">Nome Completo</label>
-                                        <input type="text" name="name" class="form-control" id="yourName" required>
+                                        <label for="nome" class="form-label">Nome Completo</label>
+                                        <input type="text" name="nome" class="form-control" id="nome" required>
                                         <div class="invalid-feedback">Por Favor, entre com seu nome!</div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="yourEmail" class="form-label">Email</label>
-                                        <input type="email" name="email" class="form-control" id="yourEmail" required>
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" id="email" required>
                                         <div class="invalid-feedback">Por favor, Digite um endereço de Email válido!</div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="Password" class="form-label">Senha</label>
-                                        <input type="password" name="Password" class="form-control" id="Password" required>
+                                        <label for="senha" class="form-label">Senha</label>
+                                        <input type="password" name="senha" class="form-control" id="senha" required>
                                         <div class="invalid-feedback">Por Favor, entre com a sua senha!</div>
                                     </div>
 
                                     <div class="col-12">
+                                        <label for="telefone" class="form-label">Telefone</label>
+                                        <input type="text" name="telefone" class="form-control" id="telefone" required>
+                                        <div class="invalid-feedback">Por Favor, entre com seu telefone!</div>
+                                    </div>
+
+                                    <div class="col-12">
                                         <div class="col-12">
-                                            <a class="btn btn-primary w-100" th:href="@{/conta/autenticacao}">Entrar</a>
+                                            <button class="btn btn-primary w-100">Cadastrar</button>
                                         </div>
                                     </div>
                                     <br>

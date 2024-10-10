@@ -2,7 +2,7 @@
 <html layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Listar Grupos</title>
+    <title>Listar Questionários</title>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
           integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -18,12 +18,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Listar Grupo de Perguntas</h1>
+            <h1>Listar Questionário</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-membroCPA.html">Inicio</a></li>
-                    <li class="breadcrumb-item">Avaliação</li>
-                    <li class="breadcrumb-item active">Grupo de Perguntas</li>
+                    <li class="breadcrumb-item">Autoavaliação</li>
+                    <li class="breadcrumb-item active">Questionário Disponíveis</li>
                 </ol>
             </nav>
         </div>
@@ -32,31 +32,36 @@
             <div class="row">
 
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4">
-                    <div class="card-grupo">
-                        <h5 class="card-title-grupo">Infraestrutura</h5>
+                    <div class="card-questionario">
 
-                        <div class="card-body-grupo">
-                            <div class="display-pergunta">
-                                <i class="fa-solid fa-clipboard-question"></i>
-                                <div>
-                                    <span>Descrição do grupo</span>
-                                </div>
+                        <h5 class="card-title-questionario">Questionário do Aluno</h5>
+
+                        <div class="card-body-questionario">
+
+                            <div>
+                                <i class="fa-solid fa-pen-to-square"></i>
                             </div>
+
+                            <div class="table-edicao">
+                                <span>Descrição do questionário</span>
+                            </div>
+
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                                Visualizar
+                            </button>
                         </div>
 
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                            Visualizar
-                        </button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Deseja inserir uma pergunta ao grupo?</h5>
+                                        <h5 class="modal-title">Deseja inserir um grupo de perguntas ao questionário?</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+
                                     <div class="modal-footer">
-                                        <a th:href="@{/avaliacao/vincular-pergunta}" class="btn btn-primary">Inserir Pergunta</a>
+                                        <a th:href="@{/autoavaliacao/vincular-grupo}" class="btn btn-primary">Inserir</a>
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                                     </div>
                                 </div>
@@ -64,7 +69,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 

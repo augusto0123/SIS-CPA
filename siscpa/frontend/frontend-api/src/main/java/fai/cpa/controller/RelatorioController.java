@@ -13,8 +13,8 @@ public class RelatorioController {
         return "relatorio/relatorio";
     }
 
-    @GetMapping("/grafico")
+    @GetMapping("/grafico-edicao")
     public String getGraficoPage(){
-        return "relatorio/grafico";
+        return "relatorio/grafico-edicao";
     }
 }

@@ -2,7 +2,7 @@
 <html layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Responder Grupos</title>
+    <title>Participar da Edição</title>
     <!--  Icones   -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -19,53 +19,65 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Responder Grupos de Perguntas</h1>
+            <h1>Participar das Edições</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-membroCPA.html">Inicio</a></li>
-                    <li class="breadcrumb-item">Avaliação</li>
-                    <li class="breadcrumb-item active">Grupo de Perguntas</li>
+                    <li class="breadcrumb-item">Autoavaliação</li>
+                    <li class="breadcrumb-item active">Edições Dispoíveis</li>
                 </ol>
             </nav>
         </div>
 
         <section class="section">
+
             <div class="row">
 
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4">
-                    <div class="card-grupo">
-                        <h5 class="card-title-grupo">(Tema do Grupo)</h5>
+                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4">
 
-                        <div class="card-body-grupo">
-                            <div class="display-pergunta">
-                                <i class="fa-solid fa-clipboard-question"></i>
+                    <div class="card-edicao">
+
+                        <h5 class="card-title-edicao">Edição (Número da Edição)<span>Ano</span></h5>
+
+                        <div class="card-body-edicao">
+
+                            <div class="display-edicao">
                                 <div>
-                                    <span>Descrição do grupo</span>
+                                    <i class="fa-solid fa-chart-simple"></i>
                                 </div>
+                                <ul class="situacao-lista">
+                                    <li class="situacao em-andamento">Situação: Em Andamento</li>
+                                    <li class="data">Data / Início: 01/10/2024</li>
+                                    <li class="data">Data / Término: 30/10/2024</li>
+                                </ul>
                             </div>
-                        </div>
+                            <div class="table-edicao">
+                                <span>Descrição: seu texto aqui que pode ter até 500 caracteres.</span>
+                            </div>
 
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                            Responder
-                        </button>
-
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                                Participar
+                            </button>
+                    </div>
                         <div class="modal fade" id="basicModal" tabindex="-1">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Deseja responder as perguntas do grupo?</h5>
+                                        <h5 class="modal-title">Deseja participar da edição?</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+
                                     <div class="modal-footer">
-                                        <a th:href="@{/avaliacao/responder-perguntas}" class="btn btn-primary">Responder</a>
+                                        <a th:href="@{/autoavaliacao/responder-avaliacao}" class="btn btn-primary">Participar</a>
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </section>
 

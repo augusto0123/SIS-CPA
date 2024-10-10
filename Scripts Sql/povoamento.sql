@@ -1,22 +1,22 @@
 -- Inserir dados na tabela Endereco
 
-INSERT INTO endereco (id_instituicao, logradouro, numero, bairro, cep, complemento, id_endereco)
+INSERT INTO endereco (logradouro, numero, bairro, cep, complemento)
 VALUES ('Rua das Flores',
         '123',
         'Jardim Botânico',
         '12345-678',
-        'Apto 101', 1), 
+        'Apto 101'), 
         
         ('Avenida Central',
         '456',
         'Centro',
         '23456-789',
-        NULL,
-        2);
+        NULL
+        );
 
 -- Inserir dados na tabela instituicao
 
-INSERT INTO instituicao (email, cnpj, razao_social, nome_fantasia, telefone, email_responsavel, telefone_responsavel, nome_responsavel, situacao)
+INSERT INTO instituicao (email, cnpj, razao_social, nome_fantasia, telefone, email_responsavel, telefone_responsavel, nome_responsavel, situacao, id_endereco)
 VALUES ('contato@exemplo.com.br',
         '12.345.678/0001-95',
         'Instituição Exemplo Ltda',
@@ -25,7 +25,8 @@ VALUES ('contato@exemplo.com.br',
         'responsavel@exemplo.com.br',
         '(11) 98765-4321',
         'José da Silva',
-        'Ativa'), ('contato@outraempresa.com.br',
+        'Ativa',
+		1), ('contato@outraempresa.com.br',
                    '98.765.432/0001-56',
                    'Outra Empresa S.A.',
                    'OutraEmpresa',
@@ -33,7 +34,8 @@ VALUES ('contato@exemplo.com.br',
                    'responsavel@outraempresa.com.br',
                    '(21) 98765-4321',
                    'Maria Oliveira',
-                   'Inativa');
+                   'Inativa',
+				   2);
 
 -- Inserir dados na tabela usuario
 

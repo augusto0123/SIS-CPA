@@ -1,10 +1,13 @@
 package fai.cpa.controller;
 
+import fai.cpa.conta.CreateUsuario;
 import fai.cpa.entities.InstituicaoModel;
+import fai.cpa.entities.UsuarioModel;
 import fai.cpa.instituicao.ShowAllInstituicoes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -15,9 +18,11 @@ import java.util.List;
 public class ContaController {
 
     private final ShowAllInstituicoes showAllInstituicoes;
+    private final CreateUsuario createUsuario;
 
-    public ContaController(ShowAllInstituicoes showAllInstituicoes) {
+    public ContaController(ShowAllInstituicoes showAllInstituicoes, CreateUsuario createUsuario) {
         this.showAllInstituicoes = showAllInstituicoes;
+        this.createUsuario = createUsuario;
     }
 
     @GetMapping("/login")
@@ -59,5 +64,14 @@ public class ContaController {
     @GetMapping("/vincular-usuario")
     public String getVincularUsuarioPage(){
         return "conta/vincular-usuario";
+    }
+
+    @PostMapping("/criar-usuario")
+    public String criarUsuario(final UsuarioModel usuario){
+        final int id = createUsuario.createUsuario(usuario);
+        if (id > 0){
+            return "redirect:/conta/vincular-instituicao";
+        }
+        return "redirect:/not-found";
     }
 }

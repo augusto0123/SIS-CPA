@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Avaliação</title>
+</head>
+<body>
+
+<div layout:fragment="body">
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Cadastrar Avaliação</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-membroCPA.html">Incio</a></li>
+                    <li class="breadcrumb-item">Avaliação</li>
+                    <li class="breadcrumb-item active">Avaliação</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="section">
+            <div class="row">
+
+                <div class="col-lg-6">
+
+                    <div class="card">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title-reuniao">Avaliação</h5>
+
+                            <form class="row g-3 needs-validation" novalidate method="">
+
+                                <div class="row mb-3">
+                                    <label for="tipo" class="col-md-3 col-form-label">Tema da Avaliação</label>
+                                    <div class="col-md-9">
+                                        <select class="form-select" aria-label="Default select example" name="tipo" id="tipo" required>
+                                            <option selected="">Qualidade de Ensino</option>
+                                            <option value="1">Infraestrutura</option>
+                                            <option value="2">Atendimento ao Aluno</option>
+                                            <option value="3">Resultados Acadêmicos</option>
+                                            <option value="4">Pesquisa e Extensão</option>
+                                            <option value="5">Avaliação de Convivência</option>
+                                            <option value="6">Inovação e Tecnologia</option>
+                                            <option value="7">Sustentabilidade</option>
+                                            <option value="8">Feedback de Comunidade</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="grupo" class="col-md-3 col-form-label">Descrição da Avaliação:</label>
+                                    <div class="col-md-9">
+                                        <textarea class="form-control" style="height: 100px" required placeholder="Digite aqui..." name="grupo" id="grupo"></textarea>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                    Cadastrar
+                                </button>
+
+                                <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Cadastro de Avaliação</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Sua avaliação foi cadastrada com sucesso!
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="/assets/vendor/echarts/echarts.min.js"></script>
+    <script src="/assets/vendor/quill/quill.js"></script>
+    <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="/assets/vendor/php-email-form/validate.js"></script>
+
+    <script src="/assets/js/main.js"></script>
+
+
+</div>
+
+</body>
+</html>
