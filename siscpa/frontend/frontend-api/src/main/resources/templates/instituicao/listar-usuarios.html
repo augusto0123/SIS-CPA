@@ -38,88 +38,47 @@
 
         <section class="section">
             <div class="row">
-                <div class="col-lg-3">
+
+                <div class="col-lg-3" th:each="usuario, iterStat : ${usuarios}">
 
                     <div class="card-membro">
-
                         <div class="card-body">
 
-                            <form class="row g-3 needs-validation" novalidate>
+                            <div class="card-body-membro">
+                                <i class="fa-solid fa-user"></i>
+                                <h5 class="card-title" th:text="${usuario.nome}"></h5>
+                                <label>Cargo</label>
 
-                                <div class="card-body-membro">
-
-                                    <i class="fa-solid fa-user"></i>
-
-                                    <h5 class="card-title">Nome</h5>
-                                    <label>Cargo</label>
-
-                                </div>
-
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                                <!-- Aqui, o data-bs-target é associado ao modal do usuário -->
+                                <button type="button" class="btn btn-primary"
+                                        data-bs-toggle="modal"
+                                        th:data-bs-target="'#modal-' + ${iterStat.index}">
                                     Visualizar
                                 </button>
 
-                                <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Informações de contato:</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h5>Email: </h5>
-                                                <h5>Telefone: </h5>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                            </div>
+                            </div>
+
+                            <!-- Modal com ID único -->
+                            <div class="modal fade" th:id="'modal-' + ${iterStat.index}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Informações de contato:</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5>Email: <span th:text="${usuario.email}"></span></h5>
+                                            <h5>Telefone: <span th:text="${usuario.telefone}"></span></h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <!--                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop" data-bs-backdrop="false">-->
-                                <!--                                        Visualizar-->
-                                <!--                                    </button>-->
-
-                                <!--                                    <div class="modal fade" id="basicModal" tabindex="-1" style="display: none;" aria-hidden="true">-->
-                                <!--                                        <div class="modal-dialog">-->
-                                <!--                                            <div class="modal-content">-->
-                                <!--                                                <div class="modal-header">-->
-                                <!--                                                    <h5 class="modal-title">Nome do Membro</h5>-->
-                                <!--                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-                                <!--                                                </div>-->
-                                <!--                                                <div class="modal-body">-->
-                                <!--                                                    <h5>Instituição:  </h5>-->
-                                <!--                                                    <h5>Contato:  </h5>-->
-                                <!--                                                </div>-->
-                                <!--                                                <div class="modal-footer">-->
-                                <!--                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>-->
-                                <!--                                                </div>-->
-                                <!--                                            </div>-->
-                                <!--                                        </div>-->
-                                <!--                                    </div>-->
-
-                                <!--                                    <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">-->
-                                <!--                                        <div class="modal-dialog">-->
-                                <!--                                            <div class="modal-content">-->
-                                <!--                                                <div class="modal-header">-->
-                                <!--                                                    <h5 class="modal-title">Nome do Membro</h5>-->
-                                <!--                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-                                <!--                                                </div>-->
-                                <!--                                                <div class="modal-body">-->
-                                <!--                                                    <h5>Instituição:  </h5>-->
-                                <!--                                                    <h5>Contato:  </h5>-->
-                                <!--                                                </div>-->
-                                <!--                                                <div class="modal-footer">-->
-                                <!--                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>-->
-                                <!--                                                </div>-->
-                                <!--                                            </div>-->
-                                <!--                                        </div>-->
-                                <!--                                    </div>-->
-                            </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

@@ -1,6 +1,8 @@
 package fai.cpa.controller;
 
+import fai.cpa.conta.ShowAllUsuarios;
 import fai.cpa.entities.InstituicaoModel;
+import fai.cpa.entities.UsuarioModel;
 import fai.cpa.instituicao.CreateInstituicao;
 import fai.cpa.instituicao.ShowAllInstituicoes;
 import org.springframework.stereotype.Controller;
@@ -18,9 +20,12 @@ public class InstituicaoController {
     private final ShowAllInstituicoes showAllInstituicoes;
     private final CreateInstituicao createInstituicao;
 
-    public InstituicaoController(ShowAllInstituicoes showAllInstituicoes, CreateInstituicao createInstituicao) {
+    private final ShowAllUsuarios showAllUsuarios;
+
+    public InstituicaoController(ShowAllInstituicoes showAllInstituicoes, CreateInstituicao createInstituicao, ShowAllUsuarios showAllUsuarios) {
         this.showAllInstituicoes = showAllInstituicoes;
         this.createInstituicao = createInstituicao;
+        this.showAllUsuarios = showAllUsuarios;
     }
 
     @GetMapping("/inicio")
@@ -60,6 +65,13 @@ public class InstituicaoController {
 
     @GetMapping ("/listar-usuarios")
     public String getListarUsuarioPage(final Model model){
+        List<UsuarioModel> usuarios = showAllUsuarios.showAllUsuarios();
+
+        if (usuarios == null)
+            usuarios = new ArrayList<>();
+
+        model.addAttribute("usuarios",usuarios);
+
         return "instituicao/listar-usuarios";
     }
 

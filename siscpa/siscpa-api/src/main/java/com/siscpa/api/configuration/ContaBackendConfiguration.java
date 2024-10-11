@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import port.UsuarioRepositorty;
 import usuario.CreateUsuario;
+import usuario.FindUsuario;
 
 @Configuration
 public class ContaBackendConfiguration {
@@ -18,5 +19,10 @@ public class ContaBackendConfiguration {
     @Bean
     public CreateUsuario createUsuario(){
         return new CreateUsuario(usuarioRepositorty);
+    }
+
+    @Bean
+    public FindUsuario findUsuario(){
+        return new FindUsuario(usuarioRepositorty);
     }
 }

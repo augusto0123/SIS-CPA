@@ -16,11 +16,11 @@ public class FindUsuario {
     }
 
     public List<UsuarioModel> find(){
-        final List<UsuarioModel> user = usuarioRepositorty.findAll();
-        if(user == null){
+        final List<UsuarioModel> usuarios = usuarioRepositorty.findAll();
+        if (usuarios == null){
             return null;
         }
-        return user;
+        return usuarios;
     }
     public UsuarioModel find(final int id){
         if(id < 0){

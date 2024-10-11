@@ -5,6 +5,7 @@ import fai.cpa.repository.implementation.repository.connection.ConnectionFactory
 import port.UsuarioRepositorty;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +49,39 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
 
     @Override
     public List<UsuarioModel> findAll() {
-        return null;
+        final List<UsuarioModel> usuarios = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM usuario;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                final UsuarioModel usuario = new UsuarioModel();
+                usuario.setId(resultSet.getInt("id"));
+                usuario.setNome(resultSet.getString("nome"));
+                usuario.setEmail(resultSet.getString("email"));
+                usuario.setTelefone(resultSet.getString("telefone"));
+                usuario.setTipo(resultSet.getString("tipo"));
+                usuario.setSenha(resultSet.getString("senha"));
+
+                usuarios.add(usuario);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return usuarios;
     }
 
     @Override
