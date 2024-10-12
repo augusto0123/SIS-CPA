@@ -16,7 +16,7 @@ public class UpdateInstituicao {
         byId.setCnpj(instituicaoModel.getCnpj());
         byId.setTelefone(instituicaoModel.getTelefone());
         byId.setSituacao(instituicaoModel.getSituacao());
-        byId.setResposavelEmail(instituicaoModel.getResposavelEmail());
+        byId.setResponsavelEmail(instituicaoModel.getResponsavelEmail());
         byId.setResponsavelTelefone(instituicaoModel.getResponsavelTelefone());
         byId.setResponsavelNome(instituicaoModel.getResponsavelNome());
         byId.setRazaoSocial(instituicaoModel.getRazaoSocial());

@@ -1,6 +1,7 @@
 package fai.cpa.port.impl;
 
 import com.google.gson.Gson;
+import fai.cpa.entities.UsuarioModel;
 import fai.cpa.port.RestService;
 import org.apache.coyote.Response;
 import org.springframework.core.ParameterizedTypeReference;
@@ -83,6 +84,26 @@ public class RestApiController<T> implements RestService<T> {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    @Override
+    public UsuarioModel login(String resource) {
+        try {
+            final String endpoint = getEndpoint(resource);
+            final RestTemplate restTemplate = new RestTemplate();
+
+            final ResponseEntity<UsuarioModel> responseEntity = restTemplate.exchange(endpoint,
+                    HttpMethod.POST,
+                    null,
+                    UsuarioModel.class);
+
+            if (responseEntity.getStatusCode() == HttpStatus.OK) {
+                return responseEntity.getBody();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

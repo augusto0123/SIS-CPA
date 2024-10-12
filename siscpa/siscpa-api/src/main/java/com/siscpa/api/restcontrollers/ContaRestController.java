@@ -25,4 +25,9 @@ public class ContaRestController {
         List<UsuarioModel> usuarios = contaBackendConfiguration.findUsuario().find();
         return usuarios;
     }
+
+    @PostMapping("/login")
+    public UsuarioModel login(@RequestParam String email,@RequestParam String senha){
+        return contaBackendConfiguration.findUsuario().findByEmaileSenha(email, senha);
+    }
 }

@@ -1,7 +1,6 @@
 package autoavaliacao;
 
 import fai.cpa.entities.AvaliacaoModel;
-import fai.cpa.entities.EdicaoDeAutoAvaliacaoModel;
 import port.AvaliacaoRepository;
 
 public class CreateAvaliacao {
@@ -15,11 +14,8 @@ public class CreateAvaliacao {
         if (avaliacaoModel == null){
             return -1;
         }
-        if(avaliacaoModel.getData_inicio() == null
-                || avaliacaoModel.getData_fim() == null
-                || avaliacaoModel.getSituacao().isEmpty()
-                || avaliacaoModel.getDescricao().isEmpty()
-                || avaliacaoModel.getObservacao().isEmpty()){
+        if(avaliacaoModel.getDescricao().isEmpty()
+                || avaliacaoModel.getTema().isEmpty()){
             return -1;
         }
         int id = 0;

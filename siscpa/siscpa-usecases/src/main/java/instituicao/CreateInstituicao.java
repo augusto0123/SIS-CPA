@@ -33,7 +33,7 @@ public class CreateInstituicao {
                 ||instituicaoModel.getResponsavelNome().isEmpty()
                 ||instituicaoModel.getResponsavelTelefone().isEmpty()
                 ||instituicaoModel.getTelefone().isEmpty()
-                ||instituicaoModel.getResposavelEmail().isEmpty()){
+                ||instituicaoModel.getResponsavelEmail().isEmpty()){
             return -1;
         }
         int id = 0;

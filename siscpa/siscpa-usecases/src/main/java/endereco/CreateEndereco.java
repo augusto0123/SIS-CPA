@@ -15,7 +15,7 @@ public class CreateEndereco {
         if (enderecoModel == null){
             return -1;
         }
-        if (enderecoModel.getCep().isEmpty()
+        if (enderecoModel.getCidade().isEmpty()
         || enderecoModel.getBairro().isEmpty()
         || enderecoModel.getLogradouro().isEmpty()
         || enderecoModel.getNumero().isEmpty()){

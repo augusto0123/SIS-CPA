@@ -6,6 +6,8 @@ public class GrupoDePerguntasDoQuestionarioModel {
     private int questionarioId;
     private int grupoDePerguntaId;
 
+    private int ordemDosGrupos;
+
     public int getId() {
         return id;
     }
@@ -30,7 +32,6 @@ public class GrupoDePerguntasDoQuestionarioModel {
         this.grupoDePerguntaId = grupoDePerguntaId;
     }
 
-    private int ordemDosGrupos;
 
     public int getOrdemDosGrupos() {
         return ordemDosGrupos;

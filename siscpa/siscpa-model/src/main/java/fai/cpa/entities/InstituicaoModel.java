@@ -9,10 +9,9 @@ public class InstituicaoModel {
     private String nomeFantasia;
     private String telefone;
     private String responsavelNome;
-    private String resposavelEmail;
+    private String responsavelEmail;
     private String responsavelTelefone;
     private String situacao;
-    private int usuarioId;
     private int endereco_id;
 
     private EnderecoModel endereco;
@@ -31,14 +30,6 @@ public class InstituicaoModel {
 
     public void setEndereco_id(int endereco_id) {
         this.endereco_id = endereco_id;
-    }
-
-    public int getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(int usuarioId) {
-        this.usuarioId = usuarioId;
     }
 
     public int getId() {
@@ -103,12 +94,12 @@ public class InstituicaoModel {
         this.responsavelNome = responsavelNome;
     }
 
-    public String getResposavelEmail() {
-        return resposavelEmail;
+    public String getResponsavelEmail() {
+        return responsavelEmail;
     }
 
-    public void setResposavelEmail(String resposavelEmail) {
-        this.resposavelEmail = resposavelEmail;
+    public void setResponsavelEmail(String responsavelEmail) {
+        this.responsavelEmail = responsavelEmail;
     }
 
     public String getResponsavelTelefone() {

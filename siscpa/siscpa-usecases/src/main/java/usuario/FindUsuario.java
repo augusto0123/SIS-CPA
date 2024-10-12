@@ -33,4 +33,16 @@ public class FindUsuario {
         }
         return usuario;
     }
+
+    public UsuarioModel findByEmaileSenha(String email, String senha){
+        if(email.isEmpty() || senha.isEmpty()){
+            throw new InvalidException();
+        }
+        final UsuarioModel usuario = usuarioRepositorty.findByEmaileSenha(email, senha);
+        if(usuario == null){
+            final String message = "O id (" + email + ") nao foi encontrado";
+            throw new NotFoundException(message);
+        }
+        return usuario;
+    }
 }

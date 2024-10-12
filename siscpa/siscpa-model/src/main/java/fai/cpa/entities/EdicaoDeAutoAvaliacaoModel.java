@@ -1,6 +1,9 @@
 package fai.cpa.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
+
 
 public class EdicaoDeAutoAvaliacaoModel {
 
@@ -8,9 +11,36 @@ public class EdicaoDeAutoAvaliacaoModel {
     private int edicao;
     private String anoDaAvaliacao;
     private String descricao;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataInicio;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataFim;
+
+    private String situacao;
+
     private int instituicaoId;
+
+    private InstituicaoModel instituicao;
+
+//    Getters and Setters
+
+    public InstituicaoModel getInstituicao() {
+        return instituicao;
+    }
+
+    public void setInstituicao(InstituicaoModel instituicao) {
+        this.instituicao = instituicao;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
 
     public int getInstituicaoId() {
         return instituicaoId;
@@ -67,6 +97,9 @@ public class EdicaoDeAutoAvaliacaoModel {
     public void setDataFim(LocalDate dataFim) {
         this.dataFim = dataFim;
     }
+
+
 }
+
 
 

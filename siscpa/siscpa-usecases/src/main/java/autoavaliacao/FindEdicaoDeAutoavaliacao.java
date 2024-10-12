@@ -1,6 +1,9 @@
 package autoavaliacao;
 
+import exception.InvalidException;
+import exception.NotFoundException;
 import fai.cpa.entities.EdicaoDeAutoAvaliacaoModel;
+import fai.cpa.entities.InstituicaoModel;
 import port.EdicaoDeAutoavaliacaoRepository;
 
 import java.util.List;
@@ -19,6 +22,18 @@ public class FindEdicaoDeAutoavaliacao {
             return null;
         }
         return edicoes;
+    }
+
+    public EdicaoDeAutoAvaliacaoModel find(final int id){
+        if(id < 0){
+            throw new InvalidException();
+        }
+        EdicaoDeAutoAvaliacaoModel edicao =edicaoDeAutoavaliacaoRepository.findById(id);
+        if (edicao == null){
+            final String message = "O id (" + id + ") não foi encontrado";
+            throw new NotFoundException(message);
+        }
+        return edicao;
     }
     
 }

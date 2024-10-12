@@ -11,13 +11,6 @@ public class UsuarioModel {
     private String senha;
     private String telefone;
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public String getSenha() {
         return senha;
@@ -58,5 +51,13 @@ public class UsuarioModel {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

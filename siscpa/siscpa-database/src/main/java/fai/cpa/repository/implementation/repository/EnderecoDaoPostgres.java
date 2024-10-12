@@ -16,7 +16,7 @@ public class EnderecoDaoPostgres implements EnderecoRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO endereco (logradouro, numero, bairro, cep)";
+        String sql = "INSERT INTO endereco (logradouro, numero, bairro, cidade)";
         sql += "VALUES(?, ?, ?, ?)";
 
         try {
@@ -27,7 +27,7 @@ public class EnderecoDaoPostgres implements EnderecoRepository {
             preparedStatement.setString(1, enderecoModel.getLogradouro());
             preparedStatement.setString(2, enderecoModel.getNumero());
             preparedStatement.setString(3, enderecoModel.getBairro());
-            preparedStatement.setString(4, enderecoModel.getCep());
+            preparedStatement.setString(4, enderecoModel.getCidade());
 
             preparedStatement.execute();
 
@@ -79,7 +79,7 @@ public class EnderecoDaoPostgres implements EnderecoRepository {
                 endereco.setLogradouro(resultSet.getString("logradouro"));
                 endereco.setNumero(resultSet.getString("numero"));
                 endereco.setBairro(resultSet.getString("bairro"));
-                endereco.setCep(resultSet.getString("cep"));
+                endereco.setCidade(resultSet.getString("cidade"));
                 endereco.setComplemento(resultSet.getString("complemento"));
             }
             resultSet.close();

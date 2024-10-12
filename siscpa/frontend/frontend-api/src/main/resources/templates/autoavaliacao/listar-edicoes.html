@@ -33,9 +33,9 @@
 
                 <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4">
 
-                    <div class="card-edicao">
+                    <div class="card-edicao" th:each="edicao : ${edicoes}">
 
-                        <h5 class="card-title-edicao">Edição (Número da Edição)<span>Ano</span></h5>
+                        <h5 class="card-title-edicao" th:text="${edicao.edicao}"><span th:text="${edicao.anoEdicao}"></span></h5>
 
                         <div class="card-body-edicao">
 
@@ -44,13 +44,13 @@
                                     <i class="fa-solid fa-chart-simple"></i>
                                 </div>
                                 <ul class="situacao-lista">
-                                    <li class="situacao em-andamento">Situação: Em Andamento</li>
-                                    <li class="data">Data / Início: 01/10/2024</li>
-                                    <li class="data">Data / Término: 30/10/2024</li>
+                                    <li class="situacao em-andamento">Situação: <span th:text="${edicao.situacao}"></span></li>
+                                    <li class="data">Data / Início: <span th:text="${edicao.dataInicio}"></span></li>
+                                    <li class="data">Data / Término: <span th:text="${edicao.dataFim}"></span></li>
                                 </ul>
                             </div>
                             <div class="table-edicao">
-                                <span>Descrição: seu texto aqui que pode ter até 500 caracteres.</span>
+                                <span>Descrição: <span th:text="${edicao.descricao}"></span></span>
                             </div>
 
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">

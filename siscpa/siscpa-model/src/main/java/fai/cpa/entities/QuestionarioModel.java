@@ -4,7 +4,7 @@ public class QuestionarioModel {
 
     private int id;
     private String descricao;
-    private String tipo;
+    private Categoria categoria;
 
     public int getId() {
         return id;
@@ -22,11 +22,20 @@ public class QuestionarioModel {
         this.descricao = descricao;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
+
+    public enum Categoria {
+        ALUNO,
+        PROFESSOR,
+        COLABORADOR,
+        COMUNIDADE_EXTERNA
+    }
+
+
 }

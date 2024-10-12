@@ -1,16 +1,16 @@
 -- Inserir dados na tabela Endereco
 
-INSERT INTO endereco (logradouro, numero, bairro, cep, complemento)
+INSERT INTO endereco (logradouro, numero, bairro, cidade, complemento)
 VALUES ('Rua das Flores',
         '123',
         'Jardim Botânico',
-        '12345-678',
+        'Paraiso',
         'Apto 101'), 
         
         ('Avenida Central',
         '456',
         'Centro',
-        '23456-789',
+        'Pouso Alegre',
         NULL
         );
 
@@ -35,137 +35,66 @@ VALUES ('contato@exemplo.com.br',
                    '(21) 98765-4321',
                    'Maria Oliveira',
                    'Inativa',
-				   2);
+		        2);
 
--- Inserir dados na tabela usuario
+INSERT INTO usuario (id_instituicao, nome, email, senha, telefone, tipo) VALUES
+(1, 'João', 'aluno1@instituicao1.com', 'senha123', '123456789', 'Aluno'),
+(1, 'Maria', 'professor1@instituicao1.com', 'senha123', '987654321', 'Professor'),
+(2, 'José', 'colaborador1@instituicao2.com', 'senha123', '111222333', 'Colaborador'),
+(2, 'Ana', 'membro1@instituicao2.com', 'senha123', '444555666', 'Membro CPA');
 
-INSERT INTO usuario (id_instituicao, nome, email, senha, telefone, situacao, data_cadastro)
-VALUES (1,
-        'Ana Souza',
-        'ana.souza@exemplo.com.br',
-        'senha123',
-        '(11) 1234-5678',
-        'Ativa',
-        CURRENT_DATE), (2,
-                        'Carlos Lima',
-                        'carlos.lima@outraempresa.com.br',
-                        'senha456',
-                        '(21) 2345-6789',
-                        'Inativo',
-                        CURRENT_DATE);
+-- Inserindo dados na tabela membro_cpa
+INSERT INTO membro_cpa (id_instituicao, cargo, id_usuario) VALUES
+(2, 'Coordenador', 4);
 
--- Inserir dados na tabela membro_cpa
+-- Inserindo dados na tabela reuniao_cpa
+INSERT INTO reuniao_cpa (id_membro_cpa, data_reuniao, horario, pauta) VALUES
+(1, '2024-10-15', '10:00:00', 'Reunião de Planejamento'),
+(1, '2024-11-01', '14:00:00', 'Avaliação de Resultados');
 
-INSERT INTO membro_cpa (id_instituicao, cargo)
-VALUES (1,
-        'Coordenador'), (1,
-                         'Vice-Coordenador');
+-- Inserindo dados na tabela edicao_autoavaliacao
+INSERT INTO edicao_autoavaliacao (id_instituicao, edicao, ano_avaliacao, descricao, data_inicio, data_fim) VALUES
+(1, 1, '2024', 'Autoavaliação do 1º semestre', '2024-01-01', '2024-06-30'),
+(2, 2, '2024', 'Autoavaliação do 2º semestre', '2024-07-01', '2024-12-31');
 
--- Inserir dados na tabela reuniao_cpa
+-- Inserindo dados na tabela avaliacao
+INSERT INTO avaliacao (id_edicao_autoavaliacao, descricao, tema) VALUES
+(1, 'Avaliação da Instituição 1', 'Educação'),
+(2, 'Avaliação da Instituição 2', 'Gestão');
 
-INSERT INTO reuniao_cpa (id_membro_cpa, data_reuniao, horario, pauta)
-VALUES (1,
-        '2024-09-10',
-        '09:00:00',
-        'Planejamento Estratégico'), (2,
-                                      '2024-09-15',
-                                      '14:00:00',
-                                      'Avaliação de Desempenho'), (3,
-                                                                   '2024-09-20',
-                                                                   '11:00:00',
-                                                                   'Revisão de Metas');
+-- Inserindo dados na tabela questionario
+INSERT INTO questionario (descricao, categoria) VALUES
+('Questionário de Satisfação', 'Aluno'),
+('Questionário de Feedback', 'Professor');
 
--- Inserir dados na tabela edicao_autoavaliacao
+-- Inserindo dados na tabela avaliacao_questionario
+INSERT INTO avaliacao_questionario (id_avaliacao, id_questionario) VALUES
+(1, 1),
+(2, 2);
 
-INSERT INTO edicao_autoavaliacao (id_instituicao, edicao, ano_avaliacao, descricao, data_inicio, data_fim)
-VALUES (1,
-        '1ª Edição',
-        '2024',
-        'Avaliação de 2024',
-        '2024-01-01',
-        '2024-12-31'), (2,
-                        '2ª Edição',
-                        '2024',
-                        'Avaliação de 2024',
-                        '2024-01-01',
-                        '2024-12-31');
+-- Inserindo dados na tabela grupo_perguntas
+INSERT INTO grupo_perguntas (tipo, descricao) VALUES
+('Grupo A', 'Perguntas sobre satisfação'),
+('Grupo B', 'Perguntas sobre melhorias');
 
--- Inserir dados na tabela avaliacao
+-- Inserindo dados na tabela pergunta
+INSERT INTO pergunta (descricao, tipo, escala) VALUES
+('Você está satisfeito com o atendimento?', 'Objetiva', '["Ótimo", "Bom", "Regular", "Ruim", "Péssimo"]'),
+('Quais melhorias você sugere?', 'Subjetiva', NULL);
 
-INSERT INTO avaliacao (id_edicao_autoavaliacao, data_inicio, data_fim, status, descricao, observacao)
-VALUES (1,
-        '2024-01-01',
-        '2024-06-30',
-        'Concluída',
-        'Avaliação Semestral',
-        'Nenhuma observação'), (2,
-                                '2024-07-01',
-                                '2024-12-31',
-                                'Em Andamento',
-                                'Avaliação Anual',
-                                NULL);
+-- Inserindo dados na tabela resposta
+INSERT INTO resposta (id_pergunta, id_usuario, id_avaliacao_questionario, resposta_objetiva, resposta_subjetiva) VALUES
+(1, 1, 1, 'Bom', NULL),
+(2, 1, 1, NULL, 'Mais atenção no atendimento.');
 
--- Inserir dados na tabela questionario
+-- Inserindo dados na tabela perguntas_grupo_perguntas
+INSERT INTO perguntas_grupo_perguntas (id_grupo_perguntas, id_pergunta, ordem_das_perguntas) VALUES
+(1, 1, 1),
+(2, 2, 1);
 
-INSERT INTO questionario (descricao, categoria, tipo)
-VALUES ('Questionário de Satisfação',
-        'Satisfação',
-        'Quantitativo'), ('Questionário de Desempenho',
-                          'Desempenho',
-                          'Qualitativo');
+-- Inserindo dados na tabela grupo_perguntas_questionario
+INSERT INTO grupo_perguntas_questionario (id_questionario, id_grupo_perguntas, ordem_dos_grupos) VALUES
+(1, 1, 1),
+(2, 2, 1);
 
--- Inserir dados na tabela avaliacao_questionario
-
-INSERT INTO avaliacao_questionario (id_avaliacao, id_questionario)
-VALUES (1,
-        1), (2,
-             2);
-
--- Inserir dados na tabela pergunta
-
-INSERT INTO pergunta (descricao, categoria, tipo, tipo_escala)
-VALUES ('Qual o seu nível de satisfação?',
-        'Satisfação',
-        'Quantitativo',
-        5), ('Como você avalia o desempenho?',
-             'Desempenho',
-             'Qualitativo',
-             0);
-
--- Inserir dados na tabela resposta
-
-INSERT INTO resposta (id_pergunta, id_usuario, id_avaliacao_questionario, texto, data)
-VALUES (1,
-        1,
-        1,
-        'Muito satisfeito',
-        CURRENT_TIMESTAMP), (2,
-                             2,
-                             2,
-                             'Bom',
-                             CURRENT_TIMESTAMP);
-
--- Inserir dados na tabela grupo_perguntas
-
-INSERT INTO grupo_perguntas (tipo, descricao)
-VALUES ('Grupo A',
-        'Grupo de perguntas sobre satisfação geral'), ('Grupo B',
-                                                       'Grupo de perguntas sobre desempenho');
-
--- Inserir dados na tabela perguntas_grupo_perguntas
-
-INSERT INTO perguntas_grupo_perguntas (id_grupo_perguntas, id_pergunta, ordem_das_perguntas)
-VALUES (1,
-        1,
-        1), (2,
-             2,
-             1);
-
--- Inserir dados na tabela grupo_perguntas_questionario
-
-INSERT INTO grupo_perguntas_questionario (id_questionario, id_grupo_perguntas, ordem_dos_grupos)
-VALUES (1,
-        1,
-        1), (2,
-             2,
-             1);
+COMMIT;

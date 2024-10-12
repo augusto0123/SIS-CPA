@@ -7,12 +7,12 @@ begin;
 
 \c cpa;
 
-CREATE TABLE Endereco 
+CREATE TABLE endereco 
     (id SERIAL PRIMARY KEY,
     logradouro VARCHAR(100) NOT NULL,
     numero VARCHAR(100) NOT NULL,
     bairro VARCHAR(100) NOT NULL,
-    cep VARCHAR(100) NOT NULL,
+    cidade VARCHAR(200) NOT NULL,
     complemento VARCHAR(100));
 
 
@@ -31,20 +31,21 @@ CREATE TABLE instituicao
     FOREIGN KEY (id_endereco) REFERENCES endereco(id) ON DELETE CASCADE);
 
 
-CREATE TABLE usuario
-    (id SERIAL PRIMARY KEY,
+CREATE TABLE usuario (
+    id SERIAL PRIMARY KEY,
     id_instituicao INTEGER,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     senha VARCHAR(100) NOT NULL,
     telefone VARCHAR(20) NOT NULL,
-    tipo VARCHAR(30),
-    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE);
+    tipo VARCHAR(30) CHECK (tipo IN ('Aluno', 'Professor', 'Comunidade Externa', 'Colaborador', 'Membro CPA')),
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
+);
      
 
 CREATE TABLE membro_cpa
     (id SERIAL PRIMARY KEY,
-    id_instituicao INTEGER NOT NULL,
+    id_instituicao INTEGER,
     cargo VARCHAR(100) NOT NULL,
     id_usuario INTEGER NOT NULL,
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE,
@@ -53,79 +54,77 @@ CREATE TABLE membro_cpa
 
 CREATE TABLE reuniao_cpa
     (id SERIAL PRIMARY KEY,
-    id_membro_cpa INTEGER NOT NULL,
+    id_membro_cpa INTEGER,
     data_reuniao DATE NOT NULL,
     horario TIMESTAMP NOT NULL,
-    pauta VARCHAR(250) NOT NULL,
+    pauta VARCHAR(300) NOT NULL,
     FOREIGN KEY (id_membro_cpa) REFERENCES Membro_CPA(id) ON DELETE CASCADE);
 
 
 CREATE TABLE edicao_autoavaliacao
     (id SERIAL PRIMARY KEY,
-    id_instituicao INTEGER NOT NULL,
+    id_instituicao INTEGER,
     edicao INTEGER NOT NULL,
     ano_avaliacao VARCHAR(4) NOT NULL,
     descricao VARCHAR(300) NOT NULL,
     data_inicio TIMESTAMP NOT NULL,
     data_fim TIMESTAMP NOT NULL,
+    situacao VARCHAR(30) CHECK (situacao IN ('Prevista', 'Em Andamento', 'Encerrada')),
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE);
 
 
 CREATE TABLE avaliacao
     (id SERIAL PRIMARY KEY,
-    id_edicao_autoavaliacao INTEGER NOT NULL,
-    data_inicio DATE NOT NULL,
-    data_fim DATE NOT NULL,
-    situacao VARCHAR(100) NOT NULL,
-    descricao VARCHAR(100) NOT NULL,
-    observacao VARCHAR(100),
+    id_edicao_autoavaliacao INTEGER,
+    descricao VARCHAR(300) NOT NULL,
+    tema VARCHAR(100),
     FOREIGN KEY (id_edicao_autoavaliacao) REFERENCES Edicao_Autoavaliacao(id) ON DELETE CASCADE);
 
 
-CREATE TABLE questionario 
-    (id SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    descricao VARCHAR(200) NOT NULL,
-    categoria VARCHAR(20) NOT NULL);
+CREATE TABLE questionario (
+    id SERIAL PRIMARY KEY,
+    descricao VARCHAR(300) NOT NULL,
+    categoria VARCHAR(30) NOT NULL CHECK (categoria IN ('Aluno', 'Professor', 'Colaborador', 'Comunidade Externa'))
+);
 
 
 CREATE TABLE avaliacao_questionario
     (id SERIAL PRIMARY KEY,
-    id_avaliacao INTEGER NOT NULL,
-    id_questionario INTEGER NOT NULL,
+    id_avaliacao INTEGER,
+    id_questionario INTEGER,
     FOREIGN KEY (id_avaliacao) REFERENCES Avaliacao(id) ON DELETE CASCADE,
     FOREIGN KEY (id_questionario) REFERENCES Questionario(id) ON DELETE CASCADE,
     UNIQUE (id_avaliacao, id_questionario));
 
-
-CREATE TABLE pergunta 
+    
+CREATE TABLE grupo_perguntas 
     (id SERIAL PRIMARY KEY,
-    descricao VARCHAR(100) NOT NULL,
     tipo VARCHAR(100) NOT NULL,
-    tipo_Escala INTEGER NOT NULL);
+    descricao VARCHAR(300) NOT NULL);
 
+CREATE TABLE pergunta (
+    id SERIAL PRIMARY KEY,
+    descricao VARCHAR(300) NOT NULL,
+    tipo VARCHAR(20) NOT NULL CHECK (tipo IN ('Objetiva', 'Subjetiva')),
+    escala JSON
+);
 
 CREATE TABLE resposta
     (id SERIAL PRIMARY KEY,
-    id_pergunta INTEGER NOT NULL,
-    id_usuario INTEGER NOT NULL,
-    id_avaliacao_questionario INTEGER NOT NULL,
-    texto VARCHAR(500) NOT NULL,
+    id_pergunta INTEGER,
+    id_usuario INTEGER,
+    id_avaliacao_questionario INTEGER,
+    resposta_objetiva VARCHAR(30) NOT NULL CHECK (resposta_objetiva IN ('Discordo Totalmente', 'Discordo', 'Neutro', 'Concordo', 'Concordo Totalmente')),
+    resposta_subjetiva VARCHAR(500),
     FOREIGN KEY (id_pergunta) REFERENCES Pergunta(id) ON DELETE CASCADE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,
     FOREIGN KEY (id_avaliacao_questionario) REFERENCES Avaliacao_Questionario(id) ON DELETE CASCADE);
 
 
-CREATE TABLE grupo_perguntas 
-    (id SERIAL PRIMARY KEY,
-    tipo VARCHAR(100) NOT NULL,
-    descricao VARCHAR(400) NOT NULL);
-
-
 CREATE TABLE perguntas_grupo_perguntas
     (id SERIAL PRIMARY KEY,
-    id_grupo_perguntas INTEGER NOT NULL,
-    id_pergunta INTEGER NOT NULL,
+    id_grupo_perguntas INTEGER,
+    id_pergunta INTEGER,
     ordem_das_perguntas INTEGER NOT NULL,
     FOREIGN KEY (id_grupo_perguntas) REFERENCES grupo_perguntas(id) ON DELETE CASCADE,
     FOREIGN KEY (id_pergunta) REFERENCES pergunta(id) ON DELETE CASCADE,
@@ -134,8 +133,8 @@ CREATE TABLE perguntas_grupo_perguntas
 
 CREATE TABLE grupo_perguntas_questionario
     (id SERIAL PRIMARY KEY,
-    id_questionario INTEGER NOT NULL,
-    id_grupo_perguntas INTEGER NOT NULL,
+    id_questionario INTEGER,
+    id_grupo_perguntas INTEGER,
     ordem_dos_grupos INTEGER NOT NULL,
     FOREIGN KEY (id_questionario) REFERENCES questionario(id) ON DELETE CASCADE,
     FOREIGN KEY (id_grupo_perguntas) REFERENCES grupo_perguntas(id) ON DELETE CASCADE,

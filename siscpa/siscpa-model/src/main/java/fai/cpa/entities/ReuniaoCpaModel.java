@@ -6,8 +6,8 @@ import java.time.LocalTime;
 public class ReuniaoCpaModel {
 
     private int id;
-        private LocalDate dataReuniao;
-        private LocalTime horario;
+    private LocalDate dataReuniao;
+    private LocalTime horario;
     private String pauta;
 
     private int membroCpaId;

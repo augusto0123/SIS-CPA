@@ -17,4 +17,10 @@ public class CreateUsuario {
         final int id = restService.post(resource, usuario);
         return id;
     }
+
+    public UsuarioModel login(String email, String senha){
+        final String resource = "/conta/login?email=" + email + "&senha=" + senha ;
+        final UsuarioModel usuarioModel = restService.login(resource);
+        return usuarioModel;
+    }
 }

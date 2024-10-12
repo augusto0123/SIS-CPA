@@ -1,13 +1,21 @@
 package fai.cpa.controller;
 
 
+import fai.cpa.autoavaliacao.CreateEdicao;
 import fai.cpa.autoavaliacao.CreateReuniao;
+import fai.cpa.autoavaliacao.ShowAllEdicoes;
 import fai.cpa.autoavaliacao.ShowAllReunioes;
+import fai.cpa.entities.EdicaoDeAutoAvaliacaoModel;
+import fai.cpa.entities.InstituicaoModel;
 import fai.cpa.entities.ReuniaoCpaModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/autoavaliacao")
@@ -16,9 +24,15 @@ public class AutoavaliacaoController {
     private final CreateReuniao createReuniao;
     private final ShowAllReunioes showAllReunioes;
 
-    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes) {
+    private final CreateEdicao createEdicao;
+
+    private final ShowAllEdicoes showAllEdicoes;
+
+    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes) {
         this.createReuniao = createReuniao;
         this.showAllReunioes = showAllReunioes;
+        this.createEdicao = createEdicao;
+        this.showAllEdicoes = showAllEdicoes;
     }
 
 //    ==================================================================================================================
@@ -28,8 +42,12 @@ public class AutoavaliacaoController {
     public String getReuniaoPage(){
         return "autoavaliacao/cadastrar-reuniao";
     }
+
     @GetMapping("/cadastrar-edicao")
-    public String getEdicaoPage(){
+    public String getEdicaoPage(final Model model){
+
+        model.addAttribute("edicao", new EdicaoDeAutoAvaliacaoModel());
+
         return "autoavaliacao/cadastrar-edicao";
     }
 
@@ -59,7 +77,13 @@ public class AutoavaliacaoController {
     //    Container de LISTAGENS...
 
     @GetMapping("/listar-edicoes")
-    public String getListarEdicoesPage(){
+    public String getListarEdicoesPage(final Model model){
+        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
+
+        if (edicoes == null)
+            edicoes = new ArrayList<>();
+
+        model.addAttribute("edicoes", edicoes);
         return "autoavaliacao/listar-edicoes";
     }
 
@@ -132,6 +156,18 @@ public class AutoavaliacaoController {
     @GetMapping("/vincular-pergunta")
     public String getVincularPerguntaPage(){
         return "autoavaliacao/vincular-pergunta";
+    }
+
+//    ==================================================================================================================
+//    Container de POSTMAPING
+
+    @PostMapping("/criar-edicao")
+    public String criarEdicao(final EdicaoDeAutoAvaliacaoModel edicao){
+        final int id = createEdicao.createEdicao(edicao);
+        if (id > 0){
+            return "redirect:/autoavaliacao/listar-edicoes";
+        }
+        return "redirect:/not-found";
     }
 
 }

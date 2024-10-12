@@ -48,6 +48,44 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
     }
 
     @Override
+    public UsuarioModel findByEmaileSenha(String email, String senha) {
+
+        final UsuarioModel usuarioModel = new UsuarioModel();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM usuario u WHERE u.email = ? and u.senha = ?";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,email);
+            preparedStatement.setString(2,senha);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()){
+                usuarioModel.setId(resultSet.getInt("id"));
+                usuarioModel.setNome(resultSet.getString("nome"));
+                usuarioModel.setEmail(resultSet.getString("email"));
+                usuarioModel.setSenha(resultSet.getString("senha"));
+                usuarioModel.setTelefone(resultSet.getString("telefone"));
+                usuarioModel.setTipo(resultSet.getString("tipo"));
+
+                resultSet.close();
+                preparedStatement.close();
+            }else {
+                return null;
+            }
+            return usuarioModel;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public List<UsuarioModel> findAll() {
         final List<UsuarioModel> usuarios = new ArrayList<>();
 
@@ -68,19 +106,16 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuario.setNome(resultSet.getString("nome"));
                 usuario.setEmail(resultSet.getString("email"));
                 usuario.setTelefone(resultSet.getString("telefone"));
-                usuario.setTipo(resultSet.getString("tipo"));
                 usuario.setSenha(resultSet.getString("senha"));
+                usuario.setTipo(resultSet.getString("tipo"));
 
                 usuarios.add(usuario);
             }
-
             resultSet.close();
             preparedStatement.close();
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         return usuarios;
     }
 
@@ -106,8 +141,8 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO usuario(nome, email, senha, telefone) ";
-        sql += "VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario(nome, email, senha, telefone, tipo) ";
+        sql += "VALUES (?, ?, ?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -118,6 +153,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
             preparedStatement.setString(2, usuarioModel.getEmail());
             preparedStatement.setString(3, usuarioModel.getSenha());
             preparedStatement.setString(4, usuarioModel.getTelefone());
+            preparedStatement.setString(5, usuarioModel.getTipo());
 
             preparedStatement.execute();
 

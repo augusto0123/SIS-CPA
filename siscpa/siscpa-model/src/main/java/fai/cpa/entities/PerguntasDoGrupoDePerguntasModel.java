@@ -3,10 +3,9 @@ package fai.cpa.entities;
 public class PerguntasDoGrupoDePerguntasModel {
 
     private int id;
-    private String descricao;
-    private String categoria;
-    private String tipo;
-    private int tipoEscala;
+    private int grupoDePerguntasId;
+    private int perguntaId;
+    private int ordemDasPerguntas;
 
     public int getId() {
         return id;
@@ -16,35 +15,27 @@ public class PerguntasDoGrupoDePerguntasModel {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public int getGrupoDePerguntasId() {
+        return grupoDePerguntasId;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setGrupoDePerguntasId(int grupoDePerguntasId) {
+        this.grupoDePerguntasId = grupoDePerguntasId;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public int getPerguntaId() {
+        return perguntaId;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setPerguntaId(int perguntaId) {
+        this.perguntaId = perguntaId;
     }
 
-    public String getTipo() {
-        return tipo;
+    public int getOrdemDasPerguntas() {
+        return ordemDasPerguntas;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public int getTipoEscala() {
-        return tipoEscala;
-    }
-
-    public void setTipoEscala(int tipoEscala) {
-        this.tipoEscala = tipoEscala;
+    public void setOrdemDasPerguntas(int ordemDasPerguntas) {
+        this.ordemDasPerguntas = ordemDasPerguntas;
     }
 }

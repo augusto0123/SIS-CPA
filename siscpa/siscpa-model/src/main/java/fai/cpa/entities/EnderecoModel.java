@@ -6,7 +6,7 @@ public class EnderecoModel {
     private String logradouro;
     private String numero;
     private String bairro;
-    private String cep;
+    private String cidade;
     private String complemento;
 
     public int getId() {
@@ -41,12 +41,12 @@ public class EnderecoModel {
         this.bairro = bairro;
     }
 
-    public String getCep() {
-        return cep;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public String getComplemento() {

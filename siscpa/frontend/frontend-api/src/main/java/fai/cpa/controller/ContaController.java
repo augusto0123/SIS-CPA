@@ -74,4 +74,13 @@ public class ContaController {
         }
         return "redirect:/not-found";
     }
+
+    @PostMapping("/login")
+    public String login(final String email, final String senha){
+        final UsuarioModel usuario = createUsuario.login(email, senha);
+        if (usuario != null){
+            return "redirect:/instituicao/inicio";
+        }
+        return "redirect:/not-found";
+    }
 }

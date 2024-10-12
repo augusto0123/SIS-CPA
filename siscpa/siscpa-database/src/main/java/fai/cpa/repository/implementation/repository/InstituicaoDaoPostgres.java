@@ -40,7 +40,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
                 instituicao.setCnpj(resultSet.getString("cnpj"));
                 instituicao.setEmail(resultSet.getString("email"));
                 instituicao.setResponsavelNome(resultSet.getString("nome_responsavel"));
-                instituicao.setResposavelEmail(resultSet.getString("email_responsavel"));
+                instituicao.setResponsavelEmail(resultSet.getString("email_responsavel"));
                 instituicao.setResponsavelTelefone(resultSet.getString("telefone_responsavel"));
                 instituicao.setEndereco_id(resultSet.getInt("id_endereco"));
             }
@@ -78,7 +78,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
                 instituicao.setCnpj(resultSet.getString("cnpj"));
                 instituicao.setEmail(resultSet.getString("email"));
                 instituicao.setResponsavelNome(resultSet.getString("nome_responsavel"));
-                instituicao.setResposavelEmail(resultSet.getString("email_responsavel"));
+                instituicao.setResponsavelEmail(resultSet.getString("email_responsavel"));
                 instituicao.setResponsavelTelefone(resultSet.getString("telefone_responsavel"));
                 instituicao.setEndereco_id(resultSet.getInt("id_endereco"));
 
@@ -104,7 +104,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String sql = "UPDATE instituicao SET email = ?, cnpj = ?, razao_social = ?, nome_fantasia = ?, telefone = ?, email_responsavel = ?, telefone_responsavel = ?, nome_responsavel = ?, situacao = ?";
+        String sql = "UPDATE instituicao SET email = ?, cnpj = ?, razao_social = ?, nome_fantasia = ?, telefone = ?, email_responsavel = ?, telefone_responsavel = ?, nome_responsavel = ?, situacao = ? ";
         sql += "WHERE id = ?;";
 
         try {
@@ -116,7 +116,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
             preparedStatement.setString(3,instituicaoModel.getRazaoSocial());
             preparedStatement.setString(4,instituicaoModel.getNomeFantasia());
             preparedStatement.setString(5,instituicaoModel.getTelefone());
-            preparedStatement.setString(6,instituicaoModel.getResposavelEmail());
+            preparedStatement.setString(6,instituicaoModel.getResponsavelEmail());
             preparedStatement.setString(7,instituicaoModel.getResponsavelTelefone());
             preparedStatement.setString(8,instituicaoModel.getResponsavelNome());
             preparedStatement.setString(9,instituicaoModel.getSituacao());
@@ -137,7 +137,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String sql = "DELETE FROM instituicao";
+        String sql = "DELETE FROM instituicao ";
         sql += "WHERE id = ?;";
 
         try {
@@ -178,7 +178,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
             preparedStatement.setString(4,instituicao.getSituacao());
             preparedStatement.setString(5,instituicao.getResponsavelNome());
             preparedStatement.setString(6,instituicao.getResponsavelTelefone());
-            preparedStatement.setString(7,instituicao.getResposavelEmail());
+            preparedStatement.setString(7,instituicao.getResponsavelEmail());
             preparedStatement.setString(8,instituicao.getNomeFantasia());
             preparedStatement.setString(9,instituicao.getRazaoSocial());
             preparedStatement.setInt(10, instituicao.getEndereco_id());

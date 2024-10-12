@@ -31,6 +31,7 @@ public class FindInstituicao {
         }
         return instituicoes;
     }
+
     public InstituicaoModel find(final int id){
         if(id < 0){
             throw new InvalidException();
