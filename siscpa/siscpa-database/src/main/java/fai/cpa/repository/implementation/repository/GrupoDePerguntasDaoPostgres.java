@@ -1,62 +1,57 @@
 package fai.cpa.repository.implementation.repository;
 
-import fai.cpa.entities.InstituicaoModel;
-import fai.cpa.entities.PerguntaModel;
-import fai.cpa.entities.ReuniaoCpaModel;
+import fai.cpa.entities.GrupoDePerguntasModel;
 import fai.cpa.repository.implementation.repository.connection.ConnectionFactory;
-import port.PerguntaRepository;
+import port.GrupoDePerguntasRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class PerguntaDaoPostgres implements PerguntaRepository {
+public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
     @Override
+    public GrupoDePerguntasModel findById(int id) {
 
-    public PerguntaModel findById(int id) {
-        final PerguntaModel pergunta = new PerguntaModel();
+        final GrupoDePerguntasModel grupo = new GrupoDePerguntasModel();
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "SELECT * FROM pergunta ";
+        String sql = "SELECT * FROM grupo_perguntas ";
         sql += "WHERE id = ?;";
 
         try {
             connection = ConnectionFactory.getConnection();
             preparedStatement = connection.prepareStatement(sql);
-
             preparedStatement.setInt(1, id);
 
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                pergunta.setId(resultSet.getInt("id"));
-                pergunta.setDescricao(resultSet.getString("descricao"));
-                pergunta.setTipo(resultSet.getString("tipo"));
-                pergunta.setTipoEscala(resultSet.getInt("tipo_escala"));
+                grupo.setId(resultSet.getInt("id"));
+                grupo.setTipo(resultSet.getString("tipo"));
+                grupo.setDescricao(resultSet.getString("descricao"));
             }
             resultSet.close();
             preparedStatement.close();
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return pergunta;
+        return grupo;
     }
 
     @Override
-    public List<PerguntaModel> findAll() {
+    public List<GrupoDePerguntasModel> findAll() {
 
-        final List<PerguntaModel> perguntas = new ArrayList<>();
+        final List<GrupoDePerguntasModel> grupos = new ArrayList<>();
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        final String sql = "SELECT * FROM pergunta;";
+        final String sql = "SELECT * FROM grupo_perguntas;";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -64,30 +59,31 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                final PerguntaModel pergunta = new PerguntaModel();
-                pergunta.setId(resultSet.getInt("id"));
-                pergunta.setDescricao(resultSet.getString("descricao"));
-                pergunta.setTipo(resultSet.getString("tipo"));
-                pergunta.setTipoEscala(resultSet.getInt("tipo_escala"));
+                final GrupoDePerguntasModel grupo = new GrupoDePerguntasModel();
+                grupo.setId(resultSet.getInt("id"));
+                grupo.setTipo(resultSet.getString("tipo"));
+                grupo.setDescricao(resultSet.getString("descricao"));
 
-                perguntas.add(pergunta);
+                grupos.add(grupo);
             }
+
             resultSet.close();
             preparedStatement.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return perguntas;
+
+        return grupos;
     }
 
     @Override
-    public List<PerguntaModel> findByCriteria(Map<String, String> criteria) {
+    public List<GrupoDePerguntasModel> findByCriteria(Map<String, String> criteria) {
         return null;
     }
 
     @Override
-    public boolean update(PerguntaModel perguntaModel) {
+    public boolean update(GrupoDePerguntasModel grupoDePerguntasModel) {
         return false;
     }
 
@@ -97,37 +93,38 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
     }
 
     @Override
-    public int create(PerguntaModel pergunta) {
+    public int create(GrupoDePerguntasModel grupo) {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO pergunta (descricao, tipo, tipo_escala)";
-        sql += " VALUES(?, ?, ?)";
+        String sql = "INSERT INTO grupo_perguntas (tipo, descricao)";
+        sql += " VALUES(?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
             connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            preparedStatement.setString(1,pergunta.getDescricao());
-            preparedStatement.setString(2,pergunta.getTipo());
-            preparedStatement.setInt(3,pergunta.getTipoEscala());
+            preparedStatement.setString(1, grupo.getTipo());
+            preparedStatement.setString(2, grupo.getDescricao());
 
             preparedStatement.execute();
 
             resultSet = preparedStatement.getGeneratedKeys();
+
             if (resultSet.next()){
                 final int id = resultSet.getInt(1);
-                pergunta.setId(id);
+                grupo.setId(id);
             }
+
             connection.commit();
 
             resultSet.close();
             preparedStatement.close();
 
-            return pergunta.getId();
+            return grupo.getId();
 
         } catch (Exception e) {
             if (connection != null){
@@ -137,7 +134,7 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
                     throw new RuntimeException(ex);
                 }
             }
-            return -1;
+            throw new RuntimeException(e);
         }
     }
 }

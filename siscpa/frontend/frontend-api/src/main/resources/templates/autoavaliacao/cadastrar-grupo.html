@@ -32,7 +32,7 @@
 
                             <h5 class="card-title-reuniao">Grupo de Perguntas</h5>
 
-                            <form class="row g-3 needs-validation" novalidate method="">
+                            <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/autoavaliacao/criar-grupo}">
 
                                 <div class="row mb-3">
                                     <label for="tipo" class="col-md-3 col-form-label">Tema do Grupo</label>
@@ -42,9 +42,9 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="grupo" class="col-md-3 col-form-label">Descrição do Grupo</label>
+                                    <label for="descricao" class="col-md-3 col-form-label">Descrição do Grupo</label>
                                     <div class="col-md-9">
-                                        <textarea class="form-control" style="height: 100px" required placeholder="Digite aqui..." name="grupo" id="grupo"></textarea>
+                                        <textarea class="form-control" style="height: 100px" required placeholder="Digite aqui..." name="descricao" id="descricao"></textarea>
                                     </div>
                                 </div>
 

@@ -112,7 +112,7 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
         ResultSet resultSet = null;
 
         String sql = "INSERT INTO edicao_autoavaliacao (descricao, edicao, ano_avaliacao, data_inicio, data_fim, situacao, id_instituicao)";
-        sql += "VALUES(?, ?, ?, ?, ?, ?, ?)";
+        sql += " VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();

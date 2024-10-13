@@ -32,25 +32,24 @@
 
                             <h5 class="card-title-reuniao">Questionários</h5>
 
-                            <form class="row g-3 needs-validation" novalidate method="">
+                            <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/autoavaliacao/criar-questionario}">
 
                                 <div class="row mb-3">
-                                    <label for="tipo" class="col-md-3 col-form-label">Questionário do(a):</label>
+                                    <label for="categoria" class="col-md-3 col-form-label">Questionário do(a):</label>
                                     <div class="col-md-9">
-                                        <select class="form-select" aria-label="Default select example" name="tipo" id="tipo" required>
-                                            <option selected=""></option>
-                                            <option value="1">Aluno</option>
-                                            <option value="2">Professor</option>
-                                            <option value="3">Colaborador</option>
-                                            <option value="4">Comunidade Externa</option>
+                                        <select class="form-select" aria-label="Default select example" name="vategoria" id="categoria" required>
+                                            <option selected="">Aluno</option>
+                                            <option value="1">Professor</option>
+                                            <option value="2">Colaborador</option>
+                                            <option value="3">Comunidade Externa</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="grupo" class="col-md-3 col-form-label">Descrição do Questionário:</label>
+                                    <label for="descricao" class="col-md-3 col-form-label">Descrição do Questionário:</label>
                                     <div class="col-md-9">
-                                        <textarea class="form-control" style="height: 100px" required placeholder="Digite aqui..." name="grupo" id="grupo"></textarea>
+                                        <textarea class="form-control" style="height: 100px" required placeholder="Digite aqui..." name="descricao" id="descricao"></textarea>
                                     </div>
                                 </div>
 

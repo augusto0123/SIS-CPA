@@ -32,8 +32,8 @@
             <div class="row">
 
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4">
-                    <div class="card-grupo">
-                        <h5 class="card-title-grupo">Tema do Grupo</h5>
+                    <div class="card-grupo" th:each="grupo : ${grupos}">
+                        <h5 class="card-title-grupo" th:text="${grupo.tipo}"></h5>
 
                         <div class="card-body-grupo">
 
@@ -42,11 +42,11 @@
                                 </div>
 
                                 <div class="table-edicao">
-                                    <span>Descrição do grupo</span>
+                                    <span th:text="${grupo.descricao}"></span>
                                 </div>
 
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
                                 Visualizar
                             </button>
                         </div>

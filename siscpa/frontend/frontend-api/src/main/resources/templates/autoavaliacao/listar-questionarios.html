@@ -32,9 +32,10 @@
             <div class="row">
 
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4">
-                    <div class="card-questionario">
 
-                        <h5 class="card-title-questionario">Questionário do Aluno</h5>
+                    <div class="card-questionario" th:each="questionário : ${questionarios}">
+
+                        <h5 class="card-title-questionario" th:text="${questionario.categoria}"></h5>
 
                         <div class="card-body-questionario">
 
@@ -43,10 +44,10 @@
                             </div>
 
                             <div class="table-edicao">
-                                <span>Descrição do questionário</span>
+                                <span th:text="${questionario.descricao}"></span>
                             </div>
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
                                 Visualizar
                             </button>
                         </div>

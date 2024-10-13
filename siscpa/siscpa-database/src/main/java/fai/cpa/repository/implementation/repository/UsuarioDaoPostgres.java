@@ -222,7 +222,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                     throw new RuntimeException(ex);
                 }
             }
-            return -1;
+            throw new RuntimeException(e);
         }
     }
 }

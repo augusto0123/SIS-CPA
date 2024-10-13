@@ -24,13 +24,25 @@ public class AutoavaliacaoController {
     private final CreateAvaliacao createAvaliacao;
     private final ShowAllAvaliacoes showAllAvaliacoes;
 
-    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes) {
+    private final CreateQuestionario createQuestionario;
+
+    private final ShowAllQuestionarios showAllQuestionarios;
+
+    private final CreateGrupo createGrupo;
+
+    private final ShowAllGrupos showAllGrupos;
+
+    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos) {
         this.createReuniao = createReuniao;
         this.showAllReunioes = showAllReunioes;
         this.createEdicao = createEdicao;
         this.showAllEdicoes = showAllEdicoes;
         this.createAvaliacao = createAvaliacao;
         this.showAllAvaliacoes = showAllAvaliacoes;
+        this.createQuestionario = createQuestionario;
+        this.showAllQuestionarios = showAllQuestionarios;
+        this.createGrupo = createGrupo;
+        this.showAllGrupos = showAllGrupos;
     }
 
 //    ==================================================================================================================
@@ -61,13 +73,19 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/cadastrar-questionario")
-    public String getQuestionarioPage(){
+    public String getQuestionarioPage(final Model model){
+
+        model.addAttribute("questionario", new QuestionarioModel());
+
         return "autoavaliacao/cadastrar-questionario";
     }
 
 
     @GetMapping("/cadastrar-grupo")
-    public String getGrupoPage(){
+    public String getGrupoPage(final Model model){
+
+        model.addAttribute("grupo", new GrupoDePerguntasModel());
+
         return "autoavaliacao/cadastrar-grupo";
     }
 
@@ -114,12 +132,26 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/listar-questionarios")
-    public String getListarQuestionariosPage(){
+    public String getListarQuestionariosPage(final Model model){
+        List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionarios();
+
+        if (questionarios == null)
+            questionarios = new ArrayList<>();
+
+        model.addAttribute("questionarios", questionarios);
+
         return "autoavaliacao/listar-questionarios";
     }
 
     @GetMapping("/listar-grupos")
-    public String getListarGruposPage(){
+    public String getListarGruposPage(final Model model){
+        List<GrupoDePerguntasModel> grupos = showAllGrupos.showAllGrupos();
+
+        if (grupos == null)
+            grupos = new ArrayList<>();
+
+        model.addAttribute("grupos", grupos);
+
         return "autoavaliacao/listar-grupos";
     }
 
@@ -211,6 +243,26 @@ public class AutoavaliacaoController {
         final int id = createAvaliacao.createAvaliacao(avaliacao);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-avalicoes";
+        }
+        return "redirect:/not-found";
+    }
+
+    @PostMapping("/criar-questionario")
+    public String criarQuestionario(final QuestionarioModel questionario, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        final int id = createQuestionario.createQuestionario(questionario);
+        if (id > 0){
+            return "redirect:/autoavaliacao/listar-questionarios";
+        }
+        return "redirect:/not-found";
+    }
+
+    @PostMapping("/criar-grupo")
+    public String criarGrupo(final GrupoDePerguntasModel grupo, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        final int id = createGrupo.createGrupo(grupo);
+        if (id > 0){
+            return "redirect:/autoavaliacao/listar-grupos";
         }
         return "redirect:/not-found";
     }

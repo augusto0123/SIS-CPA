@@ -1,62 +1,61 @@
 package fai.cpa.repository.implementation.repository;
 
-import fai.cpa.entities.InstituicaoModel;
-import fai.cpa.entities.PerguntaModel;
-import fai.cpa.entities.ReuniaoCpaModel;
+import fai.cpa.entities.QuestionarioModel;
 import fai.cpa.repository.implementation.repository.connection.ConnectionFactory;
-import port.PerguntaRepository;
+import port.QuestionarioRepository;
 
+import java.security.PrivilegedAction;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class PerguntaDaoPostgres implements PerguntaRepository {
+public class QuestionarioDaoPostgres implements QuestionarioRepository {
     @Override
+    public QuestionarioModel findById(int id) {
 
-    public PerguntaModel findById(int id) {
-        final PerguntaModel pergunta = new PerguntaModel();
+        final QuestionarioModel questionario = new QuestionarioModel();
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "SELECT * FROM pergunta ";
+        String sql = "SELECT * FROM questionario ";
         sql += "WHERE id = ?;";
 
         try {
             connection = ConnectionFactory.getConnection();
             preparedStatement = connection.prepareStatement(sql);
-
             preparedStatement.setInt(1, id);
 
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                pergunta.setId(resultSet.getInt("id"));
-                pergunta.setDescricao(resultSet.getString("descricao"));
-                pergunta.setTipo(resultSet.getString("tipo"));
-                pergunta.setTipoEscala(resultSet.getInt("tipo_escala"));
+                questionario.setId(resultSet.getInt("id"));
+                questionario.setCategoria(resultSet.getString("categoria"));
+                questionario.setDescricao(resultSet.getString("descricao"));
             }
+
             resultSet.close();
             preparedStatement.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return pergunta;
+
+        return questionario;
     }
 
     @Override
-    public List<PerguntaModel> findAll() {
+    public List<QuestionarioModel> findAll() {
 
-        final List<PerguntaModel> perguntas = new ArrayList<>();
+        final List<QuestionarioModel> questionarios = new ArrayList<>();
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        final String sql = "SELECT * FROM pergunta;";
+        final String sql = "SELECT * FROM questionario";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -64,30 +63,31 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                final PerguntaModel pergunta = new PerguntaModel();
-                pergunta.setId(resultSet.getInt("id"));
-                pergunta.setDescricao(resultSet.getString("descricao"));
-                pergunta.setTipo(resultSet.getString("tipo"));
-                pergunta.setTipoEscala(resultSet.getInt("tipo_escala"));
+                final QuestionarioModel questionario = new QuestionarioModel();
+                questionario.setId(resultSet.getInt("id"));
+                questionario.setCategoria(resultSet.getString("categoria"));
+                questionario.setDescricao(resultSet.getString("descricao"));
 
-                perguntas.add(pergunta);
+                questionarios.add(questionario);
             }
+
             resultSet.close();
             preparedStatement.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return perguntas;
+
+        return questionarios;
     }
 
     @Override
-    public List<PerguntaModel> findByCriteria(Map<String, String> criteria) {
+    public List<QuestionarioModel> findByCriteria(Map<String, String> criteria) {
         return null;
     }
 
     @Override
-    public boolean update(PerguntaModel perguntaModel) {
+    public boolean update(QuestionarioModel questionarioModel) {
         return false;
     }
 
@@ -97,37 +97,37 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
     }
 
     @Override
-    public int create(PerguntaModel pergunta) {
+    public int create(QuestionarioModel questionario) {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO pergunta (descricao, tipo, tipo_escala)";
-        sql += " VALUES(?, ?, ?)";
+        String sql = "INSERT INTO questionario (categoria, descricao)";
+        sql += " VALUES (?, ?);";
 
         try {
             connection = ConnectionFactory.getConnection();
             connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            preparedStatement.setString(1,pergunta.getDescricao());
-            preparedStatement.setString(2,pergunta.getTipo());
-            preparedStatement.setInt(3,pergunta.getTipoEscala());
+            preparedStatement.setString(1, questionario.getCategoria());
+            preparedStatement.setString(2, questionario.getDescricao());
 
             preparedStatement.execute();
 
             resultSet = preparedStatement.getGeneratedKeys();
             if (resultSet.next()){
                 final int id = resultSet.getInt(1);
-                pergunta.setId(id);
+                questionario.setId(id);
             }
+
             connection.commit();
 
             resultSet.close();
             preparedStatement.close();
 
-            return pergunta.getId();
+            return questionario.getId();
 
         } catch (Exception e) {
             if (connection != null){
@@ -137,7 +137,8 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
                     throw new RuntimeException(ex);
                 }
             }
-            return -1;
+            throw new RuntimeException(e);
         }
+
     }
 }

@@ -17,7 +17,7 @@ public class EnderecoDaoPostgres implements EnderecoRepository {
         ResultSet resultSet = null;
 
         String sql = "INSERT INTO endereco (logradouro, numero, bairro, cidade)";
-        sql += "VALUES(?, ?, ?, ?)";
+        sql += " VALUES(?, ?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
