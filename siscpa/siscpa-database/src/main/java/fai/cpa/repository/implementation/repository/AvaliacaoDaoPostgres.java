@@ -1,42 +1,41 @@
 package fai.cpa.repository.implementation.repository;
 
+import fai.cpa.entities.AvaliacaoModel;
 import fai.cpa.entities.InstituicaoModel;
-import fai.cpa.entities.PerguntaModel;
-import fai.cpa.entities.ReuniaoCpaModel;
 import fai.cpa.repository.implementation.repository.connection.ConnectionFactory;
-import port.PerguntaRepository;
+import port.AvaliacaoRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class PerguntaDaoPostgres implements PerguntaRepository {
-    @Override
+public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
 
-    public PerguntaModel findById(int id) {
-        final PerguntaModel pergunta = new PerguntaModel();
+    @Override
+    public AvaliacaoModel findById(int id) {
+
+        final AvaliacaoModel avaliacao =new AvaliacaoModel();
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "SELECT * FROM pergunta ";
+        String sql = "SELECT * FROM avaliacao ";
         sql += "WHERE id = ?;";
 
         try {
             connection = ConnectionFactory.getConnection();
             preparedStatement = connection.prepareStatement(sql);
-
             preparedStatement.setInt(1, id);
 
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                pergunta.setId(resultSet.getInt("id"));
-                pergunta.setDescricao(resultSet.getString("descricao"));
-                pergunta.setTipo(resultSet.getString("tipo"));
-                pergunta.setTipoEscala(resultSet.getInt("tipo_escala"));
+                avaliacao.setId(resultSet.getInt("id"));
+                avaliacao.setTema(resultSet.getString("tema"));
+                avaliacao.setDescricao(resultSet.getString("descricao"));
+                avaliacao.setEdicaoId(resultSet.getInt("id_edicao_autoavaliacao"));
             }
             resultSet.close();
             preparedStatement.close();
@@ -44,19 +43,19 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return pergunta;
+        return avaliacao;
     }
 
     @Override
-    public List<PerguntaModel> findAll() {
+    public List<AvaliacaoModel> findAll() {
 
-        final List<PerguntaModel> perguntas = new ArrayList<>();
+        final List<AvaliacaoModel> avaliacoes = new ArrayList<>();
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        final String sql = "SELECT * FROM pergunta;";
+        final String sql = "SELECT * FROM avaliacao;";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -64,13 +63,13 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                final PerguntaModel pergunta = new PerguntaModel();
-                pergunta.setId(resultSet.getInt("id"));
-                pergunta.setDescricao(resultSet.getString("descricao"));
-                pergunta.setTipo(resultSet.getString("tipo"));
-                pergunta.setTipoEscala(resultSet.getInt("tipo_escala"));
+                final AvaliacaoModel avaliacao = new AvaliacaoModel();
+                avaliacao.setId(resultSet.getInt("id"));
+                avaliacao.setTema(resultSet.getString("tema"));
+                avaliacao.setDescricao(resultSet.getString("descricao"));
+                avaliacao.setEdicaoId(resultSet.getInt("id_edicao_autoavaliacao"));
 
-                perguntas.add(pergunta);
+                avaliacoes.add(avaliacao);
             }
             resultSet.close();
             preparedStatement.close();
@@ -78,16 +77,16 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return perguntas;
+        return avaliacoes ;
     }
 
     @Override
-    public List<PerguntaModel> findByCriteria(Map<String, String> criteria) {
+    public List<AvaliacaoModel> findByCriteria(Map<String, String> criteria) {
         return null;
     }
 
     @Override
-    public boolean update(PerguntaModel perguntaModel) {
+    public boolean update(AvaliacaoModel avaliacaoModel) {
         return false;
     }
 
@@ -97,13 +96,13 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
     }
 
     @Override
-    public int create(PerguntaModel pergunta) {
+    public int create(AvaliacaoModel avaliacao) {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO pergunta (descricao, tipo, tipo_escala)";
+        String sql = "INSERT INTO avaliacao (tema, descricao, id_edicao_autoavaliacao)";
         sql += " VALUES(?, ?, ?)";
 
         try {
@@ -111,23 +110,23 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
             connection.setAutoCommit(false);
             preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            preparedStatement.setString(1,pergunta.getDescricao());
-            preparedStatement.setString(2,pergunta.getTipo());
-            preparedStatement.setInt(3,pergunta.getTipoEscala());
+            preparedStatement.setString(1,avaliacao.getTema());
+            preparedStatement.setString(2,avaliacao.getDescricao());
+            preparedStatement.setInt(3,avaliacao.getEdicaoId());
 
             preparedStatement.execute();
 
             resultSet = preparedStatement.getGeneratedKeys();
             if (resultSet.next()){
                 final int id = resultSet.getInt(1);
-                pergunta.setId(id);
+                avaliacao.setId(id);
             }
             connection.commit();
 
             resultSet.close();
             preparedStatement.close();
 
-            return pergunta.getId();
+            return avaliacao.getId();
 
         } catch (Exception e) {
             if (connection != null){

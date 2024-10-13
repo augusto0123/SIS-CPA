@@ -5,6 +5,7 @@ import fai.cpa.repository.implementation.repository.connection.ConnectionFactory
 import port.ReuniaoCpaRepository;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "SELECT * FROM reuniao_cpa";
+        String sql = "SELECT * FROM reuniao_cpa ";
         sql += "WHERE id = ?;";
 
         try {
@@ -39,7 +40,7 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             resultSet.close();
             preparedStatement.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return reuniao;
@@ -47,7 +48,38 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
 
     @Override
     public List<ReuniaoCpaModel> findAll() {
-        return null;
+
+        final List<ReuniaoCpaModel> reunioes = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM reuniao_cpa";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                final ReuniaoCpaModel reuniao = new ReuniaoCpaModel();
+                reuniao.setId(resultSet.getInt("id"));
+                reuniao.setDataReuniao(resultSet.getDate("data_reuniao").toLocalDate());
+                reuniao.setHorario(resultSet.getTime("horario").toLocalTime());
+                reuniao.setPauta(resultSet.getString("pauta"));
+                reuniao.setMembroCpaId(resultSet.getInt("id_membro_cpa"));
+
+                reunioes.add(reuniao);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return reunioes;
     }
 
     @Override
@@ -61,7 +93,7 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String sql = "UPDATE reuniao_cpa SET pauta = ?, horario = ?, data_reuniao = ?";
+        String sql = "UPDATE reuniao_cpa SET pauta = ?, horario = ?, data_reuniao = ? ";
         sql += "WHERE id = ?;";
 
         try {

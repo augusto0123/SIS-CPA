@@ -24,4 +24,5 @@ public class ContaConfiguration {
         RestService<UsuarioModel> restService = new RestApiController<>();
         return new ShowAllUsuarios(restService);
     }
+
 }

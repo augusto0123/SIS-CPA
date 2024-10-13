@@ -4,7 +4,19 @@ public class QuestionarioModel {
 
     private int id;
     private String descricao;
-    private Categoria categoria;
+    private String categoria;
+
+    private String avaliacaoId;
+
+//    Getters and Setters
+
+    public String getAvaliacaoId() {
+        return avaliacaoId;
+    }
+
+    public void setAvaliacaoId(String avaliacaoId) {
+        this.avaliacaoId = avaliacaoId;
+    }
 
     public int getId() {
         return id;
@@ -22,20 +34,11 @@ public class QuestionarioModel {
         this.descricao = descricao;
     }
 
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-
-    public enum Categoria {
-        ALUNO,
-        PROFESSOR,
-        COLABORADOR,
-        COMUNIDADE_EXTERNA
-    }
-
-
 }

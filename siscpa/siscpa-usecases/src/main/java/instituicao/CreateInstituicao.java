@@ -26,6 +26,7 @@ public class CreateInstituicao {
         String var = instituicaoModel.getSituacao().toLowerCase();
         String normVar = removeAccentsAfterJava7(var);
         instituicaoModel.setSituacao(normVar);
+
         if(instituicaoModel.getCnpj().isEmpty()
                 ||instituicaoModel.getEmail().isEmpty()
                 ||instituicaoModel.getNomeFantasia().isEmpty()

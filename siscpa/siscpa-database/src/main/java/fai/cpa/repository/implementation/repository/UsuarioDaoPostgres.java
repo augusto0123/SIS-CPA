@@ -34,6 +34,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuarioModel.setSenha(resultSet.getString("senha"));
                 usuarioModel.setTelefone(resultSet.getString("telefone"));
                 usuarioModel.setTipo(resultSet.getString("tipo"));
+                usuarioModel.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
                 resultSet.close();
                 preparedStatement.close();
@@ -72,9 +73,11 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuarioModel.setSenha(resultSet.getString("senha"));
                 usuarioModel.setTelefone(resultSet.getString("telefone"));
                 usuarioModel.setTipo(resultSet.getString("tipo"));
+//                usuarioModel.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
                 resultSet.close();
                 preparedStatement.close();
+
             }else {
                 return null;
             }
@@ -83,6 +86,43 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<UsuarioModel> findByTipo(String tipo) {
+        List<UsuarioModel> usuarios = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM usuario WHERE tipo = ?";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, tipo);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                UsuarioModel usuarioModel = new UsuarioModel();
+                usuarioModel.setId(resultSet.getInt("id"));
+                usuarioModel.setNome(resultSet.getString("nome"));
+                usuarioModel.setEmail(resultSet.getString("email"));
+                usuarioModel.setSenha(resultSet.getString("senha"));
+                usuarioModel.setTelefone(resultSet.getString("telefone"));
+                usuarioModel.setTipo(resultSet.getString("tipo"));
+                usuarioModel.setInstituicaoId(resultSet.getInt("id_instituicao"));
+
+                usuarios.add(usuarioModel);
+            }
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return usuarios;
     }
 
     @Override
@@ -108,9 +148,11 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuario.setTelefone(resultSet.getString("telefone"));
                 usuario.setSenha(resultSet.getString("senha"));
                 usuario.setTipo(resultSet.getString("tipo"));
+                usuario.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
                 usuarios.add(usuario);
             }
+
             resultSet.close();
             preparedStatement.close();
         } catch (SQLException e) {
@@ -142,6 +184,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
         ResultSet resultSet = null;
 
         String sql = "INSERT INTO usuario(nome, email, senha, telefone, tipo) ";
+//        id_instituicao
         sql += "VALUES (?, ?, ?, ?, ?)";
 
         try {
@@ -154,6 +197,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
             preparedStatement.setString(3, usuarioModel.getSenha());
             preparedStatement.setString(4, usuarioModel.getTelefone());
             preparedStatement.setString(5, usuarioModel.getTipo());
+//            preparedStatement.setInt(6, usuarioModel.getInstituicaoId());
 
             preparedStatement.execute();
 

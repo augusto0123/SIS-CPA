@@ -9,6 +9,18 @@ public class AvaliacaoModel {
     private String descricao;
     private String tema;
 
+    private int edicaoId;
+
+//    Getters and Setters
+
+    public int getEdicaoId() {
+        return edicaoId;
+    }
+
+    public void setEdicaoId(int edicaoId) {
+        this.edicaoId = edicaoId;
+    }
+
     public int getId() {
         return id;
     }

@@ -19,6 +19,7 @@ public class CreateAvaliacao {
             return -1;
         }
         int id = 0;
+
         try {
             id = avaliacaoRepository.create(avaliacaoModel);
             avaliacaoModel.setId(id);

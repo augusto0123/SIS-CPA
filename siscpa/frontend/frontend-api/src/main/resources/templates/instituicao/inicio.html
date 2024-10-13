@@ -186,22 +186,10 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>dd/mm/yyyy</td>
+                                    <tr th:each="reuniao : ${reunioes}">
+                                        <td th:text="${reuniao.dataReuniao}"></td>
                                         <th><i class='bi bi-circle-fill activity-badge text-success align-self-start'></i></th>
-                                        <td>texto-texto-texto</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>dd/mm/yyyy</td>
-                                        <th><i class='bi bi-circle-fill activity-badge text-success align-self-start'></i></th>
-                                        <td>texto-texto-texto</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>dd/mm/yyyy</td>
-                                        <th><i class='bi bi-circle-fill activity-badge text-success align-self-start'></i></th>
-                                        <td>texto-texto-texto</td>
+                                        <td th:text="${reuniao.pauta}"></td>
                                     </tr>
 
                                     </tbody>

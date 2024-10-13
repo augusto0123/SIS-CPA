@@ -9,7 +9,6 @@ public class ReuniaoCpaModel {
     private LocalDate dataReuniao;
     private LocalTime horario;
     private String pauta;
-
     private int membroCpaId;
 
     public int getMembroCpaId() {

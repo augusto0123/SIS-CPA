@@ -2,7 +2,7 @@
 <html layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Listar Instituicoes</title>
+    <title>Instituicoes</title>
     <!-- Icones -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -21,6 +21,13 @@
 
         <div class="pagetitle">
             <h1>Instituições</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item">Instituição</li>
+                    <li class="breadcrumb-item active">Listar Instituição</li>
+                </ol>
+            </nav>
         </div><!-- End Page Title -->
 
         <div class="search-bar">
@@ -54,20 +61,13 @@
                                     </div>
 
                                     <div class="paragrafo1">
-                                        <h5 class="title-info-instituicao"><strong>Contato / Responsável:</strong></h5>
-                                        <h5>Nome: <span th:text="${instituicao.responsavelNome}"></span></h5>
-                                        <h5>Email: <span th:text="${instituicao.responsavelEmail}"></span></h5>
-                                        <h5>Telefone: <span th:text="${instituicao.responsavelTelefone}"></span></h5>
-                                    </div>
-
-                                    <div class="paragrafo1">
                                         <h5 class="title-info-instituicao"> <strong>Contato / Instituição:</strong></h5>
                                         <h5>Email: <span th:text="${instituicao.email}"></span></h5>
                                         <h5>Telefone: <span th:text="${instituicao.telefone}"></span></h5>
                                     </div>
                                 </div>
 
-                                <a th:href="@{/instituicao/menu-instituicao}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                                <a th:href="@{/instituicao/inicio}"><i class="fa-solid fa-right-to-bracket"></i></a>
 
                             </div>
                         </div>

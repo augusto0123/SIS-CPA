@@ -114,7 +114,7 @@ CREATE TABLE resposta
     id_pergunta INTEGER,
     id_usuario INTEGER,
     id_avaliacao_questionario INTEGER,
-    resposta_objetiva VARCHAR(30) NOT NULL CHECK (resposta_objetiva IN ('Discordo Totalmente', 'Discordo', 'Neutro', 'Concordo', 'Concordo Totalmente')),
+    resposta_objetiva VARCHAR(30) CHECK (resposta_objetiva IN ('Discordo Totalmente', 'Discordo', 'Neutro', 'Concordo', 'Concordo Totalmente')),
     resposta_subjetiva VARCHAR(500),
     FOREIGN KEY (id_pergunta) REFERENCES Pergunta(id) ON DELETE CASCADE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,

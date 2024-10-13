@@ -45,4 +45,17 @@ public class FindUsuario {
         }
         return usuario;
     }
+
+    public List<UsuarioModel> findByTipo(String tipo){
+        if (tipo == null || tipo.isEmpty()){
+            throw new InvalidException();
+        }
+
+        final List<UsuarioModel> usuarios = usuarioRepositorty.findByTipo(tipo);
+        if (usuarios == null || usuarios.isEmpty()){
+            final String message = "Nenhum usuário do tipo: (" + ") foi encontrado";
+            throw new NotFoundException(message);
+        }
+        return usuarios;
+    }
 }

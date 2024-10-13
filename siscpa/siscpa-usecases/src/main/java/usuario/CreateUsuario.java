@@ -1,13 +1,17 @@
 package usuario;
 
 import fai.cpa.entities.UsuarioModel;
+import port.InstituicaoRepository;
 import port.UsuarioRepositorty;
 
 public class CreateUsuario {
     private final UsuarioRepositorty usuarioRepositorty;
 
-    public CreateUsuario(UsuarioRepositorty usuarioRepositorty) {
+    private final InstituicaoRepository instituicaoRepository;
+
+    public CreateUsuario(UsuarioRepositorty usuarioRepositorty, InstituicaoRepository instituicaoRepository) {
         this.usuarioRepositorty = usuarioRepositorty;
+        this.instituicaoRepository = instituicaoRepository;
     }
 
     public int createUsuario(final UsuarioModel usuarioModel){

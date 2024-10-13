@@ -1,19 +1,15 @@
 package fai.cpa.controller;
 
 
-import fai.cpa.autoavaliacao.CreateEdicao;
-import fai.cpa.autoavaliacao.CreateReuniao;
-import fai.cpa.autoavaliacao.ShowAllEdicoes;
-import fai.cpa.autoavaliacao.ShowAllReunioes;
-import fai.cpa.entities.EdicaoDeAutoAvaliacaoModel;
-import fai.cpa.entities.InstituicaoModel;
-import fai.cpa.entities.ReuniaoCpaModel;
+import fai.cpa.autoavaliacao.*;
+import fai.cpa.entities.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,23 +19,28 @@ public class AutoavaliacaoController {
 
     private final CreateReuniao createReuniao;
     private final ShowAllReunioes showAllReunioes;
-
     private final CreateEdicao createEdicao;
-
     private final ShowAllEdicoes showAllEdicoes;
+    private final CreateAvaliacao createAvaliacao;
+    private final ShowAllAvaliacoes showAllAvaliacoes;
 
-    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes) {
+    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes) {
         this.createReuniao = createReuniao;
         this.showAllReunioes = showAllReunioes;
         this.createEdicao = createEdicao;
         this.showAllEdicoes = showAllEdicoes;
+        this.createAvaliacao = createAvaliacao;
+        this.showAllAvaliacoes = showAllAvaliacoes;
     }
 
 //    ==================================================================================================================
 //    Container de CADASTROS...
 
     @GetMapping("/cadastrar-reuniao")
-    public String getReuniaoPage(){
+    public String getReuniaoPage(final Model model){
+
+        model.addAttribute("reuniao" , new ReuniaoCpaModel());
+
         return "autoavaliacao/cadastrar-reuniao";
     }
 
@@ -52,7 +53,10 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/cadastrar-avaliacao")
-    public String getautoavaliacaoPage(){
+    public String getautoavaliacaoPage(final Model model){
+
+        model.addAttribute("avaliacao", new AvaliacaoModel());
+
         return "autoavaliacao/cadastrar-avaliacao";
     }
 
@@ -76,6 +80,17 @@ public class AutoavaliacaoController {
     //    ==================================================================================================================
     //    Container de LISTAGENS...
 
+    @GetMapping("/listar-reunioes")
+    public String getListarReunioesPage(final Model model){
+        List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioes();
+
+        if (reunioes == null)
+            reunioes = new ArrayList<>();
+
+        model.addAttribute("reunioes", reunioes);
+        return "instituicao/inicio";
+    }
+
     @GetMapping("/listar-edicoes")
     public String getListarEdicoesPage(final Model model){
         List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
@@ -88,7 +103,13 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("listar-avaliacoes")
-    public String getListarAvaliacoesPage(){
+    public String getListarAvaliacoesPage(final Model model){
+        List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoes();
+
+        if (avaliacoes == null)
+            avaliacoes = new ArrayList<>();
+
+        model.addAttribute("avaliacoes", avaliacoes);
         return "autoavaliacao/listar-avaliacoes";
     }
 
@@ -161,8 +182,21 @@ public class AutoavaliacaoController {
 //    ==================================================================================================================
 //    Container de POSTMAPING
 
+    @PostMapping("/criar-reuniao")
+    public String criarReuniao(final ReuniaoCpaModel reuniao, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        reuniao.setMembroCpaId(usuario.getInstituicaoId());
+        final int id = createReuniao.createReuniao(reuniao);
+        if (id > 0){
+            return "redirect:/instituicao/inicio";
+        }
+        return "redirect:/not-found";
+    }
+
     @PostMapping("/criar-edicao")
-    public String criarEdicao(final EdicaoDeAutoAvaliacaoModel edicao){
+    public String criarEdicao(final EdicaoDeAutoAvaliacaoModel edicao, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        edicao.setInstituicaoId(usuario.getInstituicaoId());
         final int id = createEdicao.createEdicao(edicao);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-edicoes";
@@ -170,4 +204,14 @@ public class AutoavaliacaoController {
         return "redirect:/not-found";
     }
 
+    @PostMapping("/criar-avaliacao")
+    public String criarAvaliacao(final AvaliacaoModel avaliacao,HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        avaliacao.setEdicaoId(usuario.getInstituicaoId());
+        final int id = createAvaliacao.createAvaliacao(avaliacao);
+        if (id > 0){
+            return "redirect:/autoavaliacao/listar-avalicoes";
+        }
+        return "redirect:/not-found";
+    }
 }

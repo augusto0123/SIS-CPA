@@ -16,6 +16,8 @@ public class InstituicaoModel {
 
     private EnderecoModel endereco;
 
+//    Getters and Setters
+
     public EnderecoModel getEndereco() {
         return endereco;
     }

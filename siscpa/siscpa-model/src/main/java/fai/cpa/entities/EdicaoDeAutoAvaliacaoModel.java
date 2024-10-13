@@ -22,17 +22,8 @@ public class EdicaoDeAutoAvaliacaoModel {
 
     private int instituicaoId;
 
-    private InstituicaoModel instituicao;
 
 //    Getters and Setters
-
-    public InstituicaoModel getInstituicao() {
-        return instituicao;
-    }
-
-    public void setInstituicao(InstituicaoModel instituicao) {
-        this.instituicao = instituicao;
-    }
 
     public String getSituacao() {
         return situacao;

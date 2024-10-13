@@ -5,7 +5,6 @@ import java.time.LocalDate;
 public class AvaliacaoQuestionarioModel {
     private int id;
     private int avaliacaoId;
-
     private int questionarioId;
 
     public int getId() {

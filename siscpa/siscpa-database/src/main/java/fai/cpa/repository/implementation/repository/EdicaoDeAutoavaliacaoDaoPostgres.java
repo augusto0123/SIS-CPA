@@ -13,7 +13,41 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
 
     @Override
     public EdicaoDeAutoAvaliacaoModel findById(int id) {
-        return null;
+
+        final EdicaoDeAutoAvaliacaoModel edicao = new EdicaoDeAutoAvaliacaoModel();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        String sql = "SELECT * FROM edicao_autoavaliacao ";
+        sql += "WHERE id = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                edicao.setId(resultSet.getInt("id"));
+                edicao.setEdicao(resultSet.getInt("edicao"));
+                edicao.setAnoDaAvaliacao(resultSet.getString("ano_avaliacao"));
+                edicao.setDataInicio(resultSet.getDate("data_inicio").toLocalDate());
+                edicao.setDataFim(resultSet.getDate("data_fim").toLocalDate());
+                edicao.setSituacao(resultSet.getString("situacao"));
+                edicao.setDescricao(resultSet.getString("descricao"));
+                edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return edicao;
     }
 
     @Override
@@ -41,7 +75,7 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
                 edicao.setDataInicio(resultSet.getDate("data_inicio").toLocalDate());
                 edicao.setDataFim(resultSet.getDate("data_fim").toLocalDate());
                 edicao.setSituacao(resultSet.getString("situacao"));
-                edicao.setInstituicaoId(resultSet.getInt("instituicaoId"));
+                edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
                 edicoes.add(edicao);
             }

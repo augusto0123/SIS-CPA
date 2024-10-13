@@ -39,7 +39,7 @@
             <section class="section">
                 <div class="row">
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-3" th:each="usuario : ${usuarios}">
 
                         <div class="card-membro">
 
@@ -51,8 +51,8 @@
 
                                         <i class="fa-solid fa-user-tie"></i>
 
-                                        <h5 class="card-title">Nome</h5>
-                                        <label>Cargo</label>
+                                        <h5 class="card-title" th:text="${usuario.nome}"></h5>
+                                        <label th:text="${usuario.tipo}"></label>
 
                                     </div>
 

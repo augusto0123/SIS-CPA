@@ -60,6 +60,15 @@ public class InstituicaoController {
 
     @GetMapping("/listar-membro")
     public String getListarMembroPage(final Model model){
+
+        List<UsuarioModel> usuariosMembros = showAllUsuarios.findByTipo("Membro CPA");
+
+        if (usuariosMembros == null){
+            usuariosMembros = new ArrayList<>();
+        }
+
+        model.addAttribute("usuarios", usuariosMembros);
+
         return "instituicao/listar-membro";
     }
 
@@ -78,6 +87,18 @@ public class InstituicaoController {
     @GetMapping("/menu-instituicao")
     public String getMenuInstituicaoPage(){
         return "instituicao/menu-instituicao";
+    }
+
+    @GetMapping("/instituicoes")
+    public String getInstituicoesPage(final Model model){
+        List<InstituicaoModel> instituicoes = showAllInstituicoes.showAllInstituicoes();
+
+        if(instituicoes == null)
+            instituicoes = new ArrayList<>();
+
+        model.addAttribute("instituicoes", instituicoes);
+
+        return "instituicao/instituicoes";
     }
 
     @PostMapping("/criar-instituicao")

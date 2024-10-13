@@ -32,12 +32,12 @@
 
                             <h5 class="card-title-reuniao">Avaliação</h5>
 
-                            <form class="row g-3 needs-validation" novalidate method="">
+                            <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/autoavaliacao/criar-avaliacao}">
 
                                 <div class="row mb-3">
-                                    <label for="tipo" class="col-md-3 col-form-label">Tema da Avaliação</label>
+                                    <label for="tema" class="col-md-3 col-form-label">Tema da Avaliação</label>
                                     <div class="col-md-9">
-                                        <select class="form-select" aria-label="Default select example" name="tipo" id="tipo" required>
+                                        <select class="form-select" aria-label="Default select example" name="tema" id="tema" required>
                                             <option selected="">Qualidade de Ensino</option>
                                             <option value="1">Infraestrutura</option>
                                             <option value="2">Atendimento ao Aluno</option>
@@ -52,9 +52,9 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="grupo" class="col-md-3 col-form-label">Descrição da Avaliação:</label>
+                                    <label for="descricao" class="col-md-3 col-form-label">Descrição da Avaliação:</label>
                                     <div class="col-md-9">
-                                        <textarea class="form-control" style="height: 100px" required placeholder="Digite aqui..." name="grupo" id="grupo"></textarea>
+                                        <textarea class="form-control" style="height: 100px" required placeholder="Digite aqui..." name="descricao" id="descricao"></textarea>
                                     </div>
                                 </div>
 

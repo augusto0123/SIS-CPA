@@ -47,7 +47,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
             resultSet.close();
             preparedStatement.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return instituicao;
@@ -55,6 +55,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
 
     @Override
     public List<InstituicaoModel> findAll() {
+
         final List<InstituicaoModel> instituicoes = new ArrayList<>();
 
         Connection connection = null;

@@ -26,6 +26,19 @@ public class ContaRestController {
         return usuarios;
     }
 
+    @GetMapping("/findById/{id}")
+    @CrossOrigin
+    public UsuarioModel findById(@PathVariable final int id){
+        return contaBackendConfiguration.findUsuario().find(id);
+    }
+
+    @GetMapping("/findByTipo/{tipo}")
+    @CrossOrigin
+    public List<UsuarioModel> findByTipo(@PathVariable final String tipo){
+        return contaBackendConfiguration.findUsuario().findByTipo(tipo);
+    }
+
+
     @PostMapping("/login")
     public UsuarioModel login(@RequestParam String email,@RequestParam String senha){
         return contaBackendConfiguration.findUsuario().findByEmaileSenha(email, senha);
