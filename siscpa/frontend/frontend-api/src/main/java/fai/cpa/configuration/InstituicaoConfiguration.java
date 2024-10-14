@@ -1,6 +1,8 @@
 package fai.cpa.configuration;
 
+import fai.cpa.conta.ShowAllUsuarios;
 import fai.cpa.entities.InstituicaoModel;
+import fai.cpa.entities.UsuarioModel;
 import fai.cpa.instituicao.CreateInstituicao;
 import fai.cpa.instituicao.ShowAllInstituicoes;
 import fai.cpa.port.RestService;
@@ -21,4 +23,5 @@ public class InstituicaoConfiguration {
         RestService<InstituicaoModel> restService = new RestApiController<>();
         return new CreateInstituicao(restService);
     }
+
 }

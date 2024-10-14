@@ -55,7 +55,7 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        final String sql = "SELECT * FROM questionario";
+        final String sql = "SELECT * FROM questionario;";
 
         try {
             connection = ConnectionFactory.getConnection();

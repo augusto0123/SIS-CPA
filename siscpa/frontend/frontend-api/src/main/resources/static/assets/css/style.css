@@ -286,10 +286,11 @@ h6 {
 
 /*--------------------------------------------------------------
 # Card de grupo de edicoes
---------------------------------------------------------------*/
-.card-title-edicao {
+
   display:flex;
   justify-content: space-between;
+--------------------------------------------------------------*/
+.card-title-edicao {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
   padding: 12px;
   font-size: 20px;
@@ -297,6 +298,13 @@ h6 {
   color: white;
   font-family: "Poppins", sans-serif;
   background-color:#1C7ED6;
+  align-items: center;
+}
+
+.space-between-edicao {
+    display:flex;
+    justify-content: space-between;
+
 }
 .card-edicao {
     margin-bottom: 30px;
@@ -1550,6 +1558,11 @@ button:hover {
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
      margin: 20px 70px 0 35px;
 }
+.fa-arrow-right-to-bracket {
+    font-size:20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    background-color:#4CAF50;
+}
 .fa-clipboard-question {
     padding:20px 28px;
     border-radius: 100%;
@@ -1711,6 +1724,32 @@ button:hover {
     max-width: 50%;
   }
 }
+.card-title-edicao {
+    transition: color 0.3s ease; /* Efeito suave na mudança de cor */
+}
+
+.card-title-edicao:hover {
+    background-color: #007bff; /* Cor ao passar o mouse (pode ser ajustada) */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+.card-title-avaliacao {
+    transition: color 0.3s ease; /* Efeito suave na mudança de cor */
+}
+
+.card-title-avaliacao:hover {
+    background-color: #dc3545; /* Cor ao passar o mouse (pode ser ajustada) */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+.card-title-questionario {
+    transition: color 0.3s ease; /* Efeito suave na mudança de cor */
+}
+
+.card-title-questionario:hover {
+    background-color: #28a745; /* Cor ao passar o mouse (pode ser ajustada) */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
 
 /*--------------------------------------------------------------
 # Footer

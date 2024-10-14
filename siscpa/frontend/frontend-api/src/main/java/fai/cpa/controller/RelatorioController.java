@@ -14,7 +14,22 @@ public class RelatorioController {
     }
 
     @GetMapping("/grafico-edicao")
-    public String getGraficoPage(){
+    public String getGraficoEdicaoPage(){
         return "relatorio/grafico-edicao";
+    }
+
+    @GetMapping("/grafico-avaliacao")
+    public String getGraficoAvaliacaoPage(){
+        return "relatorio/grafico-avaliacao";
+    }
+
+    @GetMapping("/grafico-questionario")
+    public String getGraficoQuestionarioPage(){
+        return "relatorio/grafico-questionario";
+    }
+
+    @GetMapping("/grafico-grupo")
+    public String getGraficoGrupoPage(){
+        return "relatorio/grafico-grupo";
     }
 }

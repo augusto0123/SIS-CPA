@@ -2,8 +2,7 @@
 <html layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastrar Membro da CPA</title>
-
+    <title>Cadastrar Membro CPA</title>
     <!-- Icones -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -17,99 +16,87 @@
 
 <div layout:fragment="body">
 
-        <main id="main" class="main">
+    <main id="main" class="main">
 
-            <div class="pagetitle">
-                <h1>Cadastrar Membro CPA</h1>
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index-admin.html">Incio</a></li>
-                        <li class="breadcrumb-item">Instituição</li>
-                        <li class="breadcrumb-item active">Cadastrar Membro CPA</li>
-                    </ol>
-                </nav>
-            </div>
+        <div class="pagetitle">
+            <h1>Cadastrar Membro CPA</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-admin.html">Inicio</a></li>
+                    <li class="breadcrumb-item">Instituição</li>
+                    <li class="breadcrumb-item active">Listar Usuarios</li>
+                </ol>
+            </nav>
+        </div>
 
-            <div class="search-bar">
-                <form class="search-form d-flex align-items-center" method="POST" action="#">
-                    <input type="text" name="query" placeholder="Pesquisar" title="Enter search keyword">
-                    <button type="submit" title="Search" class="search-membro"><i class="bi bi-search"></i></button>
-                </form>
-            </div>
+        <div class="search-bar">
+            <form class="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" name="query" placeholder="Pesquisar" title="Enter search keyword">
+                <button type="submit" title="Search" class="search-membro"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
 
-            <section class="section">
-                <div class="row">
+        <section class="section">
+            <div class="row">
 
-                    <div class="col-lg-3">
+                <div class="col-lg-3" th:each="usuario, iterStat : ${usuarios}">
 
-                        <div class="card-membro">
+                    <div class="card-membro">
+                        <div class="card-body">
 
-                            <div class="card-body">
+                            <div class="card-body-membro">
+                                <i class="fa-solid fa-user"></i>
+                                <h5 class="card-title" th:text="${usuario.nome}"></h5>
+                                <span th:text="${usuario.tipo}"></span>
 
-                                <form class="row g-3 needs-validation" novalidate>
+                                <!-- Aqui, o data-bs-target é associado ao modal do usuário -->
+                                <button type="button" class="btn btn-primary"
+                                        data-bs-toggle="modal"
+                                        th:data-bs-target="'#modal-' + ${iterStat.index}">
+                                    Visualizar
+                                </button>
 
-                                        <div class="card-body-membro">
-
-                                            <i class="fa-solid fa-user-tie"></i>
-
-                                            <h5 class="card-title">Nome</h5>
-                                            <label class="email-membro">Email</label>
-
-                                            <p>Alterar tipo de usuário:</p>
-
-                                            <select class="form-select-membro" aria-label="Default select example" required>
-                                                <option selected></option>
-                                                <option value="1">Aluno</option>
-                                                <option value="2">Professor</option>
-                                                <option value="3">Colaborador</option>
-                                                <option value="4">Comunidade Externa</option>
-                                                <option value="4">Membro CPA</option>
-                                            </select>
-                                        </div>
-
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                        Cadastrar
-                                    </button>
-
-                                        <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Cadastro de Membros</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                       Membro cadastrado com sucesso!
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </form>
                             </div>
+
+                            <!-- Modal com ID único -->
+                            <div class="modal fade" th:id="'modal-' + ${iterStat.index}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Informações de contato:</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5>Email: <span th:text="${usuario.email}"></span></h5>
+                                            <h5>Telefone: <span th:text="${usuario.telefone}"></span></h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-
                     </div>
-
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
+    </main>
 
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-        <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
-        <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="/assets/vendor/chart.js/chart.umd.js"></script>
-        <script src="/assets/vendor/echarts/echarts.min.js"></script>
-        <script src="/assets/vendor/quill/quill.js"></script>
-        <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
-        <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
-        <script src="/assets/vendor/php-email-form/validate.js"></script>
+    <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="/assets/vendor/echarts/echarts.min.js"></script>
+    <script src="/assets/vendor/quill/quill.js"></script>
+    <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="/assets/vendor/php-email-form/validate.js"></script>
 
-        <!-- Template Main JS File -->
-        <script src="/assets/js/main.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/js/main.js"></script>
 
 </div>
 

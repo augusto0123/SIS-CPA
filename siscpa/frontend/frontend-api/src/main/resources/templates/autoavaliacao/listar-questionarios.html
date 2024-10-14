@@ -31,11 +31,11 @@
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4" th:each="questionario : ${questionarios}">
 
-                    <div class="card-questionario" th:each="questionário : ${questionarios}">
+                    <div class="card-questionario">
 
-                        <h5 class="card-title-questionario" th:text="${questionario.categoria}"></h5>
+                        <h5 class="card-title-questionario">Questionario do <span th:text="${questionario.categoria}"></span></h5>
 
                         <div class="card-body-questionario">
 

@@ -127,35 +127,13 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th scope="row">Numero</th>
-                                            <td>ano</td>
-                                            <td>data-inicio</td>
-                                            <td>data-fim</td>
-                                            <td>situacao</td>
+                                        <tr th:each="edicao : ${edicoes}">
+                                            <th scope="row" th:text="${edicao.edicao}"></th>
+                                            <td th:text="${edicao.anoAvaliacao}"></td>
+                                            <td th:text="${edicao.dataInicio}"></td>
+                                            <td th:text="${edicao.dataFim}"></td>
+                                            <td th:text="${edicao.situacao}"></td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">Numero</th>
-                                            <td>ano</td>
-                                            <td>data-inicio</td>
-                                            <td>data-fim</td>
-                                            <td>situacao</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Numero</th>
-                                            <td>ano</td>
-                                            <td>data-inicio</td>
-                                            <td>data-fim</td>
-                                            <td>situacao</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Numero</th>
-                                            <td>ano</td>
-                                            <td>data-inicio</td>
-                                            <td>data-fim</td>
-                                            <td>situacao</td>
-                                        </tr>
-
                                         </tbody>
                                     </table>
 

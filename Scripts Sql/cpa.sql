@@ -52,13 +52,14 @@ CREATE TABLE membro_cpa
     FOREIGN KEY (id_usuario) REFERENCES usuario(id) ON DELETE SET NULL);
 
 
-CREATE TABLE reuniao_cpa
-    (id SERIAL PRIMARY KEY,
+CREATE TABLE reuniao_cpa (
+    id SERIAL PRIMARY KEY,
     id_membro_cpa INTEGER,
     data_reuniao DATE NOT NULL,
-    horario TIMESTAMP NOT NULL,
+    horario TIME NOT NULL, 
     pauta VARCHAR(300) NOT NULL,
-    FOREIGN KEY (id_membro_cpa) REFERENCES Membro_CPA(id) ON DELETE CASCADE);
+    FOREIGN KEY (id_membro_cpa) REFERENCES Membro_CPA(id) ON DELETE CASCADE
+);
 
 
 CREATE TABLE edicao_autoavaliacao
@@ -84,7 +85,7 @@ CREATE TABLE avaliacao
 CREATE TABLE questionario (
     id SERIAL PRIMARY KEY,
     descricao VARCHAR(300) NOT NULL,
-    categoria VARCHAR(30) NOT NULL CHECK (categoria IN ('Aluno', 'Professor', 'Colaborador', 'Comunidade Externa'))
+    categoria VARCHAR(30) CHECK (categoria IN ('Aluno', 'Professor', 'Colaborador', 'Comunidade Externa'))
 );
 
 
@@ -105,7 +106,7 @@ CREATE TABLE grupo_perguntas
 CREATE TABLE pergunta (
     id SERIAL PRIMARY KEY,
     descricao VARCHAR(300) NOT NULL,
-    tipo VARCHAR(20) NOT NULL CHECK (tipo IN ('Objetiva', 'Subjetiva')),
+    tipo VARCHAR(20) CHECK (tipo IN ('Objetiva', 'Subjetiva')),
     escala JSON
 );
 

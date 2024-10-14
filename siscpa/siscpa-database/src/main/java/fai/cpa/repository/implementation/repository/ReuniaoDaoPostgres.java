@@ -55,7 +55,7 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        final String sql = "SELECT * FROM reuniao_cpa";
+        final String sql = "SELECT * FROM reuniao_cpa;";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -68,7 +68,7 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
                 reuniao.setDataReuniao(resultSet.getDate("data_reuniao").toLocalDate());
                 reuniao.setHorario(resultSet.getTime("horario").toLocalTime());
                 reuniao.setPauta(resultSet.getString("pauta"));
-                reuniao.setMembroCpaId(resultSet.getInt("id_membro_cpa"));
+//                reuniao.setMembroCpaId(resultSet.getInt("id_membro_cpa"));
 
                 reunioes.add(reuniao);
             }
@@ -127,8 +127,8 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO reuniao_cpa (data_reuniao, horario, pauta, id_membro_cpa)";
-        sql += "VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO reuniao_cpa (data_reuniao, horario, pauta)";
+        sql += " VALUES(?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -138,7 +138,7 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             preparedStatement.setDate(1, Date.valueOf(reuniaoCpaModel.getDataReuniao()));
             preparedStatement.setTime(2, Time.valueOf(reuniaoCpaModel.getHorario()));
             preparedStatement.setString(3, reuniaoCpaModel.getPauta());
-            preparedStatement.setInt(4, reuniaoCpaModel.getMembroCpaId());
+//            preparedStatement.setInt(4, reuniaoCpaModel.getMembroCpaId());
 
             preparedStatement.execute();
 

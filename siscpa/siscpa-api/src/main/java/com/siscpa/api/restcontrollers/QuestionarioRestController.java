@@ -11,11 +11,7 @@ import java.util.List;
 @RequestMapping("/api/questionario")
 public class QuestionarioRestController {
 
-    private final QuestionarioBackendConfiguration questionarioBackendConfiguration;
-
-    public QuestionarioRestController(QuestionarioBackendConfiguration questionarioBackendConfiguration) {
-        this.questionarioBackendConfiguration = questionarioBackendConfiguration;
-    }
+    private final QuestionarioBackendConfiguration questionarioBackendConfiguration = new QuestionarioBackendConfiguration();
 
     @GetMapping("/all")
     @CrossOrigin

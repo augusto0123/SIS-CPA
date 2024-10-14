@@ -20,7 +20,7 @@ public class GrupoRestController {
         return grupos;
     }
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     public int getCreateGrupo(@RequestBody GrupoDePerguntasModel grupo){
         return grupoBackendConfiguration.createGrupoDePerguntas().createGrupoDePerguntas(grupo);
     }

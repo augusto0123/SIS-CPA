@@ -38,7 +38,7 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
                 edicao.setDataFim(resultSet.getDate("data_fim").toLocalDate());
                 edicao.setSituacao(resultSet.getString("situacao"));
                 edicao.setDescricao(resultSet.getString("descricao"));
-                edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
+//                edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
             }
 
             resultSet.close();
@@ -75,7 +75,7 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
                 edicao.setDataInicio(resultSet.getDate("data_inicio").toLocalDate());
                 edicao.setDataFim(resultSet.getDate("data_fim").toLocalDate());
                 edicao.setSituacao(resultSet.getString("situacao"));
-                edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
+//                edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
                 edicoes.add(edicao);
             }
@@ -111,8 +111,9 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO edicao_autoavaliacao (descricao, edicao, ano_avaliacao, data_inicio, data_fim, situacao, id_instituicao)";
-        sql += " VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO edicao_autoavaliacao (descricao, edicao, ano_avaliacao, data_inicio, data_fim, situacao)";
+//        , id_instituicao
+        sql += " VALUES(?, ?, ?, ?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -125,7 +126,7 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
             preparedStatement.setDate(4, Date.valueOf(edicaoDeAutoAvaliacaoModel.getDataInicio()));
             preparedStatement.setDate(5, Date.valueOf(edicaoDeAutoAvaliacaoModel.getDataFim()));
             preparedStatement.setString(6, edicaoDeAutoAvaliacaoModel.getSituacao());
-            preparedStatement.setInt(7, edicaoDeAutoAvaliacaoModel.getInstituicaoId());
+//            preparedStatement.setInt(7, edicaoDeAutoAvaliacaoModel.getInstituicaoId());
 
             preparedStatement.execute();
 

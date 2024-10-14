@@ -35,7 +35,7 @@
 
                     <div class="card-edicao" th:each="edicao : ${edicoes}">
 
-                        <h5 class="card-title-edicao" th:text="${edicao.edicao}"><span th:text="${edicao.anoEdicao}"></span></h5>
+                        <h5 class="card-title-edicao">Edição Nº: <span th:text="${edicao.edicao}"></span></h5>
 
                         <div class="card-body-edicao">
 
@@ -43,10 +43,13 @@
                                 <div>
                                     <i class="fa-solid fa-chart-simple"></i>
                                 </div>
+
                                 <ul class="situacao-lista">
                                     <li class="situacao em-andamento">Situação: <span th:text="${edicao.situacao}"></span></li>
                                     <li class="data">Data / Início: <span th:text="${edicao.dataInicio}"></span></li>
                                     <li class="data">Data / Término: <span th:text="${edicao.dataFim}"></span></li>
+<!--                                    <li class="data">ID: <span th:text="${edicao.id}"></span></li>-->
+<!--                                    <li class="data">ID da instituição: <span th:text="${edicao.instituicaoId}"></span></li>-->
                                 </ul>
                             </div>
                             <div class="table-edicao">

@@ -27,7 +27,7 @@ public class FindReuniaoCpa {
         if (id < 0){
             throw new InvalidException();
         }
-        final ReuniaoCpaModel reuniaoCpaModel = reuniaoCpaRepository.findById(id);
+        ReuniaoCpaModel reuniaoCpaModel = reuniaoCpaRepository.findById(id);
         if (reuniaoCpaModel == null){
             final String message = "O id " + id + " não foi encontrado";
             throw new NotFoundException(message);

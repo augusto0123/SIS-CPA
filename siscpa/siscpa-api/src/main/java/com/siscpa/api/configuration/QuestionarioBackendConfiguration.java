@@ -21,6 +21,7 @@ public class QuestionarioBackendConfiguration {
         return new CreateQuestionario(questionarioRepository);
     }
 
+    @Bean
     public FindQuestionario findQuestionario(){
         return new FindQuestionario(questionarioRepository);
     }

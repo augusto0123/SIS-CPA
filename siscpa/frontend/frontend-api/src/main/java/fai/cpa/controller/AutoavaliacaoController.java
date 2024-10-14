@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,7 +104,9 @@ public class AutoavaliacaoController {
     public String getListarReunioesPage(final Model model){
         List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioes();
 
-        if (reunioes == null)
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        if (reunioes == null || reunioes.isEmpty())
             reunioes = new ArrayList<>();
 
         model.addAttribute("reunioes", reunioes);
@@ -118,6 +122,18 @@ public class AutoavaliacaoController {
 
         model.addAttribute("edicoes", edicoes);
         return "autoavaliacao/listar-edicoes";
+    }
+
+    @GetMapping("/listar-edicoes-inicio")
+    public String getListarEdicoesInicioPage(final Model model){
+        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
+        System.out.println("Edições: " + edicoes); // Para depuração
+
+        if (edicoes == null)
+            edicoes = new ArrayList<>();
+
+        model.addAttribute("edicoes", edicoes);
+        return "instituicao/inicio";
     }
 
     @GetMapping("listar-avaliacoes")
@@ -217,7 +233,7 @@ public class AutoavaliacaoController {
     @PostMapping("/criar-reuniao")
     public String criarReuniao(final ReuniaoCpaModel reuniao, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
-        reuniao.setMembroCpaId(usuario.getInstituicaoId());
+//        reuniao.setMembroCpaId(usuario.getInstituicaoId());
         final int id = createReuniao.createReuniao(reuniao);
         if (id > 0){
             return "redirect:/instituicao/inicio";
@@ -228,7 +244,7 @@ public class AutoavaliacaoController {
     @PostMapping("/criar-edicao")
     public String criarEdicao(final EdicaoDeAutoAvaliacaoModel edicao, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
-        edicao.setInstituicaoId(usuario.getInstituicaoId());
+//        edicao.setInstituicaoId(usuario.getInstituicaoId());
         final int id = createEdicao.createEdicao(edicao);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-edicoes";
@@ -239,7 +255,7 @@ public class AutoavaliacaoController {
     @PostMapping("/criar-avaliacao")
     public String criarAvaliacao(final AvaliacaoModel avaliacao,HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
-        avaliacao.setEdicaoId(usuario.getInstituicaoId());
+//        avaliacao.setEdicaoId(usuario.getInstituicaoId());
         final int id = createAvaliacao.createAvaliacao(avaliacao);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-avalicoes";

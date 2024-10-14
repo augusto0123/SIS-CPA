@@ -28,10 +28,10 @@ public class FindQuestionario {
             throw new InvalidException();
         }
         QuestionarioModel questionario = questionarioRepository.findById(id);
-            if (questionario == null){
-                final String message = "O id (" + id + ") não foi encontrado";
-                throw new NotFoundException(message);
-            }
+        if (questionario == null){
+            final String message = "O id (" + id + ") não foi encontrado";
+            throw new NotFoundException(message);
+        }
         return questionario;
     }
 }

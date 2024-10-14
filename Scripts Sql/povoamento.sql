@@ -38,10 +38,10 @@ VALUES ('contato@exemplo.com.br',
 		        2);
 
 INSERT INTO usuario (id_instituicao, nome, email, senha, telefone, tipo) VALUES
-(1, 'João', 'aluno1@instituicao1.com', 'senha123', '123456789', 'Aluno'),
-(1, 'Maria', 'professor1@instituicao1.com', 'senha123', '987654321', 'Professor'),
-(2, 'José', 'colaborador1@instituicao2.com', 'senha123', '111222333', 'Colaborador'),
-(2, 'Ana', 'membro1@instituicao2.com', 'senha123', '444555666', 'Membro CPA');
+(1, 'Guto Aluno', 'aluno1@instituicao1.com', 'senha123', '123456789', 'Aluno'),
+(1, 'Guto Professor', 'professor1@instituicao1.com', 'senha123', '987654321', 'Professor'),
+(2, 'Guto Colaborador', 'colaborador1@instituicao2.com', 'senha123', '111222333', 'Colaborador'),
+(2, 'Guto Membro CPA', 'membro1@instituicao2.com', 'senha123', '444555666', 'Membro CPA');
 
 -- Inserindo dados na tabela membro_cpa
 INSERT INTO membro_cpa (id_instituicao, cargo, id_usuario) VALUES
@@ -50,7 +50,7 @@ INSERT INTO membro_cpa (id_instituicao, cargo, id_usuario) VALUES
 -- Inserindo dados na tabela reuniao_cpa
 INSERT INTO reuniao_cpa (id_membro_cpa, data_reuniao, horario, pauta) VALUES
 (1, '2024-10-15', '10:00:00', 'Reunião de Planejamento'),
-(1, '2024-11-01', '14:00:00', 'Avaliação de Resultados');
+(2, '2024-11-01', '14:00:00', 'Avaliação de Resultados');
 
 -- Inserindo dados na tabela edicao_autoavaliacao
 INSERT INTO edicao_autoavaliacao (id_instituicao, edicao, ano_avaliacao, descricao, data_inicio, data_fim) VALUES

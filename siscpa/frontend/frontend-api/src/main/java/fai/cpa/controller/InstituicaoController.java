@@ -19,7 +19,6 @@ import java.util.List;
 public class InstituicaoController {
     private final ShowAllInstituicoes showAllInstituicoes;
     private final CreateInstituicao createInstituicao;
-
     private final ShowAllUsuarios showAllUsuarios;
 
     public InstituicaoController(ShowAllInstituicoes showAllInstituicoes, CreateInstituicao createInstituicao, ShowAllUsuarios showAllUsuarios) {
@@ -55,6 +54,15 @@ public class InstituicaoController {
 
     @GetMapping("/adicionar-membro")
     public String getAdicioarMembroPage(final Model model){
+
+        List<UsuarioModel> usuarios = showAllUsuarios.findByTipo("Professor");
+
+        if (usuarios == null){
+            usuarios = new ArrayList<>();
+        }
+
+        model.addAttribute("usuarios", usuarios);
+
         return "instituicao/adicionar-membro";
     }
 
