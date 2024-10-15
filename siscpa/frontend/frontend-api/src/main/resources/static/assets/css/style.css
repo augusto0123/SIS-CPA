@@ -259,14 +259,16 @@ h6 {
   background-color:#D4AC0E;
 }
 .card-grupo {
+    padding: 20px 0;
     margin-bottom: 30px;
-    border: none;
-    border-radius: 12px;
+        border: none;
+        border-radius: 12px;
+        background-color:white;
+        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
 }
 .card-body-grupo {
       display: flex;
       padding: 20px 20px 20px 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
       flex-direction: column;
       align-items: center;
 }
@@ -289,14 +291,16 @@ h6 {
   background-color:#228B22;
 }
 .card-questionario {
+    padding: 20px 0;
     margin-bottom: 30px;
-    border: none;
-    border-radius: 12px;
+        border: none;
+        border-radius: 12px;
+        background-color:white;
+        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
 }
 .card-body-questionario {
       display: flex;
       padding: 20px 20px 20px 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
       flex-direction: column;
       align-items: center;
 }
@@ -324,9 +328,12 @@ h6 {
 
 }
 .card-edicao {
+    padding: 20px 0;
     margin-bottom: 30px;
-    border: none;
-    border-radius: 12px;
+        border: none;
+        border-radius: 12px;
+        background-color:white;
+        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
 }
 .card-edicao-grafico {
     border: none;
@@ -335,7 +342,6 @@ h6 {
 .card-body-edicao {
       display: flex;
       padding: 20px 20px 20px 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
       flex-direction: column;
       align-items: center;
 }
@@ -352,7 +358,7 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Card de grupo de edicoes
+# Card de avaliacao
 --------------------------------------------------------------*/
 .card-title-avaliacao {
   display:flex;
@@ -366,9 +372,12 @@ h6 {
   background-color:#F36944;
 }
 .card-avaliacao {
+    padding: 20px 0;
     margin-bottom: 30px;
-    border: none;
-    border-radius: 12px;
+        border: none;
+        border-radius: 12px;
+        background-color:white;
+        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
 }
 .card-edicao-grafico {
     border: none;
@@ -377,7 +386,6 @@ h6 {
 .card-body-avaliacao {
       display: flex;
       padding: 20px 20px 20px 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
       flex-direction: column;
       align-items: center;
 }

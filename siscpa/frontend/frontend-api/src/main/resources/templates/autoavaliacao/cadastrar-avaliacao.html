@@ -26,11 +26,11 @@
 
                 <div class="col-lg-6">
 
-                    <div class="card">
+                    <h5 class="card-title-avaliacao">Avaliação</h5>
+
+                    <div class="card-avaliacao">
 
                         <div class="card-body">
-
-                            <h5 class="card-title-reuniao">Avaliação</h5>
 
                             <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/autoavaliacao/criar-avaliacao}">
 
@@ -38,15 +38,15 @@
                                     <label for="tema" class="col-md-3 col-form-label">Tema da Avaliação</label>
                                     <div class="col-md-9">
                                         <select class="form-select" aria-label="Default select example" name="tema" id="tema" required>
-                                            <option selected="">Qualidade de Ensino</option>
-                                            <option value="1">Infraestrutura</option>
-                                            <option value="2">Atendimento ao Aluno</option>
-                                            <option value="3">Resultados Acadêmicos</option>
-                                            <option value="4">Pesquisa e Extensão</option>
-                                            <option value="5">Avaliação de Convivência</option>
-                                            <option value="6">Inovação e Tecnologia</option>
-                                            <option value="7">Sustentabilidade</option>
-                                            <option value="8">Feedback de Comunidade</option>
+                                            <option selected="Qualidade de Ensino">Qualidade de Ensino</option>
+                                            <option value="Infraestrutura">Infraestrutura</option>
+                                            <option value="Atendimento ao Aluno">Atendimento ao Aluno</option>
+                                            <option value="Resultados Acadêmicos">Resultados Acadêmicos</option>
+                                            <option value="Pesquisa e Extensão">Pesquisa e Extensão</option>
+                                            <option value="Avaliação de Convivência">Avaliação de Convivência</option>
+                                            <option value="Inovação e Tecnologia">Inovação e Tecnologia</option>
+                                            <option value="Sustentabilidade">Sustentabilidade</option>
+                                            <option value="Feedback de Comunidade">Feedback de Comunidade</option>
                                         </select>
                                     </div>
                                 </div>
@@ -58,9 +58,11 @@
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                    Cadastrar
-                                </button>
+                                <div class="text-center mb-3">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop" style="width: auto;">
+                                        Cadastrar
+                                    </button>
+                                </div>
 
                                 <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
                                     <div class="modal-dialog">

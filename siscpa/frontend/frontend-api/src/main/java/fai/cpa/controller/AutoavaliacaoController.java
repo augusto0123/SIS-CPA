@@ -160,7 +160,7 @@ public class AutoavaliacaoController {
         return "instituicao/inicio";  // Certifique-se de que esse é o nome correto da sua view
     }
 
-    @GetMapping("listar-avaliacoes")
+    @GetMapping("/listar-avaliacoes")
     public String getListarAvaliacoesPage(final Model model){
         List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoes();
 
@@ -282,7 +282,7 @@ public class AutoavaliacaoController {
 //        avaliacao.setEdicaoId(usuario.getInstituicaoId());
         final int id = createAvaliacao.createAvaliacao(avaliacao);
         if (id > 0){
-            return "redirect:/autoavaliacao/listar-avalicoes";
+            return "redirect:/autoavaliacao/listar-avaliacoes";
         }
         return "redirect:/not-found";
     }

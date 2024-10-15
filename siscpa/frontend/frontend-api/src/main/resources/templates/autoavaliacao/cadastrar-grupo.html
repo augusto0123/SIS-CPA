@@ -26,11 +26,11 @@
 
                 <div class="col-lg-6">
 
-                    <div class="card">
+                    <h5 class="card-title-grupo">Grupo de Perguntas</h5>
+
+                    <div class="card-grupo">
 
                         <div class="card-body">
-
-                            <h5 class="card-title-reuniao">Grupo de Perguntas</h5>
 
                             <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/autoavaliacao/criar-grupo}">
 
@@ -48,9 +48,11 @@
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                    Cadastrar
-                                </button>
+                                <div class="text-center mb-3">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop" style="width: auto;">
+                                        Cadastrar
+                                    </button>
+                                </div>
 
                                 <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
                                     <div class="modal-dialog">

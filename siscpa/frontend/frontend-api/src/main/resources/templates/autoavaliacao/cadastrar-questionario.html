@@ -26,16 +26,17 @@
 
                 <div class="col-lg-6">
 
-                    <div class="card">
+                    <h5 class="card-title-questionario">Questionários</h5>
+
+                    <div class="card-questionario">
 
                         <div class="card-body">
 
-                            <h5 class="card-title-reuniao">Questionários</h5>
 
                             <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/autoavaliacao/criar-questionario}">
 
                                 <div class="row mb-3">
-                                    <label for="categoria" class="col-md-3 col-form-label">Questionário do(a):</label>
+                                    <label for="categoria" class="col-md-3 col-form-label">Questionário do(a)</label>
                                     <div class="col-md-9">
                                         <select class="form-select" aria-label="Default select example" name="categoria" id="categoria" required>
                                             <option selected="Aluno">Aluno</option>
@@ -47,15 +48,17 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="descricao" class="col-md-3 col-form-label">Descrição do Questionário:</label>
+                                    <label for="descricao" class="col-md-3 col-form-label">Descrição do Questionário</label>
                                     <div class="col-md-9">
                                         <textarea class="form-control" style="height: 100px" required placeholder="Digite aqui..." name="descricao" id="descricao"></textarea>
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                    Cadastrar
-                                </button>
+                                <div class="text-center mb-3">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop" style="width: auto;">
+                                        Cadastrar
+                                    </button>
+                                </div>
 
                                 <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
                                     <div class="modal-dialog">

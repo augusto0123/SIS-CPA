@@ -35,7 +35,7 @@ public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
                 avaliacao.setId(resultSet.getInt("id"));
                 avaliacao.setTema(resultSet.getString("tema"));
                 avaliacao.setDescricao(resultSet.getString("descricao"));
-                avaliacao.setEdicaoId(resultSet.getInt("id_edicao_autoavaliacao"));
+//                avaliacao.setEdicaoId(resultSet.getInt("id_edicao_autoavaliacao"));
             }
             resultSet.close();
             preparedStatement.close();
@@ -67,7 +67,7 @@ public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
                 avaliacao.setId(resultSet.getInt("id"));
                 avaliacao.setTema(resultSet.getString("tema"));
                 avaliacao.setDescricao(resultSet.getString("descricao"));
-                avaliacao.setEdicaoId(resultSet.getInt("id_edicao_autoavaliacao"));
+//                avaliacao.setEdicaoId(resultSet.getInt("id_edicao_autoavaliacao"));
 
                 avaliacoes.add(avaliacao);
             }
@@ -102,8 +102,8 @@ public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO avaliacao (tema, descricao, id_edicao_autoavaliacao)";
-        sql += " VALUES(?, ?, ?)";
+        String sql = "INSERT INTO avaliacao (tema, descricao)";
+        sql += " VALUES(?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -112,7 +112,7 @@ public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
 
             preparedStatement.setString(1,avaliacao.getTema());
             preparedStatement.setString(2,avaliacao.getDescricao());
-            preparedStatement.setInt(3,avaliacao.getEdicaoId());
+//            preparedStatement.setInt(3,avaliacao.getEdicaoId());
 
             preparedStatement.execute();
 

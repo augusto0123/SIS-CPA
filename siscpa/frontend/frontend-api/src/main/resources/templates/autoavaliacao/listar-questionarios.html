@@ -33,9 +33,9 @@
 
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4" th:each="questionario : ${questionarios}">
 
-                    <div class="card-questionario">
+                    <h5 class="card-title-questionario">Questionario do <span th:text="${questionario.categoria}"></span></h5>
 
-                        <h5 class="card-title-questionario">Questionario do <span th:text="${questionario.categoria}"></span></h5>
+                    <div class="card-questionario">
 
                         <div class="card-body-questionario">
 
