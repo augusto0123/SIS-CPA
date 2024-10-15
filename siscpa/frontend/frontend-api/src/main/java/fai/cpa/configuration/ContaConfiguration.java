@@ -2,6 +2,7 @@ package fai.cpa.configuration;
 
 import fai.cpa.conta.CreateUsuario;
 import fai.cpa.conta.ShowAllUsuarios;
+import fai.cpa.conta.UpdateUsuario;
 import fai.cpa.entities.InstituicaoModel;
 import fai.cpa.entities.UsuarioModel;
 import fai.cpa.instituicao.ShowAllInstituicoes;
@@ -23,6 +24,12 @@ public class ContaConfiguration {
     public ShowAllUsuarios showAllUsuarios(){
         RestService<UsuarioModel> restService = new RestApiController<>();
         return new ShowAllUsuarios(restService);
+    }
+
+    @Bean
+    UpdateUsuario updateUsuario(){
+        RestService<UsuarioModel> restService = new RestApiController<>();
+        return new UpdateUsuario(restService);
     }
 
 }

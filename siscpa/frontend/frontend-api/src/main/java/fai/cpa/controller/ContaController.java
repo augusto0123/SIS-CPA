@@ -2,6 +2,7 @@ package fai.cpa.controller;
 
 import fai.cpa.conta.CreateUsuario;
 import fai.cpa.conta.ShowAllUsuarios;
+import fai.cpa.conta.UpdateUsuario;
 import fai.cpa.entities.InstituicaoModel;
 import fai.cpa.entities.UsuarioModel;
 import fai.cpa.instituicao.ShowAllInstituicoes;
@@ -9,6 +10,7 @@ import fai.cpa.port.impl.AutenticationProvider;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -27,11 +29,14 @@ public class ContaController {
 
     private final AutenticationProvider autenticationProvider;
 
-    public ContaController(ShowAllInstituicoes showAllInstituicoes, CreateUsuario createUsuario, ShowAllUsuarios showAllUsuarios, AutenticationProvider autenticationProvider) {
+    private final UpdateUsuario updateUsuario;
+
+    public ContaController(ShowAllInstituicoes showAllInstituicoes, CreateUsuario createUsuario, ShowAllUsuarios showAllUsuarios, AutenticationProvider autenticationProvider, UpdateUsuario updateUsuario) {
         this.showAllInstituicoes = showAllInstituicoes;
         this.createUsuario = createUsuario;
         this.showAllUsuarios = showAllUsuarios;
         this.autenticationProvider = autenticationProvider;
+        this.updateUsuario = updateUsuario;
     }
 
     @GetMapping("/login")
@@ -70,8 +75,11 @@ public class ContaController {
         return "conta/vincular-instituicao";
     }
 
-    @GetMapping("/vincular-usuario")
-    public String getVincularUsuarioPage(){
+    @GetMapping("/vincular-usuario/{id}")
+    public String getVincularUsuarioPage(@PathVariable final int id, final Model model){
+
+        model.addAttribute("instituicaoId", id);
+
         return "conta/vincular-usuario";
     }
 
@@ -91,6 +99,21 @@ public class ContaController {
         final UsuarioModel usuario = createUsuario.login(email, senha);
         if (usuario != null){
             session.setAttribute("usuarioAtual",usuario);
+            return "redirect:/instituicao/inicio";
+        }
+        return "redirect:/not-found";
+    }
+
+    @PostMapping("/vincular-usuario")
+    public String vincularUsuario(final HttpSession session, final int instituicaoId, final String tipo){
+        final UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        usuario.setInstituicaoId(instituicaoId);
+        usuario.setTipo(tipo);
+        final boolean updateUsuario = this.updateUsuario.updateUsuario(usuario);
+
+        if (!updateUsuario){
+            session.setAttribute("usuarioAtual", usuario);
+            session.setAttribute("instituicaoId", instituicaoId);
             return "redirect:/instituicao/inicio";
         }
         return "redirect:/not-found";

@@ -43,4 +43,9 @@ public class ContaRestController {
     public UsuarioModel login(@RequestParam String email,@RequestParam String senha){
         return contaBackendConfiguration.findUsuario().findByEmaileSenha(email, senha);
     }
+
+    @PutMapping("/vincular-usuario")
+    public Boolean vinularUsuario(@RequestBody UsuarioModel usuario){
+        return contaBackendConfiguration.updateUsuario().updateById(usuario);
+    }
 }

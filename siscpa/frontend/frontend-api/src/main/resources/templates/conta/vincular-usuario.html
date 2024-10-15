@@ -37,23 +37,28 @@
 
                         <div class="card-body">
 
-                            <form class="row g-3 needs-validation" novalidate>
+                            <form class="row g-3 needs-validation" method="POST" th:action="@{/conta/vincular-usuario}">
 
                                 <div class="card-body-membro">
+
+
+                                    <div class="col-12">
+                                        <input type="hidden" name="instituicaoId" class="form-control" id="instituicaoId" th:value="${instituicaoId}">
+                                    </div>
 
                                     <i class="fa-solid fa-user"></i>
 
                                     <h5 class="card-title">Selecione seu papel na Instituição:</h5>
 
-                                    <select class="form-select-membro" aria-label="Default select example" required>
-                                        <option selected>Aluno</option>
-                                        <option value="1">Professor</option>
-                                        <option value="2">Colaborador</option>
-                                        <option value="3">Comunidade Externa</option>
+                                    <select class="form-select-membro" aria-label="Default select example" name="tipo" id="tipo" required>
+                                        <option selected value="Aluno">Aluno</option>
+                                        <option value="Professor">Professor</option>
+                                        <option value="Colaborador">Colaborador</option>
+                                        <option value="Comunidade Externa">Comunidade Externa</option>
                                     </select>
                                 </div>
 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
                                     Associar
                                 </button>
 

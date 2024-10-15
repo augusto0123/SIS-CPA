@@ -17,4 +17,6 @@ public interface UsuarioRepositorty {
     boolean deleteById(int id);
     int create(UsuarioModel usuarioModel);
 
+    boolean updateById(UsuarioModel usuarioModel);
+
 }

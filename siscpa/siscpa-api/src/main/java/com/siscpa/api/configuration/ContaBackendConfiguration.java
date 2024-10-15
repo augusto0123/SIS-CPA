@@ -8,6 +8,7 @@ import port.InstituicaoRepository;
 import port.UsuarioRepositorty;
 import usuario.CreateUsuario;
 import usuario.FindUsuario;
+import usuario.UpdateUsuario;
 
 @Configuration
 public class ContaBackendConfiguration {
@@ -28,6 +29,11 @@ public class ContaBackendConfiguration {
     @Bean
     public FindUsuario findUsuario(){
         return new FindUsuario(usuarioRepositorty);
+    }
+
+    @Bean
+    public UpdateUsuario updateUsuario(){
+        return new UpdateUsuario(usuarioRepositorty);
     }
 
 }

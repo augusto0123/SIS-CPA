@@ -27,4 +27,19 @@ public class UpdateUsuario {
             return true;
         }
     }
+
+    public boolean updateById(final UsuarioModel usuarioModel){
+        final UsuarioModel byId = usuarioRepositorty.findById(usuarioModel.getId());
+        byId.setInstituicaoId(usuarioModel.getInstituicaoId());
+        byId.setTipo(usuarioModel.getTipo());
+
+        boolean updateUsuario = false;
+
+        try {
+            updateUsuario = usuarioRepositorty.updateById(byId);
+            return updateUsuario;
+        } catch (Exception e){
+            return true;
+        }
+    }
 }
