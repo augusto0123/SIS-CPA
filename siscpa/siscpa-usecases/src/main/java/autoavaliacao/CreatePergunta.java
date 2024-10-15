@@ -17,7 +17,7 @@ public class CreatePergunta {
         }
         if (perguntaModel.getDescricao().isEmpty()
                 || perguntaModel.getTipo().isEmpty()
-                || perguntaModel.getTipoEscala() < 1){
+                || perguntaModel.getTipoEscala().isEmpty()){
             return -1;
         }
         return perguntaRepository.create(perguntaModel);

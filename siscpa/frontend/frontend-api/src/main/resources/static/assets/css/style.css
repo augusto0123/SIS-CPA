@@ -228,6 +228,23 @@ h6 {
   padding: 15px;
 }
 
+.card-cadastros {
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-body-cadastros {
+      padding: 20px 20px 20px 20px;
+      display:flex;
+}
+.card-cadastros:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao passar o mouse */
+    transform: scale(1.05); /* Aumenta o tamanho ligeiramente */
+    cursor: pointer; /* Mantém o cursor de ponteiro */
+}
 /*--------------------------------------------------------------
 # Card de grupo de perguntas
 --------------------------------------------------------------*/
@@ -1536,6 +1553,13 @@ button:hover {
   }
 }
 
+.espaco {
+    margin: 0 50px;
+}
+.espaco-edicao {
+    margin-right: 50px;
+}
+
 .fa-solid {
     font-size: 50px;
     background-color: black;
@@ -1543,6 +1567,14 @@ button:hover {
     padding: 10px;
     border-radius: 100%;
 }
+
+.fa-circle-question {
+    padding:20px 20px;
+    border-radius: 100%;
+    background-color:#9B59B6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
 .fa-building-columns{
     padding:20px 22px;
     border-radius: 100%;
@@ -1576,7 +1608,6 @@ button:hover {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 .fa-chart-simple {
-    margin-right:50px;
     padding:20px 25px;
     border-radius: 100%;
     background-color:#1C7ED6;

@@ -13,4 +13,6 @@ public interface ReuniaoCpaRepository {
     boolean update(ReuniaoCpaModel reuniaoCpaModel);
     boolean deleteById(int id);
     int create(ReuniaoCpaModel reuniaoCpaModel);
+
+    ReuniaoCpaModel findLastReuniao();
 }

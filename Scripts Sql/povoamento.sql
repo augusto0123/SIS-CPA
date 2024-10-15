@@ -38,10 +38,10 @@ VALUES ('contato@exemplo.com.br',
 		        2);
 
 INSERT INTO usuario (id_instituicao, nome, email, senha, telefone, tipo) VALUES
-(1, 'Guto Aluno', 'aluno1@instituicao1.com', 'senha123', '123456789', 'Aluno'),
-(1, 'Guto Professor', 'professor1@instituicao1.com', 'senha123', '987654321', 'Professor'),
-(2, 'Guto Colaborador', 'colaborador1@instituicao2.com', 'senha123', '111222333', 'Colaborador'),
-(2, 'Guto Membro CPA', 'membro1@instituicao2.com', 'senha123', '444555666', 'Membro CPA');
+(1, 'Augusto', 'aluno1@instituicao1.com', 'senha123', '123456789', 'Aluno'),
+(1, 'Ana Júlia', 'professor1@instituicao1.com', 'senha123', '987654321', 'Professor'),
+(2, 'Henrique', 'colaborador1@instituicao2.com', 'senha123', '111222333', 'Colaborador'),
+(2, 'Eunice', 'membro1@instituicao2.com', 'senha123', '444555666', 'Membro CPA');
 
 -- Inserindo dados na tabela membro_cpa
 INSERT INTO membro_cpa (id_instituicao, cargo, id_usuario) VALUES

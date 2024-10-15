@@ -34,7 +34,9 @@ public class AutoavaliacaoController {
 
     private final ShowAllGrupos showAllGrupos;
 
-    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos) {
+    private final ShowLastReuniao showLastReuniao;
+
+    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao) {
         this.createReuniao = createReuniao;
         this.showAllReunioes = showAllReunioes;
         this.createEdicao = createEdicao;
@@ -45,10 +47,16 @@ public class AutoavaliacaoController {
         this.showAllQuestionarios = showAllQuestionarios;
         this.createGrupo = createGrupo;
         this.showAllGrupos = showAllGrupos;
+        this.showLastReuniao = showLastReuniao;
     }
 
 //    ==================================================================================================================
 //    Container de CADASTROS...
+
+    @GetMapping("/cadastros")
+    public String getCadastrosPage(){
+        return "autoavaliacao/cadastros";
+    }
 
     @GetMapping("/cadastrar-reuniao")
     public String getReuniaoPage(final Model model){
@@ -100,6 +108,11 @@ public class AutoavaliacaoController {
     //    ==================================================================================================================
     //    Container de LISTAGENS...
 
+    @GetMapping("/registros")
+    public String getRegistrosPage(){
+        return "autoavaliacao/registros";
+    }
+
     @GetMapping("/listar-reunioes")
     public String getListarReunioesPage(final Model model){
         List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioes();
@@ -111,6 +124,17 @@ public class AutoavaliacaoController {
 
         model.addAttribute("reunioes", reunioes);
         return "instituicao/inicio";
+    }
+
+    @GetMapping("/listar-ultima-reuniao")
+    public String getLastReuniaoPage(final Model model){
+
+        ReuniaoCpaModel ultimaReuniao = showLastReuniao.showLastReuniao();
+
+        model.addAttribute("ultimaReuniao", ultimaReuniao);
+
+        return "instituicao/inicio";
+
     }
 
     @GetMapping("/listar-edicoes")
@@ -125,15 +149,15 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/listar-edicoes-inicio")
-    public String getListarEdicoesInicioPage(final Model model){
+    public String getListarEdicoesInicioPage(final Model model) {
         List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
-        System.out.println("Edições: " + edicoes); // Para depuração
 
-        if (edicoes == null)
+        if (edicoes == null) {
             edicoes = new ArrayList<>();
+        }
 
         model.addAttribute("edicoes", edicoes);
-        return "instituicao/inicio";
+        return "instituicao/inicio";  // Certifique-se de que esse é o nome correto da sua view
     }
 
     @GetMapping("listar-avaliacoes")

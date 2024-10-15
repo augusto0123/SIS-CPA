@@ -9,23 +9,23 @@ begin;
 
 CREATE TABLE endereco 
     (id SERIAL PRIMARY KEY,
-    logradouro VARCHAR(100) NOT NULL,
-    numero VARCHAR(100) NOT NULL,
-    bairro VARCHAR(100) NOT NULL,
+    logradouro VARCHAR(200) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    bairro VARCHAR(200) NOT NULL,
     cidade VARCHAR(200) NOT NULL,
-    complemento VARCHAR(100));
+    complemento VARCHAR(300));
 
 
 CREATE TABLE instituicao
     (id SERIAL PRIMARY KEY,
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(200) NOT NULL,
     cnpj VARCHAR(19) NOT NULL,
-    razao_social VARCHAR(100) NOT NULL,
-    nome_fantasia VARCHAR(100) NOT NULL,
+    razao_social VARCHAR(200) NOT NULL,
+    nome_fantasia VARCHAR(200) NOT NULL,
     telefone VARCHAR(20) NOT NULL,
-    email_responsavel VARCHAR(100) NOT NULL,
+    email_responsavel VARCHAR(200) NOT NULL,
     telefone_responsavel VARCHAR(20) NOT NULL,
-    nome_responsavel VARCHAR(100) NOT NULL,
+    nome_responsavel VARCHAR(200) NOT NULL,
     situacao VARCHAR(20) NOT NULL,
     id_endereco INTEGER NOT NULL,
     FOREIGN KEY (id_endereco) REFERENCES endereco(id) ON DELETE CASCADE);
@@ -34,8 +34,8 @@ CREATE TABLE instituicao
 CREATE TABLE usuario (
     id SERIAL PRIMARY KEY,
     id_instituicao INTEGER,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    nome VARCHAR(200) NOT NULL,
+    email VARCHAR(200) NOT NULL,
     senha VARCHAR(100) NOT NULL,
     telefone VARCHAR(20) NOT NULL,
     tipo VARCHAR(30) CHECK (tipo IN ('Aluno', 'Professor', 'Comunidade Externa', 'Colaborador', 'Membro CPA')),
@@ -57,7 +57,7 @@ CREATE TABLE reuniao_cpa (
     id_membro_cpa INTEGER,
     data_reuniao DATE NOT NULL,
     horario TIME NOT NULL, 
-    pauta VARCHAR(300) NOT NULL,
+    pauta VARCHAR(500) NOT NULL,
     FOREIGN KEY (id_membro_cpa) REFERENCES Membro_CPA(id) ON DELETE CASCADE
 );
 
@@ -67,7 +67,7 @@ CREATE TABLE edicao_autoavaliacao
     id_instituicao INTEGER,
     edicao INTEGER NOT NULL,
     ano_avaliacao VARCHAR(4) NOT NULL,
-    descricao VARCHAR(300) NOT NULL,
+    descricao VARCHAR(500) NOT NULL,
     data_inicio TIMESTAMP NOT NULL,
     data_fim TIMESTAMP NOT NULL,
     situacao VARCHAR(30) CHECK (situacao IN ('Prevista', 'Em Andamento', 'Encerrada')),
@@ -77,7 +77,7 @@ CREATE TABLE edicao_autoavaliacao
 CREATE TABLE avaliacao
     (id SERIAL PRIMARY KEY,
     id_edicao_autoavaliacao INTEGER,
-    descricao VARCHAR(300) NOT NULL,
+    descricao VARCHAR(500) NOT NULL,
     tema VARCHAR(100),
     FOREIGN KEY (id_edicao_autoavaliacao) REFERENCES Edicao_Autoavaliacao(id) ON DELETE CASCADE);
 
@@ -101,11 +101,11 @@ CREATE TABLE avaliacao_questionario
 CREATE TABLE grupo_perguntas 
     (id SERIAL PRIMARY KEY,
     tipo VARCHAR(100) NOT NULL,
-    descricao VARCHAR(300) NOT NULL);
+    descricao VARCHAR(500) NOT NULL);
 
 CREATE TABLE pergunta (
     id SERIAL PRIMARY KEY,
-    descricao VARCHAR(300) NOT NULL,
+    descricao VARCHAR(500) NOT NULL,
     tipo VARCHAR(20) CHECK (tipo IN ('Objetiva', 'Subjetiva')),
     escala JSON
 );

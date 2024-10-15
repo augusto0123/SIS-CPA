@@ -36,7 +36,7 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
                 pergunta.setId(resultSet.getInt("id"));
                 pergunta.setDescricao(resultSet.getString("descricao"));
                 pergunta.setTipo(resultSet.getString("tipo"));
-                pergunta.setTipoEscala(resultSet.getInt("tipo_escala"));
+                pergunta.setTipoEscala(resultSet.getString("escala"));
             }
             resultSet.close();
             preparedStatement.close();
@@ -68,7 +68,7 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
                 pergunta.setId(resultSet.getInt("id"));
                 pergunta.setDescricao(resultSet.getString("descricao"));
                 pergunta.setTipo(resultSet.getString("tipo"));
-                pergunta.setTipoEscala(resultSet.getInt("tipo_escala"));
+                pergunta.setTipoEscala(resultSet.getString("escala"));
 
                 perguntas.add(pergunta);
             }
@@ -103,7 +103,7 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO pergunta (descricao, tipo, tipo_escala)";
+        String sql = "INSERT INTO pergunta (descricao, tipo, escala)";
         sql += " VALUES(?, ?, ?)";
 
         try {
@@ -113,7 +113,7 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
 
             preparedStatement.setString(1,pergunta.getDescricao());
             preparedStatement.setString(2,pergunta.getTipo());
-            preparedStatement.setInt(3,pergunta.getTipoEscala());
+            preparedStatement.setString(3,pergunta.getTipoEscala());
 
             preparedStatement.execute();
 

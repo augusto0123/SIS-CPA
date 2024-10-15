@@ -34,4 +34,10 @@ public class ReuniaoRestContoller {
         ReuniaoCpaModel reuniaoCpaModel = reuniaoBackendConfiguration.findReuniaoCpa().find(id);
         return reuniaoCpaModel;
     }
+
+    @GetMapping("/last")
+    @CrossOrigin
+    public ReuniaoCpaModel getLastReuniao(){
+        return reuniaoBackendConfiguration.findReuniaoCpa().findLastReuniao();
+    }
 }

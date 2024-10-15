@@ -1,12 +1,18 @@
 package fai.cpa.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class ReuniaoCpaModel {
 
     private int id;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataReuniao;
+
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime horario;
     private String pauta;
     private int membroCpaId;

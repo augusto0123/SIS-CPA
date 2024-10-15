@@ -1,7 +1,12 @@
 package fai.cpa.controller;
 
+import fai.cpa.autoavaliacao.ShowAllEdicoes;
+import fai.cpa.autoavaliacao.ShowAllReunioes;
+import fai.cpa.autoavaliacao.ShowLastReuniao;
 import fai.cpa.conta.ShowAllUsuarios;
+import fai.cpa.entities.EdicaoDeAutoAvaliacaoModel;
 import fai.cpa.entities.InstituicaoModel;
+import fai.cpa.entities.ReuniaoCpaModel;
 import fai.cpa.entities.UsuarioModel;
 import fai.cpa.instituicao.CreateInstituicao;
 import fai.cpa.instituicao.ShowAllInstituicoes;
@@ -21,14 +26,38 @@ public class InstituicaoController {
     private final CreateInstituicao createInstituicao;
     private final ShowAllUsuarios showAllUsuarios;
 
-    public InstituicaoController(ShowAllInstituicoes showAllInstituicoes, CreateInstituicao createInstituicao, ShowAllUsuarios showAllUsuarios) {
+    private final ShowAllEdicoes showAllEdicoes;
+
+    private final ShowAllReunioes showAllReunioes;
+
+    private final ShowLastReuniao showLastReuniao;
+
+
+    public InstituicaoController(ShowAllInstituicoes showAllInstituicoes, CreateInstituicao createInstituicao, ShowAllUsuarios showAllUsuarios, ShowAllEdicoes showAllEdicoes, ShowAllReunioes showAllReunioes, ShowLastReuniao showLastReuniao) {
         this.showAllInstituicoes = showAllInstituicoes;
         this.createInstituicao = createInstituicao;
         this.showAllUsuarios = showAllUsuarios;
+        this.showAllEdicoes = showAllEdicoes;
+        this.showAllReunioes = showAllReunioes;
+        this.showLastReuniao = showLastReuniao;
     }
 
     @GetMapping("/inicio")
-    public String getInicioPage(){
+    public String getInicioPage(final Model model){
+        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
+        List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioes();
+//        ReuniaoCpaModel ultimaReuniao = showLastReuniao.showLastReuniao();
+
+        if(edicoes == null
+        || reunioes == null){
+            edicoes = new ArrayList<>();
+            reunioes = new ArrayList<>();
+        }
+
+        model.addAttribute("edicoes", edicoes);
+        model.addAttribute("reunioes", reunioes);
+//        model.addAttribute("ultimaReuniao", ultimaReuniao);
+
         return "instituicao/inicio";
     }
 
@@ -116,6 +145,14 @@ public class InstituicaoController {
             return "redirect:/instituicao/listar-instituicao";
         }
         return "redirect:/not-found";
+    }
+
+    @PostMapping("/criar-membro")
+    public String criarMembro(final Model model){
+
+
+
+        return "redirect:/instituicao/listar-membro";
     }
 
 }

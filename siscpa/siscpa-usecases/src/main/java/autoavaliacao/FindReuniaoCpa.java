@@ -34,4 +34,14 @@ public class FindReuniaoCpa {
         }
         return reuniaoCpaModel;
     }
+
+    public ReuniaoCpaModel findLastReuniao() {
+        List<ReuniaoCpaModel> reunioes = reuniaoCpaRepository.findAll();
+
+        if (reunioes == null || reunioes.isEmpty()) {
+            return null;
+        }
+
+        return reunioes.get(reunioes.size() - 1);
+    }
 }

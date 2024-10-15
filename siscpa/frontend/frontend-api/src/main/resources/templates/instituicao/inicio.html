@@ -32,6 +32,7 @@
                                     <div class="card-body-meeting">
                                         <div class="date-input">
                                             <input type="date" name="next-meeting" id="nextmeeting">
+<!--                                            <span th:text="${ultimaReuniao != null ? ultimaReuniao.dataReuniao : 'Nenhuma reunião encontrada'}"></span>-->
                                         </div>
                                     </div>
                             </div>
@@ -41,7 +42,7 @@
                             <div class="card">
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Dashboard de Avaliação Geral</h5>
+                                    <h5 class="card-title">Dashboard com base nas classificações de avaliação dos últimos anos:</h5>
 
 
                                     <div id="reportsChart"></div>
@@ -50,19 +51,19 @@
                                         document.addEventListener("DOMContentLoaded", () => {
                                           new ApexCharts(document.querySelector("#reportsChart"), {
                                             series: [{
-                                              name: 'Péssimo',
+                                              name: 'Muito Negativas',
                                               data: [31, 40, 28, 51, 42, 82, 56],
                                             }, {
-                                              name: 'Ruim',
+                                              name: 'Negativas',
                                               data: [11, 32, 45, 32, 34, 52, 41]
                                             }, {
-                                              name: 'Regular',
+                                              name: 'Neutras',
                                               data: [15, 11, 32, 18, 9, 24, 11]
                                             }, {
-                                              name: 'Bom',
+                                              name: 'Positivas',
                                               data: [20, 6, 25, 16, 19, 22, 30]
                                             }, {
-                                              name: 'Excelente',
+                                              name: 'Muito Positivas',
                                               data: [8, 14, 28, 32, 12, 22, 14]
                                             }],
                                             chart: {
@@ -129,7 +130,7 @@
                                         <tbody>
                                         <tr th:each="edicao : ${edicoes}">
                                             <th scope="row" th:text="${edicao.edicao}"></th>
-                                            <td th:text="${edicao.anoAvaliacao}"></td>
+                                            <td th:text="${edicao.anoDaAvaliacao}"></td>
                                             <td th:text="${edicao.dataInicio}"></td>
                                             <td th:text="${edicao.dataFim}"></td>
                                             <td th:text="${edicao.situacao}"></td>
@@ -193,38 +194,40 @@
                         </div>
 
                         <div class="card-body pb-0">
-                            <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
+                            <h5 class="card-title">Informações Gerais</h5>
 
                             <div class="news">
-                                <div class="post-item clearfix">
-                                    <img src="/assets/img/news-1.jpg" alt="">
-                                    <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                                    <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
-                                </div>
 
                                 <div class="post-item clearfix">
-                                    <img src="/assets/img/news-2.jpg" alt="">
-                                    <h4><a href="#">Quidem autem et impedit</a></h4>
-                                    <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
-                                </div>
-
-                                <div class="post-item clearfix">
-                                    <img src="/assets/img/news-3.jpg" alt="">
-                                    <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
-                                    <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
+                                    <img src="/assets/img/news-5.jpg" alt="">
+                                    <h4><a href="#">Membros da CPA</a></h4>
+                                    <p>Conheça os membros da CPA e seu papel na avaliação institucional.</p>
                                 </div>
 
                                 <div class="post-item clearfix">
                                     <img src="/assets/img/news-4.jpg" alt="">
-                                    <h4><a href="#">Laborum corporis quo dara net para</a></h4>
-                                    <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
+                                    <h4><a href="#">O que é a CPA?</a></h4>
+                                    <p>Saiba como a Comissão Própria de Avaliação (CPA) contribui para a qualidade educacional.</p>
                                 </div>
 
                                 <div class="post-item clearfix">
-                                    <img src="/assets/img/news-5.jpg" alt="">
-                                    <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
-                                    <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
+                                    <img src="/assets/img/news-1.jpg" alt="">
+                                    <h4><a href="#">Sobre o SIS CPA</a></h4>
+                                    <p>Descubra quem somos e como o SIS CPA atua para fortalecer a comunidade. Junte-se a nós e...</p>
                                 </div>
+
+<!--                                <div class="post-item clearfix">-->
+<!--                                    <img src="/assets/img/news-2.jpg" alt="">-->
+<!--                                    <h4><a href="#">Quidem autem et impedit</a></h4>-->
+<!--                                    <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>-->
+<!--                                </div>-->
+
+<!--                                <div class="post-item clearfix">-->
+<!--                                    <img src="/assets/img/news-3.jpg" alt="">-->
+<!--                                    <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>-->
+<!--                                    <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>-->
+<!--                                </div>-->
+
                             </div>
                         </div>
                     </div>

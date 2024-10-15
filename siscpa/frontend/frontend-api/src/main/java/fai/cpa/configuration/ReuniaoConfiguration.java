@@ -3,6 +3,7 @@ package fai.cpa.configuration;
 
 import fai.cpa.autoavaliacao.CreateReuniao;
 import fai.cpa.autoavaliacao.ShowAllReunioes;
+import fai.cpa.autoavaliacao.ShowLastReuniao;
 import fai.cpa.entities.ReuniaoCpaModel;
 import fai.cpa.port.RestService;
 import fai.cpa.port.impl.RestApiController;
@@ -22,5 +23,11 @@ public class ReuniaoConfiguration {
     public CreateReuniao createReuniao(){
         RestService<ReuniaoCpaModel> restService = new RestApiController<>();
         return new CreateReuniao(restService);
+    }
+
+    @Bean
+    public ShowLastReuniao showLastReuniao(){
+        RestService<ReuniaoCpaModel> restService = new RestApiController<>();
+        return new ShowLastReuniao(restService);
     }
 }
