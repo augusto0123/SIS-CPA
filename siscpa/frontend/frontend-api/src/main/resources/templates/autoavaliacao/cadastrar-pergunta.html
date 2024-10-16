@@ -25,6 +25,7 @@
             <div class="row">
 
                 <div class="col-lg-5">
+
                     <h2 class="title-tipo-pergunta">Pergunta Objetiva:</h2>
 
                     <div class="card-pergunta">
@@ -37,6 +38,8 @@
                                     <label for="descricao" class="form-label">Cadastrar enunciado:</label>
                                     <textarea class="form-control" name="descricao" id="descricao" rows="3" required></textarea>
                                 </div>
+
+                                <input type="hidden" name="tipo" value="Objetiva">
 
                                 <div class="mb-3">
                                     <div class="container-perguntas1">
@@ -63,8 +66,8 @@
                                     </div>
                                 </div>
 
-                                <div class="mt-auto" style="text-align: center;">
-                                    <button class="btn btn-primary" style="width: 30%;" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                <div class="text-center mb-3">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop" style="width: auto;">
                                         Cadastrar
                                     </button>
                                 </div>
@@ -82,9 +85,11 @@
                             <form class="row g-3 needs-validation flex-grow-1" novalidate method="POST" th:action="@{/autoavaliacao/criar-pergunta}">
 
                                 <div class="mb-3">
-                                    <label for="descricao-subjetiva" class="form-label">Cadastrar enunciado:</label>
-                                    <textarea class="form-control" id="descricao-subjetiva" rows="3" required></textarea>
+                                    <label for="descricao" class="form-label">Cadastrar enunciado:</label>
+                                    <textarea class="form-control" name="descricao" id="descricao" rows="3" required></textarea>
                                 </div>
+
+                                <input type="hidden" name="tipo" value="Subjetiva">
 
                                 <div class="mb-3">
                                     <label for="resposta" class="form-label">(Campo de resposta)</label>
@@ -92,7 +97,7 @@
                                 </div>
 
                                 <div class="mt-auto" style="text-align: center;">
-                                    <button class="btn btn-primary" style="width: 30%;" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
                                         Cadastrar
                                     </button>
                                 </div>

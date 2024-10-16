@@ -5,7 +5,6 @@ public class PerguntaModel {
     private int id;
     private String descricao;
     private String tipo;
-    private String tipoEscala;
 
     private int instituicaoId;
 
@@ -44,11 +43,4 @@ public class PerguntaModel {
         this.tipo = tipo;
     }
 
-    public String getTipoEscala() {
-        return tipoEscala;
-    }
-
-    public void setTipoEscala(String tipoEscala) {
-        this.tipoEscala = tipoEscala;
-    }
 }

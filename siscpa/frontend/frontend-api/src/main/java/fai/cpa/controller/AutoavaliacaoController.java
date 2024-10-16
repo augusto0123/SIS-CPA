@@ -25,18 +25,15 @@ public class AutoavaliacaoController {
     private final ShowAllEdicoes showAllEdicoes;
     private final CreateAvaliacao createAvaliacao;
     private final ShowAllAvaliacoes showAllAvaliacoes;
-
     private final CreateQuestionario createQuestionario;
-
     private final ShowAllQuestionarios showAllQuestionarios;
-
     private final CreateGrupo createGrupo;
-
     private final ShowAllGrupos showAllGrupos;
-
     private final ShowLastReuniao showLastReuniao;
+    private final CreatePergunta createPergunta;
+    private final ShowAllPerguntas showAllPerguntas;
 
-    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao) {
+    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas) {
         this.createReuniao = createReuniao;
         this.showAllReunioes = showAllReunioes;
         this.createEdicao = createEdicao;
@@ -48,6 +45,8 @@ public class AutoavaliacaoController {
         this.createGrupo = createGrupo;
         this.showAllGrupos = showAllGrupos;
         this.showLastReuniao = showLastReuniao;
+        this.createPergunta = createPergunta;
+        this.showAllPerguntas = showAllPerguntas;
     }
 
 //    ==================================================================================================================
@@ -100,7 +99,10 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/cadastrar-pergunta")
-    public String getPerguntaPage(){
+    public String getPerguntaPage(final Model model){
+
+        model.addAttribute("pergunta", new PerguntaModel());
+
         return "autoavaliacao/cadastrar-pergunta";
     }
 
@@ -157,7 +159,7 @@ public class AutoavaliacaoController {
         }
 
         model.addAttribute("edicoes", edicoes);
-        return "instituicao/inicio";  // Certifique-se de que esse é o nome correto da sua view
+        return "instituicao/inicio";
     }
 
     @GetMapping("/listar-avaliacoes")
@@ -196,7 +198,14 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/listar-perguntas")
-    public String getListarPerguntasPage(){
+    public String getListarPerguntasPage(final Model model){
+        List<PerguntaModel> perguntas = showAllPerguntas.showAllPerguntas();
+
+        if (perguntas == null)
+            perguntas = new ArrayList<>();
+
+        model.addAttribute("perguntas", perguntas);
+
         return "autoavaliacao/listar-perguntas";
     }
 
@@ -232,7 +241,13 @@ public class AutoavaliacaoController {
 //    Container de VINCULAÇÕES
 
     @GetMapping("vincular-avaliacao")
-    public String getVincularautoavaliacaoPage(){
+    public String getVincularautoavaliacaoPage(final Model model){
+        List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoes();
+
+        if (avaliacoes == null)
+            avaliacoes = new ArrayList<>();
+
+        model.addAttribute("avaliacoes", avaliacoes);
         return "autoavaliacao/vincular-avaliacao";
     }
 
@@ -303,6 +318,16 @@ public class AutoavaliacaoController {
         final int id = createGrupo.createGrupo(grupo);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-grupos";
+        }
+        return "redirect:/not-found";
+    }
+
+    @PostMapping("/criar-pergunta")
+    public String criarPergunta(final PerguntaModel pergunta, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        final int id = createPergunta.createPergunta(pergunta);
+        if (id > 0){
+            return "redirect:/autoavaliacao/listar-perguntas";
         }
         return "redirect:/not-found";
     }

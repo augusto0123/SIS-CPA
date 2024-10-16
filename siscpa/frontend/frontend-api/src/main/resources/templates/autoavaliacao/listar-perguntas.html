@@ -24,60 +24,66 @@
     <section class="section-pergunta">
         <div class="row">
 
-            <div class="col-lg-11">
+            <div class="col-lg-11" th:each="pergunta : ${perguntas}">
 
-                <div class="card">
-                    <div class="card-body-responder">
-                        <form class="row g-3 needs-validation" novalidate>
-                            <div class="mb-3">
-                                <span for="pergunta" class="form-label-span">Texto da pergunta</span>
-                            </div>
+                <div th:if="${pergunta.tipo == 'Objetiva'}">
+                    <div class="card">
 
-                            <div class="mb-3">
-                                <label class="form-label">Escolha uma opção:</label>
-                                <div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert1" value="1" required>
-                                        <label class="form-check-label" for="likert1">Péssimo</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert2" value="2" required>
-                                        <label class="form-check-label" for="likert2">Ruim</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert3" value="3" required>
-                                        <label class="form-check-label" for="likert3">Regular</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert4" value="4" required>
-                                        <label class="form-check-label" for="likert4">Bom</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="likert" id="likert5" value="5" required>
-                                        <label class="form-check-label" for="likert5">Excelente</label>
+                        <div class="card-body-responder">
+
+                            <form class="row g-3 needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <span class="form-label-span" th:text="${pergunta.descricao}"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Escolha uma opção:</label>
+                                    <div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="likert" id="likert1" value="1" required>
+                                            <label class="form-check-label" for="likert1">Péssimo</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="likert" id="likert2" value="2" required>
+                                            <label class="form-check-label" for="likert2">Ruim</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="likert" id="likert3" value="3" required>
+                                            <label class="form-check-label" for="likert3">Regular</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="likert" id="likert4" value="4" required>
+                                            <label class="form-check-label" for="likert4">Bom</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="likert" id="likert5" value="5" required>
+                                            <label class="form-check-label" for="likert5">Excelente</label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div th:if="${pergunta.tipo == 'Subjetiva'}">
+                    <div class="card">
+
+                        <div class="card-body-responder">
+                            <form class="row g-3 needs-validation" novalidate>
+
+                                <div class="mb-3">
+                                    <label for="resposta" class="form-label-pergunta" th:text="${pergunta.descricao}"></label>
+                                    <textarea class="form-control" id="resposta" rows="3" placeholder="Responda aqui..."></textarea>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-11">
+<!--            <div class="col-lg-11">-->
 
-                <div class="card">
-
-                    <div class="card-body-responder">
-                        <form class="row g-3 needs-validation" novalidate>
-
-                            <div class="mb-3">
-                                <label for="resposta" class="form-label-pergunta">Texto da Pergunta</label>
-                                <textarea class="form-control" id="resposta" rows="3" placeholder="Responda aqui..."></textarea>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     </main>

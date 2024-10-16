@@ -23,7 +23,7 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-membroCPA.html">Inicio</a></li>
-                    <li class="breadcrumb-item">Autoavaliação</li>
+                    <li class="breadcrumb-item">Avaliações</li>
                     <li class="breadcrumb-item active">Vincular Avaliação</li>
                 </ol>
             </nav>
@@ -32,11 +32,12 @@
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4" th:each="avaliacao : ${avaliacoes}">
+
+                    <h5 class="card-title-avaliacao-cadastrar" th:text="${avaliacao.tema}"></h5>
+
 
                     <div class="card-avaliacao">
-
-                        <h5 class="card-title-avaliacao">Tema da Avaliação</h5>
 
                         <div class="card-body-avaliacao">
                             <div>
@@ -44,7 +45,7 @@
                             </div>
 
                             <div class="table-edicao">
-                                <span>Descrição</span>
+                                <span th:text="${avaliacao.descricao}"></span>
                             </div>
 
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">

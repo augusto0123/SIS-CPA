@@ -36,7 +36,6 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
                 pergunta.setId(resultSet.getInt("id"));
                 pergunta.setDescricao(resultSet.getString("descricao"));
                 pergunta.setTipo(resultSet.getString("tipo"));
-                pergunta.setTipoEscala(resultSet.getString("escala"));
             }
             resultSet.close();
             preparedStatement.close();
@@ -68,7 +67,6 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
                 pergunta.setId(resultSet.getInt("id"));
                 pergunta.setDescricao(resultSet.getString("descricao"));
                 pergunta.setTipo(resultSet.getString("tipo"));
-                pergunta.setTipoEscala(resultSet.getString("escala"));
 
                 perguntas.add(pergunta);
             }
@@ -103,8 +101,8 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO pergunta (descricao, tipo, escala)";
-        sql += " VALUES(?, ?, ?)";
+        String sql = "INSERT INTO pergunta (descricao, tipo)";
+        sql += " VALUES(?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -113,7 +111,6 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
 
             preparedStatement.setString(1,pergunta.getDescricao());
             preparedStatement.setString(2,pergunta.getTipo());
-            preparedStatement.setString(3,pergunta.getTipoEscala());
 
             preparedStatement.execute();
 
@@ -137,7 +134,7 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
                     throw new RuntimeException(ex);
                 }
             }
-            return -1;
+            throw new RuntimeException(e);
         }
     }
 }

@@ -16,8 +16,7 @@ public class CreatePergunta {
             return -1;
         }
         if (perguntaModel.getDescricao().isEmpty()
-                || perguntaModel.getTipo().isEmpty()
-                || perguntaModel.getTipoEscala().isEmpty()){
+                || perguntaModel.getTipo().isEmpty()){
             return -1;
         }
         return perguntaRepository.create(perguntaModel);
