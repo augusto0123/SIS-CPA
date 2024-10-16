@@ -6,6 +6,18 @@ public class GrupoDePerguntasModel {
     private String tipo;
     private String descricao;
 
+    private int instituicaoId;
+
+//    Getters and Setters
+
+    public int getInstituicaoId() {
+        return instituicaoId;
+    }
+
+    public void setInstituicaoId(int instituicaoId) {
+        this.instituicaoId = instituicaoId;
+    }
+
     public int getId() {
         return id;
     }

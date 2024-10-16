@@ -12,6 +12,7 @@ public class EdicaoDeAutoAvaliacaoModel {
     private String anoDaAvaliacao;
     private String descricao;
 
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataInicio;
 

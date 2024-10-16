@@ -45,20 +45,22 @@ CREATE TABLE usuario (
 
 CREATE TABLE membro_cpa
     (id SERIAL PRIMARY KEY,
+    id_usuario INTEGER NOT NULL,
     id_instituicao INTEGER,
     cargo VARCHAR(100) NOT NULL,
-    id_usuario INTEGER NOT NULL,
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE,
     FOREIGN KEY (id_usuario) REFERENCES usuario(id) ON DELETE SET NULL);
 
 
 CREATE TABLE reuniao_cpa (
     id SERIAL PRIMARY KEY,
+    id_instituicao INTEGER,
     id_membro_cpa INTEGER,
     data_reuniao DATE NOT NULL,
     horario TIME NOT NULL, 
     pauta VARCHAR(500) NOT NULL,
-    FOREIGN KEY (id_membro_cpa) REFERENCES Membro_CPA(id) ON DELETE CASCADE
+    FOREIGN KEY (id_membro_cpa) REFERENCES Membro_CPA(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
 );
 
 
@@ -77,15 +79,20 @@ CREATE TABLE edicao_autoavaliacao
 CREATE TABLE avaliacao
     (id SERIAL PRIMARY KEY,
     id_edicao_autoavaliacao INTEGER,
+    id_instituicao INTEGER,
     descricao VARCHAR(500) NOT NULL,
     tema VARCHAR(100),
-    FOREIGN KEY (id_edicao_autoavaliacao) REFERENCES Edicao_Autoavaliacao(id) ON DELETE CASCADE);
+    FOREIGN KEY (id_edicao_autoavaliacao) REFERENCES Edicao_Autoavaliacao(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
+    );
 
 
 CREATE TABLE questionario (
     id SERIAL PRIMARY KEY,
+    id_instituicao INTEGER,
     descricao VARCHAR(300) NOT NULL,
-    categoria VARCHAR(30) CHECK (categoria IN ('Aluno', 'Professor', 'Colaborador', 'Comunidade Externa'))
+    categoria VARCHAR(30) CHECK (categoria IN ('Aluno', 'Professor', 'Colaborador', 'Comunidade Externa')),
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
 );
 
 
@@ -93,52 +100,65 @@ CREATE TABLE avaliacao_questionario
     (id SERIAL PRIMARY KEY,
     id_avaliacao INTEGER,
     id_questionario INTEGER,
+    id_instituicao INTEGER,
     FOREIGN KEY (id_avaliacao) REFERENCES Avaliacao(id) ON DELETE CASCADE,
     FOREIGN KEY (id_questionario) REFERENCES Questionario(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE,
     UNIQUE (id_avaliacao, id_questionario));
 
     
 CREATE TABLE grupo_perguntas 
     (id SERIAL PRIMARY KEY,
+    id_instituicao INTEGER,
     tipo VARCHAR(100) NOT NULL,
-    descricao VARCHAR(500) NOT NULL);
+    descricao VARCHAR(500) NOT NULL,
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
+    );
 
 CREATE TABLE pergunta (
     id SERIAL PRIMARY KEY,
+    id_instituicao INTEGER,
     descricao VARCHAR(500) NOT NULL,
     tipo VARCHAR(20) CHECK (tipo IN ('Objetiva', 'Subjetiva')),
-    escala JSON
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
 );
 
 CREATE TABLE resposta
     (id SERIAL PRIMARY KEY,
     id_pergunta INTEGER,
     id_usuario INTEGER,
+    id_instituicao INTEGER,
     id_avaliacao_questionario INTEGER,
     resposta_objetiva VARCHAR(30) CHECK (resposta_objetiva IN ('Discordo Totalmente', 'Discordo', 'Neutro', 'Concordo', 'Concordo Totalmente')),
     resposta_subjetiva VARCHAR(500),
     FOREIGN KEY (id_pergunta) REFERENCES Pergunta(id) ON DELETE CASCADE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,
-    FOREIGN KEY (id_avaliacao_questionario) REFERENCES Avaliacao_Questionario(id) ON DELETE CASCADE);
+    FOREIGN KEY (id_avaliacao_questionario) REFERENCES Avaliacao_Questionario(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
+    );
 
 
 CREATE TABLE perguntas_grupo_perguntas
     (id SERIAL PRIMARY KEY,
     id_grupo_perguntas INTEGER,
     id_pergunta INTEGER,
+    id_instituicao INTEGER,
     ordem_das_perguntas INTEGER NOT NULL,
     FOREIGN KEY (id_grupo_perguntas) REFERENCES grupo_perguntas(id) ON DELETE CASCADE,
     FOREIGN KEY (id_pergunta) REFERENCES pergunta(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE,
     UNIQUE (id_grupo_perguntas, id_pergunta));
 
 
 CREATE TABLE grupo_perguntas_questionario
     (id SERIAL PRIMARY KEY,
     id_questionario INTEGER,
+    id_instituicao INTEGER,
     id_grupo_perguntas INTEGER,
     ordem_dos_grupos INTEGER NOT NULL,
     FOREIGN KEY (id_questionario) REFERENCES questionario(id) ON DELETE CASCADE,
     FOREIGN KEY (id_grupo_perguntas) REFERENCES grupo_perguntas(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE,
     UNIQUE (id_questionario, id_grupo_perguntas));
 
 commit;

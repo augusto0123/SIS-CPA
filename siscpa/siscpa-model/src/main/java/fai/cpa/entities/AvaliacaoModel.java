@@ -11,7 +11,17 @@ public class AvaliacaoModel {
 
     private int edicaoId;
 
+    private int instituicaoId;
+
 //    Getters and Setters
+
+    public int getInstituicaoId() {
+        return instituicaoId;
+    }
+
+    public void setInstituicaoId(int instituicaoId) {
+        this.instituicaoId = instituicaoId;
+    }
 
     public int getEdicaoId() {
         return edicaoId;

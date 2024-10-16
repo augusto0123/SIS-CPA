@@ -7,6 +7,18 @@ public class PerguntaModel {
     private String tipo;
     private String tipoEscala;
 
+    private int instituicaoId;
+
+//    Getters and Setters
+
+    public int getInstituicaoId() {
+        return instituicaoId;
+    }
+
+    public void setInstituicaoId(int instituicaoId) {
+        this.instituicaoId = instituicaoId;
+    }
+
     public int getId() {
         return id;
     }
