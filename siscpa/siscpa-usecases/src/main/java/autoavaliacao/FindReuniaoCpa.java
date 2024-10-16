@@ -44,4 +44,17 @@ public class FindReuniaoCpa {
 
         return reunioes.get(reunioes.size() - 1);
     }
+
+    public List<ReuniaoCpaModel> findByInstituicaoId(int instituicaoId){
+        if (instituicaoId < 0){
+            throw new InvalidException();
+        }
+
+        List<ReuniaoCpaModel> reunioesInstituicao = reuniaoCpaRepository.findAllByInstituicaoId(instituicaoId);
+        if (reunioesInstituicao == null || reunioesInstituicao.isEmpty()) {
+            final String message = "Nenhuma reunião encontrada para o id da instituição " + instituicaoId;
+            throw new NotFoundException(message);
+        }
+        return reunioesInstituicao;
+    }
 }

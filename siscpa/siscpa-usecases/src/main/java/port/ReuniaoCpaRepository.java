@@ -10,6 +10,8 @@ public interface ReuniaoCpaRepository {
     ReuniaoCpaModel findById(int id);
     List<ReuniaoCpaModel> findAll();
     List<ReuniaoCpaModel> findByCriteria(Map<String, String> criteria);
+
+    List<ReuniaoCpaModel> findAllByInstituicaoId(int instituicaoId);
     boolean update(ReuniaoCpaModel reuniaoCpaModel);
     boolean deleteById(int id);
     int create(ReuniaoCpaModel reuniaoCpaModel);

@@ -53,20 +53,18 @@
                                     <h5 class="card-title" th:text="${usuario.nome}"></h5>
 
                                     <select class="form-select" aria-label="Default select example" name="tema" id="tema" required>
-                                        <option th:value="${usuario.tipo}" th:text="${usuario.tipo}" selected></option>
-                                        <option value="Aluno">Aluno</option>
+                                        <option value="Aluno" selected>Aluno</option>
                                         <option value="Professor">Professor</option>
                                         <option value="Colaborador">Colaborador</option>
                                         <option value="Comunidade Externa">Comunidade Externa</option>
                                         <option value="Membro CPA">Membro CPA</option>
                                     </select>
 
-                                    <!-- Aqui, o data-bs-target é associado ao modal do usuário -->
-                                    <button type="submit" class="btn btn-primary">
-                                        Salvar
-                                    </button>
-
                                 </div>
+
+                                <button type="submit" class="btn btn-primary">
+                                    Salvar
+                                </button>
 
                             </form>
 

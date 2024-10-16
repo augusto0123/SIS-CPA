@@ -17,6 +17,16 @@ public class ReuniaoCpaModel {
     private String pauta;
     private int membroCpaId;
 
+    private int instituicaoId;
+
+    public int getInstituicaoId() {
+        return instituicaoId;
+    }
+
+    public void setInstituicaoId(int instituicaoId) {
+        this.instituicaoId = instituicaoId;
+    }
+
     public int getMembroCpaId() {
         return membroCpaId;
     }

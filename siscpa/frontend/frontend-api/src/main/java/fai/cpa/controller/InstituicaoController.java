@@ -13,6 +13,7 @@ import fai.cpa.instituicao.ShowAllInstituicoes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -46,6 +47,8 @@ public class InstituicaoController {
     @GetMapping("/inicio")
     public String getInicioPage(final Model model, final HttpSession session){
 
+//        @PathVariable int instituicaoId
+
         List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
         List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioes();
 //        ReuniaoCpaModel ultimaReuniao = showLastReuniao.showLastReuniao();
@@ -56,6 +59,7 @@ public class InstituicaoController {
             reunioes = new ArrayList<>();
         }
 
+//        model.addAttribute("instituicaoId", instituicaoId);
         model.addAttribute("edicoes", edicoes);
         model.addAttribute("reunioes", reunioes);
 //        model.addAttribute("ultimaReuniao", ultimaReuniao);

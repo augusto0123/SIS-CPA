@@ -88,6 +88,51 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
     }
 
     @Override
+    public List<ReuniaoCpaModel> findAllByInstituicaoId(int instituicaoId) {
+
+        final List<ReuniaoCpaModel> reunioes = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        // Query para buscar reuniões por instituicaoId
+        final String sql = "SELECT * FROM reuniao_cpa WHERE instituicao_id = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            // Definindo o valor do parâmetro instituicaoId na query
+            preparedStatement.setInt(1, instituicaoId);
+
+            resultSet = preparedStatement.executeQuery();
+
+            // Processando o ResultSet e criando os objetos ReuniaoCpaModel
+            while (resultSet.next()) {
+                final ReuniaoCpaModel reuniao = new ReuniaoCpaModel();
+                reuniao.setId(resultSet.getInt("id"));
+                reuniao.setDataReuniao(resultSet.getDate("data_reuniao").toLocalDate());
+                reuniao.setHorario(resultSet.getTime("horario").toLocalTime());
+                reuniao.setPauta(resultSet.getString("pauta"));
+                reuniao.setMembroCpaId(resultSet.getInt("id_membro_cpa"));
+                reuniao.setInstituicaoId(resultSet.getInt("instituicao_id")); // Adiciona o instituicaoId
+
+                reunioes.add(reuniao); // Adiciona à lista de reuniões
+            }
+
+            // Fechando recursos
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return reunioes; // Retorna a lista de reuniões filtradas pelo instituicaoId
+    }
+
+    @Override
     public boolean update(ReuniaoCpaModel reuniaoCpaModel) {
 
         Connection connection = null;
