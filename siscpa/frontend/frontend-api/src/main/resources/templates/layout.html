@@ -178,14 +178,14 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-        <li class="nav-item">
+        <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
             <a class="nav-link " th:href="@{/instituicao/inicio}">
                 <i class="bi bi-grid"></i>
                 <span>Inicio</span>
             </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" th:if="${usuario.tipo == 'Administrador'}">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Instituições</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -205,7 +205,7 @@
             </ul>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" th:if="${usuario.tipo == 'Membro CPA'}">
             <a class="nav-link collapsed" data-bs-target="#forms-nav-membro" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-journal-text"></i><span>Autoavaliação(Membro)</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -229,7 +229,7 @@
             </ul>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
             <a class="nav-link collapsed" data-bs-target="#forms-nav-usuario" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-journal-text"></i><span>Autoavaliação(Usuário)</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>

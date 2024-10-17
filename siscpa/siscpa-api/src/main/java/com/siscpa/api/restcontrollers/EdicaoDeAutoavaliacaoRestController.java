@@ -26,8 +26,9 @@ public class EdicaoDeAutoavaliacaoRestController {
 
     @GetMapping("/findByInstituicaoId/{id}")
     @CrossOrigin
-    public List<EdicaoDeAutoAvaliacaoModel> getEdicoesByInstituicaoId(@PathVariable int id) {
-        return edicaoDeAutoavaliacaoBackendConfiguration.findEdicaoDeAutoavaliacao().findAllByInstituicaoId(id);
+    public List<EdicaoDeAutoAvaliacaoModel> getEdicoesByInstituicaoId(@PathVariable("id") int id) {
+        List<EdicaoDeAutoAvaliacaoModel> edicoes = edicaoDeAutoavaliacaoBackendConfiguration.findEdicaoDeAutoavaliacao().findAllByInstituicaoId(id);
+        return edicoes;
     }
 
 }

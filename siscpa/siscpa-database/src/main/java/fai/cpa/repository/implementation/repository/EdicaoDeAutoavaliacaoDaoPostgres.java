@@ -116,7 +116,7 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
                 edicao.setDataInicio(resultSet.getDate("data_inicio").toLocalDate());
                 edicao.setDataFim(resultSet.getDate("data_fim").toLocalDate());
                 edicao.setSituacao(resultSet.getString("situacao"));
-//                edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
+                edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
                 edicoes.add(edicao);
             }

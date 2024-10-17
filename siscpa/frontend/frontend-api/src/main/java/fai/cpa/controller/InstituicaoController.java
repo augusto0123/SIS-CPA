@@ -62,6 +62,7 @@ public class InstituicaoController {
 //        model.addAttribute("instituicaoId", instituicaoId);
         model.addAttribute("edicoes", edicoes);
         model.addAttribute("reunioes", reunioes);
+        model.addAttribute("usuario", usuario);
 //        model.addAttribute("ultimaReuniao", ultimaReuniao);
 
         return "instituicao/inicio";

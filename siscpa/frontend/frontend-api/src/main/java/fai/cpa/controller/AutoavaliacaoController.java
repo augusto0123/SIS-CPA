@@ -54,12 +54,18 @@ public class AutoavaliacaoController {
 //    Container de CADASTROS...
 
     @GetMapping("/cadastros")
-    public String getCadastrosPage(){
+    public String getCadastrosPage(HttpSession session, final Model model){
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         return "autoavaliacao/cadastros";
     }
 
     @GetMapping("/cadastrar-reuniao")
-    public String getReuniaoPage(final Model model){
+    public String getReuniaoPage(final Model model, HttpSession session){
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         model.addAttribute("reuniao" , new ReuniaoCpaModel());
 
@@ -67,7 +73,10 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/cadastrar-edicao")
-    public String getEdicaoPage(final Model model){
+    public String getEdicaoPage(final Model model, HttpSession session){
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         model.addAttribute("edicao", new EdicaoDeAutoAvaliacaoModel());
 
@@ -75,7 +84,10 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/cadastrar-avaliacao")
-    public String getautoavaliacaoPage(final Model model){
+    public String getautoavaliacaoPage(final Model model, HttpSession session){
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         model.addAttribute("avaliacao", new AvaliacaoModel());
 
@@ -83,7 +95,10 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/cadastrar-questionario")
-    public String getQuestionarioPage(final Model model){
+    public String getQuestionarioPage(final Model model, HttpSession session){
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         model.addAttribute("questionario", new QuestionarioModel());
 
@@ -92,7 +107,9 @@ public class AutoavaliacaoController {
 
 
     @GetMapping("/cadastrar-grupo")
-    public String getGrupoPage(final Model model){
+    public String getGrupoPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         model.addAttribute("grupo", new GrupoDePerguntasModel());
 
@@ -100,7 +117,9 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/cadastrar-pergunta")
-    public String getPerguntaPage(final Model model){
+    public String getPerguntaPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         model.addAttribute("pergunta", new PerguntaModel());
 
@@ -112,13 +131,19 @@ public class AutoavaliacaoController {
     //    Container de LISTAGENS...
 
     @GetMapping("/registros")
-    public String getRegistrosPage(){
+    public String getRegistrosPage(final Model model, HttpSession session){
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         return "autoavaliacao/registros";
     }
 
     @GetMapping("/listar-reunioes")
-    public String getListarReunioesPage(final Model model){
+    public String getListarReunioesPage(final Model model, HttpSession session){
         List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioes();
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -130,7 +155,10 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/listar-ultima-reuniao")
-    public String getLastReuniaoPage(final Model model){
+    public String getLastReuniaoPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
+
 
         ReuniaoCpaModel ultimaReuniao = showLastReuniao.showLastReuniao();
 
@@ -141,7 +169,10 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/listar-edicoes")
-    public String getListarEdicoesPage(final Model model){
+    public String getListarEdicoesPage(final Model model, HttpSession session){
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
 
         if (edicoes == null)
@@ -152,7 +183,10 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/listar-edicoes-inicio")
-    public String getListarEdicoesInicioPage(final Model model) {
+    public String getListarEdicoesInicioPage(final Model model, HttpSession session) {
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
 
         if (edicoes == null) {
@@ -164,7 +198,9 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/listar-avaliacoes")
-    public String getListarAvaliacoesPage(final Model model){
+    public String getListarAvaliacoesPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoes();
 
         if (avaliacoes == null)
@@ -175,7 +211,9 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/listar-questionarios")
-    public String getListarQuestionariosPage(final Model model){
+    public String getListarQuestionariosPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionarios();
 
         if (questionarios == null)
@@ -187,7 +225,9 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/listar-grupos")
-    public String getListarGruposPage(final Model model){
+    public String getListarGruposPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<GrupoDePerguntasModel> grupos = showAllGrupos.showAllGrupos();
 
         if (grupos == null)
@@ -199,7 +239,9 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/listar-perguntas")
-    public String getListarPerguntasPage(final Model model){
+    public String getListarPerguntasPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<PerguntaModel> perguntas = showAllPerguntas.showAllPerguntas();
 
         if (perguntas == null)
@@ -214,7 +256,9 @@ public class AutoavaliacaoController {
 //    Container de RESPOSTAS
 
     @GetMapping("/responder-edicao")
-    public String getResponderEdicaoPage(final Model model){
+    public String getResponderEdicaoPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
 
         if (edicoes == null)
@@ -226,7 +270,9 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/responder-avaliacao")
-    public String getResponderautoavaliacaoPage(final Model model){
+    public String getResponderautoavaliacaoPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoes();
 
         if (avaliacoes == null)
@@ -238,8 +284,10 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/responder-questionario")
-    public String getResponderQuestionarioPage(final Model model){
+    public String getResponderQuestionarioPage(final Model model, HttpSession session){
         List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionarios();
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         if (questionarios == null)
             questionarios = new ArrayList<>();
@@ -250,7 +298,9 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/responder-grupos")
-    public String getResponderGrupos(final Model model){
+    public String getResponderGrupos(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<GrupoDePerguntasModel> grupos = showAllGrupos.showAllGrupos();
 
         if (grupos == null)
@@ -262,7 +312,9 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/responder-perguntas")
-    public String getResponderPerguntas(final Model model){
+    public String getResponderPerguntas(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<PerguntaModel> perguntas = showAllPerguntas.showAllPerguntas();
 
         if (perguntas == null)
@@ -277,7 +329,9 @@ public class AutoavaliacaoController {
 //    Container de VINCULAÇÕES
 
     @GetMapping("/vincular-avaliacao/{id}")
-    public String getVincularautoavaliacaoPage(@PathVariable final int id, final Model model){
+    public String getVincularautoavaliacaoPage(@PathVariable final int id, final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoes();
 
@@ -290,8 +344,10 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("vincular-questionario")
-    public String getVincularQuestionarioPage(final Model model){
+    public String getVincularQuestionarioPage(final Model model, HttpSession session){
         List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionarios();
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         if (questionarios ==  null)
             questionarios = new ArrayList<>();
@@ -301,7 +357,9 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/vincular-grupo")
-    public String getVincularGrupoPage(final Model model) {
+    public String getVincularGrupoPage(final Model model, HttpSession session) {
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         List<GrupoDePerguntasModel> grupos = showAllGrupos.showAllGrupos();
 
@@ -313,7 +371,9 @@ public class AutoavaliacaoController {
     }
 
     @GetMapping("/vincular-pergunta")
-    public String getVincularPerguntaPage(final Model model){
+    public String getVincularPerguntaPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         List<PerguntaModel> perguntas = showAllPerguntas.showAllPerguntas();
 
         if (perguntas == null)
@@ -327,9 +387,11 @@ public class AutoavaliacaoController {
 //    Container de POSTMAPING
 
     @PostMapping("/criar-reuniao")
-    public String criarReuniao(final ReuniaoCpaModel reuniao, HttpSession session){
+    public String criarReuniao(final ReuniaoCpaModel reuniao, HttpSession session, final Model model){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
-        reuniao.setInstituicaoId(1);
+        model.addAttribute("usuario", usuario);
+        reuniao.setInstituicaoId(usuario.getInstituicaoId());
+
         final int id = createReuniao.createReuniao(reuniao);
         if (id > 0){
             return "redirect:/instituicao/inicio";
@@ -338,9 +400,11 @@ public class AutoavaliacaoController {
     }
 
     @PostMapping("/criar-edicao")
-    public String criarEdicao(final EdicaoDeAutoAvaliacaoModel edicao, HttpSession session){
+    public String criarEdicao(final EdicaoDeAutoAvaliacaoModel edicao, HttpSession session, final Model model){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
-//        edicao.setInstituicaoId(usuario.getInstituicaoId());
+        model.addAttribute("usuario", usuario);
+        edicao.setInstituicaoId(usuario.getInstituicaoId());
+
         final int id = createEdicao.createEdicao(edicao);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-edicoes";
@@ -349,8 +413,9 @@ public class AutoavaliacaoController {
     }
 
     @PostMapping("/criar-avaliacao")
-    public String criarAvaliacao(final AvaliacaoModel avaliacao,HttpSession session){
+    public String criarAvaliacao(final AvaliacaoModel avaliacao,HttpSession session, final Model model){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 //        avaliacao.setEdicaoId(usuario.getInstituicaoId());
         final int id = createAvaliacao.createAvaliacao(avaliacao);
         if (id > 0){
@@ -360,8 +425,9 @@ public class AutoavaliacaoController {
     }
 
     @PostMapping("/criar-questionario")
-    public String criarQuestionario(final QuestionarioModel questionario, HttpSession session){
+    public String criarQuestionario(final QuestionarioModel questionario, HttpSession session, final Model model){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         final int id = createQuestionario.createQuestionario(questionario);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-questionarios";
@@ -370,8 +436,9 @@ public class AutoavaliacaoController {
     }
 
     @PostMapping("/criar-grupo")
-    public String criarGrupo(final GrupoDePerguntasModel grupo, HttpSession session){
+    public String criarGrupo(final GrupoDePerguntasModel grupo, HttpSession session, final Model model){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         final int id = createGrupo.createGrupo(grupo);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-grupos";
@@ -380,8 +447,9 @@ public class AutoavaliacaoController {
     }
 
     @PostMapping("/criar-pergunta")
-    public String criarPergunta(final PerguntaModel pergunta, HttpSession session){
+    public String criarPergunta(final PerguntaModel pergunta, HttpSession session, final Model model){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         final int id = createPergunta.createPergunta(pergunta);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-perguntas";

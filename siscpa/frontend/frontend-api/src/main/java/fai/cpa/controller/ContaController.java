@@ -45,7 +45,9 @@ public class ContaController {
     }
 
     @GetMapping("/perfil")
-    public String getPerfilPage(){
+    public String getPerfilPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         return "conta/perfil";
     }
 
@@ -65,8 +67,11 @@ public class ContaController {
     }
 
     @GetMapping("/vincular-instituicao")
-    public String getVincularInstituicaoPage(final Model model){
+    public String getVincularInstituicaoPage(final Model model, HttpSession session){
         List<InstituicaoModel> instituicoes = showAllInstituicoes.showAllInstituicoes();
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         if(instituicoes == null)
             instituicoes = new ArrayList<>();
@@ -76,9 +81,12 @@ public class ContaController {
     }
 
     @GetMapping("/vincular-usuario/{id}")
-    public String getVincularUsuarioPage(@PathVariable final int id, final Model model){
+    public String getVincularUsuarioPage(@PathVariable final int id, final Model model, HttpSession session){
 
         model.addAttribute("instituicaoId", id);
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
 
         return "conta/vincular-usuario";
     }
@@ -109,6 +117,7 @@ public class ContaController {
         final UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         usuario.setInstituicaoId(instituicaoId);
         usuario.setTipo(tipo);
+
         final boolean updateUsuario = this.updateUsuario.updateUsuario(usuario);
 
         if (!updateUsuario){
