@@ -34,7 +34,9 @@ public class AutoavaliacaoController {
     private final CreatePergunta createPergunta;
     private final ShowAllPerguntas showAllPerguntas;
 
-    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas) {
+    private final UpdateAvaliacao updateAvaliacao;
+
+    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas, UpdateAvaliacao updateAvaliacao) {
         this.createReuniao = createReuniao;
         this.showAllReunioes = showAllReunioes;
         this.createEdicao = createEdicao;
@@ -48,6 +50,8 @@ public class AutoavaliacaoController {
         this.showLastReuniao = showLastReuniao;
         this.createPergunta = createPergunta;
         this.showAllPerguntas = showAllPerguntas;
+
+        this.updateAvaliacao = updateAvaliacao;
     }
 
 //    ==================================================================================================================
@@ -173,7 +177,7 @@ public class AutoavaliacaoController {
 
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
+        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoesByInstituicaoId(usuario.getInstituicaoId());
 
         if (edicoes == null)
             edicoes = new ArrayList<>();
@@ -187,7 +191,7 @@ public class AutoavaliacaoController {
 
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
+        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoesByInstituicaoId(usuario.getInstituicaoId());
 
         if (edicoes == null) {
             edicoes = new ArrayList<>();
@@ -259,7 +263,7 @@ public class AutoavaliacaoController {
     public String getResponderEdicaoPage(final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
+        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoesByInstituicaoId(usuario.getInstituicaoId());
 
         if (edicoes == null)
             edicoes = new ArrayList<>();
@@ -416,7 +420,7 @@ public class AutoavaliacaoController {
     public String criarAvaliacao(final AvaliacaoModel avaliacao,HttpSession session, final Model model){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-//        avaliacao.setEdicaoId(usuario.getInstituicaoId());
+        avaliacao.setInstituicaoId(usuario.getInstituicaoId());
         final int id = createAvaliacao.createAvaliacao(avaliacao);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-avaliacoes";
@@ -459,7 +463,13 @@ public class AutoavaliacaoController {
 
     @PostMapping("vincular-avaliacao")
     public String vincularAvaliacao(final int edicaoId, final int avaliacaoId){
-
-        return "";
+        AvaliacaoModel avaliacao =  new AvaliacaoModel();
+        avaliacao.setEdicaoId(edicaoId);
+        avaliacao.setId(avaliacaoId);
+        final boolean resultado = updateAvaliacao.vincularAvaliacao(avaliacao);
+        if (!resultado){
+            return "redirect:/autoavaliacao/vincular-avaliacao/" + edicaoId;
+        }
+        return "redirect:/not-found";
     }
 }

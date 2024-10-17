@@ -3,6 +3,7 @@ package com.siscpa.api.configuration;
 
 import autoavaliacao.CreateAvaliacao;
 import autoavaliacao.FindAvaliacao;
+import autoavaliacao.UpdateAvaliacao;
 import fai.cpa.repository.implementation.repository.AvaliacaoDaoPostgres;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,5 +26,10 @@ public class AvaliacaoBackendConfiguration {
     @Bean
     public FindAvaliacao findAvaliacao(){
         return new FindAvaliacao(avaliacaoRepository);
+    }
+
+    @Bean
+    public UpdateAvaliacao updateAvaliacao(){
+        return new UpdateAvaliacao(avaliacaoRepository);
     }
 }

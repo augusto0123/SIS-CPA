@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/avaliacao")
 public class AvaliacaoRestController {
 
@@ -19,10 +20,14 @@ public class AvaliacaoRestController {
     }
 
     @GetMapping("/all")
-    @CrossOrigin
     public List<AvaliacaoModel> getAvaliacoes(){
         List<AvaliacaoModel> avaliacoes = avaliacaoBackendConfiguration.findAvaliacao().find();
         return avaliacoes;
     }
 
+
+    @PutMapping("/vincular-avaliacao")
+    public boolean vincularAvaliacao(@RequestBody final AvaliacaoModel avaliacao){
+        return avaliacaoBackendConfiguration.updateAvaliacao().vincularAvaliacao(avaliacao);
+    }
 }

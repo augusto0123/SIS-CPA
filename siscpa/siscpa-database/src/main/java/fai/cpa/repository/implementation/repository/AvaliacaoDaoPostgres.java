@@ -87,7 +87,31 @@ public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
 
     @Override
     public boolean update(AvaliacaoModel avaliacaoModel) {
-        return false;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String sql = "UPDATE avaliacao SET id_edicao_autoavaliacao = ?, descricao = ?, tema = ? ";
+        sql += "WHERE id = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, avaliacaoModel.getEdicaoId());
+            preparedStatement.setString(2, avaliacaoModel.getDescricao());
+            preparedStatement.setString(3, avaliacaoModel.getTema());
+            preparedStatement.setInt(4, avaliacaoModel.getId());
+
+            preparedStatement.execute();
+
+            preparedStatement.close();
+
+            return false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -102,8 +126,8 @@ public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO avaliacao (tema, descricao)";
-        sql += " VALUES(?, ?)";
+        String sql = "INSERT INTO avaliacao (tema, descricao, id_instituicao)";
+        sql += " VALUES(?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -112,7 +136,7 @@ public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
 
             preparedStatement.setString(1,avaliacao.getTema());
             preparedStatement.setString(2,avaliacao.getDescricao());
-//            preparedStatement.setInt(3,avaliacao.getEdicaoId());
+            preparedStatement.setInt(3,avaliacao.getInstituicaoId());
 
             preparedStatement.execute();
 

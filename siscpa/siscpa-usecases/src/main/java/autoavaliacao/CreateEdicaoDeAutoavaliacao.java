@@ -29,7 +29,6 @@ public class CreateEdicaoDeAutoavaliacao {
         }
         int id = 0;
         try {
-            edicaoDeAutoAvaliacaoModel.setInstituicaoId(instituicaoRepository.findById(edicaoDeAutoAvaliacaoModel.getInstituicaoId()).getId());
             id = edicaoDeAutoavaliacaoRepository.create(edicaoDeAutoAvaliacaoModel);
             edicaoDeAutoAvaliacaoModel.setId(id);
         } catch (Exception e) {

@@ -1,0 +1,28 @@
+package autoavaliacao;
+
+import fai.cpa.entities.AvaliacaoModel;
+import fai.cpa.entities.ReuniaoCpaModel;
+import port.AvaliacaoRepository;
+
+public class UpdateAvaliacao {
+
+    private final AvaliacaoRepository avaliacaoRepository;
+
+    public UpdateAvaliacao(AvaliacaoRepository avaliacaoRepository) {
+        this.avaliacaoRepository = avaliacaoRepository;
+    }
+
+    public boolean vincularAvaliacao(final AvaliacaoModel avaliacao) {
+
+        final AvaliacaoModel byId = avaliacaoRepository.findById(avaliacao.getId());
+        byId.setEdicaoId(avaliacao.getEdicaoId());
+
+        boolean updateReuniao = false;
+        try {
+            updateReuniao = avaliacaoRepository.update(byId);
+            return updateReuniao;
+        } catch (Exception e) {
+            return true;
+        }
+    }
+}

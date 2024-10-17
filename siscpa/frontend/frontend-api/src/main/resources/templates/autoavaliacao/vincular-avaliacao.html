@@ -32,7 +32,7 @@
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4" th:each="avaliacao : ${avaliacoes}">
+                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="avaliacao : ${avaliacoes}">
 
                     <h5 class="card-title-avaliacao-cadastrar" th:text="${avaliacao.tema}"></h5>
 
@@ -45,6 +45,9 @@
                                 <div class="col-12">
                                     <input type="hidden" name="edicaoId" class="form-control" id="edicaoId" th:value="${edicaoId}">
                                 </div>
+                                <div class="col-12">
+                                    <input type="hidden" name="avaliacaoId" class="form-control" id="avaliacaoId" th:value="${avaliacao.id}">
+                                </div>
 
                                 <div>
                                     <i class="fa-solid fa-circle-check"></i>
@@ -54,7 +57,7 @@
                                     <span th:text="${avaliacao.descricao}"></span>
                                 </div>
 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
                                     Vincular
                                 </button>
                             </div>

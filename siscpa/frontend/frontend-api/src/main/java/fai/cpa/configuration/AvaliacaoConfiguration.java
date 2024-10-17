@@ -2,6 +2,7 @@ package fai.cpa.configuration;
 
 import fai.cpa.autoavaliacao.CreateAvaliacao;
 import fai.cpa.autoavaliacao.ShowAllAvaliacoes;
+import fai.cpa.autoavaliacao.UpdateAvaliacao;
 import fai.cpa.entities.AvaliacaoModel;
 import fai.cpa.port.RestService;
 import fai.cpa.port.impl.RestApiController;
@@ -21,6 +22,12 @@ public class AvaliacaoConfiguration {
     public ShowAllAvaliacoes showAllAvaliacoes(){
         RestService<AvaliacaoModel> restService = new RestApiController<>();
         return new ShowAllAvaliacoes(restService);
+    }
+
+    @Bean
+    UpdateAvaliacao updateAvaliacao(){
+        RestService<AvaliacaoModel> restService = new RestApiController<>();
+        return new UpdateAvaliacao (restService);
     }
 
 }

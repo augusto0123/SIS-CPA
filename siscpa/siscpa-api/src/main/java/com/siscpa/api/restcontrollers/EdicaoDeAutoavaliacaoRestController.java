@@ -1,6 +1,7 @@
 package com.siscpa.api.restcontrollers;
 
 import com.siscpa.api.configuration.EdicaoDeAutoavaliacaoBackendConfiguration;
+import fai.cpa.entities.AvaliacaoModel;
 import fai.cpa.entities.EdicaoDeAutoAvaliacaoModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
