@@ -24,46 +24,94 @@
         <section class="section-pergunta">
             <div class="row">
 
-                <div class="col-lg-5">
-                    <h2 class="title-tipo-pergunta">Pergunta Objetiva:</h2>
-                    <div class="card-pergunta">
-                        <div class="card-body d-flex flex-column" style="height: 100%;">
-                            <form class="row g-3 needs-validation flex-grow-1" novalidate>
+                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="pergunta : ${perguntas}">
 
-                                <div class="mb-3">
-                                    <span for="descricao-objetiva" class="form-label">Enunciado da pergunta</span>
-                                </div>
+                    <div th:if="${pergunta.tipo == 'Objetiva'}">
+                        <h2 class="title-tipo-pergunta">Pergunta Objetiva:</h2>
 
-                                <div class="mb-3">
-                                    <div class="container-perguntas1">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert1" value="1">
-                                            <label class="form-check-label" for="likert1">Péssimo</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert2" value="2">
-                                            <label class="form-check-label" for="likert2">Ruim</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert3" value="3">
-                                            <label class="form-check-label" for="likert3">Regular</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert4" value="4">
-                                            <label class="form-check-label" for="likert4">Bom</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert5" value="5">
-                                            <label class="form-check-label" for="likert5">Excelente</label>
+                        <div class="card-pergunta">
+                            <div class="card-body d-flex flex-column" style="height: 100%;">
+                                <form class="row g-3 needs-validation flex-grow-1" novalidate>
+
+                                    <div class="table-edicao">
+                                        <span for="descricao-objetiva" class="form-label-span" th:text="${pergunta.descricao}"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="container-perguntas1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="likert" id="likert1" value="Discordo Totalmente">
+                                                <label class="form-check-label" for="likert1">Discordo Totalmente</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="likert" id="likert2" value="Discordo">
+                                                <label class="form-check-label" for="likert2">Discordo</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="likert" id="likert3" value="Neutro">
+                                                <label class="form-check-label" for="likert3">Neutro</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="likert" id="likert4" value="Concordo">
+                                                <label class="form-check-label" for="likert4">Concordo</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="likert" id="likert5" value="Concordo Totalmente">
+                                                <label class="form-check-label" for="likert5">Concordo Totalmente</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="mt-auto" style="text-align: center;">
-                                    <button type="button" class="btn btn-primary" style="width: 30%;" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                        Vincular
-                                    </button>
-                                </div>
+                                    <div class="mt-auto" style="text-align: center;">
+                                        <button type="button" class="btn btn-primary" style="width: 30%;" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                            Vincular
+                                        </button>
+                                    </div>
+                                    <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Vincular pergunta ao grupo</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Pergunta vinculada com sucesso!
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div th:if="${pergunta.tipo == 'Subjetiva'}">
+                        <h2 class="title-tipo-pergunta">Pergunta Subjetiva:</h2>
+                        <div class="card-pergunta">
+                            <div class="card-body d-flex flex-column" style="height: 100%;">
+                                <form class="row g-3 needs-validation flex-grow-1" novalidate>
+
+                                    <div class="table-edicao">
+                                        <span for="descricao-subjetiva" class="form-label-span" th:text="${pergunta.descricao}"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="resposta" class="form-label">(Campo de resposta)</label>
+                                        <textarea class="form-control" id="resposta" rows="3" placeholder="Digite aqui..."></textarea>
+                                    </div>
+
+                                    <div class="mt-auto" style="text-align: center;">
+                                        <button type="button" class="btn btn-primary" style="width: 30%;" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                            Vincular
+                                        </button>
+                                    </div>
+
+                                </form>
+
                                 <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -81,54 +129,12 @@
                                     </div>
                                 </div>
 
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-5">
-                    <h2 class="title-tipo-pergunta">Pergunta Subjetiva:</h2>
-                    <div class="card-pergunta">
-                        <div class="card-body d-flex flex-column" style="height: 100%;">
-                            <form class="row g-3 needs-validation flex-grow-1" novalidate>
-
-                                <div class="mb-3">
-                                    <span for="descricao-subjetiva" class="form-label">Enunciado da pergunta</span>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="resposta" class="form-label">(Campo de resposta)</label>
-                                    <textarea class="form-control" id="resposta" rows="3" placeholder="Digite aqui..."></textarea>
-                                </div>
-
-                                <div class="mt-auto" style="text-align: center;">
-                                    <button type="button" class="btn btn-primary" style="width: 30%;" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                        Vincular
-                                    </button>
-                                </div>
-
-                            </form>
-
-                            <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Vincular pergunta ao grupo</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Pergunta vinculada com sucesso!
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </section>
     </main>

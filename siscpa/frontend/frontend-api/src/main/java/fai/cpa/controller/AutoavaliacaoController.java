@@ -6,6 +6,7 @@ import fai.cpa.entities.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.time.format.DateTimeFormatter;
@@ -213,56 +214,112 @@ public class AutoavaliacaoController {
 //    Container de RESPOSTAS
 
     @GetMapping("/responder-edicao")
-    public String getResponderEdicaoPage(){
+    public String getResponderEdicaoPage(final Model model){
+        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
+
+        if (edicoes == null)
+            edicoes = new ArrayList<>();
+
+        model.addAttribute("edicoes", edicoes);
+
         return "autoavaliacao/responder-edicao";
     }
 
     @GetMapping("/responder-avaliacao")
-    public String getResponderautoavaliacaoPage(){
-        return "autoavaliacao/responder-avaliacao";
-    }
-
-    @GetMapping("/responder-questionario")
-    public String getResponderQuestionarioPage(){
-        return "autoavaliacao/responder-questionario";
-    }
-
-    @GetMapping("/responder-grupos")
-    public String getResponderGrupos(){
-        return "autoavaliacao/responder-grupos";
-    }
-
-    @GetMapping("/responder-perguntas")
-    public String getResponderPerguntas(){
-        return "autoavaliacao/responder-perguntas";
-    }
-
-//    ==================================================================================================================
-//    Container de VINCULAÇÕES
-
-    @GetMapping("vincular-avaliacao")
-    public String getVincularautoavaliacaoPage(final Model model){
+    public String getResponderautoavaliacaoPage(final Model model){
         List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoes();
 
         if (avaliacoes == null)
             avaliacoes = new ArrayList<>();
 
         model.addAttribute("avaliacoes", avaliacoes);
+
+        return "autoavaliacao/responder-avaliacao";
+    }
+
+    @GetMapping("/responder-questionario")
+    public String getResponderQuestionarioPage(final Model model){
+        List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionarios();
+
+        if (questionarios == null)
+            questionarios = new ArrayList<>();
+
+        model.addAttribute("questionarios", questionarios);
+
+        return "autoavaliacao/responder-questionario";
+    }
+
+    @GetMapping("/responder-grupos")
+    public String getResponderGrupos(final Model model){
+        List<GrupoDePerguntasModel> grupos = showAllGrupos.showAllGrupos();
+
+        if (grupos == null)
+            grupos = new ArrayList<>();
+
+        model.addAttribute("grupos", grupos);
+
+        return "autoavaliacao/responder-grupos";
+    }
+
+    @GetMapping("/responder-perguntas")
+    public String getResponderPerguntas(final Model model){
+        List<PerguntaModel> perguntas = showAllPerguntas.showAllPerguntas();
+
+        if (perguntas == null)
+            perguntas = new ArrayList<>();
+
+        model.addAttribute("perguntas", perguntas);
+
+        return "autoavaliacao/responder-perguntas";
+    }
+
+//    ==================================================================================================================
+//    Container de VINCULAÇÕES
+
+    @GetMapping("/vincular-avaliacao/{id}")
+    public String getVincularautoavaliacaoPage(@PathVariable final int id, final Model model){
+
+        List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoes();
+
+        if (avaliacoes == null)
+            avaliacoes = new ArrayList<>();
+
+        model.addAttribute("edicaoId", id);
+        model.addAttribute("avaliacoes", avaliacoes);
         return "autoavaliacao/vincular-avaliacao";
     }
 
     @GetMapping("vincular-questionario")
-    public String getVincularQuestionarioPage(){
+    public String getVincularQuestionarioPage(final Model model){
+        List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionarios();
+
+        if (questionarios ==  null)
+            questionarios = new ArrayList<>();
+
+        model.addAttribute("questionarios", questionarios);
         return "autoavaliacao/vincular-questionario";
     }
 
     @GetMapping("/vincular-grupo")
-    public String getVincularGrupoPage() {
+    public String getVincularGrupoPage(final Model model) {
+
+        List<GrupoDePerguntasModel> grupos = showAllGrupos.showAllGrupos();
+
+        if (grupos == null)
+            grupos = new ArrayList<>();
+
+        model.addAttribute("grupos", grupos);
         return "autoavaliacao/vincular-grupo";
     }
 
     @GetMapping("/vincular-pergunta")
-    public String getVincularPerguntaPage(){
+    public String getVincularPerguntaPage(final Model model){
+        List<PerguntaModel> perguntas = showAllPerguntas.showAllPerguntas();
+
+        if (perguntas == null)
+            perguntas = new ArrayList<>();
+
+        model.addAttribute("perguntas", perguntas);
         return "autoavaliacao/vincular-pergunta";
     }
 
@@ -272,7 +329,7 @@ public class AutoavaliacaoController {
     @PostMapping("/criar-reuniao")
     public String criarReuniao(final ReuniaoCpaModel reuniao, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
-//        reuniao.setMembroCpaId(usuario.getInstituicaoId());
+        reuniao.setInstituicaoId(1);
         final int id = createReuniao.createReuniao(reuniao);
         if (id > 0){
             return "redirect:/instituicao/inicio";
@@ -330,5 +387,11 @@ public class AutoavaliacaoController {
             return "redirect:/autoavaliacao/listar-perguntas";
         }
         return "redirect:/not-found";
+    }
+
+    @PostMapping("vincular-avaliacao")
+    public String vincularAvaliacao(final int edicaoId, final int avaliacaoId){
+
+        return "";
     }
 }

@@ -19,4 +19,10 @@ public class ShowAllReunioes {
         return reuniaoCpaModels;
     }
 
+
+    public List<ReuniaoCpaModel> showAllReunioesByInstituicaoId(final int id){
+        final String resource = "/reuniao/findByInstituicaoId/" + id;
+        final List<ReuniaoCpaModel> reuniaoCpaModels = restService.get(resource);
+        return reuniaoCpaModels;
+    }
 }

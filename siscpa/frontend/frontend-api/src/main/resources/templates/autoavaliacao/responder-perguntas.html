@@ -24,51 +24,63 @@
         <section class="section-pergunta">
             <div class="row">
 
-                <div class="col-lg-8">
-                    <div class="card">
-                        <h5 class="card-title-grupo">(Tema do Grupo)</h5>
-                        <div class="card-body-responder">
+                <div class="col-lg-11">
+                    <div class="card-resposta-usuario">
+
+                        <h5 class="card-title-pergunta">(Tema do Grupo)</h5>
+
+                        <div class="card-body-responder-usuario">
+
                             <form class="row g-3 needs-validation" novalidate>
-                                <div class="questao-objetiva">
-                                    <div class="mb-3">
-                                        <span class="form-label-span">Texto da pergunta</span>
+
+                                <div th:each="pergunta : ${perguntas}">
+
+                                    <div th:if="${pergunta.tipo == 'Objetiva'}">
+
+                                        <div class="questao-objetiva">
+
+                                            <div class="mb-3">
+                                                <span class="form-label-span" th:text="${pergunta.descricao}"></span>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="likert" id="likert1" value="Discordo Totalmente" required>
+                                                        <label class="form-check-label" for="likert1">Discordo Totalmente</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="likert" id="likert2" value="Discordo" required>
+                                                        <label class="form-check-label" for="likert2">Discordo</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="likert" id="likert3" value="Neutro" required>
+                                                        <label class="form-check-label" for="likert3">Neutro</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="likert" id="likert4" value="Concordo" required>
+                                                        <label class="form-check-label" for="likert4">Concordo</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="likert" id="likert5" value="Concordo Totalmente" required>
+                                                        <label class="form-check-label" for="likert5">Concordo Totalmente</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Escolha uma opção:</label>
-                                        <div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="likert" id="likert1" value="1" required>
-                                                <label class="form-check-label" for="likert1">Péssimo</label>
+
+                                    <div th:if="${pergunta.tipo == 'Subjetiva'}">
+                                        <div class="questao-subjetiva">
+                                            <div class="mb-3">
+                                                <span class="form-label-span" th:text="${pergunta.descricao}"></span>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="likert" id="likert2" value="2" required>
-                                                <label class="form-check-label" for="likert2">Ruim</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="likert" id="likert3" value="3" required>
-                                                <label class="form-check-label" for="likert3">Regular</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="likert" id="likert4" value="4" required>
-                                                <label class="form-check-label" for="likert4">Bom</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="likert" id="likert5" value="5" required>
-                                                <label class="form-check-label" for="likert5">Excelente</label>
-                                            </div>
+                                            <textarea class="form-control" id="resposta" rows="3" placeholder="Responda aqui..." required></textarea>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="questao-subjetiva">
-                                    <div class="mb-3">
-                                        <label for="resposta" class="form-label-span2">Texto da Pergunta</label>
-                                        <textarea class="form-control" id="resposta" rows="3" placeholder="Responda aqui..." required></textarea>
-                                    </div>
-                                </div>
-
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary btn-md">Enviar</button>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-custom-width">Enviar</button>
                                 </div>
                             </form>
                         </div>

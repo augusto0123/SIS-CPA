@@ -23,129 +23,160 @@
 
         <section class="section">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
 
-                    <div class="card">
-                        <div class="card-body">
+                    <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/instituicao/criar-instituicao}" th:object="${instituicao}">
 
-                            <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/instituicao/criar-instituicao}" th:object="${instituicao}">
+                        <div class="card">
 
-                                <div class="col-12">
-                                    <label for="nomeFantasia" class="form-label">Nome Fantasia</label>
-                                    <input type="text" name="nomeFantasia" class="form-control" id="nomeFantasia" required>
-                                    <div class="invalid-feedback">Por Favor, entre com o nome!</div>
+                            <div class="card-body">
+
+                                    <div class="pb-2">
+                                        <h5 class="card-title-cadastrar-instituicao">Dados da Instituição</h5>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <label for="nomeFantasia" class="col-sm-2 col-form-label">Nome Fantasia</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" name="nomeFantasia" class="form-control" id="nomeFantasia" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label for="razaoSocial" class="col-sm-2 col-form-label">Razão Social</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" name="razaoSocial" class="form-control" id="razaoSocial" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" name="email" class="form-control" id="email" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <label for="cnpj" class="col-sm-2 col-form-label">CNPJ</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" name="cnpj" class="form-control" id="cnpj" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <label for="telefone" class="col-sm-2 col-form-label">Telefone</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" name="telefone" class="form-control" id="telefone" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-4">
+                                        <label for="situacao" class="col-sm-2 col-form-label">Situação</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" name="situacao" class="form-control" id="situacao" required>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="pb-2">
+                                    <h5 class="card-title-cadastrar-instituicao">Endereço da Instituição</h5>
                                 </div>
 
-                                <div class="col-12">
-                                    <label for="razaoSocial" class="form-label">Razão Social</label>
-                                    <input type="text" name="razaoSocial" class="form-control" id="razaoSocial" required>
-                                    <div class="invalid-feedback">Por Favor, entre com o nome!</div>
+                                <div class="row my-4">
+                                    <label for="logradouro" class="col-sm-2 col-form-label">Logradouro</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="logradouro" class="form-control" id="logradouro" required th:field="${instituicao.endereco.logradouro}">
+                                    </div>
                                 </div>
 
-                                <div class="col-12">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" name="email" class="form-control" id="email" required>
-                                    <div class="invalid-feedback">Por favor, Digite um endereço de Email válido!</div>
+                                <div class="row my-4">
+                                    <label for="numero" class="col-sm-2 col-form-label">Número</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="numero" class="form-control" id="numero" required th:field="${instituicao.endereco.numero}">
+                                    </div>
                                 </div>
 
-                                <div class="col-12">
-                                    <label for="cnpj" class="form-label">CNPJ</label>
-                                    <input type="text" name="cnpj" class="form-control" id="cnpj" required>
-                                    <div class="invalid-feedback">Por Favor, entre com um CNPJ válido!</div>
+                                <div class="row my-4">
+                                    <label for="bairro" class="col-sm-2 col-form-label">Bairro</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="bairro" class="form-control" id="bairro" required th:field="${instituicao.endereco.bairro}">
+                                    </div>
                                 </div>
 
-                                <div class="col-12">
-                                    <label for="telefone" class="form-label">Telefone</label>
-                                    <input type="text" name="telefone" class="form-control" id="telefone" required>
-                                    <div class="invalid-feedback">Por Favor, entre com o telefone!</div>
-                                </div>
-                                <div class="col-12">
-                                    <label for="situacao" class="form-label">Situacao</label>
-                                    <input type="text" name="situacao" class="form-control" id="situacao" required>
-                                    <div class="invalid-feedback">Por Favor, entre com a Situação!</div>
+                                <div class="row my-4">
+                                    <label for="cidade" class="col-sm-2 col-form-label">Cidade</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="cidade" class="form-control" id="cidade" required th:field="${instituicao.endereco.cidade}">
+                                    </div>
                                 </div>
 
-                                <div class="pt-4 pb-2">
-                                    <h5 class="card-title">Endereço</h5>
+                                <div class="row my-4">
+                                    <label for="complemento" class="col-sm-2 col-form-label">Complemento</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="complemento" class="form-control" id="complemento" th:field="${instituicao.endereco.complemento}" placeholder="(Opcional)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="pb-2">
+                                    <h5 class="card-title-cadastrar-instituicao">Dados do Responsável</h5>
                                 </div>
 
-                                <div class="col-12">
-                                    <label for="logradouro" class="form-label">Logadouro</label>
-                                    <input type="text" name="logradouro" class="form-control" id="logradouro" required th:field="${instituicao.endereco.logradouro}">
-                                    <div class="invalid-feedback">Por Favor, entre com o seu Logadouro</div>
+                                <div class="row my-4">
+                                    <label for="responsavelNome" class="col-sm-2 col-form-label">Nome</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="responsavelNome" class="form-control" id="responsavelNome" required>
+                                    </div>
                                 </div>
 
-                                <div class="col-12">
-                                    <label for="numero" class="form-label">Número</label>
-                                    <input type="text" name="numero" class="form-control" id="numero" required th:field="${instituicao.endereco.numero}">
-                                    <div class="invalid-feedback">Por Favor, entre com o número!</div>
+                                <div class="row my-4">
+                                    <label for="responsavelTelefone" class="col-sm-2 col-form-label">Telefone</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="responsavelTelefone" class="form-control" id="responsavelTelefone" required>
+                                    </div>
                                 </div>
 
-                                <div class="col-12">
-                                    <label for="bairro" class="form-label">Bairro</label>
-                                    <input type="text" name="bairro" class="form-control" id="bairro" required th:field="${instituicao.endereco.bairro}">
-                                    <div class="invalid-feedback">Por Favor, entre com o bairro!</div>
+                                <div class="row my-4">
+                                    <label for="responsavelEmail" class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" name="responsavelEmail" class="form-control" id="responsavelEmail" required>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
 
-                                <div class="col-12">
-                                    <label for="cidade" class="form-label">Cidade</label>
-                                    <input type="text" name="cidade" class="form-control" id="cidade" required th:field="${instituicao.endereco.cidade}">
-                                    <div class="invalid-feedback">Por Favor, entre com a cidade!</div>
-                                </div>
+                                    <div class="text-center my-4">
+                                        <button class="btn btn-primary btn-lg w-20" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                            Cadastrar
+                                        </button>
+                                    </div>
 
-                                <div class="col-12">
-                                    <label for="complemento" class="form-label">Complemento (Opicional)</label>
-                                    <input type="text" name="complemento" class="form-control" id="complemento" th:field="${instituicao.endereco.complemento}">
-                                    <div class="invalid-feedback">Por Favor, entre com o a referência!</div>
-                                </div>
 
-                                <div class="pt-4 pb-2">
-                                    <h5 class="card-title">Responsável</h5>
-                                </div>
+                                    <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Cadastro de Instituição</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
 
-                                <div class="col-12">
-                                    <label for="responsavelNome" class="form-label">Nome do Responsável</label>
-                                    <input type="text" name="responsavelNome" class="form-control" id="responsavelNome" required>
-                                    <div class="invalid-feedback">Por Favor, entre com o nome!</div>
-                                </div>
+                                                <div class="modal-body">
+                                                    Seu cadastro foi realizado com sucesso!
+                                                </div>
 
-                                <div class="col-12">
-                                    <label for="responsavelTelefone" class="form-label">Telefone</label>
-                                    <input type="text" name="responsavelTelefone" class="form-control" id="responsavelTelefone" required>
-                                    <div class="invalid-feedback">Por Favor, entre com o telefone!</div>
-                                </div>
-
-                                <div class="col-12">
-                                    <label for="responsavelEmail" class="form-label">Email</label>
-                                    <input type="email" name="responsavelEmail" class="form-control" id="responsavelEmail" required>
-                                    <div class="invalid-feedback">Por favor, Digite um endereço de Email válido!</div>
-                                </div>
-
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                    Cadastrar
-                                </button>
-
-                                <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Cadastro de Instituição</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                Seu cadastro foi realizado com sucesso!
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>

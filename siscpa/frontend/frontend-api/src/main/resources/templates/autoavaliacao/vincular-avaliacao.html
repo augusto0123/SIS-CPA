@@ -39,20 +39,26 @@
 
                     <div class="card-avaliacao">
 
-                        <div class="card-body-avaliacao">
-                            <div>
-                                <i class="fa-solid fa-circle-check"></i>
+                        <form method="POST" th:action="@{/autoavaliacao/vincular-avaliacao}">
+                            <div class="card-body-avaliacao">
+
+                                <div class="col-12">
+                                    <input type="hidden" name="edicaoId" class="form-control" id="edicaoId" th:value="${edicaoId}">
+                                </div>
+
+                                <div>
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </div>
+
+                                <div class="table-edicao">
+                                    <span th:text="${avaliacao.descricao}"></span>
+                                </div>
+
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                    Vincular
+                                </button>
                             </div>
-
-                            <div class="table-edicao">
-                                <span th:text="${avaliacao.descricao}"></span>
-                            </div>
-
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                            Vincular
-                        </button>
-                        </div>
-
+                        </form>
 
                         <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false" style="display: none;" aria-hidden="true">
                             <div class="modal-dialog">

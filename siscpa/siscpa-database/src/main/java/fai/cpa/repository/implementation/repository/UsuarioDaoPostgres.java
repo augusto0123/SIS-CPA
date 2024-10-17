@@ -73,7 +73,9 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuarioModel.setSenha(resultSet.getString("senha"));
                 usuarioModel.setTelefone(resultSet.getString("telefone"));
                 usuarioModel.setTipo(resultSet.getString("tipo"));
-//                usuarioModel.setInstituicaoId(resultSet.getInt("id_instituicao"));
+                if(resultSet.getInt("id_instituicao") != 0) {
+                    usuarioModel.setInstituicaoId(resultSet.getInt("id_instituicao"));
+                }
 
                 resultSet.close();
                 preparedStatement.close();

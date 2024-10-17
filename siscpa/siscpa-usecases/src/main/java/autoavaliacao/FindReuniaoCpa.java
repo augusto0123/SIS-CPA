@@ -51,10 +51,6 @@ public class FindReuniaoCpa {
         }
 
         List<ReuniaoCpaModel> reunioesInstituicao = reuniaoCpaRepository.findAllByInstituicaoId(instituicaoId);
-        if (reunioesInstituicao == null || reunioesInstituicao.isEmpty()) {
-            final String message = "Nenhuma reunião encontrada para o id da instituição " + instituicaoId;
-            throw new NotFoundException(message);
-        }
         return reunioesInstituicao;
     }
 }

@@ -34,39 +34,39 @@
 
                             <form class="row g-3 needs-validation flex-grow-1" novalidate method="POST" th:action="@{/autoavaliacao/criar-pergunta}">
 
-                                <div class="mb-3">
+                                <div class="my-3">
                                     <label for="descricao" class="form-label">Cadastrar enunciado:</label>
                                     <textarea class="form-control" name="descricao" id="descricao" rows="3" required></textarea>
                                 </div>
 
                                 <input type="hidden" name="tipo" value="Objetiva">
 
-                                <div class="mb-3">
+                                <div class="my-3">
                                     <div class="container-perguntas1">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert1" value="1">
-                                            <label class="form-check-label" for="likert1">Concordo Totalmente</label>
+                                            <input class="form-check-input" type="radio" name="likert" id="likert1" value="Discordo Totalmente">
+                                            <label class="form-check-label" for="likert1">Discordo Totalmente</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert2" value="2">
-                                            <label class="form-check-label" for="likert2">Concordo</label>
+                                            <input class="form-check-input" type="radio" name="likert" id="likert2" value="Discordo">
+                                            <label class="form-check-label" for="likert2">Discordo</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert3" value="3">
+                                            <input class="form-check-input" type="radio" name="likert" id="likert3" value="Neutro">
                                             <label class="form-check-label" for="likert3">Neutro</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert4" value="4">
-                                            <label class="form-check-label" for="likert4">Discordo</label>
+                                            <input class="form-check-input" type="radio" name="likert" id="likert4" value="Concordo">
+                                            <label class="form-check-label" for="likert4">Concordo</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert5" value="5">
-                                            <label class="form-check-label" for="likert5">Discordo Totalmente</label>
+                                            <input class="form-check-input" type="radio" name="likert" id="likert5" value="Concordo Totalmente">
+                                            <label class="form-check-label" for="likert5">Concordo Totalmente</label>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="text-center mb-3">
+                                <div class="text-center my-3">
                                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop" style="width: auto;">
                                         Cadastrar
                                     </button>
@@ -77,26 +77,26 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5">
+                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4">
                     <h2 class="title-tipo-pergunta">Pergunta Subjetiva:</h2>
                     <div class="card-pergunta">
                         <div class="card-body d-flex flex-column" style="height: 100%;">
 
                             <form class="row g-3 needs-validation flex-grow-1" novalidate method="POST" th:action="@{/autoavaliacao/criar-pergunta}">
 
-                                <div class="mb-3">
+                                <div class="my-3">
                                     <label for="descricao" class="form-label">Cadastrar enunciado:</label>
                                     <textarea class="form-control" name="descricao" id="descricao" rows="3" required></textarea>
                                 </div>
 
                                 <input type="hidden" name="tipo" value="Subjetiva">
 
-                                <div class="mb-3">
+                                <div class="my-3">
                                     <label for="resposta" class="form-label">(Campo de resposta)</label>
                                     <textarea class="form-control" id="resposta" rows="3"></textarea>
                                 </div>
 
-                                <div class="mt-auto" style="text-align: center;">
+                                <div class="text-center my-3">
                                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
                                         Cadastrar
                                     </button>

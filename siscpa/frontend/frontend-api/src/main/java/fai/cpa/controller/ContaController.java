@@ -113,7 +113,6 @@ public class ContaController {
 
         if (!updateUsuario){
             session.setAttribute("usuarioAtual", usuario);
-            session.setAttribute("instituicaoId", instituicaoId);
             return "redirect:/instituicao/inicio";
         }
         return "redirect:/not-found";

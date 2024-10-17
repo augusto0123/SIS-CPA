@@ -24,4 +24,10 @@ public class EdicaoDeAutoavaliacaoRestController {
         return edicaoDeAutoavaliacaoBackendConfiguration.createEdicaoDeAutoavaliacao().createEdicaoDeAutoavaliacao(edicaoDeAutoAvaliacaoModel);
     }
 
+    @GetMapping("/findByInstituicaoId/{id}")
+    @CrossOrigin
+    public List<EdicaoDeAutoAvaliacaoModel> getEdicoesByInstituicaoId(@PathVariable int id) {
+        return edicaoDeAutoavaliacaoBackendConfiguration.findEdicaoDeAutoavaliacao().findAllByInstituicaoId(id);
+    }
+
 }

@@ -6,6 +6,7 @@ import fai.cpa.entities.EdicaoDeAutoAvaliacaoModel;
 import fai.cpa.entities.InstituicaoModel;
 import port.EdicaoDeAutoavaliacaoRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FindEdicaoDeAutoavaliacao {
@@ -34,6 +35,18 @@ public class FindEdicaoDeAutoavaliacao {
             throw new NotFoundException(message);
         }
         return edicao;
+    }
+
+    public List<EdicaoDeAutoAvaliacaoModel> findAllByInstituicaoId(final int instituicaoId){
+        if(instituicaoId <= 0){
+            throw new InvalidException();
+        }
+        List<EdicaoDeAutoAvaliacaoModel> edicaoDeAutoAvaliacaoModelList = edicaoDeAutoavaliacaoRepository.findAllByInstituicaoId(instituicaoId);
+        if (edicaoDeAutoAvaliacaoModelList == null){
+            final String message = "O id (" + instituicaoId + ") não foi encontrado.";
+            throw new NotFoundException(message);
+        }
+        return edicaoDeAutoAvaliacaoModelList;
     }
     
 }

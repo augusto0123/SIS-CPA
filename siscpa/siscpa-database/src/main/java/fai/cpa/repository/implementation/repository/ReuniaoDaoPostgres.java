@@ -97,18 +97,16 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
         ResultSet resultSet = null;
 
         // Query para buscar reuniões por instituicaoId
-        final String sql = "SELECT * FROM reuniao_cpa WHERE instituicao_id = ?;";
+        final String sql = "SELECT * FROM reuniao_cpa WHERE id_instituicao = ?;";
 
         try {
             connection = ConnectionFactory.getConnection();
             preparedStatement = connection.prepareStatement(sql);
 
-            // Definindo o valor do parâmetro instituicaoId na query
             preparedStatement.setInt(1, instituicaoId);
 
             resultSet = preparedStatement.executeQuery();
 
-            // Processando o ResultSet e criando os objetos ReuniaoCpaModel
             while (resultSet.next()) {
                 final ReuniaoCpaModel reuniao = new ReuniaoCpaModel();
                 reuniao.setId(resultSet.getInt("id"));
@@ -116,12 +114,11 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
                 reuniao.setHorario(resultSet.getTime("horario").toLocalTime());
                 reuniao.setPauta(resultSet.getString("pauta"));
                 reuniao.setMembroCpaId(resultSet.getInt("id_membro_cpa"));
-                reuniao.setInstituicaoId(resultSet.getInt("instituicao_id")); // Adiciona o instituicaoId
+                reuniao.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
-                reunioes.add(reuniao); // Adiciona à lista de reuniões
+                reunioes.add(reuniao);
             }
 
-            // Fechando recursos
             resultSet.close();
             preparedStatement.close();
 
@@ -129,7 +126,7 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             throw new RuntimeException(e);
         }
 
-        return reunioes; // Retorna a lista de reuniões filtradas pelo instituicaoId
+        return reunioes;
     }
 
     @Override
@@ -172,8 +169,8 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO reuniao_cpa (data_reuniao, horario, pauta)";
-        sql += " VALUES(?, ?, ?)";
+        String sql = "INSERT INTO reuniao_cpa (data_reuniao, horario, pauta, id_instituicao)";
+        sql += " VALUES(?, ?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -183,7 +180,7 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             preparedStatement.setDate(1, Date.valueOf(reuniaoCpaModel.getDataReuniao()));
             preparedStatement.setTime(2, Time.valueOf(reuniaoCpaModel.getHorario()));
             preparedStatement.setString(3, reuniaoCpaModel.getPauta());
-//            preparedStatement.setInt(4, reuniaoCpaModel.getMembroCpaId());
+            preparedStatement.setInt(4, reuniaoCpaModel.getInstituicaoId());
 
             preparedStatement.execute();
 

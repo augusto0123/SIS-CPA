@@ -33,50 +33,54 @@
 
             <div class="row">
 
-                <div class="col-lg-6 col-md-6 col-sm-12 mb-4 mx-4">
+                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="edicao : ${edicoes}" th:if="${edicao.situacao == 'Em Andamento'}">
 
-                    <div class="card-edicao">
+                        <h5 class="card-title-edicao-cadastrar">Edição Nº: <span th:text="${edicao.edicao}"></span></h5>
 
-                        <h5 class="card-title-edicao-cadastrar">Edição (Número da Edição)<span>Ano</span></h5>
+                        <div class="card-edicao">
 
-                        <div class="card-body-edicao">
+                            <div class="card-body-edicao">
 
-                            <div class="display-edicao">
-                                <div class="espaco-edicao">
-                                    <i class="fa-solid fa-chart-simple"></i>
+                                <div class="display-edicao">
+
+                                    <div class="espaco-edicao">
+                                        <i class="fa-solid fa-chart-simple"></i>
+                                    </div>
+
+                                    <ul class="situacao-lista">
+                                        <li class="situacao em-andamento">Situação: <span th:text="${edicao.situacao}"></span></li>
+                                        <li class="data">Data / Início: <span th:text="${edicao.dataInicio}"></span></li>
+                                        <li class="data">Data / Término: <span th:text="${edicao.dataFim}"></span></li>
+                                        <!--                                    <li class="data">ID: <span th:text="${edicao.id}"></span></li>-->
+                                        <!--                                    <li class="data">ID da instituição: <span th:text="${edicao.instituicaoId}"></span></li>-->
+                                    </ul>
                                 </div>
-                                <ul class="situacao-lista">
-                                    <li class="situacao em-andamento">Situação: Em Andamento</li>
-                                    <li class="data">Data / Início: 01/10/2024</li>
-                                    <li class="data">Data / Término: 30/10/2024</li>
-                                </ul>
+
+                                <div class="table-edicao my-3">
+                                    <div class="form-label-span" th:text="${edicao.descricao}"></div>
+                                </div>
+
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                                    Participar
+                                </button>
                             </div>
-                            <div class="table-edicao">
-                                <span>Descrição: seu texto aqui que pode ter até 500 caracteres.</span>
-                            </div>
+                            <div class="modal fade" id="basicModal" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Deseja participar da edição?</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                                Participar
-                            </button>
-                    </div>
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Deseja participar da edição?</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <div class="modal-footer">
+                                            <a th:href="@{/autoavaliacao/responder-avaliacao}" class="btn btn-primary">Participar</a>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                        </div>
+
                                     </div>
-
-                                    <div class="modal-footer">
-                                        <a th:href="@{/autoavaliacao/responder-avaliacao}" class="btn btn-primary">Participar</a>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
-
                 </div>
             </div>
         </section>

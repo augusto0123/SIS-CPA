@@ -8,6 +8,7 @@ import java.util.Map;
 public interface EdicaoDeAutoavaliacaoRepository {
     EdicaoDeAutoAvaliacaoModel findById(int id);
     List<EdicaoDeAutoAvaliacaoModel> findAll();
+    List<EdicaoDeAutoAvaliacaoModel> findAllByInstituicaoId(int instituicaoId);
     List<EdicaoDeAutoAvaliacaoModel> findByCriteria(Map<String, String> criteria);
     boolean update(EdicaoDeAutoAvaliacaoModel edicaoDeAutoAvaliacaoModel);
     boolean deleteById(int id);

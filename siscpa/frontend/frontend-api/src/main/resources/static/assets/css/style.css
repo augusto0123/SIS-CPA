@@ -258,6 +258,16 @@ h6 {
   font-family: "Poppins", sans-serif;
   background-color:#D4AC0E;
 }
+.card-title-grupo-cadastrar {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  padding: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background-color:#D4AC0E;
+}
+
 .card-grupo {
     padding: 20px 0;
     margin-bottom: 30px;
@@ -278,10 +288,31 @@ h6 {
 .form-check {
     margin-bottom:12px;
 }
+.form-control {
+    background-color: #f8f9fa;
+    color: #212529;
+
+}
+.form-control:focus {
+    background-color: #fff;
+    border-color: #003f7f;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
 /*--------------------------------------------------------------
 # Card de grupo de questionarios
 --------------------------------------------------------------*/
 .card-title-questionario-cadastrar {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+  padding: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background-color:#228B22;
+}
+
+.card-title-questionario {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
   padding: 12px;
   font-size: 20px;
@@ -365,6 +396,8 @@ h6 {
     font-size: 15px;
     margin:15px 0;
     text-align: justify;
+    max-width: 100%; /* Garantir que não saia do card */
+        overflow: hidden; /* Esconder o que não couber */
 }
 
 /*--------------------------------------------------------------
@@ -466,14 +499,36 @@ h6 {
 /*--------------------------------------------------------------
 # Card de perguntas
 --------------------------------------------------------------*/
+.card-title-pergunta {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+      padding: 12px;
+      font-size: 20px;
+      font-weight: 500;
+      color: white;
+      font-family: "Poppins", sans-serif;
+      background-color:#9B59B6;
+      align-items: center;
+}
+
 .card-pergunta {
     margin-bottom: 30px;
     border: none;
     border-radius: 12px;
     background-color:white;
     box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
-    height:450px;
 }
+.card-resposta {
+    margin-bottom: 30px;
+        border: none;
+        border-radius: 12px;
+        background-color:white;
+}
+.card-resposta-usuario {
+    margin-bottom: 30px;
+        border: none;
+        border-radius: 12px;
+}
+
 .card-body-pergunta {
   padding: 20px 20px 20px 20px;
   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
@@ -486,8 +541,12 @@ h6 {
     align-items: justify;
 }
 .form-label-span {
-    font-size: 20px;
+    font-size: 16px;
     align-items: justify;
+    word-wrap: break-word; /* Quebrar palavras longas */
+        overflow-wrap: break-word; /* Para navegadores mais recentes */
+        white-space: normal; /* Permitir quebras de linha */
+    }
 }
 .form-label-span2 {
     font-size: 20px;
@@ -502,22 +561,39 @@ h6 {
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
+.card-body-responder-usuario {
+    padding: 30px 0;
+}
+
+.btn-custom-width {
+    width: 25%;
+}
+
+.questao-objetiva,
+ .questao-subjetiva {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
 
 /*--------------------------------------------------------------
 # Card de instituições
 --------------------------------------------------------------*/
+
 .card-instituicao {
     margin-bottom: 100px;
     border: none;
     border-radius: 12px;
-    background-color:white;
-    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transição suave */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card-instituicao:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
-    transform: translateY(-6px); /* Eleva um pouco o card */
-    background-color: rgba(240, 240, 240, 0.8); /* Altera a cor de fundo ao passar o mouse (opcional) */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);
+    background-color: rgba(240, 240, 240, 0.8);
 }
 
 .card-body-instituicao {
@@ -602,6 +678,15 @@ button:hover {
   font-weight: 500;
   color: #012970;
   font-family: "Poppins", sans-serif;
+}
+.card-title-cadastrar-instituicao {
+    padding: 20px 0 15px 0;
+      font-size: 18px;
+      font-weight: 500;
+      color: #012970;
+      font-family: "Poppins", sans-serif;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #007bff;
 }
 .card-title-reuniao {
     padding: 20px 0 15px 0;

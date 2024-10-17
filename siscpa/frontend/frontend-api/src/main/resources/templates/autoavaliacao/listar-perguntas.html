@@ -24,10 +24,13 @@
     <section class="section-pergunta">
         <div class="row">
 
-            <div class="col-lg-11" th:each="pergunta : ${perguntas}">
+            <div class="col-lg-5 col-sm-12 mb-4 mx-4" th:each="pergunta : ${perguntas}">
 
                 <div th:if="${pergunta.tipo == 'Objetiva'}">
-                    <div class="card">
+
+                    <h2 class="title-tipo-pergunta">Pergunta Objetiva:</h2>
+
+                    <div class="card-resposta">
 
                         <div class="card-body-responder">
 
@@ -37,27 +40,26 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">Escolha uma opção:</label>
                                     <div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert1" value="1" required>
-                                            <label class="form-check-label" for="likert1">Péssimo</label>
+                                            <input class="form-check-input" type="radio" name="likert" id="likert1" value="Discordo Totalmente" required>
+                                            <label class="form-check-label" for="likert1">Discordo Totalmente</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert2" value="2" required>
-                                            <label class="form-check-label" for="likert2">Ruim</label>
+                                            <input class="form-check-input" type="radio" name="likert" id="likert2" value="Discordo" required>
+                                            <label class="form-check-label" for="likert2">Discordo</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert3" value="3" required>
-                                            <label class="form-check-label" for="likert3">Regular</label>
+                                            <input class="form-check-input" type="radio" name="likert" id="likert3" value="Neutro" required>
+                                            <label class="form-check-label" for="likert3">Neutro</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert4" value="4" required>
-                                            <label class="form-check-label" for="likert4">Bom</label>
+                                            <input class="form-check-input" type="radio" name="likert" id="likert4" value="Concordo" required>
+                                            <label class="form-check-label" for="likert4">Concordo</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert5" value="5" required>
-                                            <label class="form-check-label" for="likert5">Excelente</label>
+                                            <input class="form-check-input" type="radio" name="likert" id="likert5" value="Concordo Totalmente" required>
+                                            <label class="form-check-label" for="likert5">Concordo Totalmente</label>
                                         </div>
                                     </div>
                                 </div>
@@ -67,15 +69,18 @@
                 </div>
 
                 <div th:if="${pergunta.tipo == 'Subjetiva'}">
-                    <div class="card">
+
+                    <h2 class="title-tipo-pergunta">Pergunta Subjetiva:</h2>
+
+                    <div class="card-resposta">
 
                         <div class="card-body-responder">
                             <form class="row g-3 needs-validation" novalidate>
 
                                 <div class="mb-3">
-                                    <label for="resposta" class="form-label-pergunta" th:text="${pergunta.descricao}"></label>
-                                    <textarea class="form-control" id="resposta" rows="3" placeholder="Responda aqui..."></textarea>
+                                    <label for="resposta" class="form-label-span" th:text="${pergunta.descricao}"></label>
                                 </div>
+                                <textarea class="form-control" id="resposta" rows="3" placeholder="Responda aqui..."></textarea>
                             </form>
                         </div>
                     </div>

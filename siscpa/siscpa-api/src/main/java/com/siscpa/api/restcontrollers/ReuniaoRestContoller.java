@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/reuniao")
 public class ReuniaoRestContoller {
@@ -13,7 +14,6 @@ public class ReuniaoRestContoller {
     private final ReuniaoBackendConfiguration reuniaoBackendConfiguration = new ReuniaoBackendConfiguration();
 
     @GetMapping("/all")
-    @CrossOrigin
     public List<ReuniaoCpaModel> getReunioes(){
         List<ReuniaoCpaModel> reunioes = reuniaoBackendConfiguration.findReuniaoCpa().find();
         return reunioes;
@@ -35,8 +35,13 @@ public class ReuniaoRestContoller {
         return reuniaoCpaModel;
     }
 
+    @GetMapping("/findByInstituicaoId/{id}")
+    public List<ReuniaoCpaModel> getReuniaoInstituicao(@PathVariable("id") final int id){
+        List<ReuniaoCpaModel> reunioes = reuniaoBackendConfiguration.findReuniaoCpa().findByInstituicaoId(id);
+        return reunioes;
+    }
+
     @GetMapping("/last")
-    @CrossOrigin
     public ReuniaoCpaModel getLastReuniao(){
         return reuniaoBackendConfiguration.findReuniaoCpa().findLastReuniao();
     }

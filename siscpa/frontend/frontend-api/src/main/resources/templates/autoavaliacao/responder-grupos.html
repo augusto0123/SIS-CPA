@@ -32,20 +32,22 @@
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 mx-4">
+                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="grupo : ${grupos}">
+
+                    <h5 class="card-title-grupo-cadastrar" th:text="${grupo.tipo}"></h5>
+
                     <div class="card-grupo">
-                        <h5 class="card-title-grupo-cadastrar">(Tema do Grupo)</h5>
 
                         <div class="card-body-grupo">
                             <div>
                                 <i class="fa-solid fa-clipboard-question"></i>
                             </div>
 
-                            <div class="table-edicao">
-                                <span>Descrição do grupo</span>
+                            <div class="table-edicao my-5">
+                                <div class="form-label-span" th:text="${grupo.descricao}"></div>
                             </div>
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
                                 Responder
                             </button>
                         </div>

@@ -47,10 +47,10 @@ public class InstituicaoController {
     @GetMapping("/inicio")
     public String getInicioPage(final Model model, final HttpSession session){
 
-//        @PathVariable int instituicaoId
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
 
-        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoes();
-        List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioes();
+        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoesByInstituicaoId(usuario.getInstituicaoId());
+        List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioesByInstituicaoId(usuario.getInstituicaoId());
 //        ReuniaoCpaModel ultimaReuniao = showLastReuniao.showLastReuniao();
 
         if(edicoes == null

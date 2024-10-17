@@ -24,89 +24,89 @@
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-6">
+                    <div class="col-lg-11">
 
-                    <h5 class="card-title-edicao-cadastrar">Edição de Autoavaliação</h5>
+                        <h5 class="card-title-edicao-cadastrar">Edição de Autoavaliação</h5>
 
-                    <div class="card-edicao">
+                        <div class="card-edicao">
 
-                        <div class="card-body">
+                            <div class="card-body">
 
-                            <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/autoavaliacao/criar-edicao}">
+                                <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/autoavaliacao/criar-edicao}">
 
-                                <div class="row mb-3">
-                                    <label for="edicao" class="col-md-3 col-form-label">Número da Edição</label>
-                                    <div class="col-md-9">
-                                        <input type="number" class="form-control" name="edicao" id="edicao" required>
-                                    </div>
-
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="anoDaAvaliacao" class="col-md-3 col-form-label">Ano da Avaliação</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="anoDaAvaliacao" id="anoDaAvaliacao" required>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="dataInicio" class="col-md-3 col-form-label">Data / Início</label>
-                                    <div class="col-md-9">
-                                       <input type="date" class="form-control" name="dataInicio" id="dataInicio" required>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="dataFim" class="col-md-3 col-form-label">Data / Término</label>
-                                    <div class="col-md-9">
-                                        <input type="date" class="form-control" name="dataFim" id="dataFim" required>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="situacao" class="col-md-3 col-form-label">Tema da Avaliação</label>
-                                    <div class="col-md-9">
-                                        <select class="form-select" aria-label="Default select example" name="situacao" id="situacao" required>
-                                            <option selected="Prevista">Prevista</option>
-                                            <option value="Em Andamento">Em Andamento</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="descricao" class="col-md-3 col-form-label">Descrição da Edição</label>
-                                    <div class="col-md-9">
-                                        <textarea class="form-control" style="height: 100px" required placeholder="Digite aqui..." name="descricao" id="descricao"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="text-center mb-3">
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop" style="width: auto;">
-                                        Cadastrar
-                                    </button>
-                                </div>
-
-                            </form>
-
-                            <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Reunião CPA</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div class="row my-3">
+                                        <label for="edicao" class="col-md-2 col-form-label">Número da Edição</label>
+                                        <div class="col-md-10">
+                                            <input type="number" class="form-control" name="edicao" id="edicao" required>
                                         </div>
-                                        <div class="modal-body">
-                                            Sua reunião foi enviada com sucesso!
+
+                                    </div>
+                                    <div class="row my-3">
+                                        <label for="anoDaAvaliacao" class="col-md-2 col-form-label">Ano da Edição</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="anoDaAvaliacao" id="anoDaAvaliacao" required>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                    </div>
+
+                                    <div class="row my-3">
+                                        <label for="dataInicio" class="col-md-2 col-form-label">Data / Início</label>
+                                        <div class="col-md-10">
+                                            <input type="date" class="form-control" name="dataInicio" id="dataInicio" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-3">
+                                        <label for="dataFim" class="col-md-2 col-form-label">Data / Término</label>
+                                        <div class="col-md-10">
+                                            <input type="date" class="form-control" name="dataFim" id="dataFim" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-3">
+                                        <label for="situacao" class="col-md-2 col-form-label">Situação</label>
+                                        <div class="col-md-10">
+                                            <select class="form-control" aria-label="Default select example" name="situacao" id="situacao" required>
+                                                <option selected="Prevista">Prevista</option>
+                                                <option value="Em Andamento">Em Andamento</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-3">
+                                        <label for="descricao" class="col-md-2 col-form-label">Descrição da Edição</label>
+                                        <div class="col-md-10">
+                                            <textarea class="form-control" style="height: 100px" required placeholder="Digite aqui..." name="descricao" id="descricao"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center my-3">
+                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop" style="width: auto;">
+                                            Cadastrar
+                                        </button>
+                                    </div>
+
+                                </form>
+
+                                <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Reunião CPA</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Sua reunião foi enviada com sucesso!
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
             </div>
         </section>
 

@@ -90,6 +90,47 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
     }
 
     @Override
+    public List<EdicaoDeAutoAvaliacaoModel> findAllByInstituicaoId(int instituicaoId) {
+        final List<EdicaoDeAutoAvaliacaoModel> edicoes = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM edicao_autoavaliacao WHERE id_instituicao = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, instituicaoId);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                final EdicaoDeAutoAvaliacaoModel edicao = new EdicaoDeAutoAvaliacaoModel();
+                edicao.setId(resultSet.getInt("id"));
+                edicao.setEdicao(resultSet.getInt("edicao"));
+                edicao.setAnoDaAvaliacao(resultSet.getString("ano_avaliacao"));
+                edicao.setDescricao(resultSet.getString("descricao"));
+                edicao.setDataInicio(resultSet.getDate("data_inicio").toLocalDate());
+                edicao.setDataFim(resultSet.getDate("data_fim").toLocalDate());
+                edicao.setSituacao(resultSet.getString("situacao"));
+//                edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
+
+                edicoes.add(edicao);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return edicoes;
+    }
+
+    @Override
     public List<EdicaoDeAutoAvaliacaoModel> findByCriteria(Map<String, String> criteria) {
         return null;
     }

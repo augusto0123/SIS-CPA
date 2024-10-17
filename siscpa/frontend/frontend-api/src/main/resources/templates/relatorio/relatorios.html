@@ -2,7 +2,7 @@
 <html layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Listar Edições</title>
+    <title>Relatórios</title>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
           integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -22,8 +22,8 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-membroCPA.html">Inicio</a></li>
-                    <li class="breadcrumb-item">Avaliação</li>
-                    <li class="breadcrumb-item active">Lista de Edições</li>
+                    <li class="breadcrumb-item">Relatórios</li>
+                    <li class="breadcrumb-item active">Lista de Relatórios</li>
                 </ol>
             </nav>
         </div>
@@ -48,8 +48,8 @@
                                     <li class="situacao em-andamento">Situação: <span th:text="${edicao.situacao}"></span></li>
                                     <li class="data">Data / Início: <span th:text="${edicao.dataInicio}"></span></li>
                                     <li class="data">Data / Término: <span th:text="${edicao.dataFim}"></span></li>
-<!--                                    <li class="data">ID: <span th:text="${edicao.id}"></span></li>-->
-<!--                                    <li class="data">ID da instituição: <span th:text="${edicao.instituicaoId}"></span></li>-->
+                                    <!--                                    <li class="data">ID: <span th:text="${edicao.id}"></span></li>-->
+                                    <!--                                    <li class="data">ID da instituição: <span th:text="${edicao.instituicaoId}"></span></li>-->
                                 </ul>
                             </div>
 
@@ -57,25 +57,10 @@
                                 <div class="form-label-span" th:text="${edicao.descricao}"></div>
                             </div>
 
-                            <a class="btn btn-primary" th:href="@{/autoavaliacao/vincular-avaliacao/{id} (id=${edicao.id})}">
-                                Vincular Avaliação
+                            <a class="btn btn-primary" th:href="@{/relatorio/relatorios-edicao}">
+<!--                                /{id} (id=${edicao.id})-->
+                                Visualizar
                             </a>
-                        </div>
-
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Deseja inserir uma avaliação à edição?</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a th:href="@{/autoavaliacao/vincular-avaliacao}" class="btn btn-primary">Inserir</a>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
