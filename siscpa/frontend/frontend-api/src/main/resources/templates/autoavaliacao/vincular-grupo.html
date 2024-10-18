@@ -36,36 +36,31 @@
 
                     <div class="card-grupo">
 
-                        <div class="card-body-grupo">
-                            <div>
-                                <i class="fa-solid fa-clipboard-question"></i>
-                            </div>
+                        <form method="POST" th:action="@{/autoavaliacao/vincular-grupo}">
+                            <div class="card-body-grupo">
 
-                            <div class="table-edicao">
-                                <span>Descrição do grupo</span>
-                            </div>
-
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                                Vincular
-                            </button>
-                        </div>
-
-                        <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false" style="display: none;" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Vincular grupo ao questionário</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Grupo de perguntas vinculado com sucesso!
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                    </div>
+                                <div class="col-12">
+                                    <input type="hidden" name="questionarioId" class="form-control" id="questionarioId" th:value="${questionarioId}">
                                 </div>
+
+                                <div class="col-12">
+                                    <input type="hidden" name="grupoId" class="form-control" id="grupoId" th:value="${grupo.id}">
+                                </div>
+
+                                <div>
+                                    <i class="fa-solid fa-clipboard-question"></i>
+                                </div>
+
+                                <div class="table-edicao">
+                                    <span th:text="${grupo.descricao}"></span>
+                                </div>
+
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                    Vincular
+                                </button>
                             </div>
-                        </div>
+                        </form>
+
                     </div>
                 </div>
 

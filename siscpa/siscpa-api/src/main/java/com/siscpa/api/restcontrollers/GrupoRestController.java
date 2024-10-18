@@ -2,6 +2,7 @@ package com.siscpa.api.restcontrollers;
 
 import com.siscpa.api.configuration.GrupoBackendConfiguration;
 import fai.cpa.entities.GrupoDePerguntasModel;
+import fai.cpa.entities.QuestionarioModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,5 +35,10 @@ public class GrupoRestController {
     public List<GrupoDePerguntasModel> getGruposByInstituicaoId(@PathVariable("id") int id){
         List<GrupoDePerguntasModel> grupos = grupoBackendConfiguration.findGrupoDePerguntas().findAllByInstituicaoId(id);
         return grupos;
+    }
+
+    @PutMapping("/vincular-grupo")
+    public boolean vincularGrupo(@RequestBody final GrupoDePerguntasModel grupo){
+        return grupoBackendConfiguration.updateGrupo().vincularGrupo(grupo);
     }
 }

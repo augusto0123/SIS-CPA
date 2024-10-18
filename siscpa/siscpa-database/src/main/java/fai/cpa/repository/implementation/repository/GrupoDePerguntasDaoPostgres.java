@@ -122,8 +122,33 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
     }
 
     @Override
-    public boolean update(GrupoDePerguntasModel grupoDePerguntasModel) {
-        return false;
+    public boolean update(GrupoDePerguntasModel grupo) {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String sql = "UPDATE grupo_perguntas SET id_questionario = ?, tipo = ?, descricao = ? ";
+        sql += "WHERE id = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, grupo.getQuestionarioId());
+            preparedStatement.setString(2, grupo.getTipo());
+            preparedStatement.setString(3, grupo.getDescricao());
+            preparedStatement.setInt(4, grupo.getId());
+
+            preparedStatement.execute();
+
+            preparedStatement.close();
+
+            return false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

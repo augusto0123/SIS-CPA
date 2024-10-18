@@ -2,6 +2,7 @@ package fai.cpa.configuration;
 
 import fai.cpa.autoavaliacao.CreateGrupo;
 import fai.cpa.autoavaliacao.ShowAllGrupos;
+import fai.cpa.autoavaliacao.UpdateGrupo;
 import fai.cpa.entities.GrupoDePerguntasModel;
 import fai.cpa.port.RestService;
 import fai.cpa.port.impl.RestApiController;
@@ -21,5 +22,11 @@ public class GrupoConfiguration {
     public ShowAllGrupos showAllGrupos(){
         RestService<GrupoDePerguntasModel> restService = new RestApiController<>();
         return new ShowAllGrupos(restService);
+    }
+
+    @Bean
+    public UpdateGrupo updateGrupo(){
+        RestService<GrupoDePerguntasModel> restService = new RestApiController<>();
+        return new UpdateGrupo(restService);
     }
 }
