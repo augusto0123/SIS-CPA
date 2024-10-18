@@ -13,4 +13,6 @@ public interface PerguntaRepository {
     boolean update(PerguntaModel perguntaModel);
     boolean deleteById(int id);
     int create(PerguntaModel perguntaModel);
+
+    List<PerguntaModel> findAllByInstituicaoId(int instituicaoId);
 }

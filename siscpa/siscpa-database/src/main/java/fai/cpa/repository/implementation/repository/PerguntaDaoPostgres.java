@@ -2,6 +2,7 @@ package fai.cpa.repository.implementation.repository;
 
 import fai.cpa.entities.InstituicaoModel;
 import fai.cpa.entities.PerguntaModel;
+import fai.cpa.entities.QuestionarioModel;
 import fai.cpa.entities.ReuniaoCpaModel;
 import fai.cpa.repository.implementation.repository.connection.ConnectionFactory;
 import port.PerguntaRepository;
@@ -101,8 +102,8 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO pergunta (descricao, tipo)";
-        sql += " VALUES(?, ?)";
+        String sql = "INSERT INTO pergunta (descricao, tipo, id_instituicao)";
+        sql += " VALUES(?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -111,6 +112,7 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
 
             preparedStatement.setString(1,pergunta.getDescricao());
             preparedStatement.setString(2,pergunta.getTipo());
+            preparedStatement.setInt(3,pergunta.getInstituicaoId());
 
             preparedStatement.execute();
 
@@ -136,5 +138,42 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
             }
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<PerguntaModel> findAllByInstituicaoId(int instituicaoId) {
+        final List<PerguntaModel> perguntas = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM pergunta WHERE id_instituicao = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, instituicaoId);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                final PerguntaModel pergunta = new PerguntaModel();
+                pergunta.setId(resultSet.getInt("id"));
+                pergunta.setTipo(resultSet.getString("tipo"));
+                pergunta.setDescricao(resultSet.getString("descricao"));
+                pergunta.setInstituicaoId(resultSet.getInt("id_instituicao"));
+
+                perguntas.add(pergunta);
+            }
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        return perguntas;
     }
 }

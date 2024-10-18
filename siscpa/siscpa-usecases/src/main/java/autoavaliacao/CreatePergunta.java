@@ -11,7 +11,7 @@ public class CreatePergunta {
         this.perguntaRepository = perguntaRepository;
     }
 
-    public int createPergunta(PerguntaModel perguntaModel){
+    public int createPergunta(final PerguntaModel perguntaModel){
         if (perguntaModel == null){
             return -1;
         }
@@ -19,6 +19,15 @@ public class CreatePergunta {
                 || perguntaModel.getTipo().isEmpty()){
             return -1;
         }
-        return perguntaRepository.create(perguntaModel);
+        int id = 0;
+
+        try {
+            id = perguntaRepository.create(perguntaModel);
+            perguntaModel.setId(id);
+        } catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+        return id;
     }
 }

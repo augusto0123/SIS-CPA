@@ -23,4 +23,10 @@ public class PerguntaRestController {
     public int getCreatePergunta(@RequestBody PerguntaModel pergunta){
         return perguntaBackendConfiguration.createPergunta().createPergunta(pergunta);
     }
+
+    @GetMapping("/findByInstituicaoId/{id}")
+    public List<PerguntaModel> getPerguntasByInstituicao(@PathVariable("id") int id){
+        List<PerguntaModel> perguntas = perguntaBackendConfiguration.findPergunta().findAllByInstituicaoId(id);
+        return perguntas;
+    }
 }

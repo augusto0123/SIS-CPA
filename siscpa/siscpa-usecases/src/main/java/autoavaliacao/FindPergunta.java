@@ -36,4 +36,16 @@ public class FindPergunta {
         }
         return perguntaModel;
     }
+
+    public List<PerguntaModel> findAllByInstituicaoId(final int instituicaoId){
+        if (instituicaoId <= 0){
+            throw new InvalidException();
+        }
+        List<PerguntaModel> perguntas = perguntaRepository.findAllByInstituicaoId(instituicaoId);
+        if (perguntas == null){
+            final String message = "O id (" + instituicaoId + ") não foi encontrado";
+            throw new NotFoundException(message);
+        }
+        return perguntas;
+    }
 }
