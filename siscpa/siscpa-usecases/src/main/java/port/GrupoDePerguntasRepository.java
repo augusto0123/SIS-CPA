@@ -11,6 +11,8 @@ public interface GrupoDePerguntasRepository {
     GrupoDePerguntasModel findById(int id);
     List<GrupoDePerguntasModel> findAll();
     List<GrupoDePerguntasModel> findByCriteria(Map<String, String> criteria);
+
+    List<GrupoDePerguntasModel> findAllByInstituicaoId(int instituicaoId);
     boolean update(GrupoDePerguntasModel grupoDePerguntasModel);
     boolean deleteById(int id);
     int create(GrupoDePerguntasModel grupoDePerguntasModel);

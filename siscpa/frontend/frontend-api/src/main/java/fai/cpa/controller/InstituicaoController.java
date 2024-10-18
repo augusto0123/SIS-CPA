@@ -157,8 +157,6 @@ public class InstituicaoController {
     @PostMapping("/criar-membro")
     public String criarMembro(final Model model){
 
-
-
         return "redirect:/instituicao/listar-membro";
     }
 

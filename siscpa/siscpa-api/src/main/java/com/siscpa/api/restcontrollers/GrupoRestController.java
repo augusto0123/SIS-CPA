@@ -29,4 +29,10 @@ public class GrupoRestController {
     public ResponseEntity<GrupoDePerguntasModel> findById(@PathVariable("id") final int id){
         return ResponseEntity.ok(grupoBackendConfiguration.findGrupoDePerguntas().find(id));
     }
+
+    @GetMapping("/findByInstituicaoId/{id}")
+    public List<GrupoDePerguntasModel> getGruposByInstituicaoId(@PathVariable("id") int id){
+        List<GrupoDePerguntasModel> grupos = grupoBackendConfiguration.findGrupoDePerguntas().findAllByInstituicaoId(id);
+        return grupos;
+    }
 }

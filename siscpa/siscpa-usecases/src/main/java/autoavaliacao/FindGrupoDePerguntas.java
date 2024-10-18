@@ -35,4 +35,16 @@ public class FindGrupoDePerguntas {
         }
         return grupo;
     }
+
+    public List<GrupoDePerguntasModel> findAllByInstituicaoId(final int instituicaoId){
+        if (instituicaoId <= 0){
+            throw new InvalidException();
+        }
+        List<GrupoDePerguntasModel> grupos = grupoDePerguntasRepository.findAllByInstituicaoId(instituicaoId);
+        if (grupos == null){
+            final String message = "O id (" + instituicaoId + ") não foi encontrado";
+            throw new NotFoundException(message);
+        }
+        return grupos;
+    }
 }

@@ -231,7 +231,7 @@ public class AutoavaliacaoController {
     public String getListarGruposPage(final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-        List<GrupoDePerguntasModel> grupos = showAllGrupos.showAllGrupos();
+        List<GrupoDePerguntasModel> grupos = showAllGrupos.shollAllGruposByInstituicaoId(usuario.getInstituicaoId());
 
         if (grupos == null)
             grupos = new ArrayList<>();
@@ -445,8 +445,10 @@ public class AutoavaliacaoController {
     public String criarGrupo(final GrupoDePerguntasModel grupo, HttpSession session, final Model model){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
+        grupo.setInstituicaoId(usuario.getInstituicaoId());
+
         final int id = createGrupo.createGrupo(grupo);
-        if (id > 0){
+        if (id >= 0){
             return "redirect:/autoavaliacao/listar-grupos";
         }
         return "redirect:/not-found";

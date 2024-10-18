@@ -1,6 +1,7 @@
 package fai.cpa.repository.implementation.repository;
 
 import fai.cpa.entities.GrupoDePerguntasModel;
+import fai.cpa.entities.QuestionarioModel;
 import fai.cpa.repository.implementation.repository.connection.ConnectionFactory;
 import port.GrupoDePerguntasRepository;
 
@@ -83,6 +84,44 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
     }
 
     @Override
+    public List<GrupoDePerguntasModel> findAllByInstituicaoId(int instituicaoId) {
+        final List<GrupoDePerguntasModel> grupos = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM grupo_perguntas WHERE id_instituicao = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, instituicaoId);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                final GrupoDePerguntasModel grupo = new GrupoDePerguntasModel();
+                grupo.setId(resultSet.getInt("id"));
+                grupo.setTipo(resultSet.getString("tipo"));
+                grupo.setDescricao(resultSet.getString("descricao"));
+//                questionario.setAvaliacaoId(resultSet.getInt("id_avaliacao"));
+                grupo.setInstituicaoId(resultSet.getInt("id_instituicao"));
+
+                grupos.add(grupo);
+            }
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        return grupos;
+    }
+
+    @Override
     public boolean update(GrupoDePerguntasModel grupoDePerguntasModel) {
         return false;
     }
@@ -99,8 +138,8 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO grupo_perguntas (tipo, descricao)";
-        sql += " VALUES(?, ?)";
+        String sql = "INSERT INTO grupo_perguntas (tipo, descricao, id_instituicao)";
+        sql += " VALUES(?, ?, ?);";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -109,6 +148,7 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
 
             preparedStatement.setString(1, grupo.getTipo());
             preparedStatement.setString(2, grupo.getDescricao());
+            preparedStatement.setInt(3, grupo.getInstituicaoId());
 
             preparedStatement.execute();
 

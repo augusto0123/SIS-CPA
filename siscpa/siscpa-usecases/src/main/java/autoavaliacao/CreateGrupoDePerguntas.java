@@ -17,6 +17,14 @@ public class CreateGrupoDePerguntas {
         if (grupoDePerguntasModel.getDescricao().isEmpty() || grupoDePerguntasModel.getTipo().isEmpty()){
             return -1;
         }
-        return grupoDePerguntasRepository.create(grupoDePerguntasModel);
+        int id = 0;
+        try {
+            id = grupoDePerguntasRepository.create(grupoDePerguntasModel);
+            grupoDePerguntasModel.setId(id);
+        } catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+        return id;
     }
 }
