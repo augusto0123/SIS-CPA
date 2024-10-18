@@ -9,7 +9,7 @@ public class ShowAllAvaliacoes {
 
     private final RestService<AvaliacaoModel> restService;
 
-    public ShowAllAvaliacoes(RestService<AvaliacaoModel> restService) {
+    public ShowAllAvaliacoes(RestService<AvaliacaoModel> restService){
         this.restService = restService;
     }
 

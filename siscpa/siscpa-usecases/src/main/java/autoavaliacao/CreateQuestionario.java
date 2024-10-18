@@ -10,7 +10,6 @@ public class CreateQuestionario {
     public CreateQuestionario(QuestionarioRepository questionarioRepository) {
         this.questionarioRepository = questionarioRepository;
     }
-
     public int createQuestionario(final QuestionarioModel questionarioModel){
         if(questionarioModel == null){
             return -1;
@@ -19,6 +18,15 @@ public class CreateQuestionario {
                 || questionarioModel.getCategoria().isEmpty()){
             return -1;
         }
-        return questionarioRepository.create(questionarioModel);
+        int id = 0;
+
+        try {
+            id = questionarioRepository.create(questionarioModel);
+            questionarioModel.setId(id);
+        } catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+        return id;
     }
 }

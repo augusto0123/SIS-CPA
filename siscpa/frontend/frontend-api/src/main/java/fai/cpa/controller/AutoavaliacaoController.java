@@ -217,7 +217,7 @@ public class AutoavaliacaoController {
     public String getListarQuestionariosPage(final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-        List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionarios();
+        List<QuestionarioModel> questionarios = showAllQuestionarios.shollAllQuestionariosByInstituicaoId(usuario.getInstituicaoId());
 
         if (questionarios == null)
             questionarios = new ArrayList<>();
@@ -432,8 +432,10 @@ public class AutoavaliacaoController {
     public String criarQuestionario(final QuestionarioModel questionario, HttpSession session, final Model model){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
+        questionario.setInstituicaoId(usuario.getInstituicaoId());
+
         final int id = createQuestionario.createQuestionario(questionario);
-        if (id > 0){
+        if (id >= 0){
             return "redirect:/autoavaliacao/listar-questionarios";
         }
         return "redirect:/not-found";

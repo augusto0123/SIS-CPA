@@ -24,4 +24,10 @@ public class QuestionarioRestController {
     public int getCreateQuestionario(@RequestBody QuestionarioModel questionario){
         return questionarioBackendConfiguration.createQuestionario().createQuestionario(questionario);
     }
+
+    @GetMapping("/findByInstituicaoId/{id}")
+    public List<QuestionarioModel> getQuestionariosByInstituicaoId(@PathVariable("id") int id){
+        List<QuestionarioModel> questionarios = questionarioBackendConfiguration.findQuestionario().findAllByInstituicaoId(id);
+        return questionarios;
+    }
 }

@@ -1,5 +1,6 @@
 package fai.cpa.repository.implementation.repository;
 
+import fai.cpa.entities.AvaliacaoModel;
 import fai.cpa.entities.QuestionarioModel;
 import fai.cpa.repository.implementation.repository.connection.ConnectionFactory;
 import port.QuestionarioRepository;
@@ -87,6 +88,44 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
     }
 
     @Override
+    public List<QuestionarioModel> findAllByInstituicaoId(int instituicaoId) {
+        final List<QuestionarioModel> questionarios = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM questionario WHERE id_instituicao = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, instituicaoId);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                final QuestionarioModel questionario = new QuestionarioModel();
+                questionario.setId(resultSet.getInt("id"));
+                questionario.setCategoria(resultSet.getString("categoria"));
+                questionario.setDescricao(resultSet.getString("descricao"));
+                questionario.setAvaliacaoId(resultSet.getInt("id_avaliacao"));
+                questionario.setInstituicaoId(resultSet.getInt("id_instituicao"));
+
+                questionarios.add(questionario);
+            }
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        return questionarios;
+    }
+
+    @Override
     public boolean update(QuestionarioModel questionarioModel) {
         return false;
     }
@@ -103,8 +142,8 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO questionario (categoria, descricao)";
-        sql += " VALUES (?, ?);";
+        String sql = "INSERT INTO questionario (categoria, descricao, id_instituicao)";
+        sql += " VALUES(?, ?, ?);";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -113,10 +152,13 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
 
             preparedStatement.setString(1, questionario.getCategoria());
             preparedStatement.setString(2, questionario.getDescricao());
+//            preparedStatement.setInt(3, questionario.getAvaliacaoId());
+            preparedStatement.setInt(3, questionario.getInstituicaoId());
 
             preparedStatement.execute();
 
             resultSet = preparedStatement.getGeneratedKeys();
+
             if (resultSet.next()){
                 final int id = resultSet.getInt(1);
                 questionario.setId(id);

@@ -11,6 +11,8 @@ public interface QuestionarioRepository {
     QuestionarioModel findById(int id);
     List<QuestionarioModel> findAll();
     List<QuestionarioModel> findByCriteria(Map<String, String> criteria);
+
+    List<QuestionarioModel> findAllByInstituicaoId(int instituicaoId);
     boolean update(QuestionarioModel questionarioModel);
     boolean deleteById(int id);
     int create(QuestionarioModel questionarioModel);

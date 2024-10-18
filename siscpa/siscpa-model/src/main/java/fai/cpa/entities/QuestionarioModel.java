@@ -6,7 +6,7 @@ public class QuestionarioModel {
     private String descricao;
     private String categoria;
 
-    private String avaliacaoId;
+    private int avaliacaoId;
 
     private int instituicaoId;
 
@@ -20,11 +20,12 @@ public class QuestionarioModel {
         this.instituicaoId = instituicaoId;
     }
 
-    public String getAvaliacaoId() {
+
+    public int getAvaliacaoId() {
         return avaliacaoId;
     }
 
-    public void setAvaliacaoId(String avaliacaoId) {
+    public void setAvaliacaoId(int avaliacaoId) {
         this.avaliacaoId = avaliacaoId;
     }
 
