@@ -33,7 +33,6 @@ public class AutoavaliacaoController {
     private final ShowLastReuniao showLastReuniao;
     private final CreatePergunta createPergunta;
     private final ShowAllPerguntas showAllPerguntas;
-
     private final UpdateAvaliacao updateAvaliacao;
 
     public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas, UpdateAvaliacao updateAvaliacao) {
@@ -50,7 +49,6 @@ public class AutoavaliacaoController {
         this.showLastReuniao = showLastReuniao;
         this.createPergunta = createPergunta;
         this.showAllPerguntas = showAllPerguntas;
-
         this.updateAvaliacao = updateAvaliacao;
     }
 
@@ -203,9 +201,10 @@ public class AutoavaliacaoController {
 
     @GetMapping("/listar-avaliacoes")
     public String getListarAvaliacoesPage(final Model model, HttpSession session){
+
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-        List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoes();
+        List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoesByInstituicaoId(usuario.getInstituicaoId());
 
         if (avaliacoes == null)
             avaliacoes = new ArrayList<>();
@@ -421,6 +420,7 @@ public class AutoavaliacaoController {
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
         avaliacao.setInstituicaoId(usuario.getInstituicaoId());
+
         final int id = createAvaliacao.createAvaliacao(avaliacao);
         if (id > 0){
             return "redirect:/autoavaliacao/listar-avaliacoes";

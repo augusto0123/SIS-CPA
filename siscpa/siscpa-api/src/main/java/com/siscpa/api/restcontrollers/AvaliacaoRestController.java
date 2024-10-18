@@ -30,4 +30,10 @@ public class AvaliacaoRestController {
     public boolean vincularAvaliacao(@RequestBody final AvaliacaoModel avaliacao){
         return avaliacaoBackendConfiguration.updateAvaliacao().vincularAvaliacao(avaliacao);
     }
+
+    @GetMapping("/findByInstituicaoId/{id}")
+    public List<AvaliacaoModel> getAvaliacoesByInstituicaoId(@PathVariable("id") int id){
+        List<AvaliacaoModel> avaliacoes = avaliacaoBackendConfiguration.findAvaliacao().findAllByInstituicaoId(id);
+        return avaliacoes;
+    }
 }

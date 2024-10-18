@@ -34,4 +34,16 @@ public class FindAvaliacao {
         }
         return avaliacao;
     }
+
+    public List<AvaliacaoModel> findAllByInstituicaoId(final int instituicaoId){
+        if (instituicaoId <= 0){
+            throw new InvalidException();
+        }
+        List<AvaliacaoModel> avaliacoes = avaliacaoRepository.findAllByInstituicaoId(instituicaoId);
+        if (avaliacoes == null){
+            final String message = "O id (" + instituicaoId + ") não foi encontrado";
+            throw new NotFoundException(message);
+        }
+        return avaliacoes;
+    }
 }

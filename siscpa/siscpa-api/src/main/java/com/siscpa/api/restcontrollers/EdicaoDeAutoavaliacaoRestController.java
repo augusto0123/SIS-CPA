@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/edicoes")
 public class EdicaoDeAutoavaliacaoRestController {
 
     private final EdicaoDeAutoavaliacaoBackendConfiguration edicaoDeAutoavaliacaoBackendConfiguration = new EdicaoDeAutoavaliacaoBackendConfiguration();
 
     @GetMapping("/all")
-    @CrossOrigin
     public List<EdicaoDeAutoAvaliacaoModel> getEdicoes(){
         List<EdicaoDeAutoAvaliacaoModel> edicoes = edicaoDeAutoavaliacaoBackendConfiguration.findEdicaoDeAutoavaliacao().find();
         return edicoes;
@@ -26,7 +26,6 @@ public class EdicaoDeAutoavaliacaoRestController {
     }
 
     @GetMapping("/findByInstituicaoId/{id}")
-    @CrossOrigin
     public List<EdicaoDeAutoAvaliacaoModel> getEdicoesByInstituicaoId(@PathVariable("id") int id) {
         List<EdicaoDeAutoAvaliacaoModel> edicoes = edicaoDeAutoavaliacaoBackendConfiguration.findEdicaoDeAutoavaliacao().findAllByInstituicaoId(id);
         return edicoes;

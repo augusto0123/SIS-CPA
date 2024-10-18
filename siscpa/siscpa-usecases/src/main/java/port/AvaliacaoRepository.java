@@ -14,6 +14,8 @@ public interface AvaliacaoRepository {
 
     List<AvaliacaoModel> findByCriteria(Map<String, String> criteria);
 
+    List<AvaliacaoModel> findAllByInstituicaoId(int instituicaoId);
+
     boolean update(AvaliacaoModel avaliacaoModel);
 
     boolean deleteById(int id);

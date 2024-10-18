@@ -18,4 +18,10 @@ public class ShowAllAvaliacoes {
         final List<AvaliacaoModel> avaliacoes = restService.get(resource);
         return avaliacoes;
     }
+
+    public List<AvaliacaoModel> showAllAvaliacoesByInstituicaoId(final int id){
+        final String resource = "/avaliacao/findByInstituicaoId/" + id;
+        final List<AvaliacaoModel> avaliacoes = restService.get(resource);
+        return avaliacoes;
+    }
 }
