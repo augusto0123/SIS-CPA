@@ -1,14 +1,18 @@
 package autoavaliacao;
 
 import fai.cpa.entities.QuestionarioModel;
+import port.InstituicaoRepository;
 import port.QuestionarioRepository;
 
 public class CreateQuestionario {
 
     private final QuestionarioRepository questionarioRepository;
 
-    public CreateQuestionario(QuestionarioRepository questionarioRepository) {
+    private final InstituicaoRepository instituicaoRepository;
+
+    public CreateQuestionario(QuestionarioRepository questionarioRepository, InstituicaoRepository instituicaoRepository) {
         this.questionarioRepository = questionarioRepository;
+        this.instituicaoRepository = instituicaoRepository;
     }
     public int createQuestionario(final QuestionarioModel questionarioModel){
         if(questionarioModel == null){

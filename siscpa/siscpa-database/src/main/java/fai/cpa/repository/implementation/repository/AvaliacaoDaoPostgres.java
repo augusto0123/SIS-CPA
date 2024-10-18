@@ -165,7 +165,6 @@ public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
         ResultSet resultSet = null;
 
         String sql = "INSERT INTO avaliacao (tema, descricao, id_instituicao)";
-//        id_edicao_autoavaliacao
         sql += " VALUES(?, ?, ?)";
 
         try {

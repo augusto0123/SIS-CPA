@@ -37,19 +37,31 @@
 
                     <div class="card-questionario">
 
-                        <div class="card-body-questionario">
+                        <form method="POST" th:action="@{/autoavaliacao/vincular-questionario}">
+                            <div class="card-body-questionario">
 
-                            <div>
-                                <i class="fa-solid fa-pen-to-square"></i>
+                                <div class="col-12">
+                                    <input type="hidden" name="avaliacaoId" class="form-control" id="avaliacaoId" th:value="${avaliacaoId}">
+                                </div>
+
+                                <div class="col-12">
+                                    <input type="hidden" name="questionarioId" class="form-control" id="questionarioId" th:value="${questionario.id}">
+                                </div>
+
+                                <div>
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </div>
+
+                                <div class="table-edicao">
+                                    <span th:text="${questionario.descricao}"></span>
+                                </div>
+
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                    Vincular
+                                </button>
+
                             </div>
-
-                            <div class="table-edicao">
-                                <span th:text="${questionario.descricao}"></span>
-                            </div>
-
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
-                            Vincular
-                        </button>
+                        </form>
 
                         <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false" style="display: none;" aria-hidden="true">
                             <div class="modal-dialog">
@@ -69,7 +81,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 

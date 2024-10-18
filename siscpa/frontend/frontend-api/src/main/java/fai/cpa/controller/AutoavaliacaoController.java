@@ -35,7 +35,9 @@ public class AutoavaliacaoController {
     private final ShowAllPerguntas showAllPerguntas;
     private final UpdateAvaliacao updateAvaliacao;
 
-    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas, UpdateAvaliacao updateAvaliacao) {
+    private final UpdateQuestionario updateQuestionario;
+
+    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas, UpdateAvaliacao updateAvaliacao, UpdateQuestionario updateQuestionario) {
         this.createReuniao = createReuniao;
         this.showAllReunioes = showAllReunioes;
         this.createEdicao = createEdicao;
@@ -50,6 +52,7 @@ public class AutoavaliacaoController {
         this.createPergunta = createPergunta;
         this.showAllPerguntas = showAllPerguntas;
         this.updateAvaliacao = updateAvaliacao;
+        this.updateQuestionario = updateQuestionario;
     }
 
 //    ==================================================================================================================
@@ -346,15 +349,17 @@ public class AutoavaliacaoController {
         return "autoavaliacao/vincular-avaliacao";
     }
 
-    @GetMapping("vincular-questionario")
-    public String getVincularQuestionarioPage(final Model model, HttpSession session){
-        List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionarios();
+    @GetMapping("vincular-questionario/{id}")
+    public String getVincularQuestionarioPage(@PathVariable final int id,  final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
+
+        List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionarios();
 
         if (questionarios ==  null)
             questionarios = new ArrayList<>();
 
+        model.addAttribute("avaliacaoId", id);
         model.addAttribute("questionarios", questionarios);
         return "autoavaliacao/vincular-questionario";
     }
@@ -475,6 +480,18 @@ public class AutoavaliacaoController {
         final boolean resultado = updateAvaliacao.vincularAvaliacao(avaliacao);
         if (!resultado){
             return "redirect:/autoavaliacao/vincular-avaliacao/" + edicaoId;
+        }
+        return "redirect:/not-found";
+    }
+
+    @PostMapping("vincular-questionario")
+    public String vincularQuestionario(final int avaliacaoId, final int questionarioId){
+        QuestionarioModel questionario = new QuestionarioModel();
+        questionario.setAvaliacaoId(avaliacaoId);
+        questionario.setId(questionarioId);
+        final boolean resultado = updateQuestionario.vincularQuestionario(questionario);
+        if (!resultado){
+            return "redirect:/autoavaliacao/vincular-questionario/" + avaliacaoId;
         }
         return "redirect:/not-found";
     }

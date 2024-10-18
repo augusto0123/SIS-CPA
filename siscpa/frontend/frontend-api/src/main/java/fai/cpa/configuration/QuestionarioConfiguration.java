@@ -2,6 +2,7 @@ package fai.cpa.configuration;
 
 import fai.cpa.autoavaliacao.CreateQuestionario;
 import fai.cpa.autoavaliacao.ShowAllQuestionarios;
+import fai.cpa.autoavaliacao.UpdateQuestionario;
 import fai.cpa.entities.QuestionarioModel;
 import fai.cpa.port.RestService;
 import fai.cpa.port.impl.RestApiController;
@@ -21,6 +22,12 @@ public class QuestionarioConfiguration {
     public ShowAllQuestionarios showAllQuestionarios(){
         RestService<QuestionarioModel> restService = new RestApiController<>();
         return new ShowAllQuestionarios(restService);
+    }
+
+    @Bean
+    public UpdateQuestionario updateQuestionario(){
+        RestService<QuestionarioModel> restService = new RestApiController<>();
+        return new UpdateQuestionario(restService);
     }
 
 }

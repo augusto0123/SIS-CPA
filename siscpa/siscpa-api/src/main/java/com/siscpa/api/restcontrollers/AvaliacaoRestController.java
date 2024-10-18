@@ -4,6 +4,7 @@ package com.siscpa.api.restcontrollers;
 import com.siscpa.api.configuration.AvaliacaoBackendConfiguration;
 import fai.cpa.entities.AvaliacaoModel;
 import org.springframework.web.bind.annotation.*;
+import fai.cpa.entities.QuestionarioModel;
 
 import java.util.List;
 

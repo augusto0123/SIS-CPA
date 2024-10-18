@@ -17,10 +17,11 @@ public class UpdateAvaliacao {
         final AvaliacaoModel byId = avaliacaoRepository.findById(avaliacao.getId());
         byId.setEdicaoId(avaliacao.getEdicaoId());
 
-        boolean updateReuniao = false;
+        boolean updateAvaliacao = false;
+
         try {
-            updateReuniao = avaliacaoRepository.update(byId);
-            return updateReuniao;
+            updateAvaliacao = avaliacaoRepository.update(byId);
+            return updateAvaliacao;
         } catch (Exception e) {
             return true;
         }

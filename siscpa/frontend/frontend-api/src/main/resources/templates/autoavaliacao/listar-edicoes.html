@@ -40,6 +40,7 @@
                         <div class="card-body-edicao">
 
                             <div class="display-edicao">
+
                                 <div class="espaco-edicao">
                                     <i class="fa-solid fa-chart-simple"></i>
                                 </div>
@@ -60,22 +61,6 @@
                             <a class="btn btn-primary" th:href="@{/autoavaliacao/vincular-avaliacao/{id} (id=${edicao.id})}">
                                 Vincular Avaliação
                             </a>
-                        </div>
-
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Deseja inserir uma avaliação à edição?</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a th:href="@{/autoavaliacao/vincular-avaliacao}" class="btn btn-primary">Inserir</a>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

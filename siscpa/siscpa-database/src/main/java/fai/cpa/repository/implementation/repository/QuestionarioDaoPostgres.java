@@ -126,8 +126,32 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
     }
 
     @Override
-    public boolean update(QuestionarioModel questionarioModel) {
-        return false;
+    public boolean update(QuestionarioModel questionario) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String sql = "UPDATE questionario SET id_avaliacao = ?, categoria = ?, descricao = ? ";
+        sql += "WHERE id = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, questionario.getAvaliacaoId());
+            preparedStatement.setString(2, questionario.getCategoria());
+            preparedStatement.setString(3, questionario.getDescricao());
+            preparedStatement.setInt(4, questionario.getId());
+
+            preparedStatement.execute();
+
+            preparedStatement.close();
+
+            return false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
