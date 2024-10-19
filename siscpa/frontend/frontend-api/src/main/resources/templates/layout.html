@@ -181,7 +181,7 @@
         <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
             <a class="nav-link " th:href="@{/instituicao/inicio}">
                 <i class="bi bi-grid"></i>
-                <span>Inicio</span>
+                <span>Início</span>
             </a>
         </li>
 
@@ -207,7 +207,7 @@
 
         <li class="nav-item" th:if="${usuario.tipo == 'Membro CPA'}">
             <a class="nav-link collapsed" data-bs-target="#forms-nav-membro" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-journal-text"></i><span>Autoavaliação(Membro)</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-journal-text"></i><span>Autoavaliação (Membro)</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="forms-nav-membro" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -231,7 +231,7 @@
 
         <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
             <a class="nav-link collapsed" data-bs-target="#forms-nav-usuario" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-journal-text"></i><span>Autoavaliação(Usuário)</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-journal-text"></i><span>Autoavaliação (Usuário)</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="forms-nav-usuario" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -300,7 +300,7 @@
                 </li>
             </ul>
         </li>
-        <li class="nav-heading">Paginas</li>
+        <li class="nav-heading">Páginas</li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" th:href="@{/conta/perfil}">

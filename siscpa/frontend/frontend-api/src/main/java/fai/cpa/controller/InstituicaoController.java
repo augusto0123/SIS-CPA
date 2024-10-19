@@ -51,6 +51,7 @@ public class InstituicaoController {
 
         List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoesByInstituicaoId(usuario.getInstituicaoId());
         List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioesByInstituicaoId(usuario.getInstituicaoId());
+
 //        ReuniaoCpaModel ultimaReuniao = showLastReuniao.showLastReuniao();
 
         if(edicoes == null

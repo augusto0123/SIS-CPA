@@ -86,8 +86,32 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
     }
 
     @Override
-    public boolean update(PerguntaModel perguntaModel) {
-        return false;
+    public boolean update(PerguntaModel pergunta) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String sql = "UPDATE pergunta SET id_grupo_perguntas = ?, tipo = ?, descricao = ? ";
+        sql += "WHERE id = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, pergunta.getGrupoId());
+            preparedStatement.setString(2, pergunta.getTipo());
+            preparedStatement.setString(3, pergunta.getDescricao());
+            preparedStatement.setInt(4, pergunta.getId());
+
+            preparedStatement.execute();
+
+            preparedStatement.close();
+
+            return false;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

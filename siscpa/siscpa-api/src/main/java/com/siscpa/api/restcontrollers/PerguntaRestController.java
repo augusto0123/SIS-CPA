@@ -24,6 +24,12 @@ public class PerguntaRestController {
         return perguntaBackendConfiguration.createPergunta().createPergunta(pergunta);
     }
 
+    @PutMapping("/vincular-pergunta")
+    public boolean vincularPergunta(@RequestBody final PerguntaModel pergunta){
+        return perguntaBackendConfiguration.updatePergunta().vincularPergunta(pergunta);
+    }
+
+
     @GetMapping("/findByInstituicaoId/{id}")
     public List<PerguntaModel> getPerguntasByInstituicao(@PathVariable("id") int id){
         List<PerguntaModel> perguntas = perguntaBackendConfiguration.findPergunta().findAllByInstituicaoId(id);

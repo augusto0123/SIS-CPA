@@ -36,8 +36,9 @@ public class AutoavaliacaoController {
     private final UpdateAvaliacao updateAvaliacao;
     private final UpdateQuestionario updateQuestionario;
     private final UpdateGrupo updateGrupo;
+    private final UpdatePergunta updatePergunta;
 
-    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas, UpdateAvaliacao updateAvaliacao, UpdateQuestionario updateQuestionario, UpdateGrupo updateGrupo) {
+    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas, UpdateAvaliacao updateAvaliacao, UpdateQuestionario updateQuestionario, UpdateGrupo updateGrupo, UpdatePergunta updatePergunta) {
         this.createReuniao = createReuniao;
         this.showAllReunioes = showAllReunioes;
         this.createEdicao = createEdicao;
@@ -54,6 +55,7 @@ public class AutoavaliacaoController {
         this.updateAvaliacao = updateAvaliacao;
         this.updateQuestionario = updateQuestionario;
         this.updateGrupo = updateGrupo;
+        this.updatePergunta = updatePergunta;
     }
 
 //    ==================================================================================================================
@@ -380,15 +382,16 @@ public class AutoavaliacaoController {
         return "autoavaliacao/vincular-grupo";
     }
 
-    @GetMapping("/vincular-pergunta")
-    public String getVincularPerguntaPage(final Model model, HttpSession session){
+    @GetMapping("/vincular-pergunta/{id}")
+    public String getVincularPerguntaPage(@PathVariable final int id, final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-        List<PerguntaModel> perguntas = showAllPerguntas.showAllPerguntas();
+        List<PerguntaModel> perguntas = showAllPerguntas.showAllPerguntasByInstituicao(usuario.getInstituicaoId());
 
         if (perguntas == null)
             perguntas = new ArrayList<>();
 
+        model.addAttribute("grupoId", id);
         model.addAttribute("perguntas", perguntas);
         return "autoavaliacao/vincular-pergunta";
     }
@@ -510,6 +513,20 @@ public class AutoavaliacaoController {
         if (!resultado) {
             return "redirect:/autoavaliacao/vincular-grupo/" + questionarioId;
         }
+        return "redirect:/not-found";
+    }
+
+    @PostMapping("vincular-pergunta")
+    public String vincularPergunta(final int grupoId, final int perguntaId){
+        PerguntaModel pergunta = new PerguntaModel();
+        pergunta.setGrupoId(grupoId);
+        pergunta.setId(perguntaId);
+
+        final boolean resultado = updatePergunta.vincularPergunta(pergunta);
+        if (!resultado){
+            return "redirect:/autoavaliacao/vincular-pergunta/" + grupoId;
+        }
+
         return "redirect:/not-found";
     }
 }

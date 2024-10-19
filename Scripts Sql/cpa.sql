@@ -37,7 +37,7 @@ CREATE TABLE usuario (
     nome VARCHAR(200) NOT NULL,
     email VARCHAR(200) NOT NULL,
     senha VARCHAR(100) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
+    telefone VARCHAR(20),
     tipo VARCHAR(30) CHECK (tipo IN ('Aluno', 'Professor', 'Comunidade Externa', 'Colaborador', 'Membro CPA', 'Administrador')),
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
 );

@@ -2,6 +2,7 @@ package com.siscpa.api.configuration;
 
 import autoavaliacao.CreatePergunta;
 import autoavaliacao.FindPergunta;
+import autoavaliacao.UpdatePergunta;
 import fai.cpa.repository.implementation.repository.PerguntaDaoPostgres;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,5 +25,10 @@ public class PerguntaBackendConfiguration {
     @Bean
     public FindPergunta findPergunta(){
         return new FindPergunta(perguntaRepository);
+    }
+
+    @Bean
+    public UpdatePergunta updatePergunta(){
+        return new UpdatePergunta(perguntaRepository);
     }
 }

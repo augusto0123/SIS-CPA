@@ -49,13 +49,13 @@
 
                                 <div class="pt-4 pb-2">
                                     <h5 class="card-title text-center pb-0 fs-4">Entre na sua Conta</h5>
-                                    <p class="text-center small">Digite seu Email e Senha para fazer Login</p>
+                                    <p class="text-center small">Digite seu Email e Senha para acessar</p>
                                 </div>
 
                                 <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/conta/login}">
 
                                     <div class="col-12">
-                                        <label for="email" class="form-label">Seu Email</label>
+                                        <label for="email" class="form-label">Email</label>
                                         <input type="email" name="email" class="form-control" id="email" required>
                                         <div class="invalid-feedback">Por favor, Digite um endereço de Email válido!</div>
                                     </div>
@@ -79,7 +79,7 @@
                                         <p class="small mb-0"><a href="password.html">Esqueceu sua senha?</a></p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="small mb-0">Não pussui uma Conta? <a th:href="@{/conta/registro}">Crie sua Conta</a></p>
+                                        <p class="small mb-0">Não pussui uma conta? <a th:href="@{/conta/registro}"> Crie sua conta</a></p>
                                     </div>
                                 </form>
 
