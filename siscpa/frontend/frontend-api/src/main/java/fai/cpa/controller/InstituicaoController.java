@@ -49,8 +49,10 @@ public class InstituicaoController {
 
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
 
+
         List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoesByInstituicaoId(usuario.getInstituicaoId());
         List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioesByInstituicaoId(usuario.getInstituicaoId());
+
 
 //        ReuniaoCpaModel ultimaReuniao = showLastReuniao.showLastReuniao();
 

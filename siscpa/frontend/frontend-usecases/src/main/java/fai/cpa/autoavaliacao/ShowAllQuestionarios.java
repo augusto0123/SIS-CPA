@@ -24,4 +24,10 @@ public class ShowAllQuestionarios {
         final List<QuestionarioModel> questionarios = restService.get(resource);
         return questionarios;
     }
+
+    public List<QuestionarioModel> showAllQuestionariosByAvaliacaoId(final int id){
+        final String resource = "/questionario/findByAvaliacaoId/" + id;
+        final List<QuestionarioModel> questionarios = restService.get(resource);
+        return questionarios;
+    }
 }

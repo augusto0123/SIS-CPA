@@ -13,6 +13,8 @@ public interface QuestionarioRepository {
     List<QuestionarioModel> findByCriteria(Map<String, String> criteria);
 
     List<QuestionarioModel> findAllByInstituicaoId(int instituicaoId);
+
+    List<QuestionarioModel> findAllByAvaliacaoId(int avaliacaoId);
     boolean update(QuestionarioModel questionarioModel);
     boolean deleteById(int id);
     int create(QuestionarioModel questionarioModel);

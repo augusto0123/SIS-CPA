@@ -35,4 +35,10 @@ public class PerguntaRestController {
         List<PerguntaModel> perguntas = perguntaBackendConfiguration.findPergunta().findAllByInstituicaoId(id);
         return perguntas;
     }
+
+    @GetMapping("/findByGrupoId/{id}")
+    public List<PerguntaModel> getPerguntasByGrupoId(@PathVariable("id") int id){
+        List<PerguntaModel> perguntas = perguntaBackendConfiguration.findPergunta().findAllByGrupoId(id);
+        return perguntas;
+    }
 }

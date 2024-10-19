@@ -47,6 +47,7 @@ public class ContaController {
     @GetMapping("/perfil")
     public String getPerfilPage(final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+
         model.addAttribute("usuario", usuario);
         return "conta/perfil";
     }

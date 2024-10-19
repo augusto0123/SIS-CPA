@@ -47,4 +47,16 @@ public class FindGrupoDePerguntas {
         }
         return grupos;
     }
+
+    public List<GrupoDePerguntasModel> findAllByQuestionarioId(final int questionarioId){
+        if (questionarioId <= 0){
+            throw new InvalidException();
+        }
+        List<GrupoDePerguntasModel> grupos = grupoDePerguntasRepository.findAllByQuestionarioId(questionarioId);
+        if (grupos == null){
+            final String message = "0 id (" + questionarioId + ") não foi encontrado";
+            throw new NotFoundException(message);
+        }
+        return grupos;
+    }
 }

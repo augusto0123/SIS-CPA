@@ -18,4 +18,10 @@ public class ShowAllInstituicoes {
         final List<InstituicaoModel> instituicaoModels = restService.get(resource);
         return instituicaoModels;
     }
+
+    public InstituicaoModel findById(int id) {
+        final String resource = "/instituicao/findById/" + id;
+        InstituicaoModel byId = restService.getById(resource, InstituicaoModel.class);
+        return byId;
+    }
 }

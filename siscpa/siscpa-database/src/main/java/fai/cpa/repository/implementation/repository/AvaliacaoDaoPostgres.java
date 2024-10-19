@@ -124,6 +124,44 @@ public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
     }
 
     @Override
+    public List<AvaliacaoModel> findAllByEdicaoId(int edicaoId) {
+        final List<AvaliacaoModel> avaliacoes = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM avaliacao WHERE id_edicao_autoavaliacao = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, edicaoId);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                final AvaliacaoModel avaliacao = new AvaliacaoModel();
+                avaliacao.setId(resultSet.getInt("id"));
+                avaliacao.setTema(resultSet.getString("tema"));
+                avaliacao.setDescricao(resultSet.getString("descricao"));
+                avaliacao.setInstituicaoId(resultSet.getInt("id_instituicao"));
+                avaliacao.setEdicaoId(resultSet.getInt("id_edicao_autoavaliacao"));
+
+                avaliacoes.add(avaliacao);
+            }
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        return avaliacoes;
+    }
+
+    @Override
     public boolean update(AvaliacaoModel avaliacaoModel) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;

@@ -18,12 +18,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Listar Edições de Autoavaliação</h1>
+            <h1>Listar Avaliações da Edição</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-membroCPA.html">Inicio</a></li>
                     <li class="breadcrumb-item">Relatórios</li>
-                    <li class="breadcrumb-item active">Lista de Relatórios</li>
+                    <li class="breadcrumb-item active">Avaliações da Edição</li>
                 </ol>
             </nav>
         </div>
@@ -54,11 +54,10 @@
                             </div>
 
                             <div class="table-edicao my-3">
-                                <div class="form-label-span" th:text="${edicao.descricao}"></div>
+                                <div class="form-label-span" th:href="@{/relatorio/relatorios-edicao/{id} (id=${edicao.id})}"></div>
                             </div>
 
-                            <a class="btn btn-primary" th:href="@{/relatorio/relatorios-edicao}">
-<!--                                /{id} (id=${edicao.id})-->
+                            <a class="btn btn-primary" th:href="@{/relatorio/relatorios-edicao/{id} (id=${edicao.id})}">
                                 Visualizar
                             </a>
                         </div>

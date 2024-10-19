@@ -24,4 +24,10 @@ public class ShowAllGrupos {
         final List<GrupoDePerguntasModel> grupos = restService.get(resource);
         return grupos;
     }
+
+    public List<GrupoDePerguntasModel> showAllGruposByQuestionarioId(final int id){
+        final String resource = "/grupo/findByQuestionarioId/" + id;
+        final List<GrupoDePerguntasModel> grupos = restService.get(resource);
+        return grupos;
+    }
 }

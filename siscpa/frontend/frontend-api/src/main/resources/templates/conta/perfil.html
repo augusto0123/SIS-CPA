@@ -29,14 +29,8 @@
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                             <img src="/assets/img/messages-1.jpg" alt="Profile" class="rounded-circle">
-                            <h2>Ana Júlia</h2>
-                            <h3>Estudante</h3>
-                            <div class="social-links mt-2">
-                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <h2 th:text="${usuario.nome}">a</h2>
+                            <h3 th:text="${usuario.tipo}"></h3>
                         </div>
                     </div>
 
@@ -46,6 +40,7 @@
 
                     <div class="card">
                         <div class="card-body pt-3">
+
                             <ul class="nav nav-tabs nav-tabs-bordered">
 
                                 <li class="nav-item">
@@ -56,9 +51,9 @@
                                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Editar Perfil</button>
                                 </li>
 
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Configurações</button>
-                                </li>
+<!--                                <li class="nav-item">-->
+<!--                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Configurações</button>-->
+<!--                                </li>-->
 
                                 <li class="nav-item">
                                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Alterar Senha</button>
@@ -72,38 +67,23 @@
                                     <h5 class="card-title">Detalhes do Perfil</h5>
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">Nome Completo</div>
-                                        <div class="col-lg-9 col-md-8">Ana Júlia Gonçalves Mendes</div>
+                                        <div class="col-lg-3 col-md-4 label">Nome Completo</div>
+                                        <div class="col-lg-9 col-md-8" th:text="${usuario.nome}"></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Instituição</div>
-                                        <div class="col-lg-9 col-md-8">FAI - centro de Ensino Superior em Gestão, Tecnologia e Educação.</div>
+                                        <div class="col-lg-9 col-md-8">Nome da...</div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Tipo</div>
-                                        <div class="col-lg-9 col-md-8">Estudante</div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Pais</div>
-                                        <div class="col-lg-9 col-md-8">Brasil</div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Endereço</div>
-                                        <div class="col-lg-9 col-md-8">Santa Rita do Sapucaí, MInas Gerais</div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Telefone</div>
-                                        <div class="col-lg-9 col-md-8">(35) 99810-5466</div>
+                                        <div class="col-lg-9 col-md-8" th:text="${usuario.tipo}"></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Email</div>
-                                        <div class="col-lg-9 col-md-8">anajumendes06@gmail.com</div>
+                                        <div class="col-lg-9 col-md-8" th:text="${usuario.email}"></div>
                                     </div>
 
                                 </div>

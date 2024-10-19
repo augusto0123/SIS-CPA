@@ -24,4 +24,10 @@ public class ShowAllPerguntas {
         final List<PerguntaModel> perguntas = restService.get(resource);
         return perguntas;
     }
+
+    public List<PerguntaModel> showAllPerguntasByGrupo(final int id){
+        final String resource = "/pergunta/findByGrupoId/" + id;
+        final List<PerguntaModel> perguntas = restService.get(resource);
+        return perguntas;
+    }
 }

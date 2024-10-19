@@ -36,4 +36,10 @@ public class QuestionarioRestController {
         return questionarios;
     }
 
+    @GetMapping("/findByAvaliacaoId/{id}")
+    public List<QuestionarioModel> getQuestionariosByEdicaoId(@PathVariable("id") int id){
+        List<QuestionarioModel> questionarios = questionarioBackendConfiguration.findQuestionario().findAllByAvaliacaoId(id);
+        return questionarios;
+    }
+
 }

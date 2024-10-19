@@ -37,6 +37,12 @@ public class GrupoRestController {
         return grupos;
     }
 
+    @GetMapping("/findByQuestionarioId/{id}")
+    public List<GrupoDePerguntasModel> getGruposByQuestionario(@PathVariable("id") int id){
+        List<GrupoDePerguntasModel> grupos = grupoBackendConfiguration.findGrupoDePerguntas().findAllByQuestionarioId(id);
+        return grupos;
+    }
+
     @PutMapping("/vincular-grupo")
     public boolean vincularGrupo(@RequestBody final GrupoDePerguntasModel grupo){
         return grupoBackendConfiguration.updateGrupo().vincularGrupo(grupo);

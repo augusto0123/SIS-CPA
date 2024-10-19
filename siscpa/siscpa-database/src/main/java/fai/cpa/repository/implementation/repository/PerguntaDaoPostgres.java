@@ -200,4 +200,42 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
         }
         return perguntas;
     }
+
+    @Override
+    public List<PerguntaModel> findAllByGrupoId(int grupoId) {
+        final List<PerguntaModel> perguntas = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM pergunta WHERE id_grupo_perguntas = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, grupoId);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                final PerguntaModel pergunta = new PerguntaModel();
+                pergunta.setId(resultSet.getInt("id"));
+                pergunta.setTipo(resultSet.getString("tipo"));
+                pergunta.setDescricao(resultSet.getString("descricao"));
+                pergunta.setInstituicaoId(resultSet.getInt("id_instituicao"));
+                pergunta.setGrupoId(resultSet.getInt("id_grupo_perguntas"));
+
+                perguntas.add(pergunta);
+            }
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        return perguntas;
+    }
 }

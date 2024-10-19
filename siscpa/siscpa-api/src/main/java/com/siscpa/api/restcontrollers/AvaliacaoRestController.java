@@ -37,4 +37,10 @@ public class AvaliacaoRestController {
         List<AvaliacaoModel> avaliacoes = avaliacaoBackendConfiguration.findAvaliacao().findAllByInstituicaoId(id);
         return avaliacoes;
     }
+
+    @GetMapping("/findByEdicaoId/{id}")
+    public List<AvaliacaoModel> getAvaliacaoByEdicaoId(@PathVariable("id") int id){
+        List<AvaliacaoModel> avaliacoes = avaliacaoBackendConfiguration.findAvaliacao().findAllByEdicaoId(id);
+        return avaliacoes;
+    }
 }

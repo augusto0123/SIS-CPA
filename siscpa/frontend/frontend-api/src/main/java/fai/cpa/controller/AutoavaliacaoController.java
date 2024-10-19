@@ -278,11 +278,11 @@ public class AutoavaliacaoController {
         return "autoavaliacao/responder-edicao";
     }
 
-    @GetMapping("/responder-avaliacao")
-    public String getResponderautoavaliacaoPage(final Model model, HttpSession session){
+    @GetMapping("/responder-avaliacao/{id}")
+    public String getResponderautoavaliacaoPage(@PathVariable int id, final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-        List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoes();
+        List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoesByEdicaoId(id);
 
         if (avaliacoes == null)
             avaliacoes = new ArrayList<>();
@@ -292,11 +292,11 @@ public class AutoavaliacaoController {
         return "autoavaliacao/responder-avaliacao";
     }
 
-    @GetMapping("/responder-questionario")
-    public String getResponderQuestionarioPage(final Model model, HttpSession session){
-        List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionarios();
+    @GetMapping("/responder-questionario/{id}")
+    public String getResponderQuestionarioPage(@PathVariable int id, final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
+        List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionariosByAvaliacaoId(id);
 
         if (questionarios == null)
             questionarios = new ArrayList<>();
@@ -306,11 +306,11 @@ public class AutoavaliacaoController {
         return "autoavaliacao/responder-questionario";
     }
 
-    @GetMapping("/responder-grupos")
-    public String getResponderGrupos(final Model model, HttpSession session){
+    @GetMapping("/responder-grupos/{id}")
+    public String getResponderGrupos(@PathVariable int id, final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-        List<GrupoDePerguntasModel> grupos = showAllGrupos.showAllGrupos();
+        List<GrupoDePerguntasModel> grupos = showAllGrupos.showAllGruposByQuestionarioId(id);
 
         if (grupos == null)
             grupos = new ArrayList<>();
@@ -320,11 +320,11 @@ public class AutoavaliacaoController {
         return "autoavaliacao/responder-grupos";
     }
 
-    @GetMapping("/responder-perguntas")
-    public String getResponderPerguntas(final Model model, HttpSession session){
+    @GetMapping("/responder-perguntas/{id}")
+    public String getResponderPerguntas(@PathVariable int id, final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
-        List<PerguntaModel> perguntas = showAllPerguntas.showAllPerguntas();
+        List<PerguntaModel> perguntas = showAllPerguntas.showAllPerguntasByGrupo(id);
 
         if (perguntas == null)
             perguntas = new ArrayList<>();

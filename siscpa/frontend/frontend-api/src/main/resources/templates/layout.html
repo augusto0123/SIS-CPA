@@ -45,6 +45,9 @@
     </div>
 
     <nav class="header-nav ms-auto">
+
+<!--        <h5 th:text="${instituicao.nomeFantasia}"></h5>-->
+
         <ul class="d-flex align-items-center">
 
             <li class="nav-item d-block d-lg-none">
@@ -124,7 +127,7 @@
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     <img src="/assets/img/messages-1.jpg" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">Ana Júlia</span>
+                    <span class="d-none d-md-block dropdown-toggle ps-2" th:text="${usuario.nome}"></span>
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">

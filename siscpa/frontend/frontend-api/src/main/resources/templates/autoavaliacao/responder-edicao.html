@@ -60,9 +60,9 @@
                                     <div class="form-label-span" th:text="${edicao.descricao}"></div>
                                 </div>
 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                                <a class="btn btn-primary" th:href="@{/autoavaliacao/responder-avaliacao/{id} (id=${edicao.id})}">
                                     Participar
-                                </button>
+                                </a>
                             </div>
                             <div class="modal fade" id="basicModal" tabindex="-1">
                                 <div class="modal-dialog">

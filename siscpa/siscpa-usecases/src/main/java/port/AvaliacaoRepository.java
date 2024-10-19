@@ -16,6 +16,8 @@ public interface AvaliacaoRepository {
 
     List<AvaliacaoModel> findAllByInstituicaoId(int instituicaoId);
 
+    List<AvaliacaoModel> findAllByEdicaoId(int edicaoId);
+
     boolean update(AvaliacaoModel avaliacaoModel);
 
     boolean deleteById(int id);

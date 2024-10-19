@@ -49,9 +49,9 @@
                                 <div class="form-label-span" th:text="${avaliacao.descricao}"></div>
                             </div>
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
+                            <a class="btn btn-primary" th:href="@{/autoavaliacao/responder-questionario/{id} (id=${avaliacao.id})}">
                                 Participar
-                            </button>
+                            </a>
 
                         </div>
 

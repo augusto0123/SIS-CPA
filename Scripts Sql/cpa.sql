@@ -58,7 +58,7 @@ CREATE TABLE reuniao_cpa (
     id_membro_cpa INTEGER,
     data_reuniao DATE NOT NULL,
     horario TIME NOT NULL, 
-    pauta VARCHAR(500) NOT NULL,
+    pauta TEXT NOT NULL,
     FOREIGN KEY (id_membro_cpa) REFERENCES Membro_CPA(id) ON DELETE CASCADE,
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
 );
@@ -69,7 +69,7 @@ CREATE TABLE edicao_autoavaliacao
     id_instituicao INTEGER,
     edicao INTEGER NOT NULL,
     ano_avaliacao VARCHAR(4) NOT NULL,
-    descricao VARCHAR(500) NOT NULL,
+    descricao TEXT NOT NULL,
     data_inicio TIMESTAMP NOT NULL,
     data_fim TIMESTAMP NOT NULL,
     situacao VARCHAR(30) CHECK (situacao IN ('Prevista', 'Em Andamento', 'Encerrada')),
@@ -80,9 +80,9 @@ CREATE TABLE avaliacao
     (id SERIAL PRIMARY KEY,
     id_edicao_autoavaliacao INTEGER,
     id_instituicao INTEGER,
-    descricao VARCHAR(500) NOT NULL,
+    descricao TEXT NOT NULL,
     tema VARCHAR(100),
-    FOREIGN KEY (id_edicao_autoavaliacao) REFERENCES edicao_aoutoavaliacao(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_edicao_autoavaliacao) REFERENCES edicao_autoavaliacao(id) ON DELETE CASCADE,
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
     );
 
@@ -91,7 +91,7 @@ CREATE TABLE questionario (
     id SERIAL PRIMARY KEY,
     id_instituicao INTEGER,
     id_avaliacao INTEGER,
-    descricao VARCHAR(300) NOT NULL,
+    descricao TEXT NOT NULL,
     categoria VARCHAR(30) CHECK (categoria IN ('Aluno', 'Professor', 'Colaborador', 'Comunidade Externa')),
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE,
     FOREIGN KEY (id_avaliacao) REFERENCES avaliacao(id) ON DELETE CASCADE
@@ -114,7 +114,7 @@ CREATE TABLE grupo_perguntas
     id_instituicao INTEGER,
     id_questionario INTEGER,
     tipo VARCHAR(100) NOT NULL,
-    descricao VARCHAR(500) NOT NULL,
+    descricao TEXT NOT NULL,
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE,
     FOREIGN KEY (id_questionario) REFERENCES questionario(id) ON DELETE CASCADE
     );
@@ -136,7 +136,7 @@ CREATE TABLE resposta
     id_instituicao INTEGER,
     id_avaliacao_questionario INTEGER,
     resposta_objetiva VARCHAR(30) CHECK (resposta_objetiva IN ('Discordo Totalmente', 'Discordo', 'Neutro', 'Concordo', 'Concordo Totalmente')),
-    resposta_subjetiva VARCHAR(500),
+    resposta_subjetiva TEXT,
     FOREIGN KEY (id_pergunta) REFERENCES Pergunta(id) ON DELETE CASCADE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,
     FOREIGN KEY (id_avaliacao_questionario) REFERENCES Avaliacao_Questionario(id) ON DELETE CASCADE,

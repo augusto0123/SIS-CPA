@@ -48,4 +48,16 @@ public class FindPergunta {
         }
         return perguntas;
     }
+
+    public List<PerguntaModel> findAllByGrupoId(final int grupoId){
+        if (grupoId <= 0){
+            throw new InvalidException();
+        }
+        List<PerguntaModel> perguntas = perguntaRepository.findAllByGrupoId(grupoId);
+        if (perguntas == null){
+            final String message = "O id (" + grupoId + ") não foi encontrado";
+            throw new NotFoundException(message);
+        }
+        return perguntas;
+    }
 }

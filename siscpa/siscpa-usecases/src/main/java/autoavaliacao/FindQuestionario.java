@@ -47,4 +47,17 @@ public class FindQuestionario {
         }
         return questionarios;
     }
+
+    public List<QuestionarioModel> findAllByAvaliacaoId(final int avaliacaoId){
+        if (avaliacaoId <= 0){
+            throw new InvalidException();
+        }
+        List<QuestionarioModel> questionarios = questionarioRepository.findAllByAvaliacaoId(avaliacaoId);
+        if (questionarios == null){
+            final String message = "O id (" + avaliacaoId + ") não foi encontrado";
+            throw new NotFoundException(message);
+        }
+
+        return questionarios;
+    }
 }

@@ -15,4 +15,6 @@ public interface PerguntaRepository {
     int create(PerguntaModel perguntaModel);
 
     List<PerguntaModel> findAllByInstituicaoId(int instituicaoId);
+
+    List<PerguntaModel> findAllByGrupoId(int grupoId);
 }
