@@ -18,4 +18,10 @@ public class ShowAllGraficos {
         final List<GraficoModel> graficos = restService.get(resource);
         return graficos;
     }
+
+    public List<GraficoModel> showSubjetivaByAvaliacaoId(final int avaliacaoId){
+        final String resource = "/resposta/findSubjetivaByAvaliacaoId/" + avaliacaoId;
+        final List<GraficoModel> graficos = restService.get(resource);
+        return graficos;
+    }
 }

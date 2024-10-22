@@ -5,7 +5,7 @@ VALUES ('Av. Antônio de Cássia',
         '472 ',
         'Jardim Santo Antônio',
         'Santa Rita do Sapucaí',
-        NULL),;
+        NULL);
         
         -- ('Avenida Central',
         -- '456',
@@ -20,7 +20,7 @@ INSERT INTO instituicao (email, cnpj, razao_social, nome_fantasia, telefone, ema
 VALUES ('secretaria@fai-mg.br',
         '24.492.860/0003-10',
         'Fundação Educandário Santarritense',
-        'FA - Centro de Ensino Superior em Gestão, Tecnologia e Educação',
+        'FAI - Centro de Ensino Superior em Gestão, Tecnologia e Educação',
         '(35) 3473-3000',
         'membro@fai.com.br',
         '(11) 2222-3333',

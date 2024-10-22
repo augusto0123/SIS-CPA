@@ -557,13 +557,18 @@ public class AutoavaliacaoController {
 //    =========================================================================================================================================================
 //    Editar Edição
 
-    @GetMapping("/editar-edicao/{id}")
-    public String getEditarEdicaoPage(@PathVariable("id") int id, final Model model , HttpSession session){
+    @GetMapping("/editar-edicao")
+    public String getEditarEdicaoPage(@RequestParam("id")int id, final Model model , HttpSession session){
+
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
 
-//        List<EdicaoDeAutoAvaliacaoModel> edicao = showAllEdicoes.showEdicaoById(id);
-//        model.addAttribute("edicoes",edicao);
+        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showEdicaoById(id);
+
+        if (edicoes == null){
+            edicoes = new ArrayList<>();
+        }
+        model.addAttribute("edicoes", edicoes);
 
         return "/autoavaliacao/editar-edicao";
     }

@@ -43,4 +43,10 @@ public class RespostaRestController {
         List<GraficoModel> graficos = respostaBackendConfiguration.findResposta().findObjetivaByAvaliacaoId(id);
         return graficos;
     }
+
+    @GetMapping("/findSubjetivaByAvaliacaoId/{id}")
+    public List<GraficoModel> getRespostasSubjetivasByAvaliacaoId(@PathVariable("id") int id) {
+        List<GraficoModel> graficos = respostaBackendConfiguration.findResposta().findSubjetivaByAvaliacaoId(id);
+        return graficos;
+    }
 }

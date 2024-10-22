@@ -78,4 +78,16 @@ public class FindResposta {
         return graficos;
     }
 
+    public List<GraficoModel> findSubjetivaByAvaliacaoId(final int avaliacaoId){
+        if (avaliacaoId <= 0){
+            throw new InvalidException();
+        }
+        List<GraficoModel> graficos = graficoRepository.findSubjetivaByAvaliacaoId(avaliacaoId);
+        if (graficos == null || graficos.isEmpty()){
+            final String message = "Nenhum dado encontrado para a avaliação com ID: " + avaliacaoId;
+            throw new NotFoundException(message);
+        }
+        return graficos;
+    }
+
 }

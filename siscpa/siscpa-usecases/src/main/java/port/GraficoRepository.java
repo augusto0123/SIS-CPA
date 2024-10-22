@@ -16,4 +16,5 @@ public interface GraficoRepository {
     List<GraficoModel> findAll();
 
     List<GraficoModel> findObjetivaByAvaliacaoId(int avaliacaoId);
+    List<GraficoModel> findSubjetivaByAvaliacaoId(int avaliacaoId);
 }
