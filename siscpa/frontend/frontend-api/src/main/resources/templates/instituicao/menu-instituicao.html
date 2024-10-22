@@ -45,8 +45,8 @@
                                     <h5 class="card-title">Cadastrar Membro</h5>
                                 </div>
 
-                                <a class="btn btn-primary" th:href="@{/instituicao/adicionar-membro}">
-                                    Cadastrar
+                                <a class="btn btn-primary" th:href="@{/instituicao/adicionar-membro/{id}(id=${instituicaoId})}">
+                                    Visualizar
                                 </a>
                             </form>
                         </div>
@@ -70,7 +70,7 @@
 
                                 </div>
 
-                                <a class="btn btn-primary" th:href="@{/instituicao/listar-membro}">
+                                <a class="btn btn-primary" th:href="@{/instituicao/listar-membro/{id}(id=${instituicaoId})}">
                                     Visualizar
                                 </a>
 
@@ -96,7 +96,7 @@
 
                                 </div>
 
-                                <a class="btn btn-primary" th:href="@{/instituicao/listar-usuarios}">
+                                <a class="btn btn-primary" th:href="@{/instituicao/listar-usuarios/{id}(id=${instituicaoId})}">
                                     Visualizar
                                 </a>
 

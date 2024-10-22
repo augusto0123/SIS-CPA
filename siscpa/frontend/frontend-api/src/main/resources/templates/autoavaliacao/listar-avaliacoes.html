@@ -35,7 +35,8 @@
 
                 <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="avaliacao : ${avaliacoes}">
 
-                    <h5 class="card-title-avaliacao-cadastrar" th:text="${avaliacao.tema}"></h5>
+                    <h5 class="card-title-avaliacao-cadastrar"><span th:text="${avaliacao.tema}"></span>
+                    </h5>
 
                     <div class="card-avaliacao">
 
@@ -48,9 +49,31 @@
                                 <div class="form-label-span" th:text="${avaliacao.descricao}"></div>
                             </div>
 
-                            <a class="btn btn-primary" th:href="@{/autoavaliacao/vincular-questionario/{id} (id=${avaliacao.id})}">
+                            <a class="btn btn-primary"
+                               data-bs-toggle="modal"
+                               data-bs-target="#confirmLinkModalQuestionario"
+                               th:data-id="${avaliacao.id}"
+                               onclick="setQuestionarioId(this)">
                                 Vincular Questionário
                             </a>
+
+                            <div class="modal fade" id="confirmLinkModalQuestionario" tabindex="-1" aria-labelledby="confirmLinkModalQuestionarioLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="confirmLinkModalQuestionarioLabel">Confirmar Vinculação</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Você deseja vincular um questionário a essa avaliação?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            <a id="confirmLinkQuestionario" class="btn btn-primary">Confirmar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -73,6 +96,16 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
+
+    <script>
+        function setQuestionarioId(button) {
+            const avaliacaoId = button.getAttribute('data-id');
+
+            // Atualiza o link com o id da avaliação
+            const confirmLinkQuestionario = document.getElementById('confirmLinkQuestionario');
+            confirmLinkQuestionario.setAttribute('href', `/autoavaliacao/vincular-questionario/${avaliacaoId}`);
+        }
+    </script>
 
 </div>
 

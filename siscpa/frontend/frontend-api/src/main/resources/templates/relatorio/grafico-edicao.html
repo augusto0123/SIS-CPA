@@ -47,7 +47,23 @@
                                 </div>
 
                                 <ul class="situacao-lista">
-                                    <li class="situacao em-andamento">Situação: <span th:text="${edicao.situacao}"></span></li>
+                                    <li class="situacao"
+                                        th:classappend="${edicao.situacao == 'Em Andamento'} ? 'bg-success' : ''"
+                                        th:if="${edicao.situacao == 'Em Andamento'}">
+                                        Situação: <span th:text="${edicao.situacao}"></span>
+                                    </li>
+
+                                    <li class="situacao"
+                                        th:classappend="${edicao.situacao == 'Prevista'} ? 'bg-warning' : ''"
+                                        th:if="${edicao.situacao == 'Prevista'}">
+                                        Situação: <span th:text="${edicao.situacao}"></span>
+                                    </li>
+
+                                    <li class="situacao"
+                                        th:classappend="${edicao.situacao == 'Encerrada'} ? 'bg-danger' : ''"
+                                        th:if="${edicao.situacao == 'Encerrada'}">
+                                        Situação: <span th:text="${edicao.situacao}"></span>
+                                    </li>
                                     <li class="data">Data / Início: <span th:text="${edicao.dataInicio}"></span></li>
                                     <li class="data">Data / Término: <span th:text="${edicao.dataFim}"></span></li>
                                     <!--                                    <li class="data">ID: <span th:text="${edicao.id}"></span></li>-->
@@ -59,8 +75,10 @@
                                 <div class="form-label-span" th:href="@{/relatorio/relatorios-edicao/{id} (id=${edicao.id})}"></div>
                             </div>
 
-                            <a class="btn btn-primary" th:href="@{/relatorio/grafico-avaliacao/{id} (id=${edicao.id})}">
-                                Visualizar
+                            <a class="btn btn-primary"
+                               th:if="${edicao.situacao == 'Encerrada'}"
+                               th:href="@{/relatorio/grafico-avaliacao/{id} (id=${edicao.id})}">
+                                Visualizar Gráficos
                             </a>
                         </div>
                     </div>

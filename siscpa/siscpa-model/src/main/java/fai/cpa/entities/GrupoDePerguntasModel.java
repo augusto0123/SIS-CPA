@@ -5,7 +5,6 @@ public class GrupoDePerguntasModel {
     private int id;
     private String tipo;
     private String descricao;
-
     private int questionarioId;
     private int instituicaoId;
 

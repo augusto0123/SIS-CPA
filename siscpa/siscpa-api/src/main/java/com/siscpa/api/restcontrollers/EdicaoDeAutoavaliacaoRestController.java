@@ -31,4 +31,9 @@ public class EdicaoDeAutoavaliacaoRestController {
         return edicoes;
     }
 
+    @GetMapping("/findById/{id}")
+    public EdicaoDeAutoAvaliacaoModel getEdicaoById(@PathVariable("id") int id) {
+        EdicaoDeAutoAvaliacaoModel edicao = edicaoDeAutoavaliacaoBackendConfiguration.findEdicaoDeAutoavaliacao().find(id);
+        return edicao;
+    }
 }

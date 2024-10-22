@@ -20,7 +20,6 @@ public class CreateUsuario {
         }
         if(usuarioModel.getEmail().isEmpty()
                 || usuarioModel.getNome().isEmpty()
-                || usuarioModel.getTelefone().isEmpty()
                 || usuarioModel.getSenha().isEmpty()){
             return -1;
         }

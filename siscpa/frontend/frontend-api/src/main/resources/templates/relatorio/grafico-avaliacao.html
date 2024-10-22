@@ -36,7 +36,7 @@
                     <input type="hidden" name="edicaoId" class="form-control" th:value="${edicaoId}" id="edicaoId">
                 </div>
 
-                <div class="row grafico-edicao" th:each="avaliacao : ${avaliacoes}">
+                <div class="row grafico-edicao mb-5" th:each="avaliacao : ${avaliacoes}">
                     <div class="col-lg-12 display-grafico">
                         <div class="col-lg-12 row">
                             <div class="col-lg-12 col-md-6 col-sm-12 mb-4 ms-0">
@@ -52,7 +52,7 @@
                         <div class="card">
 
                             <div class="card-body">
-                                <h5 class="card-title">Total de Avaliações (Barra)</h5>
+                                <h5 class="card-title">Total de Avaliações</h5>
 
                                 <!-- Bar Chart -->
                                 <canvas th:id="'barChart' + ${avaliacao.id}" style="max-height: 400px;"></canvas>
@@ -63,47 +63,25 @@
                         </div>
                     </div>
 
-                    <!-- Gráfico de pizza  -->
-<!--                    <div class="col-lg-6">-->
-<!--                        <div class="card">-->
-<!--                            <div class="card-body">-->
-<!--                                <h5 class="card-title">Total de Avaliações (Pizza)</h5>-->
 
-<!--                                &lt;!&ndash; Pie Chart &ndash;&gt;-->
-<!--                                <canvas th:id="'pieChart' + ${avaliacao.id}" style="max-height: 400px;"></canvas>-->
-<!--                                <script>-->
-<!--                                    document.addEventListener("DOMContentLoaded", () => {-->
-<!--                                        new Chart(document.querySelector('#pieChart1'), {-->
-<!--                                            type: 'pie',-->
-<!--                                            data: {-->
-<!--                                                labels: [-->
-<!--                                                    'Concordo Totalmente',-->
-<!--                                                    'Concordo',-->
-<!--                                                    'Neutro',-->
-<!--                                                    'Discordo',-->
-<!--                                                    'Discordo Totalmente'-->
-<!--                                                ],-->
-<!--                                                datasets: [{-->
-<!--                                                    label: 'Avaliações',-->
-<!--                                                    data: [50, 80, 25, 30, 40],-->
-<!--                                                    backgroundColor: [-->
-<!--                                                        'rgb(34, 139, 34)',-->
-<!--                                                        'rgb(54, 162, 235)',-->
-<!--                                                        'rgb(255, 205, 86)',-->
-<!--                                                        'rgb(255, 165, 0)',-->
-<!--                                                        'rgb(255, 99, 132)'-->
-<!--                                                    ],-->
-<!--                                                    hoverOffset: 4-->
-<!--                                                }]-->
-<!--                                            }-->
-<!--                                        });-->
-<!--                                    });-->
-<!--                                </script>-->
-<!--                                &lt;!&ndash; End Pie Chart &ndash;&gt;-->
+<!--                     Gráfico de pizza-->
 
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Descrição da Avaliação</h5>
+
+                                <p th:text="${avaliacao.descricao}"></p>
+
+                                <!-- Pie Chart -->
+
+                                <!-- End Pie Chart -->
+
+                            </div>
+                        </div>
+                    </div>
+
+<!--                    Fim do card              -->
                 </div>
 
             </div>
@@ -130,7 +108,7 @@
         document.addEventListener("DOMContentLoaded", function () {
           setTimeout(() => {
             carregarGraficoBarras();
-          }, 1000);
+          }, 500);
         });
 
         function carregarGraficoBarras() {

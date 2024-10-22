@@ -33,7 +33,7 @@
 
             <div class="row">
 
-                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="edicao : ${edicoes}" th:if="${edicao.situacao == 'Em Andamento'}">
+                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="edicao : ${edicoes}" th:if="${edicao.situacao != 'Encerrada'}">
 
                         <h5 class="card-title-edicao-cadastrar">Edição Nº: <span th:text="${edicao.edicao}"></span></h5>
 
@@ -48,7 +48,23 @@
                                     </div>
 
                                     <ul class="situacao-lista">
-                                        <li class="situacao em-andamento">Situação: <span th:text="${edicao.situacao}"></span></li>
+                                        <li class="situacao"
+                                            th:classappend="${edicao.situacao == 'Em Andamento'} ? 'bg-success' : ''"
+                                            th:if="${edicao.situacao == 'Em Andamento'}">
+                                            Situação: <span th:text="${edicao.situacao}"></span>
+                                        </li>
+
+                                        <li class="situacao"
+                                            th:classappend="${edicao.situacao == 'Prevista'} ? 'bg-warning' : ''"
+                                            th:if="${edicao.situacao == 'Prevista'}">
+                                            Situação: <span th:text="${edicao.situacao}"></span>
+                                        </li>
+
+                                        <li class="situacao"
+                                            th:classappend="${edicao.situacao == 'Encerrada'} ? 'bg-danger' : ''"
+                                            th:if="${edicao.situacao == 'Encerrada'}">
+                                            Situação: <span th:text="${edicao.situacao}"></span>
+                                        </li>
                                         <li class="data">Data / Início: <span th:text="${edicao.dataInicio}"></span></li>
                                         <li class="data">Data / Término: <span th:text="${edicao.dataFim}"></span></li>
                                         <!--                                    <li class="data">ID: <span th:text="${edicao.id}"></span></li>-->
@@ -60,23 +76,28 @@
                                     <div class="form-label-span" th:text="${edicao.descricao}"></div>
                                 </div>
 
-                                <a class="btn btn-primary" th:href="@{/autoavaliacao/responder-avaliacao/{id} (id=${edicao.id})}">
+                                <a th:if="${edicao.situacao == 'Em Andamento'}"
+                                   class="btn btn-primary"
+                                   data-bs-toggle="modal"
+                                   th:data-bs-target="'#confirmParticipateModal' + ${edicao.id}">
                                     Participar
                                 </a>
                             </div>
-                            <div class="modal fade" id="basicModal" tabindex="-1">
+
+                            <div class="modal fade" th:id="'confirmParticipateModal' + ${edicao.id}" tabindex="-1" aria-labelledby="confirmParticipateModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title">Deseja participar da edição?</h5>
+                                            <h5 class="modal-title" id="confirmParticipateModalLabel">Confirmar Participação</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-
-                                        <div class="modal-footer">
-                                            <a th:href="@{/autoavaliacao/responder-avaliacao}" class="btn btn-primary">Participar</a>
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                        <div class="modal-body">
+                                            Você deseja participar da edição número <span th:text="${edicao.id}"></span>?
                                         </div>
-
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            <a th:href="@{/autoavaliacao/responder-avaliacao/{id} (id=${edicao.id})}" class="btn btn-primary">Confirmar</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

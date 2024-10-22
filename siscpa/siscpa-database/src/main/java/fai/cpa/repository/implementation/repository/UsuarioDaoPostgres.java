@@ -91,19 +91,21 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
     }
 
     @Override
-    public List<UsuarioModel> findByTipo(String tipo) {
+    public List<UsuarioModel> findByTipoAndInstituicaoId(String tipo, int id) {
         List<UsuarioModel> usuarios = new ArrayList<>();
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        final String sql = "SELECT * FROM usuario WHERE tipo = ?";
+        final String sql = "SELECT * FROM usuario WHERE tipo = ? AND id_instituicao = ?";
 
         try {
             connection = ConnectionFactory.getConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, tipo);
+            preparedStatement.setInt(2, id);
+
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {

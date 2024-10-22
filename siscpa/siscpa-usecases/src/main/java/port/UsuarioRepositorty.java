@@ -10,7 +10,7 @@ public interface UsuarioRepositorty {
 
     UsuarioModel findByEmaileSenha(String email, String senha);
 
-    List<UsuarioModel> findByTipo(String tipo);
+    List<UsuarioModel> findByTipoAndInstituicaoId(String tipo, int id);
     List<UsuarioModel> findAll();
     List<UsuarioModel> findByCriteria(Map<String, String> criteria);
 

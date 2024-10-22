@@ -47,12 +47,12 @@ public class FindUsuario {
         return usuario;
     }
 
-    public List<UsuarioModel> findByTipo(String tipo){
+    public List<UsuarioModel> findByTipoAndInstituicaoId(String tipo, int instituicaoId){
         if (tipo == null || tipo.isEmpty()){
             throw new InvalidException();
         }
 
-        final List<UsuarioModel> usuarios = usuarioRepositorty.findByTipo(tipo);
+        final List<UsuarioModel> usuarios = usuarioRepositorty.findByTipoAndInstituicaoId(tipo,instituicaoId);
         if (usuarios == null || usuarios.isEmpty()){
             final String message = "Nenhum usuário do tipo: (" + ") foi encontrado";
             throw new NotFoundException(message);

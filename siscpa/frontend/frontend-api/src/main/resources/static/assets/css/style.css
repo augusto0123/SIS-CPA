@@ -303,6 +303,8 @@ h6 {
 # Card de grupo de questionarios
 --------------------------------------------------------------*/
 .card-title-questionario-cadastrar {
+  display: flex;
+  justify-content: space-between;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
   padding: 12px;
   font-size: 20px;
@@ -584,7 +586,7 @@ h6 {
 .card-instituicao {
     border: none;
     border-radius: 12px;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
 }
 
 .card-instituicao:hover {
@@ -1651,6 +1653,8 @@ button:hover {
   border-radius: 4px;
 }
 
+
+
 .contact .php-email-form button[type=submit]:hover {
   background: #5969f3;
 }
@@ -1679,12 +1683,42 @@ button:hover {
     padding: 10px;
     border-radius: 100%;
 }
+.fa-pen {
+    font-size: 15px;
+    background-color: #00b300;
+}
+
+.fa-bookmark {
+    background-color:transparent;
+    color:#FFD700;
+    font-size: 25px;
+    padding:0;
+}
+
+
+ .bg-success {
+        background-color: #008000; /* Verde para "Em Andamento" */
+        color: white; /* Texto branco para contraste */
+    }
+    .bg-warning {
+        background-color: #ffc107; /* Amarelo para "Prevista" */
+        color: black;
+    }
+    .bg-danger {
+        background-color: #dc3545; /* Vermelho para "Encerrada" */
+        color: white;
+    }
 
 .fa-circle-question {
     padding:20px 20px;
     border-radius: 100%;
     background-color:#9B59B6;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.fa-star {
+    background-color:#F36944;
+    color:#FFD700;
+    font-size: 16px;
 }
 
 .fa-building-columns{

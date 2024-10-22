@@ -2,7 +2,7 @@
 <html layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Responder Questionario</title>
+    <title>Editar Edição</title>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
           integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -18,12 +18,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Participar do Questionário</h1>
+            <h1>Listar Edições de Autoavaliação</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-membroCPA.html">Inicio</a></li>
-                    <li class="breadcrumb-item">Avaliação</li>
-                    <li class="breadcrumb-item active">Responder Questionário</li>
+                    <li class="breadcrumb-item">Edição</li>
+                    <li class="breadcrumb-item active">Editar Edição</li>
                 </ol>
             </nav>
         </div>
@@ -31,29 +31,7 @@
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="questionario : ${questionarios}">
-
-                    <h5 class="card-title-questionario">Questionário do <span th:text="${questionario.categoria}"></span></h5>
-
-                    <div class="card-questionario">
-
-                        <div class="card-body-questionario">
-
-                            <div>
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </div>
-
-                            <div class="table-edicao my-5">
-                                <div class="form-label-span" th:text="${questionario.descricao}"></div>
-                            </div>
-
-                            <a class="btn btn-primary" th:href="@{/autoavaliacao/responder-grupos/{id} (id=${questionario.id})}">
-                                Responder
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
+                <p>oi</p>
             </div>
         </section>
 

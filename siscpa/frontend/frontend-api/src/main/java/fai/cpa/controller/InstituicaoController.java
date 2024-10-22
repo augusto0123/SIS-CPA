@@ -94,11 +94,11 @@ public class InstituicaoController {
         return "instituicao/adicionar-instituicao";
     }
 
-    @GetMapping("/adicionar-membro")
-    public String getAdicioarMembroPage(final Model model, HttpSession session){
+    @GetMapping("/adicionar-membro/{id}")
+    public String getAdicioarMembroPage(@PathVariable int id, final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
 
-        List<UsuarioModel> usuarios = showAllUsuarios.findByTipo("Professor");
+        List<UsuarioModel> usuarios = showAllUsuarios.findByTipoAndInstituicaoId("Professor", id);
 
         if (usuarios == null){
             usuarios = new ArrayList<>();
@@ -110,11 +110,11 @@ public class InstituicaoController {
         return "instituicao/adicionar-membro";
     }
 
-    @GetMapping("/listar-membro")
-    public String getListarMembroPage(final Model model, HttpSession session){
+    @GetMapping("/listar-membro/{id}")
+    public String getListarMembroPage(@PathVariable int id, final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
 
-        List<UsuarioModel> usuariosMembros = showAllUsuarios.findByTipo("Membro CPA");
+        List<UsuarioModel> usuariosMembros = showAllUsuarios.findByTipoAndInstituicaoId("Membro CPA", id);
 
         if (usuariosMembros == null){
             usuariosMembros = new ArrayList<>();
@@ -126,24 +126,27 @@ public class InstituicaoController {
         return "instituicao/listar-membro";
     }
 
-    @GetMapping ("/listar-usuarios")
-    public String getListarUsuarioPage(final Model model, HttpSession session){
+    @GetMapping ("/listar-usuarios/{id}")
+    public String getListarUsuarioPage(@PathVariable final int id, final Model model, HttpSession session){
 
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
-        List<UsuarioModel> usuarios = showAllUsuarios.showAllUsuarios();
+        List<UsuarioModel> usuarios = showAllUsuarios.findAllByInstituicaoId(id);
 
         if (usuarios == null)
             usuarios = new ArrayList<>();
 
+        model.addAttribute("instituicaoId", id);
         model.addAttribute("usuario", usuario);
         model.addAttribute("usuarios",usuarios);
 
         return "instituicao/listar-usuarios";
     }
 
-    @GetMapping("/menu-instituicao")
-    public String getMenuInstituicaoPage(final Model model, HttpSession session){
+    @GetMapping("/menu-instituicao/{id}")
+    public String getMenuInstituicaoPage(@PathVariable int id, final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+
+        model.addAttribute("instituicaoId", id);
         model.addAttribute("usuario", usuario);
         return "instituicao/menu-instituicao";
     }

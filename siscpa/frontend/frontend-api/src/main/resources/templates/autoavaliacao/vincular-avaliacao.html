@@ -34,7 +34,16 @@
 
                 <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="avaliacao : ${avaliacoes}">
 
-                    <h5 class="card-title-avaliacao-cadastrar" th:text="${avaliacao.tema}"></h5>
+                    <h5 class="card-title-avaliacao-cadastrar">
+                        <span th:text="${avaliacao.tema}"></span>
+
+                        <div th:if="${avaliacao.edicaoId != 0}">
+                            <i class="fa-solid fa-bookmark text-warning"
+                               data-bs-toggle="tooltip"
+                               th:title="'Esta avaliação já está vinculada à edição ' + ${avaliacao.edicaoId}"
+                               style="cursor: pointer;"></i>
+                        </div>
+                    </h5>
 
 
                     <div class="card-avaliacao">
@@ -62,24 +71,25 @@
                                     Vincular
                                 </button>
                             </div>
-                        </form>
 
-                        <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false" style="display: none;" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Vincular avaliação á edição</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Avaliação vinculada com sucesso!
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                            <div class="modal fade" id="disablebackdrop" tabindex="-1" data-bs-backdrop="false" style="display: none;" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Vincular avaliação á edição</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Avaliação vinculada com sucesso!
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
+
                     </div>
                 </div>
 
@@ -101,7 +111,6 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
-
 
 </div>
 

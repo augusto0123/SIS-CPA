@@ -5,10 +5,8 @@ import fai.cpa.autoavaliacao.*;
 import fai.cpa.entities.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
 import java.time.format.DateTimeFormatter;
 
 import javax.servlet.http.HttpSession;
@@ -148,6 +146,7 @@ public class AutoavaliacaoController {
 
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
+
         return "autoavaliacao/registros";
     }
 
@@ -553,5 +552,19 @@ public class AutoavaliacaoController {
             return "redirect:/instituicao/inicio";
         }
         return "redirect:/not-found";
+    }
+
+//    =========================================================================================================================================================
+//    Editar Edição
+
+    @GetMapping("/editar-edicao/{id}")
+    public String getEditarEdicaoPage(@PathVariable("id") int id, final Model model , HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
+
+//        List<EdicaoDeAutoAvaliacaoModel> edicao = showAllEdicoes.showEdicaoById(id);
+//        model.addAttribute("edicoes",edicao);
+
+        return "/autoavaliacao/editar-edicao";
     }
 }

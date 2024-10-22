@@ -25,8 +25,8 @@ public class ShowAllUsuarios {
         return usuario;
     }
 
-    public List<UsuarioModel> findByTipo(final String tipo){
-        final String resource = "/conta/findByTipo/" + tipo;
+    public List<UsuarioModel> findByTipoAndInstituicaoId(final String tipo, final int id){
+        final String resource = "/conta/findByTipoAndInstituicaoId/" + tipo + "/" + id;
         final List<UsuarioModel> usuarios = restService.get(resource);
         return usuarios;
     }

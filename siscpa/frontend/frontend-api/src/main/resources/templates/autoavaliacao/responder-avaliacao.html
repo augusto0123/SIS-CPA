@@ -49,25 +49,28 @@
                                 <div class="form-label-span" th:text="${avaliacao.descricao}"></div>
                             </div>
 
-                            <a class="btn btn-primary" th:href="@{/autoavaliacao/responder-questionario/{id} (id=${avaliacao.id})}">
+                            <a class="btn btn-primary"
+                               data-bs-toggle="modal"
+                               data-bs-target="#confirmParticipateModal">
                                 Participar
                             </a>
 
                         </div>
 
-                        <div class="modal fade" id="basicModal" tabindex="-1">
+                        <div class="modal fade" id="confirmParticipateModal" tabindex="-1" aria-labelledby="confirmParticipateModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Deseja participar da avaliação?</h5>
+                                        <h5 class="modal-title" id="confirmParticipateModalLabel">Confirmar Participação</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-
-                                    <div class="modal-footer">
-                                        <a th:href="@{/autoavaliacao/responder-questionario}" class="btn btn-primary">Participar</a>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                    <div class="modal-body">
+                                        Você deseja participar dessa avaliação?
                                     </div>
-
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <a th:href="@{/autoavaliacao/responder-questionario/{id} (id=${avaliacao.id})}" class="btn btn-primary">Confirmar</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

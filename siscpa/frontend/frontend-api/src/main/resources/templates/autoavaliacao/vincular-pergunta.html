@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Vincular Pergunta</title>
+    <!--  Icones   -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+    <link href="/assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 
@@ -27,7 +35,20 @@
                 <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="pergunta : ${perguntas}">
 
                     <div th:if="${pergunta.tipo == 'Objetiva'}">
-                        <h2 class="title-tipo-pergunta">Pergunta Objetiva:</h2>
+                        <h2 class="title-tipo-pergunta">
+                            Pergunta Objetiva:
+
+                            <!-- Mostrar o valor de pergunta.grupoId para depuração -->
+                            <span th:text="'Valor de pergunta.grupoId: ' + ${pergunta.grupoId}"></span>
+
+                            <div th:if="${pergunta.grupoId != 0}">
+                                <i class="fa-solid fa-bookmark text-warning"
+                                   data-bs-toggle="tooltip"
+                                   th:title="'Essa pergunta já está vinculada a um grupo ' + ${pergunta.grupoId}"
+                                   style="cursor: pointer;"></i>
+                            </div>
+                        </h2>
+
 
                         <div class="card-pergunta">
                             <div class="card-body d-flex flex-column" style="height: 100%;">

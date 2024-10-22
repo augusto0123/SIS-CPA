@@ -32,10 +32,10 @@ public class ContaRestController {
         return contaBackendConfiguration.findUsuario().find(id);
     }
 
-    @GetMapping("/findByTipo/{tipo}")
+    @GetMapping("/findByTipoAndInstituicaoId/{tipo}/{id}")
     @CrossOrigin
-    public List<UsuarioModel> findByTipo(@PathVariable final String tipo){
-        return contaBackendConfiguration.findUsuario().findByTipo(tipo);
+    public List<UsuarioModel> findByTipo(@PathVariable final String tipo, @PathVariable int id){
+        return contaBackendConfiguration.findUsuario().findByTipoAndInstituicaoId(tipo, id);
     }
 
     @GetMapping("findAllByInstituicaoId/{id}")

@@ -33,7 +33,16 @@
 
                 <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="questionario : ${questionarios}">
 
-                    <h5 class="card-title-questionario-cadastrar">Questionário do <span th:text="${questionario.categoria}"></span></h5>
+                    <h5 class="card-title-questionario-cadastrar">
+                        <span th:text="${questionario.categoria}"></span>
+
+                        <div th:if="${questionario.avaliacaoId != 0}">
+                            <i class="fa-solid fa-bookmark text-warning"
+                               data-bs-toggle="tooltip"
+                               th:title="'Este questionário já está vinculada à avaliação de ' + ${questionario.avaliacaoId}"
+                               style="cursor: pointer;"></i>
+                        </div>
+                    </h5>
 
                     <div class="card-questionario">
 

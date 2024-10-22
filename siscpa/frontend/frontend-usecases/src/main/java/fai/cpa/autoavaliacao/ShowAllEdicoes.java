@@ -26,4 +26,10 @@ public class ShowAllEdicoes {
         final List<EdicaoDeAutoAvaliacaoModel> edicaoDeAutoAvaliacaoModelList = restService.get(resource);
         return edicaoDeAutoAvaliacaoModelList;
     }
+
+    public List<EdicaoDeAutoAvaliacaoModel> showEdicaoById(final int id) {
+        final String resource = "/edicoes/findById" + id;
+        final List<EdicaoDeAutoAvaliacaoModel> edicoes = restService.get(resource);
+        return edicoes;
+    }
 }

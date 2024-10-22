@@ -33,7 +33,10 @@
 
                 <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="questionario : ${questionarios}">
 
-                    <h5 class="card-title-questionario-cadastrar">Questionario do <span th:text="${questionario.categoria}"></span></h5>
+                    <h5 class="card-title-questionario-cadastrar">
+                        <span th:text="${questionario.categoria}"></span>
+
+                    </h5>
 
                     <div class="card-questionario">
 
@@ -47,12 +50,44 @@
                                 <div class="form-label-span" th:text="${questionario.descricao}"></div>
                             </div>
 
-                            <a class="btn btn-primary" th:href="@{/autoavaliacao/vincular-grupo/{id} (id=${questionario.id})}">
+                            <a class="btn btn-primary"
+                               data-bs-toggle="modal"
+                               data-bs-target="#confirmLinkModalGrupo"
+                               th:data-id="${questionario.id}"
+                               onclick="setGrupoId(this)">
                                 Vincular Grupo de Perguntas
                             </a>
+
+                            <div class="modal fade" id="confirmLinkModalGrupo" tabindex="-1" aria-labelledby="confirmLinkModalGrupoLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="confirmLinkModalGrupoLabel">Confirmar Vinculação</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Você deseja vincular um grupo a esse questionário?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            <a id="confirmLinkGrupo" class="btn btn-primary">Confirmar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <script>
+                    function setGrupoId(button) {
+                        const questionarioId = button.getAttribute('data-id');
+
+                        // Atualiza o link com o id do questionário
+                        const confirmLinkGrupo = document.getElementById('confirmLinkGrupo');
+                        confirmLinkGrupo.setAttribute('href', `/autoavaliacao/vincular-grupo/${questionarioId}`);
+                    }
+                </script>
+
             </div>
         </section>
 
