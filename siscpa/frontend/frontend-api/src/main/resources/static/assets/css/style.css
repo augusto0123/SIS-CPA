@@ -517,6 +517,7 @@ h6 {
     background-color:white;
     box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
 }
+
 .card-resposta {
     margin-bottom: 30px;
         border: none;
@@ -561,9 +562,6 @@ h6 {
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
-.card-body-responder-usuario {
-    padding: 30px 0;
-}
 
 .btn-custom-width {
     width: 25%;
@@ -584,7 +582,6 @@ h6 {
 --------------------------------------------------------------*/
 
 .card-instituicao {
-    margin-bottom: 100px;
     border: none;
     border-radius: 12px;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -706,6 +703,7 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
     color:white;
     padding:10px;
+    margin-top:25px;
 }
 .title-tipo-pergunta {
     padding: 10px 20px;
@@ -1825,7 +1823,7 @@ button:hover {
 }
 
 .btn-primary{
-    margin-top: 10px;
+    margin-top: 0;
 }
 .botao-instituicao button {
     padding: 10px 75px;

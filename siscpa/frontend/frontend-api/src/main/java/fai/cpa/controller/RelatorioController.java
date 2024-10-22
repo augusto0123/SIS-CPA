@@ -2,8 +2,10 @@ package fai.cpa.controller;
 
 import fai.cpa.autoavaliacao.ShowAllAvaliacoes;
 import fai.cpa.autoavaliacao.ShowAllEdicoes;
+import fai.cpa.autoavaliacao.ShowAllGraficos;
 import fai.cpa.entities.AvaliacaoModel;
 import fai.cpa.entities.EdicaoDeAutoAvaliacaoModel;
+import fai.cpa.entities.GraficoModel;
 import fai.cpa.entities.UsuarioModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +22,13 @@ import java.util.List;
 public class RelatorioController {
 
     private final ShowAllEdicoes showAllEdicoes;
-
     private final ShowAllAvaliacoes showAllAvaliacoes;
+    private final ShowAllGraficos showAllGraficos;
 
-    public RelatorioController(ShowAllEdicoes showAllEdicoes, ShowAllAvaliacoes showAllAvaliacoes) {
+    public RelatorioController(ShowAllEdicoes showAllEdicoes, ShowAllAvaliacoes showAllAvaliacoes, ShowAllGraficos showAllGraficos) {
         this.showAllEdicoes = showAllEdicoes;
         this.showAllAvaliacoes = showAllAvaliacoes;
+        this.showAllGraficos = showAllGraficos;
     }
 
 //    Relatórios
@@ -83,6 +86,7 @@ public class RelatorioController {
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         List<AvaliacaoModel> avaliacoes = showAllAvaliacoes.showAllAvaliacoesByEdicaoId(id);
 
+        model.addAttribute("edicaoId", id);
         model.addAttribute("usuario", usuario);
         model.addAttribute("avaliacoes", avaliacoes);
 

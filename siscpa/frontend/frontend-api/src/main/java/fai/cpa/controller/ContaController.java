@@ -47,7 +47,9 @@ public class ContaController {
     @GetMapping("/perfil")
     public String getPerfilPage(final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        InstituicaoModel instituicao = showAllInstituicoes.findById(usuario.getInstituicaoId());
 
+        model.addAttribute("instituicao", instituicao);
         model.addAttribute("usuario", usuario);
         return "conta/perfil";
     }
@@ -108,9 +110,19 @@ public class ContaController {
         final UsuarioModel usuario = createUsuario.login(email, senha);
         if (usuario != null){
             session.setAttribute("usuarioAtual",usuario);
+
+            if ("Administrador".equals(usuario.getTipo())) {
+                return "redirect:/instituicao/listar-instituicao";
+            }
             return "redirect:/instituicao/inicio";
         }
         return "redirect:/not-found";
+    }
+
+    @PostMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/conta/login";
     }
 
     @PostMapping("/vincular-usuario")

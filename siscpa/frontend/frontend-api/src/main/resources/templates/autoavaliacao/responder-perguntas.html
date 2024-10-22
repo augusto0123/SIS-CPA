@@ -31,9 +31,17 @@
 
                         <div class="card-body-responder-usuario">
 
-                            <form class="row g-3 needs-validation" novalidate>
+                            <form class="row g-3 needs-validation" novalidate method="POST" onsubmit="return pegarValorDoFormulario()" th:action="@{/autoavaliacao/enviar-respostas}">
 
-                                <div th:each="pergunta : ${perguntas}">
+                                <div class="col-12">
+                                    <input type="hidden" name="respostasObjetivas" class="form-control" id="respostasObjetivas">
+                                </div>
+
+                                <div class="col-12">
+                                    <input type="hidden" name="respostasSubjetivas" class="form-control" id="respostasSubjetivas">
+                                </div>
+
+                                <div th:each="pergunta,iter : ${perguntas}">
 
                                     <div th:if="${pergunta.tipo == 'Objetiva'}">
 
@@ -45,24 +53,24 @@
                                             <div class="mb-3">
                                                 <div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="likert" id="likert1" value="Discordo Totalmente" required>
-                                                        <label class="form-check-label" for="likert1">Discordo Totalmente</label>
+                                                        <input  class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Discordo Totalmente' + ${pergunta.id}" value="Discordo Totalmente">
+                                                        <label class="form-check-label">Discordo Totalmente</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="likert" id="likert2" value="Discordo" required>
-                                                        <label class="form-check-label" for="likert2">Discordo</label>
+                                                        <input  class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Discordo'+ ${pergunta.id}" value="Discordo">
+                                                        <label class="form-check-label">Discordo</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="likert" id="likert3" value="Neutro" required>
-                                                        <label class="form-check-label" for="likert3">Neutro</label>
+                                                        <input class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Neutro' + ${pergunta.id}" value="Neutro">
+                                                        <label class="form-check-label">Neutro</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="likert" id="likert4" value="Concordo" required>
-                                                        <label class="form-check-label" for="likert4">Concordo</label>
+                                                        <input  class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Concordo' + ${pergunta.id}" value="Concordo">
+                                                        <label class="form-check-label">Concordo</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="likert" id="likert5" value="Concordo Totalmente" required>
-                                                        <label class="form-check-label" for="likert5">Concordo Totalmente</label>
+                                                        <input class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Concordo Totalmente' + ${pergunta.id}" value="Concordo Totalmente">
+                                                        <label class="form-check-label">Concordo Totalmente</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -74,7 +82,7 @@
                                             <div class="mb-3">
                                                 <span class="form-label-span" th:text="${pergunta.descricao}"></span>
                                             </div>
-                                            <textarea class="form-control" id="resposta" rows="3" placeholder="Responda aqui..." required></textarea>
+                                            <textarea class="form-control" th:id="'respostaSubjetiva' + ${pergunta.id}" rows="3" placeholder="Responda aqui..." required></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -102,6 +110,51 @@
     <script src="/assets/vendor/php-email-form/validate.js"></script>
 
     <script src="/assets/js/main.js"></script>
+
+    <script>
+        function pegarValorDoFormulario(){
+
+            const respostasObjetivas = document.getElementById("respostasObjetivas");
+            const respostasSubjetivas = document.getElementById("respostasSubjetivas");
+
+            const radios = document.querySelectorAll('input[type="radio"]');
+
+            respostasObjetivas.value = respostasObjetivas.value || "";
+            respostasSubjetivas.value = respostasSubjetivas.value || "";
+
+            radios.forEach(radio => {
+                if (radio.checked){
+
+                    const nomeBotao = radio.id;
+                    const match = nomeBotao.match(/^([a-zA-Z\s]+)(\d+)$/);
+
+                    if (match) {
+
+                        respostasObjetivas.value += match[2] + "-" + match[1] + ";";
+                    }else {
+                        return false
+                    }
+
+                }
+            })
+            const textareas = document.querySelectorAll('textarea');
+            textareas.forEach(area => {
+
+                const nomeArea = area.id;
+                const match = nomeArea.match(/^([a-zA-Z\s]+)(\d+)$/);
+
+                if (match) {
+                    respostasSubjetivas.value += match[2] + "-" + area.value + ";";
+                }else {
+                    return false
+                }
+            })
+
+            console.log(respostasSubjetivas.value)
+            console.log(respostasObjetivas.value)
+            return true;
+        }
+    </script>
 
 </div>
 

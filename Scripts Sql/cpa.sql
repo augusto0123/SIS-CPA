@@ -22,7 +22,7 @@ CREATE TABLE instituicao
     cnpj VARCHAR(19) NOT NULL,
     razao_social VARCHAR(200) NOT NULL,
     nome_fantasia VARCHAR(200) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
+    telefone VARCHAR(20),
     email_responsavel VARCHAR(200) NOT NULL,
     telefone_responsavel VARCHAR(20) NOT NULL,
     nome_responsavel VARCHAR(200) NOT NULL,
@@ -134,12 +134,12 @@ CREATE TABLE resposta
     id_pergunta INTEGER,
     id_usuario INTEGER,
     id_instituicao INTEGER,
-    id_avaliacao_questionario INTEGER,
+    id_avaliacao INTEGER,
     resposta_objetiva VARCHAR(30) CHECK (resposta_objetiva IN ('Discordo Totalmente', 'Discordo', 'Neutro', 'Concordo', 'Concordo Totalmente')),
     resposta_subjetiva TEXT,
     FOREIGN KEY (id_pergunta) REFERENCES Pergunta(id) ON DELETE CASCADE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,
-    FOREIGN KEY (id_avaliacao_questionario) REFERENCES Avaliacao_Questionario(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_avaliacao) REFERENCES avaliacao(id) ON DELETE CASCADE,
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
     );
 

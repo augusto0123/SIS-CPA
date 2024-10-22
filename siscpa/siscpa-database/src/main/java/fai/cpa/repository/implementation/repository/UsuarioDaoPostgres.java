@@ -169,6 +169,44 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
     }
 
     @Override
+    public List<UsuarioModel> findAllByInstituicaoId(int instituicaoId) {
+
+        List<UsuarioModel> usuarios = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM usuario WHERE id_instituicao = ?";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, instituicaoId);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                UsuarioModel usuarioModel = new UsuarioModel();
+                usuarioModel.setId(resultSet.getInt("id"));
+                usuarioModel.setNome(resultSet.getString("nome"));
+                usuarioModel.setEmail(resultSet.getString("email"));
+                usuarioModel.setSenha(resultSet.getString("senha"));
+                usuarioModel.setTelefone(resultSet.getString("telefone"));
+                usuarioModel.setTipo(resultSet.getString("tipo"));
+                usuarioModel.setInstituicaoId(resultSet.getInt("id_instituicao"));
+
+                usuarios.add(usuarioModel);
+            }
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return usuarios;
+    }
+
+    @Override
     public boolean update(UsuarioModel usuarioModel) {
         return false;
     }

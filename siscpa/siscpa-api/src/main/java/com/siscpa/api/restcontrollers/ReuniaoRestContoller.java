@@ -45,4 +45,10 @@ public class ReuniaoRestContoller {
     public ReuniaoCpaModel getLastReuniao(){
         return reuniaoBackendConfiguration.findReuniaoCpa().findLastReuniao();
     }
+
+    @GetMapping("/findReuniaoMaiorId")
+    public ReuniaoCpaModel getReuniaoComMaiorId() {
+        final ReuniaoCpaModel reuniao = reuniaoBackendConfiguration.findReuniaoCpa().findReuniaoComMaiorId();
+        return reuniao;
+    }
 }

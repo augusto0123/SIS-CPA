@@ -13,6 +13,8 @@ public interface UsuarioRepositorty {
     List<UsuarioModel> findByTipo(String tipo);
     List<UsuarioModel> findAll();
     List<UsuarioModel> findByCriteria(Map<String, String> criteria);
+
+    List<UsuarioModel> findAllByInstituicaoId(int instituicaoId);
     boolean update(UsuarioModel usuarioModel);
     boolean deleteById(int id);
     int create(UsuarioModel usuarioModel);

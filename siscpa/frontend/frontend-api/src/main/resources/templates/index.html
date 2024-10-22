@@ -28,7 +28,7 @@
 <body class="home-page">
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-        <a href="/templates/index.html" class="logo d-flex align-items-center me-auto">
+        <a th:href="@{/}" class="logo d-flex align-items-center me-auto">
             <h1 class="sitename">SIS CPA</h1>
         </a>
         <nav id="navmenu" class="navmenu">
@@ -48,7 +48,8 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-                    <h1>Sistema de Informação para a Gestão da Comissão Própria da Avaliação (CPA) em Instituição de Ensino Superior – SIS CPA</h1>
+                    <h1>Sistema de Informação para a Gestão da CPA - SIS CPA</h1>
+<!--                    <h1>Sistema de Informação para a Gestão da Comissão Própria da Avaliação (CPA) em Instituição de Ensino Superior – SIS CPA</h1>-->
                     <p>Não possui conta? Realize seu cadastro</p>
                     <div class="d-flex">
                         <a th:href="@{/conta/registro}" class="btn-get-started">Cadastrar</a>
@@ -106,39 +107,128 @@
     </section>
 
     <section id="about" class="about section">
+
+        <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Sobre Nós</h2>
-        </div>
+            <h2>Sobre o SIS CPA</h2>
+        </div><!-- End Section Title -->
 
         <div class="container">
+
             <div class="row gy-4">
+
                 <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Saiba como funciona uma CPA </h3>
-                    <span>Uma Comissão Própria de Avaliação (CPA) é um órgão presente em instituições de ensino superior, responsável por coordenar e conduzir processos internos de avaliação institucional, visando o aprimoramento da qualidade educacional, conforme diretrizes estabelecidas pelos órgãos reguladores da educação.</span>
+
+                    <h4>Área de Negócio</h4>
+                    <p>
+                        O Sistema de Informação para a Gestão da Comissão Própria de Avaliação
+                        (SIS CPA) é uma ferramenta projetada para auxiliar as Instituições de
+                        Ensino Superior (IES) na implementação e gerenciamento de processos de
+                        autoavaliação. A Comissão Própria de Avaliação é um órgão interno responsável
+                        por avaliar a qualidade do ensino, pesquisa, extensão e gestão institucional,
+                        com o objetivo de promover melhorias contínuas na instituição.
+                    </p>
                 </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Finalidade</h4>
+                    <p>O SIS CPA tem como principal função facilitar a avaliação interna, centralizando
+                        dados e informações para que a CPA conduza avaliações de maneira organizada e
+                        eficiente. Além disso, o sistema gera relatórios detalhados que ajudam na análise
+                        da qualidade acadêmica e administrativa da instituição, permitindo à gestão tomar
+                        decisões informadas para implementar melhorias. Outro aspecto importante é a promoção
+                        da transparência, já que o sistema oferece uma visão clara dos processos avaliativos,
+                        aumentando a confiança da comunidade acadêmica.</p>
+<!--                    <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>-->
+                </div>
+
             </div>
+
         </div>
 
+    </section><!-- /About Section -->
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Equipe Desenvolvedora</h2>
+            <p>Logo abaixo estão os membros da equipe desenvolvedora do sistema SIS CPA</p>
+        </div><!-- End Section Title -->
+
         <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-                    <h3>O que a CPA proporciona para os estudantes?</h3>
-                    <span>A CPA proporciona aos estudantes um ambiente educacional de qualidade através da avaliação contínua dos processos acadêmicos e da infraestrutura da instituição, resultando em melhorias no ensino, na aprendizagem e na experiência geral do aluno durante sua jornada acadêmica.</span>
-                </div>
+
+            <div class="row gy-4 justify-content-center">
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-member d-flex align-items-start">
+                        <div class="pic"><img src="/assets/img/augusto.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Augusto de Faria Oliveira</h4>
+                            <span>Estudante</span>
+                            <p>Graduando no 8º período do curso de Sistemas de Informação da FAI - Centro de Ensino Superior em Gestão, Tecnologia e Educação</p>
+                            <div class="social">
+                                <a href="https://www.linkedin.com/in/augusto-faria-926b721ab/"> <i class="bi bi-linkedin"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-member d-flex align-items-start">
+                        <div class="pic"><img src="/assets/img/ana2.jpeg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Ana Júlia Gonçalves Mendes</h4>
+                            <span>Estudante</span>
+                            <p>Graduando no 8º período do curso de Sistemas de Informação da FAI - Centro de Ensino Superior em Gestão, Tecnologia e Educação</p>
+                            <div class="social">
+                                <a href="https://www.linkedin.com/in/ana-julia-mendes-385988226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"> <i class="bi bi-linkedin"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-member d-flex align-items-start justify-content-center">
+                        <div class="pic"><img src="/assets/img/henrique.jpeg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Henrique Iemini</h4>
+                            <span>Estudante</span>
+                            <p>Graduando no 8º período do curso de Sistemas de Informação da FAI - Centro de Ensino Superior em Gestão, Tecnologia e Educação</p>
+                            <div class="social">
+                                <a href="https://www.linkedin.com/in/henrique-iemini/"> <i class="bi bi-linkedin"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+
             </div>
+
         </div>
-    </section>
+
+    </section><!-- /Team Section -->
 </main>
 
-<footer>
-    <section id="call-to-action" class="call-to-action section dark-background">
+<footer id="footer" class="footer">
 
-        <img src="" alt="">
-    </section>
+    <div class="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Arsha</strong> <span>All Rights Reserved</span></p>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you've purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+
 </footer>
 
+<!-- Scroll Top -->
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+<!-- Preloader -->
 <div id="preloader"></div>
 
 <script src="/a/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

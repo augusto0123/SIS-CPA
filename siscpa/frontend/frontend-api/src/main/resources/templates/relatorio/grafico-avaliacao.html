@@ -32,12 +32,16 @@
 
             <div class="row">
 
+                <div class="col-12">
+                    <input type="hidden" name="edicaoId" class="form-control" th:value="${edicaoId}" id="edicaoId">
+                </div>
+
                 <div class="row grafico-edicao" th:each="avaliacao : ${avaliacoes}">
                     <div class="col-lg-12 display-grafico">
                         <div class="col-lg-12 row">
                             <div class="col-lg-12 col-md-6 col-sm-12 mb-4 ms-0">
                                 <div class="card-avaliacao-grafico">
-                                    <h5 class="card-title-avaliacao" th:text="${avaliacao.tema}"></h5>
+                                    <h5 class="card-title-avaliacao-cadastrar" th:text="${avaliacao.tema}"></h5>
                                 </div>
                             </div>
                         </div>
@@ -46,47 +50,13 @@
                     <!-- Gráfico de barra  -->
                     <div class="col-lg-6">
                         <div class="card">
+
                             <div class="card-body">
                                 <h5 class="card-title">Total de Avaliações (Barra)</h5>
 
                                 <!-- Bar Chart -->
-                                <canvas id="barChart1" style="max-height: 400px;"></canvas>
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", () => {
-                                        new Chart(document.querySelector('#barChart1'), {
-                                            type: 'bar',
-                                            data: {  // Corrigido de reviews para data
-                                                labels: ['Concordo Totalmente', 'Concordo', 'Neutro', 'Discordo', 'Discordo Totalmente'],
-                                                datasets: [{
-                                                    label: 'Avaliações',
-                                                    data: [65, 59, 80, 81, 56],  // Corrigido para ter o mesmo número de elementos que labels
-                                                    backgroundColor: [
-                                                        'rgba(75, 192, 192, 1)',  // Opacidade 1
-                                                        'rgba(54, 162, 235, 1)',
-                                                        'rgba(255, 159, 64, 1)',
-                                                        'rgba(255, 205, 86, 1)',
-                                                        'rgba(255, 99, 132, 1)'
-                                                    ],
-                                                    borderColor: [
-                                                        'rgb(75, 192, 192)',
-                                                        'rgb(54, 162, 235)',
-                                                        'rgb(255, 159, 64)',
-                                                        'rgb(255, 205, 86)',
-                                                        'rgb(255, 99, 132)'
-                                                    ],
-                                                    borderWidth: 2  // Aumentar a largura da borda se desejado
-                                                }]
-                                            },
-                                            options: {
-                                                scales: {
-                                                    y: {
-                                                        beginAtZero: true
-                                                    }
-                                                }
-                                            }
-                                        });
-                                    });
-                                </script>
+                                <canvas th:id="'barChart' + ${avaliacao.id}" style="max-height: 400px;"></canvas>
+
                                 <!-- End Bar Chart -->
 
                             </div>
@@ -94,46 +64,46 @@
                     </div>
 
                     <!-- Gráfico de pizza  -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Total de Avaliações (Pizza)</h5>
+<!--                    <div class="col-lg-6">-->
+<!--                        <div class="card">-->
+<!--                            <div class="card-body">-->
+<!--                                <h5 class="card-title">Total de Avaliações (Pizza)</h5>-->
 
-                                <!-- Pie Chart -->
-                                <canvas id="pieChart1" style="max-height: 400px;"></canvas>
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", () => {
-                                        new Chart(document.querySelector('#pieChart1'), {
-                                            type: 'pie',
-                                            data: {
-                                                labels: [
-                                                    'Concordo Totalmente',
-                                                    'Concordo',
-                                                    'Neutro',
-                                                    'Discordo',
-                                                    'Discordo Totalmente'
-                                                ],
-                                                datasets: [{
-                                                    label: 'Avaliações',
-                                                    data: [50, 80, 25, 30, 40],
-                                                    backgroundColor: [
-                                                        'rgb(34, 139, 34)',
-                                                        'rgb(54, 162, 235)',
-                                                        'rgb(255, 99, 132)',
-                                                        'rgb(255, 165, 0)',
-                                                        'rgb(255, 205, 86)'
-                                                    ],
-                                                    hoverOffset: 4
-                                                }]
-                                            }
-                                        });
-                                    });
-                                </script>
-                                <!-- End Pie Chart -->
+<!--                                &lt;!&ndash; Pie Chart &ndash;&gt;-->
+<!--                                <canvas th:id="'pieChart' + ${avaliacao.id}" style="max-height: 400px;"></canvas>-->
+<!--                                <script>-->
+<!--                                    document.addEventListener("DOMContentLoaded", () => {-->
+<!--                                        new Chart(document.querySelector('#pieChart1'), {-->
+<!--                                            type: 'pie',-->
+<!--                                            data: {-->
+<!--                                                labels: [-->
+<!--                                                    'Concordo Totalmente',-->
+<!--                                                    'Concordo',-->
+<!--                                                    'Neutro',-->
+<!--                                                    'Discordo',-->
+<!--                                                    'Discordo Totalmente'-->
+<!--                                                ],-->
+<!--                                                datasets: [{-->
+<!--                                                    label: 'Avaliações',-->
+<!--                                                    data: [50, 80, 25, 30, 40],-->
+<!--                                                    backgroundColor: [-->
+<!--                                                        'rgb(34, 139, 34)',-->
+<!--                                                        'rgb(54, 162, 235)',-->
+<!--                                                        'rgb(255, 205, 86)',-->
+<!--                                                        'rgb(255, 165, 0)',-->
+<!--                                                        'rgb(255, 99, 132)'-->
+<!--                                                    ],-->
+<!--                                                    hoverOffset: 4-->
+<!--                                                }]-->
+<!--                                            }-->
+<!--                                        });-->
+<!--                                    });-->
+<!--                                </script>-->
+<!--                                &lt;!&ndash; End Pie Chart &ndash;&gt;-->
 
-                            </div>
-                        </div>
-                    </div>
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
 
             </div>
@@ -155,6 +125,94 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          setTimeout(() => {
+            carregarGraficoBarras();
+          }, 1000);
+        });
+
+        function carregarGraficoBarras() {
+          const edicaoIdElement = document.getElementById("edicaoId");
+
+          if (!edicaoIdElement) {
+            console.error("Elemento com id 'edicaoId' não encontrado.");
+            return;
+          }
+
+          const edicaoId = edicaoIdElement.value;
+
+          fetch(
+            "http://localhost:8091/api/resposta/findObjetivaByAvaliacaoId/" + edicaoId
+          )
+            .then((response) => response.json())
+            .then((dadosGraficos) => {
+              const transformedData = dadosGraficos.reduce((acc, curr) => {
+                let avaliacao = acc.find((a) => a.avaliacaoId === curr.avaliacaoId);
+
+                if (!avaliacao) {
+                  avaliacao = { avaliacaoId: curr.avaliacaoId, dados: {} };
+                  acc.push(avaliacao);
+                }
+                avaliacao.dados[curr.label] =
+                  (avaliacao.dados[curr.label] || 0) + curr.total;
+
+                return acc;
+              }, []);
+
+              transformedData.forEach((data) => {
+                new Chart(document.querySelector("#barChart" + data.avaliacaoId), {
+                  type: "bar",
+                  data: {
+                    labels: [
+                      "Concordo Totalmente",
+                      "Concordo",
+                      "Neutro",
+                      "Discordo",
+                      "Discordo Totalmente",
+                    ],
+                    datasets: [
+                      {
+                        label: "Avaliações",
+                        data: [
+                          data.dados["Concordo Totalmente"],
+                          data.dados["Concordo"],
+                          data.dados["Neutro"],
+                          data.dados["Discordo"],
+                          data.dados["Discordo Totalmente"],
+                        ],
+                        backgroundColor: [
+                          "rgba(75, 192, 192, 1)",
+                          "rgba(54, 162, 235, 1)",
+                          "rgba(255, 205, 86, 1)",
+                          "rgba(255, 159, 64, 1)",
+                          "rgba(255, 99, 132, 1)",
+                        ],
+                        borderColor: [
+                          "rgb(75, 192, 192)",
+                          "rgb(54, 162, 235)",
+                          "rgb(255, 205, 86)",
+                          "rgb(255, 159, 64)",
+                          "rgb(255, 99, 132)",
+                        ],
+                        borderWidth: 2,
+                      },
+                    ],
+                  },
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                      },
+                    },
+                  },
+                });
+              });
+            })
+            .catch((error) => console.error("Erro ao buscar dados:", error));
+        }
+    </script>
 
 </div>
 

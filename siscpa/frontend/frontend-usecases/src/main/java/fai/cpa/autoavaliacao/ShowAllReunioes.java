@@ -25,4 +25,9 @@ public class ShowAllReunioes {
         final List<ReuniaoCpaModel> reuniaoCpaModels = restService.get(resource);
         return reuniaoCpaModels;
     }
+
+    public ReuniaoCpaModel showReuniaoComMaiorId() {
+        final String resource = "/reuniao/findReuniaoMaiorId";
+        return (ReuniaoCpaModel) restService.get(resource);
+    }
 }

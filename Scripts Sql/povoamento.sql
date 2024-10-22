@@ -40,8 +40,8 @@ VALUES ('contato@exemplo.com.br',
 INSERT INTO usuario (id_instituicao, nome, email, senha, telefone, tipo) VALUES
 (1, 'Augusto', 'aluno1@instituicao1.com', 'senha123', '123456789', 'Aluno'),
 (1, 'Ana Júlia', 'professor1@instituicao1.com', 'senha123', '987654321', 'Professor'),
-(2, 'Henrique', 'colaborador1@instituicao2.com', 'senha123', '111222333', 'Colaborador'),
-(2, 'Eunice', 'membro1@instituicao2.com', 'senha123', '444555666', 'Membro CPA'),
+(1, 'Henrique', 'colaborador1@instituicao2.com', 'senha123', '111222333', 'Colaborador'),
+(1, 'Eunice', 'membro1@instituicao2.com', 'senha123', '444555666', 'Membro CPA'),
 (NULL,'Augusto', 'augusto@administrador.com', 'senha123', '444555666', 'Administrador');
 
 -- Inserindo dados na tabela membro_cpa
@@ -59,9 +59,9 @@ INSERT INTO edicao_autoavaliacao (id_instituicao, edicao, ano_avaliacao, descric
 (2, 2, '2024', 'Autoavaliação do 2º semestre', '2024-07-01', '2024-12-31');
 
 -- Inserindo dados na tabela avaliacao
-INSERT INTO avaliacao (id_edicao_autoavaliacao, descricao, tema) VALUES
-(1, 'Avaliação da Instituição 1', 'Educação'),
-(2, 'Avaliação da Instituição 2', 'Gestão');
+INSERT INTO avaliacao (id_instituicao, id_edicao_autoavaliacao, descricao, tema) VALUES
+(1, 1, 'Avaliação da Instituição 1', 'Educação'),
+(2, 1, 'Avaliação da Instituição 2', 'Gestão');
 
 -- Inserindo dados na tabela questionario
 INSERT INTO questionario (descricao, categoria) VALUES

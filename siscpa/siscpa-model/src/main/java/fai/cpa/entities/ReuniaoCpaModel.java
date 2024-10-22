@@ -9,7 +9,7 @@ public class ReuniaoCpaModel {
 
     private int id;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate dataReuniao;
 
     @DateTimeFormat(pattern = "HH:mm")

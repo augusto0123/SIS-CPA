@@ -2,6 +2,7 @@ package usuario;
 
 import exception.InvalidException;
 import exception.NotFoundException;
+import fai.cpa.entities.PerguntaModel;
 import fai.cpa.entities.UsuarioModel;
 import port.UsuarioRepositorty;
 
@@ -54,6 +55,18 @@ public class FindUsuario {
         final List<UsuarioModel> usuarios = usuarioRepositorty.findByTipo(tipo);
         if (usuarios == null || usuarios.isEmpty()){
             final String message = "Nenhum usuário do tipo: (" + ") foi encontrado";
+            throw new NotFoundException(message);
+        }
+        return usuarios;
+    }
+
+    public List<UsuarioModel> findAllByInstituicaoId(final int instituicaoId){
+        if (instituicaoId <= 0){
+            throw new InvalidException();
+        }
+        List<UsuarioModel> usuarios = usuarioRepositorty.findAllByInstituicaoId(instituicaoId);
+        if (usuarios == null){
+            final String message = "O id (" + instituicaoId + ") não foi encontrado";
             throw new NotFoundException(message);
         }
         return usuarios;

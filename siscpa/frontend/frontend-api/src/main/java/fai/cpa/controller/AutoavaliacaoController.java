@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.time.format.DateTimeFormatter;
 
 import javax.servlet.http.HttpSession;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +37,11 @@ public class AutoavaliacaoController {
     private final UpdateGrupo updateGrupo;
     private final UpdatePergunta updatePergunta;
 
-    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas, UpdateAvaliacao updateAvaliacao, UpdateQuestionario updateQuestionario, UpdateGrupo updateGrupo, UpdatePergunta updatePergunta) {
+    private final CreateResposta createResposta;
+
+    private final ShowAllRespostas showAllRespostas;
+
+    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas, UpdateAvaliacao updateAvaliacao, UpdateQuestionario updateQuestionario, UpdateGrupo updateGrupo, UpdatePergunta updatePergunta, CreateResposta createResposta, ShowAllRespostas showAllRespostas) {
         this.createReuniao = createReuniao;
         this.showAllReunioes = showAllReunioes;
         this.createEdicao = createEdicao;
@@ -56,6 +59,8 @@ public class AutoavaliacaoController {
         this.updateQuestionario = updateQuestionario;
         this.updateGrupo = updateGrupo;
         this.updatePergunta = updatePergunta;
+        this.createResposta = createResposta;
+        this.showAllRespostas = showAllRespostas;
     }
 
 //    ==================================================================================================================
@@ -477,7 +482,10 @@ public class AutoavaliacaoController {
         return "redirect:/not-found";
     }
 
-    @PostMapping("vincular-avaliacao")
+//    ==================================================================================================================
+//    Container de Vinculações
+
+    @PostMapping("/vincular-avaliacao")
     public String vincularAvaliacao(final int edicaoId, final int avaliacaoId){
         AvaliacaoModel avaliacao =  new AvaliacaoModel();
         avaliacao.setEdicaoId(edicaoId);
@@ -490,7 +498,7 @@ public class AutoavaliacaoController {
         return "redirect:/not-found";
     }
 
-    @PostMapping("vincular-questionario")
+    @PostMapping("/vincular-questionario")
     public String vincularQuestionario(final int avaliacaoId, final int questionarioId){
         QuestionarioModel questionario = new QuestionarioModel();
         questionario.setAvaliacaoId(avaliacaoId);
@@ -503,7 +511,7 @@ public class AutoavaliacaoController {
         return "redirect:/not-found";
     }
 
-    @PostMapping("vincular-grupo")
+    @PostMapping("/vincular-grupo")
     public String vincularGrupo(final int questionarioId, final int grupoId){
         GrupoDePerguntasModel grupo = new GrupoDePerguntasModel();
         grupo.setQuestionarioId(questionarioId);
@@ -516,7 +524,7 @@ public class AutoavaliacaoController {
         return "redirect:/not-found";
     }
 
-    @PostMapping("vincular-pergunta")
+    @PostMapping("/vincular-pergunta")
     public String vincularPergunta(final int grupoId, final int perguntaId){
         PerguntaModel pergunta = new PerguntaModel();
         pergunta.setGrupoId(grupoId);
@@ -526,7 +534,24 @@ public class AutoavaliacaoController {
         if (!resultado){
             return "redirect:/autoavaliacao/vincular-pergunta/" + grupoId;
         }
+        return "redirect:/not-found";
+    }
 
+    @PostMapping("/enviar-respostas")
+    public String enviarRespostas(final String respostasObjetivas, final String respostasSubjetivas, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+
+        RespostaModel respostaModel = new RespostaModel();
+        respostaModel.setRespostaObjetiva(respostasObjetivas);
+        respostaModel.setRespostaSubjetiva(respostasSubjetivas);
+        respostaModel.setInstituicaoId(usuario.getInstituicaoId());
+        respostaModel.setUsuarioId(usuario.getId());
+
+        int resposta = createResposta.createResposta(respostaModel);
+
+        if (resposta > 0){
+            return "redirect:/instituicao/inicio";
+        }
         return "redirect:/not-found";
     }
 }

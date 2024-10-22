@@ -5,10 +5,9 @@ public class RespostaModel {
     private int id;
     private int perguntaId;
     private int usuarioId;
-    private int avaliacaoQuestionarioId;
+    private int avaliacaoId;
     private String respostaObjetiva;
     private String respostaSubjetiva;
-
     private int instituicaoId;
 
 //    Getters and Setters
@@ -45,12 +44,12 @@ public class RespostaModel {
         this.usuarioId = usuarioId;
     }
 
-    public int getAvaliacaoQuestionarioId() {
-        return avaliacaoQuestionarioId;
+    public int getAvaliacaoId() {
+        return avaliacaoId;
     }
 
-    public void setAvaliacaoQuestionarioId(int avaliacaoQuestionarioId) {
-        this.avaliacaoQuestionarioId = avaliacaoQuestionarioId;
+    public void setAvaliacaoId(int avaliacaoId) {
+        this.avaliacaoId = avaliacaoId;
     }
 
     public String getRespostaObjetiva() {

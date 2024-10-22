@@ -17,4 +17,6 @@ public interface ReuniaoCpaRepository {
     int create(ReuniaoCpaModel reuniaoCpaModel);
 
     ReuniaoCpaModel findLastReuniao();
+
+    ReuniaoCpaModel findReuniaoComMaiorId();
 }

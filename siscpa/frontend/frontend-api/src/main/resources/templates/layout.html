@@ -56,89 +56,20 @@
                 </a>
             </li>
 
-            <li class="nav-item dropdown">
-
-                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                    <i class="bi bi-bell"></i>
-                    <span class="badge bg-primary badge-number">3</span>
-                </a>
-
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-                    <li class="dropdown-header">
-                        Você tem 3 novas notificações
-                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Visualizar Todos</span></a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="notification-item">
-                        <i class="bi bi-exclamation-circle text-warning"></i>
-                        <div>
-                            <h4>Pendente</h4>
-                            <p>Sua avaliação está sendo analisado.</p>
-                            <p>30 min. atrás</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="notification-item">
-                        <i class="bi bi-x-circle text-danger"></i>
-                        <div>
-                            <h4>Rejeitado</h4>
-                            <p>Seu pedido para se vincular a uma Instituição foi negado.</p>
-                            <p>1 hr. atrás</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="notification-item">
-                        <i class="bi bi-check-circle text-success"></i>
-                        <div>
-                            <h4>Aprovado</h4>
-                            <p>Suas informações foram alteradas com sucesso.</p>
-                            <p>2 dias atrás</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li class="dropdown-footer">
-                        <a href="#">Ver todos as notificações</a>
-                    </li>
-
-                </ul>
-
-            </li>
-
-
-            <li class="nav-item dropdown pe-3">
-
+            <li class="nav-item dropdown pe-3" th:if="${usuario != null}">
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/assets/img/messages-1.jpg" alt="Profile" class="rounded-circle">
+                    <img src="/assets/img/usuario-de-perfil.png" alt="Profile" class="rounded-circle">
                     <span class="d-none d-md-block dropdown-toggle ps-2" th:text="${usuario.nome}"></span>
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>Ana Júlia</h6>
-                        <span>Estudante</span>
+                        <h6 th:text="${usuario.nome}"></h6>
+                        <span th:text="${usuario.tipo}"></span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-
                     <li>
                         <a class="dropdown-item d-flex align-items-center" th:href="@{/conta/perfil}">
                             <i class="bi bi-person"></i>
@@ -148,28 +79,13 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
+                    <li>
 
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                            <i class="bi bi-gear"></i>
-                            <span>Configurações</span>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="home.html">
+                        <a class="dropdown-item d-flex align-items-center" th:href="@{/}">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sair</span>
                         </a>
                     </li>
-
                 </ul>
             </li>
         </ul>
@@ -245,7 +161,7 @@
             </ul>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-layout-text-window-reverse"></i><span>Documentos</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -273,7 +189,7 @@
             </ul>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
             <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-bar-chart"></i><span>Relatório</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -291,7 +207,7 @@
             </ul>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
             <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-gem"></i><span>Galeria</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -333,10 +249,7 @@
 <!--                <span>Erro</span>-->
 <!--            </a>-->
 <!--        </li>-->
-
-
     </ul>
-
 </aside>
 
 <div layout:fragment="body"></div>

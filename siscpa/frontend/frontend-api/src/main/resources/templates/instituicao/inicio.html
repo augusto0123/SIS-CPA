@@ -9,6 +9,9 @@
           integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
           crossorigin="anonymous"
           referrerpolicy="no-referrer" />
+
+    <link href="/assets/css/style.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -18,7 +21,7 @@
 
         <div class="pagetitle">
 <!--            <h1 th:text="${instituicao.nomeFantasia}"></h1>-->
-            <h1>Nome da Instituição</h1>
+            <h1 th:text="${instituicao.nomeFantasia}"></h1>
         </div>
 
         <section class="section dashboard">
@@ -32,8 +35,7 @@
                             <div class="card recent-sales overflow-auto">
                                     <div class="card-body-meeting">
                                         <div class="date-input">
-                                            <input type="date" name="next-meeting" id="nextmeeting">
-<!--                                            <span th:text="${ultimaReuniao != null ? ultimaReuniao.dataReuniao : 'Nenhuma reunião encontrada'}"></span>-->
+                                            <input type="date" name="next-meeting" id="nextmeeting"/>
                                         </div>
                                     </div>
                             </div>

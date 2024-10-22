@@ -49,12 +49,10 @@ public class InstituicaoController {
 
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
 
-
         List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoesByInstituicaoId(usuario.getInstituicaoId());
         List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioesByInstituicaoId(usuario.getInstituicaoId());
-
-
-//        ReuniaoCpaModel ultimaReuniao = showLastReuniao.showLastReuniao();
+        InstituicaoModel instituicao = showAllInstituicoes.findById(usuario.getInstituicaoId());
+//        ReuniaoCpaModel ultimaReuniao = showAllReunioes.showReuniaoComMaiorId();
 
         if(edicoes == null
         || reunioes == null){
@@ -66,33 +64,39 @@ public class InstituicaoController {
         model.addAttribute("edicoes", edicoes);
         model.addAttribute("reunioes", reunioes);
         model.addAttribute("usuario", usuario);
+        model.addAttribute("instituicao", instituicao);
 //        model.addAttribute("ultimaReuniao", ultimaReuniao);
 
         return "instituicao/inicio";
     }
 
     @GetMapping("/listar-instituicao")
-    public String getListarInstituicaoesPage(final Model model){
+    public String getListarInstituicaoesPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         List<InstituicaoModel> instituicoes = showAllInstituicoes.showAllInstituicoes();
 
         if(instituicoes == null)
             instituicoes = new ArrayList<>();
 
+        model.addAttribute("usuario", usuario);
         model.addAttribute("instituicoes", instituicoes);
 
         return "instituicao/listar-instituicao";
     }
 
     @GetMapping("/adicionar-instituicao")
-    public String getAdicionarInstituicaoPage(final Model model){
+    public String getAdicionarInstituicaoPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
 
+        model.addAttribute("usuario", usuario);
         model.addAttribute("instituicao", new InstituicaoModel());
 
         return "instituicao/adicionar-instituicao";
     }
 
     @GetMapping("/adicionar-membro")
-    public String getAdicioarMembroPage(final Model model){
+    public String getAdicioarMembroPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
 
         List<UsuarioModel> usuarios = showAllUsuarios.findByTipo("Professor");
 
@@ -100,13 +104,15 @@ public class InstituicaoController {
             usuarios = new ArrayList<>();
         }
 
+        model.addAttribute("usuario", usuario);
         model.addAttribute("usuarios", usuarios);
 
         return "instituicao/adicionar-membro";
     }
 
     @GetMapping("/listar-membro")
-    public String getListarMembroPage(final Model model){
+    public String getListarMembroPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
 
         List<UsuarioModel> usuariosMembros = showAllUsuarios.findByTipo("Membro CPA");
 
@@ -114,25 +120,31 @@ public class InstituicaoController {
             usuariosMembros = new ArrayList<>();
         }
 
+        model.addAttribute("usuario", usuario);
         model.addAttribute("usuarios", usuariosMembros);
 
         return "instituicao/listar-membro";
     }
 
     @GetMapping ("/listar-usuarios")
-    public String getListarUsuarioPage(final Model model){
+    public String getListarUsuarioPage(final Model model, HttpSession session){
+
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         List<UsuarioModel> usuarios = showAllUsuarios.showAllUsuarios();
 
         if (usuarios == null)
             usuarios = new ArrayList<>();
 
+        model.addAttribute("usuario", usuario);
         model.addAttribute("usuarios",usuarios);
 
         return "instituicao/listar-usuarios";
     }
 
     @GetMapping("/menu-instituicao")
-    public String getMenuInstituicaoPage(){
+    public String getMenuInstituicaoPage(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
         return "instituicao/menu-instituicao";
     }
 
@@ -149,17 +161,21 @@ public class InstituicaoController {
     }
 
     @PostMapping("/criar-instituicao")
-    public String criarInstituicao(final InstituicaoModel instituicao){
+    public String criarInstituicao(final InstituicaoModel instituicao,final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         final int id = createInstituicao.createInstituicao(instituicao);
         if (id > 0){
             return "redirect:/instituicao/listar-instituicao";
         }
+        model.addAttribute("usuario", usuario);
         return "redirect:/not-found";
     }
 
     @PostMapping("/criar-membro")
-    public String criarMembro(final Model model){
+    public String criarMembro(final Model model, HttpSession session){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
 
+        model.addAttribute("usuario", usuario);
         return "redirect:/instituicao/listar-membro";
     }
 

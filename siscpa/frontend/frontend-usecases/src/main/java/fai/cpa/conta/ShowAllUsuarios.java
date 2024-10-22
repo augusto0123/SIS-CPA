@@ -30,4 +30,10 @@ public class ShowAllUsuarios {
         final List<UsuarioModel> usuarios = restService.get(resource);
         return usuarios;
     }
+
+    public List<UsuarioModel> findAllByInstituicaoId(final int id){
+        final String resource = "/conta/findAllByInstituicaoId/" + id;
+        final List<UsuarioModel> usuarios = restService.get(resource);
+        return usuarios;
+    }
 }

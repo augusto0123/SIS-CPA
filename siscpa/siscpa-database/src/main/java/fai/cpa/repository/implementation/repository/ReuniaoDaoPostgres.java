@@ -248,4 +248,43 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
         }
         return reuniao;
     }
+
+    @Override
+    public ReuniaoCpaModel findReuniaoComMaiorId() {
+        ReuniaoCpaModel reuniao = null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        final String sql = "SELECT * FROM reuniao_cpa ORDER BY id DESC LIMIT 1;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                reuniao = new ReuniaoCpaModel();
+                reuniao.setId(resultSet.getInt("id"));
+                reuniao.setDataReuniao(resultSet.getDate("data_reuniao").toLocalDate());
+                reuniao.setHorario(resultSet.getTime("horario").toLocalTime());
+                reuniao.setPauta(resultSet.getString("pauta"));
+                reuniao.setMembroCpaId(resultSet.getInt("id_membro_cpa"));
+                reuniao.setInstituicaoId(resultSet.getInt("id_instituicao"));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return reuniao;
+    }
 }

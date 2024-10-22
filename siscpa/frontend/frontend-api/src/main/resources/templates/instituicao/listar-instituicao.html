@@ -33,9 +33,9 @@
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-11">
+                <div class="col-lg-11 mb-5" th:each="instituicao : ${instituicoes}">
 
-                    <div class="card-instituicao" th:each="instituicao : ${instituicoes}">
+                    <div class="card-instituicao">
 
                         <h5 class="card-title-instituicao" th:text="${instituicao.nomeFantasia}"></h5>
 

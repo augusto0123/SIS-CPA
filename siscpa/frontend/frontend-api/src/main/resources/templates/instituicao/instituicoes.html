@@ -38,11 +38,12 @@
         </div>
 
         <section class="section">
+
             <div class="row">
 
-                <div class="col-lg-11">
+                <div class="col-lg-11 mb-5" th:each="instituicao : ${instituicoes}">
 
-                    <div class="card-instituicao" th:each="instituicao : ${instituicoes}">
+                    <div class="card-instituicao">
 
                         <h5 class="card-title-instituicao" th:text="${instituicao.nomeFantasia}"></h5>
 
@@ -67,14 +68,11 @@
                                     </div>
                                 </div>
 
-                                <a th:href="@{/instituicao/inicio}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                                <a th:href="@{/instituicao/menu-instituicao(id=${instituicao.id})}"><i class="fa-solid fa-right-to-bracket"></i></a>
 <!--                                / + ${instituicao.id}-->
-
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </section>
