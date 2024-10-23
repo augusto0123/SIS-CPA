@@ -695,6 +695,11 @@ button:hover {
     font-family: "Poppins", sans-serif;
     margin-bottom: 25px;
 }
+
+.data-reuniao{
+    font-size:50px;
+}
+
 .card-title span {
   color: #899bbd;
   font-size: 14px;

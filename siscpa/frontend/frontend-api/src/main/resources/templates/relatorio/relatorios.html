@@ -73,16 +73,12 @@
                                 <div class="form-label-span" th:href="@{/relatorio/relatorios-edicao/{id} (id=${edicao.id})}"></div>
                             </div>
 
-<!--                            <a class="btn btn-primary"-->
-<!--                               th:if="${edicao.situacao ==  'Encerrada'}"-->
-<!--                               th:href="@{/relatorio/relatorios-edicao/{id} (id=${edicao.id})}">-->
-<!--                                Visualizar Relatórios-->
-<!--                            </a>-->
-
                             <a class="btn btn-primary"
+                               th:if="${edicao.situacao ==  'Encerrada'}"
                                th:href="@{/relatorio/relatorios-edicao/{id} (id=${edicao.id})}">
                                 Visualizar Relatórios
                             </a>
+
                         </div>
                     </div>
                 </div>

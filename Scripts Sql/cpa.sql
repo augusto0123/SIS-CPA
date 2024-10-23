@@ -35,7 +35,7 @@ CREATE TABLE usuario (
     id SERIAL PRIMARY KEY,
     id_instituicao INTEGER,
     nome VARCHAR(200) NOT NULL,
-    email VARCHAR(200) NOT NULL,
+    email VARCHAR(200) NOT NULL UNIQUE,
     senha VARCHAR(100) NOT NULL,
     telefone VARCHAR(20),
     tipo VARCHAR(30) CHECK (tipo IN ('Aluno', 'Professor', 'Comunidade Externa', 'Colaborador', 'Membro CPA', 'Administrador')),
@@ -56,9 +56,9 @@ CREATE TABLE reuniao_cpa (
     id SERIAL PRIMARY KEY,
     id_instituicao INTEGER,
     id_membro_cpa INTEGER,
-    data_reuniao DATE NOT NULL,
-    horario TIME NOT NULL, 
-    pauta TEXT NOT NULL,
+    data_reuniao DATE,
+    horario TIME, 
+    pauta TEXT,
     FOREIGN KEY (id_membro_cpa) REFERENCES Membro_CPA(id) ON DELETE CASCADE,
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
 );

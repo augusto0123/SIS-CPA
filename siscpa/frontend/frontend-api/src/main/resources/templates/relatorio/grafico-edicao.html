@@ -23,7 +23,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-user.html">Inicio</a></li>
                     <li class="breadcrumb-item">Relatórios</li>
-                    <li class="breadcrumb-item active">Gráficos</li>
+                    <li class="breadcrumb-item active">Gráficos por Avaliação</li>
                 </ol>
             </nav>
         </div>
@@ -75,13 +75,8 @@
                                 <div class="form-label-span" th:href="@{/relatorio/relatorios-edicao/{id} (id=${edicao.id})}"></div>
                             </div>
 
-<!--                            <a class="btn btn-primary"-->
-<!--                               th:if="${edicao.situacao == 'Encerrada'}"-->
-<!--                               th:href="@{/relatorio/grafico-avaliacao/{id} (id=${edicao.id})}">-->
-<!--                                Visualizar Gráficos-->
-<!--                            </a>-->
-
                             <a class="btn btn-primary"
+                               th:if="${edicao.situacao == 'Encerrada'}"
                                th:href="@{/relatorio/grafico-avaliacao/{id} (id=${edicao.id})}">
                                 Visualizar Gráficos
                             </a>

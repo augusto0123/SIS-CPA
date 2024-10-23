@@ -33,7 +33,7 @@
 
                 <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="questionario : ${questionarios}">
 
-                    <h5 class="card-title-questionario-cadastrar">Questionário do <span th:text="${questionario.categoria}"></span></h5>
+                    <h5 class="card-title-questionario-cadastrar"><span th:text="${questionario.categoria}"></span></h5>
 
                     <div class="card-questionario">
 
@@ -47,9 +47,12 @@
                                 <div class="form-label-span" th:text="${questionario.descricao}"></div>
                             </div>
 
-                            <a class="btn btn-primary" th:href="@{/autoavaliacao/responder-grupos/{id} (id=${questionario.id})}">
-                                Responder
-                            </a>
+                            <div th:if="${usuario.tipo == questionario.categoria}">
+                                <a class="btn btn-primary"
+                                   th:href="@{/autoavaliacao/responder-grupos/{id}(id=${questionario.id})}">
+                                    Responder
+                                </a>
+                            </div>
                         </div>
 
                     </div>

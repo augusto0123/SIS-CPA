@@ -35,7 +35,7 @@
                             <div class="card recent-sales overflow-auto">
                                     <div class="card-body-meeting">
                                         <div class="date-input">
-                                            <span name="next-meeting" th:text="${ultimaReuniao.dataReuniao}" id="nextmeeting"></span>
+                                            <span class="data-reuniao" name="next-meeting" th:text="${ultimaReuniao.dataReuniao}" id="nextmeeting"></span>
                                         </div>
                                     </div>
                             </div>
@@ -43,74 +43,9 @@
 
                         <div class="col-12">
                             <div class="card">
-
                                 <div class="card-body">
-                                    <h5 class="card-title">Dashboard com base nas classificações de avaliação dos últimos anos:</h5>
-
-
-                                    <div id="reportsChart"></div>
-
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", () => {
-                                          new ApexCharts(document.querySelector("#reportsChart"), {
-                                            series: [{
-                                              name: 'Muito Negativas',
-                                              data: [31, 40, 28, 51, 42, 82, 56],
-                                            }, {
-                                              name: 'Negativas',
-                                              data: [11, 32, 45, 32, 34, 52, 41]
-                                            }, {
-                                              name: 'Neutras',
-                                              data: [15, 11, 32, 18, 9, 24, 11]
-                                            }, {
-                                              name: 'Positivas',
-                                              data: [20, 6, 25, 16, 19, 22, 30]
-                                            }, {
-                                              name: 'Muito Positivas',
-                                              data: [8, 14, 28, 32, 12, 22, 14]
-                                            }],
-                                            chart: {
-                                              height: 350,
-                                              type: 'area',
-                                              toolbar: {
-                                                show: false
-                                              },
-                                            },
-                                            markers: {
-                                              size: 4
-                                            },
-                                            colors: ['#FF0000','#ff771d', '#FFD700', '#4154f1', '#2eca6a'],
-                                            fill: {
-                                              type: "gradient",
-                                              gradient: {
-                                                shadeIntensity: 1,
-                                                opacityFrom: 0.3,
-                                                opacityTo: 0.4,
-                                                stops: [0, 90, 100]
-                                              }
-                                            },
-                                            dataLabels: {
-                                              enabled: false
-                                            },
-                                            stroke: {
-                                              curve: 'smooth',
-                                              width: 2
-                                            },
-                                            xaxis: {
-                                              type: 'datetime',
-                                              categories: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"]
-                                            },
-                                            tooltip: {
-                                              x: {
-                                                format: '20yy'
-                                              },
-                                            }
-                                          }).render();
-                                        });
-                                    </script>
-
+                                    <img src="/assets/img/faculdade.jpg" alt="Faculdade FAI" class="img-fluid w-100 h-100" style="object-fit: cover;">
                                 </div>
-
                             </div>
                         </div>
 
@@ -218,18 +153,6 @@
                                     <h4><a href="#">Sobre o SIS CPA</a></h4>
                                     <p>Descubra quem somos e como o SIS CPA atua para fortalecer a comunidade. Junte-se a nós e...</p>
                                 </div>
-
-<!--                                <div class="post-item clearfix">-->
-<!--                                    <img src="/assets/img/news-2.jpg" alt="">-->
-<!--                                    <h4><a href="#">Quidem autem et impedit</a></h4>-->
-<!--                                    <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>-->
-<!--                                </div>-->
-
-<!--                                <div class="post-item clearfix">-->
-<!--                                    <img src="/assets/img/news-3.jpg" alt="">-->
-<!--                                    <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>-->
-<!--                                    <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>-->
-<!--                                </div>-->
 
                             </div>
                         </div>
