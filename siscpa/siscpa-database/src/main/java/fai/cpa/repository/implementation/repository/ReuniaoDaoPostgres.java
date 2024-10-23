@@ -5,6 +5,9 @@ import fai.cpa.repository.implementation.repository.connection.ConnectionFactory
 import port.ReuniaoCpaRepository;
 
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,8 +35,8 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
 
             while (resultSet.next()){
                 reuniao.setId(resultSet.getInt("id"));
-                reuniao.setDataReuniao(resultSet.getDate("data_reuniao").toLocalDate());
-                reuniao.setHorario(resultSet.getTime("horario").toLocalTime());
+                reuniao.setDataReuniao(formataData(resultSet.getString("data_reuniao")));
+                reuniao.setHorario(resultSet.getString("horario"));
                 reuniao.setPauta(resultSet.getString("pauta"));
                 reuniao.setMembroCpaId(resultSet.getInt("id_membro_cpa"));
             }
@@ -65,8 +68,8 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             while (resultSet.next()){
                 final ReuniaoCpaModel reuniao = new ReuniaoCpaModel();
                 reuniao.setId(resultSet.getInt("id"));
-                reuniao.setDataReuniao(resultSet.getDate("data_reuniao").toLocalDate());
-                reuniao.setHorario(resultSet.getTime("horario").toLocalTime());
+                reuniao.setDataReuniao(formataData(resultSet.getString("data_reuniao")));
+                reuniao.setHorario(resultSet.getString("horario"));
                 reuniao.setPauta(resultSet.getString("pauta"));
 //                reuniao.setMembroCpaId(resultSet.getInt("id_membro_cpa"));
 
@@ -110,8 +113,8 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             while (resultSet.next()) {
                 final ReuniaoCpaModel reuniao = new ReuniaoCpaModel();
                 reuniao.setId(resultSet.getInt("id"));
-                reuniao.setDataReuniao(resultSet.getDate("data_reuniao").toLocalDate());
-                reuniao.setHorario(resultSet.getTime("horario").toLocalTime());
+                reuniao.setDataReuniao(formataData(resultSet.getString("data_reuniao")));
+                reuniao.setHorario(resultSet.getString("horario"));
                 reuniao.setPauta(resultSet.getString("pauta"));
                 reuniao.setMembroCpaId(resultSet.getInt("id_membro_cpa"));
                 reuniao.setInstituicaoId(resultSet.getInt("id_instituicao"));
@@ -145,6 +148,7 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             preparedStatement.setString(1, reuniaoCpaModel.getPauta());
             preparedStatement.setTime(2, Time.valueOf(reuniaoCpaModel.getHorario()));
             preparedStatement.setDate(3, Date.valueOf(reuniaoCpaModel.getDataReuniao()));
+            preparedStatement.setInt(4, reuniaoCpaModel.getId());
 
             preparedStatement.execute();
 
@@ -178,7 +182,7 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setDate(1, Date.valueOf(reuniaoCpaModel.getDataReuniao()));
-            preparedStatement.setTime(2, Time.valueOf(reuniaoCpaModel.getHorario()));
+            preparedStatement.setTime(2, Time.valueOf(LocalTime.parse(reuniaoCpaModel.getHorario())));
             preparedStatement.setString(3, reuniaoCpaModel.getPauta());
             preparedStatement.setInt(4, reuniaoCpaModel.getInstituicaoId());
 
@@ -227,8 +231,8 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             if (resultSet.next()) {
                 reuniao = new ReuniaoCpaModel();
                 reuniao.setId(resultSet.getInt("id"));
-                reuniao.setDataReuniao(resultSet.getDate("data_reuniao").toLocalDate());
-                reuniao.setHorario(resultSet.getTime("horario").toLocalTime());
+                reuniao.setDataReuniao(formataData(resultSet.getString("data_reuniao")));
+                reuniao.setHorario(resultSet.getString("horario"));
                 reuniao.setPauta(resultSet.getString("pauta"));
             }
 
@@ -237,14 +241,6 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
         }
         return reuniao;
     }
@@ -267,8 +263,8 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             if (resultSet.next()) {
                 reuniao = new ReuniaoCpaModel();
                 reuniao.setId(resultSet.getInt("id"));
-                reuniao.setDataReuniao(resultSet.getDate("data_reuniao").toLocalDate());
-                reuniao.setHorario(resultSet.getTime("horario").toLocalTime());
+                reuniao.setDataReuniao(formataData(resultSet.getString("data_reuniao")));
+                reuniao.setHorario(resultSet.getString("horario"));
                 reuniao.setPauta(resultSet.getString("pauta"));
                 reuniao.setMembroCpaId(resultSet.getInt("id_membro_cpa"));
                 reuniao.setInstituicaoId(resultSet.getInt("id_instituicao"));
@@ -286,5 +282,9 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
             }
         }
         return reuniao;
+    }
+
+    private String formataData(String data) {
+        return data;
     }
 }

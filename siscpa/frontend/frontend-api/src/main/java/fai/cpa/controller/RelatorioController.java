@@ -1,12 +1,7 @@
 package fai.cpa.controller;
 
-import fai.cpa.autoavaliacao.ShowAllAvaliacoes;
-import fai.cpa.autoavaliacao.ShowAllEdicoes;
-import fai.cpa.autoavaliacao.ShowAllGraficos;
-import fai.cpa.entities.AvaliacaoModel;
-import fai.cpa.entities.EdicaoDeAutoAvaliacaoModel;
-import fai.cpa.entities.GraficoModel;
-import fai.cpa.entities.UsuarioModel;
+import fai.cpa.autoavaliacao.*;
+import fai.cpa.entities.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,10 +20,16 @@ public class RelatorioController {
     private final ShowAllAvaliacoes showAllAvaliacoes;
     private final ShowAllGraficos showAllGraficos;
 
-    public RelatorioController(ShowAllEdicoes showAllEdicoes, ShowAllAvaliacoes showAllAvaliacoes, ShowAllGraficos showAllGraficos) {
+    private final ShowAllRespostas showAllRespostas;
+
+    private final ShowAllPerguntas showAllPerguntas;
+
+    public RelatorioController(ShowAllEdicoes showAllEdicoes, ShowAllAvaliacoes showAllAvaliacoes, ShowAllGraficos showAllGraficos, ShowAllRespostas showAllRespostas, ShowAllPerguntas showAllPerguntas) {
         this.showAllEdicoes = showAllEdicoes;
         this.showAllAvaliacoes = showAllAvaliacoes;
         this.showAllGraficos = showAllGraficos;
+        this.showAllRespostas = showAllRespostas;
+        this.showAllPerguntas = showAllPerguntas;
     }
 
 //    Relatórios
@@ -60,7 +61,10 @@ public class RelatorioController {
     @GetMapping("/relatorios-avaliacao/{id}")
     public String getRelatoriosAvaliacaoPage(@PathVariable int id, final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        List<RespostaModel> respostas = showAllRespostas.showSubjetivaByAvaliacaoId(id);
 
+        model.addAttribute("edicaoId", id);
+        model.addAttribute("respostas", respostas);
         model.addAttribute("usuario", usuario);
         return "relatorio/relatorios-avaliacao";
     }

@@ -55,18 +55,7 @@ public class FindReuniaoCpa {
     }
 
     public ReuniaoCpaModel findReuniaoComMaiorId() {
-        List<ReuniaoCpaModel> reunioes = reuniaoCpaRepository.findAll();
-        if (reunioes == null || reunioes.isEmpty()) {
-            return null;
-        }
-
-        ReuniaoCpaModel maiorReuniao = reunioes.get(0);
-
-        for (ReuniaoCpaModel reuniao : reunioes) {
-            if (reuniao.getId() > maiorReuniao.getId()) {
-                maiorReuniao = reuniao;
-            }
-        }
+        ReuniaoCpaModel maiorReuniao = reuniaoCpaRepository.findLastReuniao();
         return maiorReuniao;
     }
 }

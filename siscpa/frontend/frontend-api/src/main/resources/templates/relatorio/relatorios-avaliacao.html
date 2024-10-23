@@ -29,8 +29,19 @@
         </div>
 
         <section class="section">
-            <div class="row">
+            <div class="row" th:each="resposta : ${respostas}">
 
+                <div class="card-resposta">
+
+                    <div class="card-body-responder">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="resposta" class="form-label-span" th:text="${resposta.perguntaModel.descricao}"></label>
+                            </div>
+                            <textarea class="form-control" id="resposta" rows="3" th:text="${resposta.respostaSubjetiva}" readonly></textarea>
+                        </form>
+                    </div>
+                </div>
 
             </div>
         </section>

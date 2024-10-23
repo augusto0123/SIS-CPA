@@ -2,6 +2,7 @@ package com.siscpa.api.configuration;
 
 import autoavaliacao.CreateEdicaoDeAutoavaliacao;
 import autoavaliacao.FindEdicaoDeAutoavaliacao;
+import autoavaliacao.UpdateEdicao;
 import fai.cpa.repository.implementation.repository.EdicaoDeAutoavaliacaoDaoPostgres;
 import fai.cpa.repository.implementation.repository.InstituicaoDaoPostgres;
 import org.springframework.context.annotation.Bean;
@@ -29,6 +30,11 @@ public class EdicaoDeAutoavaliacaoBackendConfiguration {
     @Bean
     public FindEdicaoDeAutoavaliacao findEdicaoDeAutoavaliacao(){
         return new FindEdicaoDeAutoavaliacao(edicaoDeAutoavaliacaoRepository);
+    }
+
+    @Bean
+    public UpdateEdicao updateEdicao(){
+        return new UpdateEdicao(edicaoDeAutoavaliacaoRepository);
     }
 
 }

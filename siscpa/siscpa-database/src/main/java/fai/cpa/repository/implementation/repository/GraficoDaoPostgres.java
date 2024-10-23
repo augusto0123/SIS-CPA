@@ -1,6 +1,7 @@
 package fai.cpa.repository.implementation.repository;
 
 import fai.cpa.entities.GraficoModel;
+import fai.cpa.entities.RespostaModel;
 import fai.cpa.repository.implementation.repository.connection.ConnectionFactory;
 import port.GraficoRepository;
 
@@ -77,21 +78,20 @@ public class GraficoDaoPostgres implements GraficoRepository {
     }
 
     @Override
-    public List<GraficoModel> findSubjetivaByAvaliacaoId(int avaliacaoId) {
-        final List<GraficoModel> graficos = new ArrayList<>();
+    public List<RespostaModel> findSubjetivaByAvaliacaoId(int avaliacaoId) {
+        final List<RespostaModel> respostaModels = new ArrayList<>();
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "SELECT r.resposta_subjetiva, COUNT(*) AS total, a.id " +
+        String sql = "SELECT r.* " +
                 "FROM resposta r " +
                 "INNER JOIN pergunta p ON r.id_pergunta = p.id " +
                 "INNER JOIN grupo_perguntas g ON p.id_grupo_perguntas = g.id " +
                 "INNER JOIN questionario q ON g.id_questionario = q.id " +
                 "INNER JOIN avaliacao a ON q.id_avaliacao = a.id " +
-                "WHERE a.id = ? AND r.resposta_subjetiva IS NOT NULL AND r.resposta_subjetiva != '' " +
-                "GROUP BY r.resposta_subjetiva, a.id;";
+                "WHERE a.id = ? AND r.resposta_subjetiva IS NOT NULL AND r.resposta_subjetiva != '' ;";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -101,27 +101,19 @@ public class GraficoDaoPostgres implements GraficoRepository {
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                GraficoModel grafico = new GraficoModel();
-                grafico.setLabel(resultSet.getString("resposta_subjetiva"));
-                grafico.setTotal(resultSet.getInt("total"));
-                grafico.setAvaliacaoId(resultSet.getInt("id"));
-                graficos.add(grafico);
+                RespostaModel resposta = new RespostaModel();
+                resposta.setRespostaSubjetiva(resultSet.getString("resposta_subjetiva"));
+                resposta.setAvaliacaoId(resultSet.getInt("id_avaliacao"));
+                resposta.setPerguntaId(resultSet.getInt("id_pergunta"));
+
+                respostaModels.add(resposta);
             }
 
             resultSet.close();
             preparedStatement.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } finally {
-
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
         }
-        return graficos;
+        return respostaModels;
     }
 }

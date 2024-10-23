@@ -5,6 +5,8 @@ import fai.cpa.repository.implementation.repository.connection.ConnectionFactory
 import port.EdicaoDeAutoavaliacaoRepository;
 
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,8 +36,8 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
                 edicao.setId(resultSet.getInt("id"));
                 edicao.setEdicao(resultSet.getInt("edicao"));
                 edicao.setAnoDaAvaliacao(resultSet.getString("ano_avaliacao"));
-                edicao.setDataInicio(resultSet.getDate("data_inicio").toLocalDate());
-                edicao.setDataFim(resultSet.getDate("data_fim").toLocalDate());
+                edicao.setDataInicio(formataData(resultSet.getString("data_inicio")));
+                edicao.setDataFim(formataData(resultSet.getString("data_fim")));
                 edicao.setSituacao(resultSet.getString("situacao"));
                 edicao.setDescricao(resultSet.getString("descricao"));
 //                edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
@@ -72,8 +74,8 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
                 edicao.setEdicao(resultSet.getInt("edicao"));
                 edicao.setAnoDaAvaliacao(resultSet.getString("ano_avaliacao"));
                 edicao.setDescricao(resultSet.getString("descricao"));
-                edicao.setDataInicio(resultSet.getDate("data_inicio").toLocalDate());
-                edicao.setDataFim(resultSet.getDate("data_fim").toLocalDate());
+                edicao.setDataInicio(formataData(resultSet.getString("data_inicio")));
+                edicao.setDataFim(formataData(resultSet.getString("data_fim")));
                 edicao.setSituacao(resultSet.getString("situacao"));
                 edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
@@ -113,8 +115,8 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
                 edicao.setEdicao(resultSet.getInt("edicao"));
                 edicao.setAnoDaAvaliacao(resultSet.getString("ano_avaliacao"));
                 edicao.setDescricao(resultSet.getString("descricao"));
-                edicao.setDataInicio(resultSet.getDate("data_inicio").toLocalDate());
-                edicao.setDataFim(resultSet.getDate("data_fim").toLocalDate());
+                edicao.setDataInicio(formataData(resultSet.getString("data_inicio")));
+                edicao.setDataFim(formataData(resultSet.getString("data_fim")));
                 edicao.setSituacao(resultSet.getString("situacao"));
                 edicao.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
@@ -137,7 +139,28 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
 
     @Override
     public boolean update(EdicaoDeAutoAvaliacaoModel edicaoDeAutoAvaliacaoModel) {
-        return false;
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String sql = "UPDATE edicao_autoavaliacao SET situacao = ? ";
+        sql += "WHERE id = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, edicaoDeAutoAvaliacaoModel.getSituacao());
+            preparedStatement.setInt(2, edicaoDeAutoAvaliacaoModel.getId());
+
+            preparedStatement.execute();
+            preparedStatement.close();
+
+            return false;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -193,5 +216,11 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
             }
             throw new RuntimeException(e);
         }
+    }
+
+    private String formataData(String data) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime dateTime = LocalDateTime.parse(data, formatter);
+        return dateTime.toLocalDate().toString();
     }
 }

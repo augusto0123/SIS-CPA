@@ -36,4 +36,10 @@ public class EdicaoDeAutoavaliacaoRestController {
         EdicaoDeAutoAvaliacaoModel edicao = edicaoDeAutoavaliacaoBackendConfiguration.findEdicaoDeAutoavaliacao().find(id);
         return edicao;
     }
+
+    @PutMapping("/atualizar-edicao/{id}")
+    public boolean atualizarEdicao(@PathVariable int id,@RequestBody EdicaoDeAutoAvaliacaoModel edicao){
+        boolean resultado = edicaoDeAutoavaliacaoBackendConfiguration.updateEdicao().atualizarEdicao(edicao);
+        return resultado;
+    }
 }

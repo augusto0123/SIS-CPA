@@ -10,7 +10,17 @@ public class RespostaModel {
     private String respostaSubjetiva;
     private int instituicaoId;
 
-//    Getters and Setters
+    private PerguntaModel perguntaModel;
+
+    public PerguntaModel getPerguntaModel() {
+        return perguntaModel;
+    }
+
+    public void setPerguntaModel(PerguntaModel perguntaModel) {
+        this.perguntaModel = perguntaModel;
+    }
+
+    //    Getters and Setters
 
     public int getInstituicaoId() {
         return instituicaoId;

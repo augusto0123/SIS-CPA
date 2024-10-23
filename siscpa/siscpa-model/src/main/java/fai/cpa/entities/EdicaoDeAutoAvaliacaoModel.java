@@ -13,11 +13,11 @@ public class EdicaoDeAutoAvaliacaoModel {
     private String descricao;
 
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dataInicio;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private String dataInicio;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dataFim;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private String dataFim;
 
     private String situacao;
 
@@ -74,23 +74,21 @@ public class EdicaoDeAutoAvaliacaoModel {
         this.descricao = descricao;
     }
 
-    public LocalDate getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(LocalDate dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public LocalDate getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(LocalDate dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
-
-
 }
 
 

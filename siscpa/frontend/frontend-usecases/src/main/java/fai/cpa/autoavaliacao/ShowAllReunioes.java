@@ -28,6 +28,6 @@ public class ShowAllReunioes {
 
     public ReuniaoCpaModel showReuniaoComMaiorId() {
         final String resource = "/reuniao/findReuniaoMaiorId";
-        return (ReuniaoCpaModel) restService.get(resource);
+        return restService.getById(resource, ReuniaoCpaModel.class);
     }
 }

@@ -2,6 +2,7 @@ package fai.cpa.configuration;
 
 import fai.cpa.autoavaliacao.CreateEdicao;
 import fai.cpa.autoavaliacao.ShowAllEdicoes;
+import fai.cpa.autoavaliacao.UpdateEdicao;
 import fai.cpa.entities.EdicaoDeAutoAvaliacaoModel;
 import fai.cpa.port.RestService;
 import fai.cpa.port.impl.RestApiController;
@@ -21,5 +22,11 @@ public class EdicaoConfiguration {
     public ShowAllEdicoes showAllEdicoes(){
         RestService<EdicaoDeAutoAvaliacaoModel> restService = new RestApiController<>();
         return new ShowAllEdicoes(restService);
+    }
+
+    @Bean
+    public UpdateEdicao updateEdicao(){
+        RestService<EdicaoDeAutoAvaliacaoModel> restService = new RestApiController<>();
+        return new UpdateEdicao(restService);
     }
 }

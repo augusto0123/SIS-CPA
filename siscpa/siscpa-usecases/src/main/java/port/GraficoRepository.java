@@ -2,6 +2,7 @@ package port;
 
 import fai.cpa.entities.GraficoModel;
 import fai.cpa.entities.GrupoDePerguntasModel;
+import fai.cpa.entities.RespostaModel;
 
 import java.util.List;
 
@@ -16,5 +17,5 @@ public interface GraficoRepository {
     List<GraficoModel> findAll();
 
     List<GraficoModel> findObjetivaByAvaliacaoId(int avaliacaoId);
-    List<GraficoModel> findSubjetivaByAvaliacaoId(int avaliacaoId);
+    List<RespostaModel> findSubjetivaByAvaliacaoId(int avaliacaoId);
 }

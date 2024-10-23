@@ -7,8 +7,10 @@ import fai.cpa.entities.GraficoModel;
 import fai.cpa.entities.PerguntaModel;
 import fai.cpa.entities.RespostaModel;
 import port.GraficoRepository;
+import port.PerguntaRepository;
 import port.RespostaRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FindResposta {
@@ -17,9 +19,12 @@ public class FindResposta {
 
     private final GraficoRepository graficoRepository;
 
-    public FindResposta(RespostaRepository respostaRepository, GraficoRepository graficoRepository) {
+    private final PerguntaRepository perguntaRepository;
+
+    public FindResposta(RespostaRepository respostaRepository, GraficoRepository graficoRepository, PerguntaRepository perguntaRepository) {
         this.respostaRepository = respostaRepository;
         this.graficoRepository = graficoRepository;
+        this.perguntaRepository = perguntaRepository;
     }
 
     public List<RespostaModel> find(){
@@ -78,16 +83,20 @@ public class FindResposta {
         return graficos;
     }
 
-    public List<GraficoModel> findSubjetivaByAvaliacaoId(final int avaliacaoId){
+    public List<RespostaModel> findSubjetivaByAvaliacaoId(final int avaliacaoId){
         if (avaliacaoId <= 0){
             throw new InvalidException();
         }
-        List<GraficoModel> graficos = graficoRepository.findSubjetivaByAvaliacaoId(avaliacaoId);
-        if (graficos == null || graficos.isEmpty()){
+        List<RespostaModel> respostaModels = graficoRepository.findSubjetivaByAvaliacaoId(avaliacaoId);
+        if (respostaModels == null || respostaModels.isEmpty()){
             final String message = "Nenhum dado encontrado para a avaliação com ID: " + avaliacaoId;
-            throw new NotFoundException(message);
+            System.out.println(message);
+            return new ArrayList<>();
         }
-        return graficos;
+        for (RespostaModel respostaModel:respostaModels){
+            respostaModel.setPerguntaModel(perguntaRepository.findById(respostaModel.getPerguntaId()));
+        }
+        return respostaModels;
     }
 
 }

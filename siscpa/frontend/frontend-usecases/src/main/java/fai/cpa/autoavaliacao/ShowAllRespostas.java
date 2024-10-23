@@ -32,4 +32,10 @@ public class ShowAllRespostas {
         final List<RespostaModel> respostas = restService.get(resource);
         return respostas;
     }
+
+    public List<RespostaModel> showSubjetivaByAvaliacaoId(final int avaliacaoId){
+        final String resource = "/resposta/findSubjetivaByAvaliacaoId/" + avaliacaoId;
+        final List<RespostaModel> respostaModels = restService.get(resource);
+        return respostaModels;
+    }
 }

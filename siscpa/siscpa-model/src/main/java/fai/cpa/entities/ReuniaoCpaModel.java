@@ -9,11 +9,11 @@ public class ReuniaoCpaModel {
 
     private int id;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private LocalDate dataReuniao;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private String dataReuniao;
 
-    @DateTimeFormat(pattern = "HH:mm")
-    private LocalTime horario;
+//    @DateTimeFormat(pattern = "HH:mm")
+    private String horario;
     private String pauta;
     private int membroCpaId;
 
@@ -43,18 +43,19 @@ public class ReuniaoCpaModel {
         this.id = id;
     }
 
-    public LocalDate getDataReuniao() {
+    public String getDataReuniao() {
         return dataReuniao;
     }
-    public void setDataReuniao(LocalDate dataReuniao) {
+
+    public void setDataReuniao(String dataReuniao) {
         this.dataReuniao = dataReuniao;
     }
 
-    public LocalTime getHorario() {
+    public String getHorario() {
         return horario;
     }
 
-    public void setHorario(LocalTime horario) {
+    public void setHorario(String horario) {
         this.horario = horario;
     }
 

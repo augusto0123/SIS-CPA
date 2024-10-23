@@ -45,8 +45,8 @@ public class RespostaRestController {
     }
 
     @GetMapping("/findSubjetivaByAvaliacaoId/{id}")
-    public List<GraficoModel> getRespostasSubjetivasByAvaliacaoId(@PathVariable("id") int id) {
-        List<GraficoModel> graficos = respostaBackendConfiguration.findResposta().findSubjetivaByAvaliacaoId(id);
-        return graficos;
+    public List<RespostaModel> getRespostasSubjetivasByAvaliacaoId(@PathVariable("id") int id) {
+        List<RespostaModel> respostaModels = respostaBackendConfiguration.findResposta().findSubjetivaByAvaliacaoId(id);
+        return respostaModels;
     }
 }

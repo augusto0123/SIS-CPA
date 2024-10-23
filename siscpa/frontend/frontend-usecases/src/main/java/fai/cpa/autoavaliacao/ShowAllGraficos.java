@@ -1,6 +1,7 @@
 package fai.cpa.autoavaliacao;
 
 import fai.cpa.entities.GraficoModel;
+import fai.cpa.entities.RespostaModel;
 import fai.cpa.port.RestService;
 
 import java.util.List;
@@ -15,12 +16,6 @@ public class ShowAllGraficos {
 
     public List<GraficoModel> showObjetivaByAvaliacaoId(final int avaliacaoId) {
         final String resource = "/resposta/findObjetivaByAvaliacaoId/" + avaliacaoId;
-        final List<GraficoModel> graficos = restService.get(resource);
-        return graficos;
-    }
-
-    public List<GraficoModel> showSubjetivaByAvaliacaoId(final int avaliacaoId){
-        final String resource = "/resposta/findSubjetivaByAvaliacaoId/" + avaliacaoId;
         final List<GraficoModel> graficos = restService.get(resource);
         return graficos;
     }

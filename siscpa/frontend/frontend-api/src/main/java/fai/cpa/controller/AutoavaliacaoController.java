@@ -39,7 +39,9 @@ public class AutoavaliacaoController {
 
     private final ShowAllRespostas showAllRespostas;
 
-    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas, UpdateAvaliacao updateAvaliacao, UpdateQuestionario updateQuestionario, UpdateGrupo updateGrupo, UpdatePergunta updatePergunta, CreateResposta createResposta, ShowAllRespostas showAllRespostas) {
+    private final UpdateEdicao updateEdicao;
+
+    public AutoavaliacaoController(CreateReuniao createReuniao, ShowAllReunioes showAllReunioes, CreateEdicao createEdicao, ShowAllEdicoes showAllEdicoes, CreateAvaliacao createAvaliacao, ShowAllAvaliacoes showAllAvaliacoes, CreateQuestionario createQuestionario, ShowAllQuestionarios showAllQuestionarios, CreateGrupo createGrupo, ShowAllGrupos showAllGrupos, ShowLastReuniao showLastReuniao, CreatePergunta createPergunta, ShowAllPerguntas showAllPerguntas, UpdateAvaliacao updateAvaliacao, UpdateQuestionario updateQuestionario, UpdateGrupo updateGrupo, UpdatePergunta updatePergunta, CreateResposta createResposta, ShowAllRespostas showAllRespostas, UpdateEdicao updateEdicao) {
         this.createReuniao = createReuniao;
         this.showAllReunioes = showAllReunioes;
         this.createEdicao = createEdicao;
@@ -59,6 +61,7 @@ public class AutoavaliacaoController {
         this.updatePergunta = updatePergunta;
         this.createResposta = createResposta;
         this.showAllRespostas = showAllRespostas;
+        this.updateEdicao = updateEdicao;
     }
 
 //    ==================================================================================================================
@@ -557,19 +560,28 @@ public class AutoavaliacaoController {
 //    =========================================================================================================================================================
 //    Editar Edição
 
-    @GetMapping("/editar-edicao")
-    public String getEditarEdicaoPage(@RequestParam("id")int id, final Model model , HttpSession session){
+    @GetMapping("/editar-edicao/{id}")
+    public String getEditarEdicaoPage(@PathVariable int id, final Model model , HttpSession session){
 
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         model.addAttribute("usuario", usuario);
 
-        List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showEdicaoById(id);
+        EdicaoDeAutoAvaliacaoModel edicao = showAllEdicoes.showEdicaoById(id);
 
-        if (edicoes == null){
-            edicoes = new ArrayList<>();
+        if (edicao == null){
+            return "redirect:/not-found";
         }
-        model.addAttribute("edicoes", edicoes);
 
+        model.addAttribute("edicao", edicao);
         return "/autoavaliacao/editar-edicao";
+    }
+
+    @PostMapping("/atualizar-edicao")
+    public String atualizarSituacao(EdicaoDeAutoAvaliacaoModel edicao){
+        boolean resultado = updateEdicao.atualizarEdicao(edicao);
+        if (!resultado){
+            return "redirect:/autoavaliacao/listar-edicoes";
+        }
+        return "redirect:/not-found";
     }
 }

@@ -52,7 +52,7 @@ public class InstituicaoController {
         List<EdicaoDeAutoAvaliacaoModel> edicoes = showAllEdicoes.showAllEdicoesByInstituicaoId(usuario.getInstituicaoId());
         List<ReuniaoCpaModel> reunioes = showAllReunioes.showAllReunioesByInstituicaoId(usuario.getInstituicaoId());
         InstituicaoModel instituicao = showAllInstituicoes.findById(usuario.getInstituicaoId());
-//        ReuniaoCpaModel ultimaReuniao = showAllReunioes.showReuniaoComMaiorId();
+        ReuniaoCpaModel ultimaReuniao = showAllReunioes.showReuniaoComMaiorId();
 
         if(edicoes == null
         || reunioes == null){
@@ -65,7 +65,7 @@ public class InstituicaoController {
         model.addAttribute("reunioes", reunioes);
         model.addAttribute("usuario", usuario);
         model.addAttribute("instituicao", instituicao);
-//        model.addAttribute("ultimaReuniao", ultimaReuniao);
+        model.addAttribute("ultimaReuniao", ultimaReuniao);
 
         return "instituicao/inicio";
     }
