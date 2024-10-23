@@ -16,9 +16,12 @@ VALUES ('secretaria@fai-mg.br',
         '(35) 3473-3000',
         'wanderley@gmail.com',
         '(11) 2222-3333',
-        'Wanderley Rodrigues de Souza',
+        'Wanderley Rodrigo de Souza',
         'Ativa',
 		1);
+
+INSERT INTO reuniao_cpa (id_instituicao, id_membro_cpa, data_reuniao, horario, pauta) 
+VALUES (1, NULL, '2024-10-28', '19:30:00', 'Discussão sobre a nova diretriz da instituição');   
 
 INSERT INTO usuario (id_instituicao, nome, email, senha, telefone, tipo) VALUES
 (1, 'Augusto', 'aluno1@instituicao1.com', 'senha123', '123456789', 'Aluno'),
