@@ -38,10 +38,7 @@ INSERT INTO edicao_autoavaliacao (id_instituicao, edicao, ano_avaliacao, descric
         irão guiar melhorias e ajudar a planejar um futuro ainda melhor.', 
         '2024-07-01 00:00:00', 
         '2024-12-31 23:59:59', 
-        'Em Andamento');
-
-INSERT INTO reuniao_cpa (id_instituicao, id_membro_cpa, data_reuniao, horario, pauta) VALUES
-(1, null, '2024-10-28', '10:00:00', 'Planejamento do próximo semestre');        
+        'Em Andamento');    
 
 INSERT INTO avaliacao (id_edicao_autoavaliacao, id_instituicao, descricao, tema) VALUES 
     (1, 1, 
@@ -92,21 +89,23 @@ INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUE
     (1, 1, 'A participação dos alunos na feira é incentivada pela instituição.', 'Objetiva'),
     (1, 1, 'A organização da feira é eficiente e facilita minha participação.', 'Objetiva'),
     (1, 1, 'As premiações da feira incentivam a participação dos alunos.', 'Objetiva'),
-    (1, 1, 'Deixe um oi:', 'Subjetiva');
+    (1, 1, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva');
 
 INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
     (1, 2, 'A feira é bem organizada e facilita a participação dos docentes.', 'Objetiva'),
     (1, 2, 'O suporte da instituição na realização da feira é satisfatório.', 'Objetiva'),
     (1, 2, 'A feira proporciona um momento para discutir tendências e inovações na educação.', 'Objetiva'),
     (1, 2, 'A feira me inspira a adotar novas abordagens de ensino para engajar melhor os alunos.', 'Objetiva'),
-    (1, 2, 'O evento ajuda a fortalecer a relação entre a instituição e o mercado de trabalho.', 'Objetiva');
+    (1, 2, 'O evento ajuda a fortalecer a relação entre a instituição e o mercado de trabalho.', 'Objetiva'),
+    (1, 2, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva');
 
 INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
     (1, 3, 'Sinto que a colaboração entre os setores da FAITEC durante a feira é eficaz.', 'Objetiva'),
     (1, 3, 'Sinto que meu trabalho é valorizado durante a realização da feira.', 'Objetiva'),
     (1, 3, 'A comunicação sobre a feira entre os setores da instituição é eficiente.', 'Objetiva'),
     (1, 3, 'A realização da feira contribui para o desenvolvimento de habilidades colaborativas.', 'Objetiva'),
-    (1, 3, 'O impacto positivo da feira na comunidade aumenta a relevância do meu trabalho na instituição.', 'Objetiva');
+    (1, 3, 'O impacto positivo da feira na comunidade aumenta a relevância do meu trabalho na instituição.', 'Objetiva'),
+    (1, 3, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva');
 
 INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
     (1, 4, 'Os projetos apresentados ajudam a solucionar problemas locais.', 'Objetiva'),
@@ -114,7 +113,8 @@ INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUE
     (1, 4, 'A divulgação da Feira de Tecnologia da FAITEC é ampla e acessível para todos os membros da comunidade.', 'Objetiva'),
     (1, 4, 'Os materiais promocionais da feira (cartazes, folhetos, etc.) são atrativos e informativos.', 'Objetiva'),
     (1, 4, 'Os alunos demonstram conhecimento prático e habilidades nos projetos apresentados.', 'Objetiva'),
-    (1, 4, 'Eu me sinto motivado a participar mais ativamente na comunidade após ver os projetos apresentados na feira.', 'Objetiva');
+    (1, 4, 'Eu me sinto motivado a participar mais ativamente na comunidade após ver os projetos apresentados na feira.', 'Objetiva'),
+    (1, 4, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva');
 
 INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
     (1, 5, 'Se você pudesse destacar uma coisa ou um projeto que mais lhe chamou atenção, qual seria?', 'Subjetiva'),
