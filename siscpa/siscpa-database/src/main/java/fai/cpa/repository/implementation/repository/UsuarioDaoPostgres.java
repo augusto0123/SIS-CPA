@@ -34,7 +34,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuarioModel.setSenha(resultSet.getString("senha"));
                 usuarioModel.setTelefone(resultSet.getString("telefone"));
                 usuarioModel.setTipo(resultSet.getString("tipo"));
-                usuarioModel.setInstituicaoId(resultSet.getInt("id_instituicao"));
+                usuarioModel.setInstituicaoId(resultSet.getObject("id_instituicao", Integer.class));
 
                 resultSet.close();
                 preparedStatement.close();
@@ -74,7 +74,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuarioModel.setTelefone(resultSet.getString("telefone"));
                 usuarioModel.setTipo(resultSet.getString("tipo"));
                 if(resultSet.getInt("id_instituicao") != 0) {
-                    usuarioModel.setInstituicaoId(resultSet.getInt("id_instituicao"));
+                    usuarioModel.setInstituicaoId(resultSet.getObject("id_instituicao", Integer.class));
                 }
 
                 resultSet.close();
@@ -116,7 +116,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuarioModel.setSenha(resultSet.getString("senha"));
                 usuarioModel.setTelefone(resultSet.getString("telefone"));
                 usuarioModel.setTipo(resultSet.getString("tipo"));
-                usuarioModel.setInstituicaoId(resultSet.getInt("id_instituicao"));
+                usuarioModel.setInstituicaoId(resultSet.getObject("id_instituicao", Integer.class));
 
                 usuarios.add(usuarioModel);
             }
@@ -152,7 +152,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuario.setTelefone(resultSet.getString("telefone"));
                 usuario.setSenha(resultSet.getString("senha"));
                 usuario.setTipo(resultSet.getString("tipo"));
-                usuario.setInstituicaoId(resultSet.getInt("id_instituicao"));
+                usuario.setInstituicaoId(resultSet.getObject("id_instituicao", Integer.class));
 
                 usuarios.add(usuario);
             }
@@ -195,7 +195,7 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
                 usuarioModel.setSenha(resultSet.getString("senha"));
                 usuarioModel.setTelefone(resultSet.getString("telefone"));
                 usuarioModel.setTipo(resultSet.getString("tipo"));
-                usuarioModel.setInstituicaoId(resultSet.getInt("id_instituicao"));
+                usuarioModel.setInstituicaoId(resultSet.getObject("id_instituicao", Integer.class));
 
                 usuarios.add(usuarioModel);
             }
@@ -282,14 +282,21 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
             preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, usuarioModel.getTipo());
-            preparedStatement.setInt(2, usuarioModel.getInstituicaoId());
+
+            if (usuarioModel.getInstituicaoId() != null) {
+                preparedStatement.setInt(2, usuarioModel.getInstituicaoId());
+            } else {
+                preparedStatement.setNull(2, Types.INTEGER);
+            }
             preparedStatement.setInt(3, usuarioModel.getId());
 
             preparedStatement.execute();
 
+            connection.commit();
+
             preparedStatement.close();
 
-            return false;
+            return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

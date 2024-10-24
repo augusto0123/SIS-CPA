@@ -104,6 +104,8 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
 
             preparedStatement.execute();
 
+            connection.commit();
+
             preparedStatement.close();
 
             return false;

@@ -182,6 +182,8 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
 
             preparedStatement.execute();
 
+            connection.commit();
+
             preparedStatement.close();
 
             return false;

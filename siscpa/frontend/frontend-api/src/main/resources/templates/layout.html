@@ -50,207 +50,198 @@
 
         <ul class="d-flex align-items-center">
 
-            <li class="nav-item d-block d-lg-none">
-                <a class="nav-link nav-icon search-bar-toggle " href="#">
-                    <i class="bi bi-search"></i>
-                </a>
-            </li>
+            <div th:if="${usuario.tipo != null}">
+                <li class="nav-item d-block d-lg-none">
+                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li>
+            </div>
 
-            <li class="nav-item dropdown pe-3" th:if="${usuario != null}">
-                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/assets/img/usuario-de-perfil.png" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2" th:text="${usuario.nome}"></span>
-                </a>
+            <div th:if="${usuario.tipo != null}">
+                <li class="nav-item dropdown pe-3" th:if="${usuario != null}">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <img src="/assets/img/usuario-de-perfil.png" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2" th:text="${usuario.nome}"></span>
+                    </a>
 
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                    <li class="dropdown-header">
-                        <h6 th:text="${usuario.nome}"></h6>
-                        <span th:text="${usuario.tipo}"></span>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" th:href="@{/conta/perfil}">
-                            <i class="bi bi-person"></i>
-                            <span>Meu Perfil</span>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li>
 
-                        <a class="dropdown-item d-flex align-items-center" th:href="@{/}">
-                            <i class="bi bi-box-arrow-right"></i>
-                            <span>Sair</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li class="dropdown-header">
+                            <h6 th:text="${usuario.nome}"></h6>
+                            <span th:text="${usuario.tipo}"></span>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" th:href="@{/conta/perfil}">
+                                <i class="bi bi-person"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+
+                            <form th:action="@{/conta/logout}" method="post" style="display: inline;">
+                                <button type="submit" class="dropdown-item d-flex align-items-center" title="Sair">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Sair</span>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+
+                </li>
+            </div>
+
         </ul>
     </nav>
 
 </header>
 
-<aside id="sidebar" class="sidebar">
+<div th:if="${usuario.tipo != null}">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+    <aside id="sidebar" class="sidebar">
 
-        <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
-            <a class="nav-link " th:href="@{/instituicao/inicio}">
-                <i class="bi bi-grid"></i>
-                <span>Início</span>
-            </a>
-        </li>
+        <ul class="sidebar-nav" id="sidebar-nav">
 
-        <li class="nav-item" th:if="${usuario.tipo == 'Administrador'}">
-            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Instituições</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a th:href="@{/instituicao/adicionar-instituicao}">
-                        <i class="bi bi-circle"></i><span>Cadastrar Instituição</span>
-                    </a>
-                </li>
+            <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
+                <a class="nav-link " th:href="@{/instituicao/inicio}">
+                    <i class="bi bi-grid"></i>
+                    <span>Início</span>
+                </a>
+            </li>
 
-                <li>
-                    <a th:href="@{/instituicao/listar-instituicao}">
-                        <i class="bi bi-circle"></i><span>Listar Instituição</span>
-                    </a>
-                </li>
+            <li class="nav-item" th:if="${usuario.tipo == 'Administrador'}">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Instituições</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a th:href="@{/instituicao/adicionar-instituicao}">
+                            <i class="bi bi-circle"></i><span>Cadastrar Instituição</span>
+                        </a>
+                    </li>
 
-            </ul>
-        </li>
+                    <li>
+                        <a th:href="@{/instituicao/listar-instituicao}">
+                            <i class="bi bi-circle"></i><span>Listar Instituição</span>
+                        </a>
+                    </li>
 
-        <li class="nav-item" th:if="${usuario.tipo == 'Membro CPA'}">
-            <a class="nav-link collapsed" data-bs-target="#forms-nav-membro" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-journal-text"></i><span>Autoavaliação (Membro)</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="forms-nav-membro" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a th:href="@{/autoavaliacao/cadastrar-reuniao}">
-                        <i class="bi bi-circle"></i><span>Agendar Reunião CPA</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/autoavaliacao/cadastros}">
-                        <i class="bi bi-circle"></i><span>Cadastros</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/autoavaliacao/registros}">
-                        <i class="bi bi-circle"></i><span>Registros</span>
-                    </a>
-                </li>
+                </ul>
+            </li>
 
-            </ul>
-        </li>
+            <li class="nav-item" th:if="${usuario.tipo == 'Membro CPA'}">
+                <a class="nav-link collapsed" data-bs-target="#forms-nav-membro" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-journal-text"></i><span>Autoavaliação (Membro)</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="forms-nav-membro" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a th:href="@{/autoavaliacao/cadastrar-reuniao}">
+                            <i class="bi bi-circle"></i><span>Agendar Reunião CPA</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/autoavaliacao/cadastros}">
+                            <i class="bi bi-circle"></i><span>Cadastros</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/autoavaliacao/registros}">
+                            <i class="bi bi-circle"></i><span>Registros</span>
+                        </a>
+                    </li>
 
-        <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
-            <a class="nav-link collapsed" data-bs-target="#forms-nav-usuario" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-journal-text"></i><span>Autoavaliação (Usuário)</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="forms-nav-usuario" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a th:href="@{/autoavaliacao/responder-edicao}">
-                        <i class="bi bi-circle"></i><span>Edições</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
+                </ul>
+            </li>
 
-        <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
-            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Documentos</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a th:href="@{/documentos/legislacao}">
-                        <i class="bi bi-circle"></i><span>Legislação</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/documentos/regulamentacao}">
-                        <i class="bi bi-circle"></i><span>Regulamentação</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/documentos/cronograma}">
-                        <i class="bi bi-circle"></i><span>Cronogramas</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/documentos/comunicacao}">
-                        <i class="bi bi-circle"></i><span>Comunicação</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
+            <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
+                <a class="nav-link collapsed" data-bs-target="#forms-nav-usuario" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-journal-text"></i><span>Autoavaliação</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="forms-nav-usuario" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a th:href="@{/autoavaliacao/responder-edicao}">
+                            <i class="bi bi-circle"></i><span>Edições</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
-        <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
-            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-bar-chart"></i><span>Relatório</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a th:href="@{/relatorio/relatorios}">
-                        <i class="bi bi-circle"></i><span>Relatório</span>
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/relatorio/grafico-edicao}">
-                        <i class="bi bi-circle"></i><span>Gráfico</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
+<!--            <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">-->
+<!--                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">-->
+<!--                    <i class="bi bi-layout-text-window-reverse"></i><span>Documentos</span><i class="bi bi-chevron-down ms-auto"></i>-->
+<!--                </a>-->
+<!--                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">-->
+<!--                    <li>-->
+<!--                        <a th:href="@{/documentos/legislacao}">-->
+<!--                            <i class="bi bi-circle"></i><span>Legislação</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a th:href="@{/documentos/regulamentacao}">-->
+<!--                            <i class="bi bi-circle"></i><span>Regulamentação</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a th:href="@{/documentos/cronograma}">-->
+<!--                            <i class="bi bi-circle"></i><span>Cronogramas</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a th:href="@{/documentos/comunicacao}">-->
+<!--                            <i class="bi bi-circle"></i><span>Comunicação</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
 
-        <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
-            <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-gem"></i><span>Galeria</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a th:href="@{/galeria/galeria}">
-                        <i class="bi bi-circle"></i><span>Galeria de Fotos</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-heading">Páginas</li>
+            <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">
+                <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-bar-chart"></i><span>Relatório</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a th:href="@{/relatorio/relatorios}">
+                            <i class="bi bi-circle"></i><span>Relatório</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/relatorio/grafico-edicao}">
+                            <i class="bi bi-circle"></i><span>Gráfico</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" th:href="@{/conta/perfil}">
-                <i class="bi bi-person"></i>
-                <span>Perfil</span>
-            </a>
-        </li>
+<!--            <li class="nav-item" th:if="${usuario.tipo != 'Administrador'}">-->
+<!--                <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">-->
+<!--                    <i class="bi bi-gem"></i><span>Galeria</span><i class="bi bi-chevron-down ms-auto"></i>-->
+<!--                </a>-->
+<!--                <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">-->
+<!--                    <li>-->
+<!--                        <a th:href="@{/galeria/galeria}">-->
+<!--                            <i class="bi bi-circle"></i><span>Galeria de Fotos</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
+            <li class="nav-heading">Páginas</li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" th:href="@{/conta/perfil}">
+                    <i class="bi bi-person"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+</div>
 
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link collapsed" href="register.html">-->
-<!--                <i class="bi bi-card-list"></i>-->
-<!--                <span>Cadastro</span>-->
-<!--            </a>-->
-<!--        </li>-->
-
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link collapsed" href="login.html">-->
-<!--                <i class="bi bi-box-arrow-in-right"></i>-->
-<!--                <span>Entrar</span>-->
-<!--            </a>-->
-<!--        </li>-->
-
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link collapsed" href="error-admin.html">-->
-<!--                <i class="bi bi-dash-circle"></i>-->
-<!--                <span>Erro</span>-->
-<!--            </a>-->
-<!--        </li>-->
-    </ul>
-</aside>
 
 <div layout:fragment="body"></div>
 

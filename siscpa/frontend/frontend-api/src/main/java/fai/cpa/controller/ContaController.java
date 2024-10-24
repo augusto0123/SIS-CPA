@@ -111,6 +111,10 @@ public class ContaController {
         if (usuario != null){
             session.setAttribute("usuarioAtual",usuario);
 
+            if (usuario.getInstituicaoId() == null || usuario.getTipo() == null) {
+                return "redirect:/not-found";
+            }
+
             if ("Administrador".equals(usuario.getTipo())) {
                 return "redirect:/instituicao/listar-instituicao";
             }
@@ -122,18 +126,19 @@ public class ContaController {
     @PostMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/conta/login";
+        return "redirect:/";
     }
 
     @PostMapping("/vincular-usuario")
-    public String vincularUsuario(final HttpSession session, final int instituicaoId, final String tipo){
+    public String vincularUsuario(final HttpSession session, final int instituicaoId, final String tipo) {
         final UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+
         usuario.setInstituicaoId(instituicaoId);
         usuario.setTipo(tipo);
 
         final boolean updateUsuario = this.updateUsuario.updateUsuario(usuario);
 
-        if (!updateUsuario){
+        if (updateUsuario) {
             session.setAttribute("usuarioAtual", usuario);
             return "redirect:/instituicao/inicio";
         }

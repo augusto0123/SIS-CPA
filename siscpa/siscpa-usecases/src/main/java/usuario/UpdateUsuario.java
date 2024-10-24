@@ -28,18 +28,21 @@ public class UpdateUsuario {
         }
     }
 
-    public boolean updateById(final UsuarioModel usuarioModel){
+    public boolean updateById(final UsuarioModel usuarioModel) {
+
         final UsuarioModel byId = usuarioRepositorty.findById(usuarioModel.getId());
+
+        if (byId == null) {
+            return false;
+        }
+
         byId.setInstituicaoId(usuarioModel.getInstituicaoId());
         byId.setTipo(usuarioModel.getTipo());
 
-        boolean updateUsuario = false;
-
         try {
-            updateUsuario = usuarioRepositorty.updateById(byId);
-            return updateUsuario;
-        } catch (Exception e){
-            return true;
+            return usuarioRepositorty.updateById(byId);
+        } catch (Exception e) {
+            return false;
         }
     }
 }

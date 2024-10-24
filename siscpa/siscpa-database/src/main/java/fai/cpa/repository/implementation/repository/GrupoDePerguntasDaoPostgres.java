@@ -161,15 +161,14 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
 
     @Override
     public boolean update(GrupoDePerguntasModel grupo) {
-
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String sql = "UPDATE grupo_perguntas SET id_questionario = ?, tipo = ?, descricao = ? ";
-        sql += "WHERE id = ?;";
+        String sql = "UPDATE grupo_perguntas SET id_questionario = ?, tipo = ?, descricao = ? WHERE id = ?;";
 
         try {
             connection = ConnectionFactory.getConnection();
+            connection.setAutoCommit(false); // Desabilitar o auto commit
             preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, grupo.getQuestionarioId());
@@ -177,15 +176,31 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
             preparedStatement.setString(3, grupo.getDescricao());
             preparedStatement.setInt(4, grupo.getId());
 
-            preparedStatement.execute();
-
-            preparedStatement.close();
-
-            return false;
-
+            preparedStatement.executeUpdate(); // Use executeUpdate para operações de atualização
+            connection.commit(); // Confirma a transação
+            return true; // Retorna true se a atualização foi bem-sucedida
         } catch (Exception e) {
+            if (connection != null) {
+                try {
+                    connection.rollback(); // Desfaz a transação em caso de erro
+                } catch (SQLException rollbackEx) {
+                    rollbackEx.printStackTrace();
+                }
+            }
             e.printStackTrace();
-            throw new RuntimeException(e);
+            return false; // Retorna false em caso de falha
+        } finally {
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.setAutoCommit(true); // Restaura o auto commit
+                    connection.close();
+                }
+            } catch (SQLException closeEx) {
+                closeEx.printStackTrace();
+            }
         }
     }
 

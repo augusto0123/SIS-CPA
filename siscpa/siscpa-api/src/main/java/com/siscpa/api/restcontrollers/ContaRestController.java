@@ -2,6 +2,9 @@ package com.siscpa.api.restcontrollers;
 
 import com.siscpa.api.configuration.ContaBackendConfiguration;
 import fai.cpa.entities.UsuarioModel;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import usuario.CreateUsuario;
@@ -49,6 +52,15 @@ public class ContaRestController {
     @PostMapping("/login")
     public UsuarioModel login(@RequestParam String email,@RequestParam String senha){
         return contaBackendConfiguration.findUsuario().findByEmaileSenha(email, senha);
+    }
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpSession session) {
+        if (session != null) {
+            session.invalidate(); // Invalida a sessão do usuário
+            return ResponseEntity.ok("Logout realizado com sucesso.");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Nenhuma sessão ativa para logout.");
+        }
     }
 
     @PutMapping("/vincular-usuario")

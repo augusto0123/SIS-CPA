@@ -21,35 +21,53 @@ public class CreateResposta {
             return -1;
         }
 
-        String[] respostas = respostaModel.getRespostaObjetiva().split(";");
+        String[] respostas = null;
 
-        for (String resposta:respostas){
-            String[] valor = resposta.split("-");
-            RespostaModel resposta1 = new RespostaModel();
-            resposta1.setRespostaObjetiva(valor[1]);
-            resposta1.setPerguntaId(Integer.parseInt(valor[0]));
-            resposta1.setInstituicaoId(respostaModel.getInstituicaoId());
-            resposta1.setUsuarioId(respostaModel.getUsuarioId());
-            int id =  respostaRepository.create(resposta1);
+        if (!respostaModel.getRespostaObjetiva().isEmpty()){
+            respostas = respostaModel.getRespostaObjetiva().split(";");
 
-            if (id == 0){
-                return -1;
+            for (String resposta:respostas){
+                String[] valor = resposta.split("-");
+                RespostaModel resposta1 = new RespostaModel();
+                resposta1.setRespostaObjetiva(valor[1]);
+                resposta1.setPerguntaId(Integer.parseInt(valor[0]));
+                resposta1.setInstituicaoId(respostaModel.getInstituicaoId());
+                resposta1.setUsuarioId(respostaModel.getUsuarioId());
+                int id =  respostaRepository.create(resposta1);
+
+                if (id == 0){
+                    return -1;
+                }
             }
         }
 
-        respostas = respostaModel.getRespostaSubjetiva().split(";");
 
-        for (String resposta:respostas){
-            String[] valor = resposta.split("-");
-            RespostaModel resposta1 = new RespostaModel();
-            resposta1.setRespostaSubjetiva(valor[1]);
-            resposta1.setPerguntaId(Integer.parseInt(valor[0]));
-            resposta1.setInstituicaoId(respostaModel.getInstituicaoId());
-            resposta1.setUsuarioId(respostaModel.getUsuarioId());
-            int id =  respostaRepository.create(resposta1);
+        if (!respostaModel.getRespostaSubjetiva().isEmpty()){
+            respostas = respostaModel.getRespostaSubjetiva().split(";");
 
-            if (id == 0){
-                return -1;
+            for (String resposta : respostas) {
+                if (resposta == null || resposta.trim().isEmpty()) {
+                    System.out.println("Resposta vazia ou nula ignorada.");
+                    continue;
+                }
+
+                String[] valor = resposta.split("-");
+                if (valor.length < 2) {
+                    System.err.println("Formato inválido para resposta: " + resposta);
+                    continue;
+                }
+
+                RespostaModel resposta1 = new RespostaModel();
+                resposta1.setRespostaSubjetiva(valor[1]);
+                resposta1.setPerguntaId(Integer.parseInt(valor[0]));
+                resposta1.setInstituicaoId(respostaModel.getInstituicaoId());
+                resposta1.setUsuarioId(respostaModel.getUsuarioId());
+
+                int id = respostaRepository.create(resposta1);
+
+                if (id == 0) {
+                    return -1;
+                }
             }
         }
 

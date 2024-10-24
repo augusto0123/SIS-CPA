@@ -11,6 +11,8 @@ public interface RestService <T> {
 
     UsuarioModel login(final String resource);
 
+    boolean logout(final String resource);
+
     boolean put(final String resource, final T entity);
 
     boolean delete(final String resource);

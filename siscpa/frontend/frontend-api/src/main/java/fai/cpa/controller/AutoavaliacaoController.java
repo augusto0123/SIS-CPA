@@ -550,6 +550,7 @@ public class AutoavaliacaoController {
         respostaModel.setUsuarioId(usuario.getId());
 
         int resposta = createResposta.createResposta(respostaModel);
+        System.out.println("Valor da resposta: " + resposta);
 
         if (resposta > 0){
             return "redirect:/instituicao/inicio";

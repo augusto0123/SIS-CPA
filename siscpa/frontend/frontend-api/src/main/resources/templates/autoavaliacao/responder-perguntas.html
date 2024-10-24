@@ -27,7 +27,7 @@
                 <div class="col-lg-11">
                     <div class="card-resposta-usuario">
 
-                        <h5 class="card-title-pergunta">(Tema do Grupo)</h5>
+<!--                        <h5 class="card-title-pergunta">(Tema do Grupo)</h5>-->
 
                         <div class="card-body-responder-usuario">
 
@@ -53,23 +53,23 @@
                                             <div class="mb-3">
                                                 <div>
                                                     <div class="form-check">
-                                                        <input  class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Discordo Totalmente' + ${pergunta.id}" value="Discordo Totalmente">
+                                                        <input  class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Discordo Totalmente' + ${pergunta.id}" value="Discordo Totalmente" required>
                                                         <label class="form-check-label">Discordo Totalmente</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input  class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Discordo'+ ${pergunta.id}" value="Discordo">
+                                                        <input  class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Discordo'+ ${pergunta.id}" value="Discordo" required>
                                                         <label class="form-check-label">Discordo</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Neutro' + ${pergunta.id}" value="Neutro">
+                                                        <input class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Neutro' + ${pergunta.id}" value="Neutro" required>
                                                         <label class="form-check-label">Neutro</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input  class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Concordo' + ${pergunta.id}" value="Concordo">
+                                                        <input  class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Concordo' + ${pergunta.id}" value="Concordo" required>
                                                         <label class="form-check-label">Concordo</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Concordo Totalmente' + ${pergunta.id}" value="Concordo Totalmente">
+                                                        <input class="form-check-input" type="radio" th:name="'resposta' + ${pergunta.id}" th:id="'Concordo Totalmente' + ${pergunta.id}" value="Concordo Totalmente" required>
                                                         <label class="form-check-label">Concordo Totalmente</label>
                                                     </div>
                                                 </div>
@@ -82,7 +82,7 @@
                                             <div class="mb-3">
                                                 <span class="form-label-span" th:text="${pergunta.descricao}"></span>
                                             </div>
-                                            <textarea class="form-control" th:id="'respostaSubjetiva' + ${pergunta.id}" rows="3" placeholder="Responda aqui..." required></textarea>
+                                            <textarea class="form-control" th:id="'respostaSubjetiva' + ${pergunta.id}" rows="3" placeholder="Responda aqui..."></textarea>
                                         </div>
                                     </div>
                                 </div>

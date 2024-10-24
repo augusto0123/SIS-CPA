@@ -63,7 +63,7 @@ public class RelatorioController {
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
         List<RespostaModel> respostas = showAllRespostas.showSubjetivaByAvaliacaoId(id);
 
-        model.addAttribute("edicaoId", id);
+        model.addAttribute("avaliacaoId", id);
         model.addAttribute("respostas", respostas);
         model.addAttribute("usuario", usuario);
         return "relatorio/relatorios-avaliacao";

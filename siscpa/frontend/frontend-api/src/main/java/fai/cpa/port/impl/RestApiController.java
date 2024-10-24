@@ -106,6 +106,25 @@ public class RestApiController<T> implements RestService<T> {
         return null;
     }
 
+    @Override
+    public boolean logout(String resource) {
+        try {
+            final String endpoint = getEndpoint(resource);
+            final RestTemplate restTemplate = new RestTemplate();
+            final HttpEntity<String> httpEntity = new HttpEntity<>("");
+
+            final ResponseEntity<String> responseEntity = restTemplate.exchange(endpoint,
+                    HttpMethod.POST,
+                    httpEntity,
+                    String.class);
+
+            return responseEntity.getStatusCode() == HttpStatus.OK;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
     @Override
     public boolean put(final String resource, final T entity) {

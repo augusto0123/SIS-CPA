@@ -18,7 +18,7 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Listar Edições de Autoavaliação</h1>
+            <h1>Relatórios das Avaliações</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-membroCPA.html">Inicio</a></li>
@@ -30,9 +30,7 @@
 
         <section class="section">
             <div class="row" th:each="resposta : ${respostas}">
-
                 <div class="card-resposta">
-
                     <div class="card-body-responder">
                         <form class="row g-3 needs-validation" novalidate>
                             <div class="mb-3">
@@ -42,7 +40,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </section>
 

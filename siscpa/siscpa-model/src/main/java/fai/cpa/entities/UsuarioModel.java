@@ -10,16 +10,17 @@ public class UsuarioModel {
     private String email;
     private String senha;
     private String telefone;
-    private int instituicaoId;
+    private Integer instituicaoId;
 
 
 //    Getters and Setters
 
-    public int getInstituicaoId() {
+
+    public Integer getInstituicaoId() {
         return instituicaoId;
     }
 
-    public void setInstituicaoId(int instituicaoId) {
+    public void setInstituicaoId(Integer instituicaoId) {
         this.instituicaoId = instituicaoId;
     }
 

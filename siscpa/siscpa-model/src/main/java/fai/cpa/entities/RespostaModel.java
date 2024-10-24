@@ -9,7 +9,6 @@ public class RespostaModel {
     private String respostaObjetiva;
     private String respostaSubjetiva;
     private int instituicaoId;
-
     private PerguntaModel perguntaModel;
 
     public PerguntaModel getPerguntaModel() {
