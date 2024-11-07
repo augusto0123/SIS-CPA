@@ -180,7 +180,7 @@ public class AvaliacaoDaoPostgres implements AvaliacaoRepository {
 
             preparedStatement.execute();
 
-            connection.commit();
+//            connection.commit();
 
             preparedStatement.close();
 

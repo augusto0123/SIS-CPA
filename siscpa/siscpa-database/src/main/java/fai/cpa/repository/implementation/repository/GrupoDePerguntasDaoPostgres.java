@@ -145,8 +145,6 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
                 grupo.setTipo(resultSet.getString("tipo"));
                 grupo.setDescricao(resultSet.getString("descricao"));
                 grupo.setInstituicaoId(resultSet.getInt("id_instituicao"));
-                grupo.setQuestionarioId(resultSet.getInt("id_questionario"));
-
                 grupos.add(grupo);
             }
             resultSet.close();

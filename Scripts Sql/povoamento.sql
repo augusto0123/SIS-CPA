@@ -1,5 +1,7 @@
 -- Inserir dados na tabela Endereco
 
+begin;
+
 INSERT INTO endereco (logradouro, numero, bairro, cidade, complemento)
 VALUES ('Av. Antônio de Cássia',
         '472',
@@ -47,93 +49,39 @@ INSERT INTO avaliacao (id_edicao_autoavaliacao, id_instituicao, descricao, tema)
     acadêmico e na interação com a comunidade', 
     'Pesquisa e Extensão');     
 
-INSERT INTO questionario (id_instituicao, id_avaliacao, descricao, categoria) VALUES 
-    (1, 1, 'Avaliação focada na percepção dos alunos sobre a FAITEC, 
+INSERT INTO questionario (id_instituicao, descricao, categoria) VALUES 
+    (1, 'Avaliação focada na percepção dos alunos sobre a FAITEC, 
     suas contribuições acadêmicas e o impacto das atividades de 
     pesquisa e extensão no seu aprendizado', 'Aluno'),
-    (1, 1, 'Questionário voltado para os professores, 
+    (1, 'Questionário voltado para os professores, 
     buscando avaliar a participação e o impacto da FAITEC 
-    nas atividades de ensino, pesquisa e extensão', 'Professor'),
-    (1, 1, 'Avaliação voltada para os colaboradores da 
-    instituição, com o objetivo de medir a percepção sobre 
-    a organização e o suporte da FAITEC nas atividades de 
-    pesquisa e extensão', 'Colaborador'),
-    (1, 1, 'Questionário destinado à comunidade externa, 
-    avaliando a relevância e os benefícios da FAITEC como 
-    um evento de pesquisa e extensão para a sociedade', 'Comunidade Externa');    
+    nas atividades de ensino, pesquisa e extensão', 'Professor');
 
-INSERT INTO grupo_perguntas (id_instituicao, id_questionario, tipo, descricao) VALUES 
-    (1, 1, 'FAITEC (Aluno)', 'Avalia como a FAITEC enriquece a formação dos alunos 
+INSERT INTO grupo_perguntas (id_instituicao, tipo, descricao) VALUES 
+    (1, 'FAITEC (Aluno)', 'Avalia como a FAITEC enriquece a formação dos alunos 
+    e o impacto das atividades de pesquisa e extensão em suas experiências');
+
+INSERT INTO grupo_perguntas (id_instituicao, tipo, descricao) VALUES 
+    (1, 'Impressões do Evento', 'Avalia como a FAITEC enriquece a formação dos alunos 
     e o impacto das atividades de pesquisa e extensão em suas experiências'),
-    (1, 2, 'FAITEC (Professor)', 'Explora a visão dos professores sobre a FAITEC 
-    e como o evento integra ensino, pesquisa e extensão'),
-    (1, 3, 'FAITEC (Colaborador)', 'Analisa a percepção dos colaboradores sobre 
-    a FAITEC e suas contribuições para a comunidade e o ambiente educacional'),    
-    (1, 4, 'FAITEC (Comunidade Externa)', 'Examina como a comunidade externa 
-    vê a FAITEC e seu impacto no desenvolvimento social e tecnológico');
+    (1, 'Impressões do Evento', 'Explora a visão dos professores sobre a FAITEC 
+    e como o evento integra ensino, pesquisa e extensão'); 
 
-INSERT INTO grupo_perguntas (id_instituicao, id_questionario, tipo, descricao) VALUES 
-    (1, 1, 'Impressões do Evento', 'Avalia como a FAITEC enriquece a formação dos alunos 
-    e o impacto das atividades de pesquisa e extensão em suas experiências'),
-    (1, 2, 'Impressões do Evento', 'Explora a visão dos professores sobre a FAITEC 
-    e como o evento integra ensino, pesquisa e extensão'),
-    (1, 3, 'Impressões do Evento', 'Analisa a percepção dos colaboradores sobre 
-    a FAITEC e suas contribuições para a comunidade e o ambiente educacional'),    
-    (1, 4, 'Impressões do Evento', 'Examina como a comunidade externa 
-    vê a FAITEC e seu impacto no desenvolvimento social e tecnológico');    
+INSERT INTO pergunta (id_instituicao, descricao, tipo) VALUES 
+    (1, 'A feira de tecnologia oferece oportunidades valiosas para interagir com profissionais do setor.', 'Objetiva'),
+    (1, 'A feira de tecnologia promove a colaboração entre diferentes áreas do conhecimento.', 'Objetiva'),
+    (1, 'A disponibilidade de materiais da FAITEC é adequada e suficiente para os alunos.', 'Objetiva'),
+    (1, 'A participação dos alunos na feira é incentivada pela instituição.', 'Objetiva'),
+    (1, 'A organização da feira é eficiente e facilita minha participação.', 'Objetiva'),
+    (1, 'As premiações da feira incentivam a participação dos alunos.', 'Objetiva'),
+    (1, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva');
 
-INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
-    (1, 1, 'A feira de tecnologia oferece oportunidades valiosas para interagir com profissionais do setor.', 'Objetiva'),
-    (1, 1, 'A feira de tecnologia promove a colaboração entre diferentes áreas do conhecimento.', 'Objetiva'),
-    (1, 1, 'A disponibilidade de materiais da FAITEC é adequada e suficiente para os alunos.', 'Objetiva'),
-    (1, 1, 'A participação dos alunos na feira é incentivada pela instituição.', 'Objetiva'),
-    (1, 1, 'A organização da feira é eficiente e facilita minha participação.', 'Objetiva'),
-    (1, 1, 'As premiações da feira incentivam a participação dos alunos.', 'Objetiva'),
-    (1, 1, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva');
-
-INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
-    (1, 2, 'A feira é bem organizada e facilita a participação dos docentes.', 'Objetiva'),
-    (1, 2, 'O suporte da instituição na realização da feira é satisfatório.', 'Objetiva'),
-    (1, 2, 'A feira proporciona um momento para discutir tendências e inovações na educação.', 'Objetiva'),
-    (1, 2, 'A feira me inspira a adotar novas abordagens de ensino para engajar melhor os alunos.', 'Objetiva'),
-    (1, 2, 'O evento ajuda a fortalecer a relação entre a instituição e o mercado de trabalho.', 'Objetiva'),
-    (1, 2, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva');
-
-INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
-    (1, 3, 'Sinto que a colaboração entre os setores da FAITEC durante a feira é eficaz.', 'Objetiva'),
-    (1, 3, 'Sinto que meu trabalho é valorizado durante a realização da feira.', 'Objetiva'),
-    (1, 3, 'A comunicação sobre a feira entre os setores da instituição é eficiente.', 'Objetiva'),
-    (1, 3, 'A realização da feira contribui para o desenvolvimento de habilidades colaborativas.', 'Objetiva'),
-    (1, 3, 'O impacto positivo da feira na comunidade aumenta a relevância do meu trabalho na instituição.', 'Objetiva'),
-    (1, 3, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva');
-
-INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
-    (1, 4, 'Os projetos apresentados ajudam a solucionar problemas locais.', 'Objetiva'),
-    (1, 4, 'O evento é uma oportunidade para as empresas conhecerem novos talentos.', 'Objetiva'),
-    (1, 4, 'A divulgação da Feira de Tecnologia da FAITEC é ampla e acessível para todos os membros da comunidade.', 'Objetiva'),
-    (1, 4, 'Os materiais promocionais da feira (cartazes, folhetos, etc.) são atrativos e informativos.', 'Objetiva'),
-    (1, 4, 'Os alunos demonstram conhecimento prático e habilidades nos projetos apresentados.', 'Objetiva'),
-    (1, 4, 'Eu me sinto motivado a participar mais ativamente na comunidade após ver os projetos apresentados na feira.', 'Objetiva'),
-    (1, 4, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva');
-
-INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
-    (1, 5, 'Se você pudesse destacar uma coisa ou um projeto que mais lhe chamou atenção, qual seria?', 'Subjetiva'),
-    (1, 5, 'Quais temas ou atividades você gostaria de ver em futuros eventos?', 'Subjetiva'),
-    (1, 5, 'O que você acha que poderia ser feito para tornar o evento ainda melhor?', 'Subjetiva');
-
-INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
-    (1, 6, 'Se você pudesse destacar uma coisa ou um projeto que mais lhe chamou atenção, qual seria?', 'Subjetiva'),
-    (1, 6, 'Quais temas ou atividades você gostaria de ver em futuros eventos?', 'Subjetiva'),
-    (1, 6, 'O que você acha que poderia ser feito para tornar o evento ainda melhor?', 'Subjetiva');
-
-INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
-    (1, 7, 'Se você pudesse destacar uma coisa ou um projeto que mais lhe chamou atenção, qual seria?', 'Subjetiva'),
-    (1, 7, 'Quais temas ou atividades você gostaria de ver em futuros eventos?', 'Subjetiva'),
-    (1, 7, 'O que você acha que poderia ser feito para tornar o evento ainda melhor?', 'Subjetiva');
-
-INSERT INTO pergunta (id_instituicao, id_grupo_perguntas, descricao, tipo) VALUES 
-    (1, 8, 'Se você pudesse destacar uma coisa ou um projeto que mais lhe chamou atenção, qual seria?', 'Subjetiva'),
-    (1, 8, 'Quais temas ou atividades você gostaria de ver em futuros eventos?', 'Subjetiva'),
-    (1, 8, 'O que você acha que poderia ser feito para tornar o evento ainda melhor?', 'Subjetiva');    
+INSERT INTO pergunta (id_instituicao, descricao, tipo) VALUES 
+    (1, 'A feira é bem organizada e facilita a participação dos docentes.', 'Objetiva'),
+    (1, 'O suporte da instituição na realização da feira é satisfatório.', 'Objetiva'),
+    (1, 'A feira proporciona um momento para discutir tendências e inovações na educação.', 'Objetiva'),
+    (1, 'A feira me inspira a adotar novas abordagens de ensino para engajar melhor os alunos.', 'Objetiva'),
+    (1, 'O evento ajuda a fortalecer a relação entre a instituição e o mercado de trabalho.', 'Objetiva'),
+    (1, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva'); 
 
 COMMIT;

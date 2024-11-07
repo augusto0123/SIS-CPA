@@ -110,7 +110,6 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
                 questionario.setId(resultSet.getInt("id"));
                 questionario.setCategoria(resultSet.getString("categoria"));
                 questionario.setDescricao(resultSet.getString("descricao"));
-                questionario.setAvaliacaoId(resultSet.getInt("id_avaliacao"));
                 questionario.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
                 questionarios.add(questionario);
@@ -133,7 +132,8 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        final String sql = "SELECT * FROM questionario WHERE id_avaliacao = ?;";
+        final String sql = "select * from questionario q " +
+                "where q.id in (select aq.id_questionario from avaliacao_questionario aq where aq.id_avaliacao = ?);";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -149,7 +149,6 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
                 questionario.setCategoria(resultSet.getString("categoria"));
                 questionario.setDescricao(resultSet.getString("descricao"));
                 questionario.setInstituicaoId(resultSet.getInt("id_instituicao"));
-                questionario.setAvaliacaoId(resultSet.getInt("id_avaliacao"));
 
                 questionarios.add(questionario);
             }
@@ -168,17 +167,16 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String sql = "UPDATE questionario SET id_avaliacao = ?, categoria = ?, descricao = ? ";
-        sql += "WHERE id = ?;";
+        String sql = "INSERT INTO avaliacao_questionario (id_avaliacao, id_questionario)";
+        sql += " VALUES(?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
-            preparedStatement = connection.prepareStatement(sql);
+            connection.setAutoCommit(false);
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setInt(1, questionario.getAvaliacaoId());
-            preparedStatement.setString(2, questionario.getCategoria());
-            preparedStatement.setString(3, questionario.getDescricao());
-            preparedStatement.setInt(4, questionario.getId());
+            preparedStatement.setInt(2, questionario.getId());
 
             preparedStatement.execute();
 
@@ -190,6 +188,13 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
 
         } catch (Exception e) {
             e.printStackTrace();
+            if (connection != null){
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
             throw new RuntimeException(e);
         }
     }

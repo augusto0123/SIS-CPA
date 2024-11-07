@@ -90,11 +90,9 @@ CREATE TABLE avaliacao
 CREATE TABLE questionario (
     id SERIAL PRIMARY KEY,
     id_instituicao INTEGER,
-    id_avaliacao INTEGER,
     descricao TEXT NOT NULL,
     categoria VARCHAR(30) CHECK (categoria IN ('Aluno', 'Professor', 'Colaborador', 'Comunidade Externa')),
-    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE,
-    FOREIGN KEY (id_avaliacao) REFERENCES avaliacao(id) ON DELETE CASCADE
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
 );
 
 
@@ -112,21 +110,17 @@ CREATE TABLE avaliacao_questionario
 CREATE TABLE grupo_perguntas 
     (id SERIAL PRIMARY KEY,
     id_instituicao INTEGER,
-    id_questionario INTEGER,
     tipo VARCHAR(100) NOT NULL,
     descricao TEXT NOT NULL,
-    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE,
-    FOREIGN KEY (id_questionario) REFERENCES questionario(id) ON DELETE CASCADE
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
     );
 
 CREATE TABLE pergunta (
     id SERIAL PRIMARY KEY,
     id_instituicao INTEGER,
-    id_grupo_perguntas INTEGER,
     descricao VARCHAR(500) NOT NULL,
     tipo VARCHAR(20) CHECK (tipo IN ('Objetiva', 'Subjetiva')),
-    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE,
-    FOREIGN KEY (id_grupo_perguntas) REFERENCES grupo_perguntas(id) ON DELETE CASCADE
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
 );
 
 CREATE TABLE resposta
