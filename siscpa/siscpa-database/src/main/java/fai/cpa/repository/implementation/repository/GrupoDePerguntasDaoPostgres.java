@@ -168,8 +168,8 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
 
         try {
             connection = ConnectionFactory.getConnection();
-            connection.setAutoCommit(false); // Desabilitar o auto commit
-            preparedStatement = connection.prepareStatement(sql);
+            connection.setAutoCommit(false);
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setInt(1, grupo.getQuestionarioId());
             preparedStatement.setInt(2, grupo.getId());

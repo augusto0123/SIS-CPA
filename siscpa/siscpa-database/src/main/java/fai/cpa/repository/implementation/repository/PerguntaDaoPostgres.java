@@ -90,17 +90,16 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String sql = "UPDATE pergunta SET id_grupo_perguntas = ?, tipo = ?, descricao = ? ";
-        sql += "WHERE id = ?;";
+        String sql = "INSERT INTO perguntas_grupo_perguntas (id_grupo_perguntas, id_pergunta)";
+        sql += "VALUES(?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
-            preparedStatement = connection.prepareStatement(sql);
+            connection.setAutoCommit(false);
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setInt(1, pergunta.getGrupoId());
-            preparedStatement.setString(2, pergunta.getTipo());
-            preparedStatement.setString(3, pergunta.getDescricao());
-            preparedStatement.setInt(4, pergunta.getId());
+            preparedStatement.setInt(2, pergunta.getId());
 
             preparedStatement.execute();
 
@@ -112,6 +111,13 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
 
         } catch (Exception e) {
             e.printStackTrace();
+            if (connection != null){
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
             throw new RuntimeException(e);
         }
     }
@@ -211,7 +217,8 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        final String sql = "SELECT * FROM pergunta WHERE id_grupo_perguntas = ?;";
+        final String sql = "SELECT * FROM pergunta p " +
+                "WHERE p.id in (select pgp.id_pergunta from perguntas_grupo_perguntas pgp where pgp.id_grupo_perguntas = ?);";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -227,7 +234,6 @@ public class PerguntaDaoPostgres implements PerguntaRepository {
                 pergunta.setTipo(resultSet.getString("tipo"));
                 pergunta.setDescricao(resultSet.getString("descricao"));
                 pergunta.setInstituicaoId(resultSet.getInt("id_instituicao"));
-                pergunta.setGrupoId(resultSet.getInt("id_grupo_perguntas"));
 
                 perguntas.add(pergunta);
             }

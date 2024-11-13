@@ -221,7 +221,6 @@ public class QuestionarioDaoPostgres implements QuestionarioRepository {
 
             preparedStatement.setString(1, questionario.getCategoria());
             preparedStatement.setString(2, questionario.getDescricao());
-//            preparedStatement.setInt(3, questionario.getAvaliacaoId());
             preparedStatement.setInt(3, questionario.getInstituicaoId());
 
             preparedStatement.execute();
