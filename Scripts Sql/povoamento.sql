@@ -58,30 +58,16 @@ INSERT INTO questionario (id_instituicao, descricao, categoria) VALUES
     nas atividades de ensino, pesquisa e extensão', 'Professor');
 
 INSERT INTO grupo_perguntas (id_instituicao, tipo, descricao) VALUES 
-    (1, 'FAITEC (Aluno)', 'Avalia como a FAITEC enriquece a formação dos alunos 
+    (1, 'FAITEC', 'Avalia como a FAITEC enriquece a formação dos alunos 
     e o impacto das atividades de pesquisa e extensão em suas experiências');
 
 INSERT INTO grupo_perguntas (id_instituicao, tipo, descricao) VALUES 
-    (1, 'Impressões do Evento', 'Avalia como a FAITEC enriquece a formação dos alunos 
-    e o impacto das atividades de pesquisa e extensão em suas experiências'),
     (1, 'Impressões do Evento', 'Explora a visão dos professores sobre a FAITEC 
     e como o evento integra ensino, pesquisa e extensão'); 
 
 INSERT INTO pergunta (id_instituicao, descricao, tipo) VALUES 
     (1, 'A feira de tecnologia oferece oportunidades valiosas para interagir com profissionais do setor.', 'Objetiva'),
     (1, 'A feira de tecnologia promove a colaboração entre diferentes áreas do conhecimento.', 'Objetiva'),
-    (1, 'A disponibilidade de materiais da FAITEC é adequada e suficiente para os alunos.', 'Objetiva'),
-    (1, 'A participação dos alunos na feira é incentivada pela instituição.', 'Objetiva'),
-    (1, 'A organização da feira é eficiente e facilita minha participação.', 'Objetiva'),
-    (1, 'As premiações da feira incentivam a participação dos alunos.', 'Objetiva'),
     (1, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva');
-
-INSERT INTO pergunta (id_instituicao, descricao, tipo) VALUES 
-    (1, 'A feira é bem organizada e facilita a participação dos docentes.', 'Objetiva'),
-    (1, 'O suporte da instituição na realização da feira é satisfatório.', 'Objetiva'),
-    (1, 'A feira proporciona um momento para discutir tendências e inovações na educação.', 'Objetiva'),
-    (1, 'A feira me inspira a adotar novas abordagens de ensino para engajar melhor os alunos.', 'Objetiva'),
-    (1, 'O evento ajuda a fortalecer a relação entre a instituição e o mercado de trabalho.', 'Objetiva'),
-    (1, 'Deixe um ponto de melhoria (Opcional):', 'Subjetiva'); 
 
 COMMIT;

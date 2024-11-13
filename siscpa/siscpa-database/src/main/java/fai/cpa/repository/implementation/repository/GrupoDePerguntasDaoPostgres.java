@@ -106,7 +106,6 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
                 grupo.setId(resultSet.getInt("id"));
                 grupo.setTipo(resultSet.getString("tipo"));
                 grupo.setDescricao(resultSet.getString("descricao"));
-//                questionario.setAvaliacaoId(resultSet.getInt("id_avaliacao"));
                 grupo.setInstituicaoId(resultSet.getInt("id_instituicao"));
 
                 grupos.add(grupo);
@@ -129,7 +128,8 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        final String sql = "SELECT * FROM grupo_perguntas WHERE id_questionario = ?;";
+        final String sql = "SELECT * FROM grupo_perguntas gp " +
+                "WHERE gp.id in (select gpq.id_grupo_perguntas from grupo_perguntas_questionario gpq where gpq.id_questionario = ?);";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -145,6 +145,7 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
                 grupo.setTipo(resultSet.getString("tipo"));
                 grupo.setDescricao(resultSet.getString("descricao"));
                 grupo.setInstituicaoId(resultSet.getInt("id_instituicao"));
+
                 grupos.add(grupo);
             }
             resultSet.close();
@@ -162,7 +163,8 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String sql = "UPDATE grupo_perguntas SET id_questionario = ?, tipo = ?, descricao = ? WHERE id = ?;";
+        String sql = "INSERT INTO grupo_perguntas_questionario (id_questionario, id_grupo_perguntas)";
+        sql += " VALUES(?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -170,35 +172,26 @@ public class GrupoDePerguntasDaoPostgres implements GrupoDePerguntasRepository {
             preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, grupo.getQuestionarioId());
-            preparedStatement.setString(2, grupo.getTipo());
-            preparedStatement.setString(3, grupo.getDescricao());
-            preparedStatement.setInt(4, grupo.getId());
+            preparedStatement.setInt(2, grupo.getId());
 
-            preparedStatement.executeUpdate(); // Use executeUpdate para operações de atualização
-            connection.commit(); // Confirma a transação
-            return true; // Retorna true se a atualização foi bem-sucedida
+            preparedStatement.execute();
+
+            connection.commit();
+
+            preparedStatement.close();
+
+            return false;
+
         } catch (Exception e) {
-            if (connection != null) {
-                try {
-                    connection.rollback(); // Desfaz a transação em caso de erro
-                } catch (SQLException rollbackEx) {
-                    rollbackEx.printStackTrace();
-                }
-            }
             e.printStackTrace();
-            return false; // Retorna false em caso de falha
-        } finally {
-            try {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
+            if (connection != null){
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
                 }
-                if (connection != null) {
-                    connection.setAutoCommit(true); // Restaura o auto commit
-                    connection.close();
-                }
-            } catch (SQLException closeEx) {
-                closeEx.printStackTrace();
             }
+            throw new RuntimeException(e);
         }
     }
 

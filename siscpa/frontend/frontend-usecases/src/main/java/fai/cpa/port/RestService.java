@@ -17,5 +17,4 @@ public interface RestService <T> {
 
     boolean delete(final String resource);
     T getById(final String resource, Class<T> clazz);
-
 }
