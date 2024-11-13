@@ -33,6 +33,7 @@ public class CreateResposta {
                 resposta1.setPerguntaId(Integer.parseInt(valor[0]));
                 resposta1.setInstituicaoId(respostaModel.getInstituicaoId());
                 resposta1.setUsuarioId(respostaModel.getUsuarioId());
+                resposta1.setAvaliacaoId(respostaModel.getAvaliacaoId());
                 int id =  respostaRepository.create(resposta1);
 
                 if (id == 0){
@@ -62,6 +63,7 @@ public class CreateResposta {
                 resposta1.setPerguntaId(Integer.parseInt(valor[0]));
                 resposta1.setInstituicaoId(respostaModel.getInstituicaoId());
                 resposta1.setUsuarioId(respostaModel.getUsuarioId());
+                resposta1.setAvaliacaoId(respostaModel.getAvaliacaoId());
 
                 int id = respostaRepository.create(resposta1);
 

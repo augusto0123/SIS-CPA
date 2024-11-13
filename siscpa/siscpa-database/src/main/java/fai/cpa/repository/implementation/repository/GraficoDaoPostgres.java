@@ -41,18 +41,9 @@ public class GraficoDaoPostgres implements GraficoRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "SELECT r.resposta_objetiva, COUNT(*) AS total, a.id " +
-                "FROM resposta r " +
-                "INNER JOIN pergunta p ON r.id_pergunta = p.id " +
-                "INNER JOIN perguntas_grupo_perguntas pgp ON p.id = pgp.id_pergunta " +
-                "INNER JOIN grupo_perguntas gp ON pgp.id_grupo_perguntas = gp.id " +
-                "INNER JOIN grupo_perguntas_questionario gpq ON gp.id = gpq.id_grupo_perguntas " +
-                "INNER JOIN questionario q ON gpq.id_questionario = q.id " +
-                "INNER JOIN avaliacao_questionario aq ON q.id = aq.id_questionario " +
-                "INNER JOIN avaliacao a ON aq.id_avaliacao = a.id " +
-                "INNER JOIN edicao_autoavaliacao e ON a.id_edicao_autoavaliacao = e.id " +
-                "INNER JOIN instituicao i ON e.id_instituicao = i.id " +
-                "INNER JOIN usuario u ON r.id_usuario = u.id " +
+        String sql = "SELECT r.resposta_objetiva, COUNT(*) AS total, a.id FROM resposta r " +
+                "inner join avaliacao a on a.id = r.id_avaliacao " +
+                "inner join edicao_autoavaliacao e on e.id = a.id_edicao_autoavaliacao " +
                 "WHERE e.id = ? " +
                 "GROUP BY r.resposta_objetiva, a.id;";
 
@@ -88,12 +79,11 @@ public class GraficoDaoPostgres implements GraficoRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
+
         String sql = "SELECT r.* " +
                 "FROM resposta r " +
-                "INNER JOIN pergunta p ON r.id_pergunta = p.id " +
-                "INNER JOIN grupo_perguntas g ON p.id_grupo_perguntas = g.id " +
-                "INNER JOIN questionario q ON g.id_questionario = q.id " +
-                "INNER JOIN avaliacao a ON q.id_avaliacao = a.id " +
+                "INNER JOIN avaliacao a ON r.id_avaliacao = a.id " +
+                "INNER JOIN pergunta p on  p.id = r.id_pergunta " +
                 "WHERE a.id = ? AND r.resposta_subjetiva IS NOT NULL AND r.resposta_subjetiva != '' ;";
 
         try {

@@ -213,8 +213,8 @@ public class RespostaDaoPostgres implements RespostaRepository {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String sql = "INSERT INTO resposta (resposta_objetiva, resposta_subjetiva,id_pergunta, id_instituicao, id_usuario)";
-        sql += " VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO resposta (resposta_objetiva, resposta_subjetiva,id_pergunta, id_instituicao, id_usuario, id_avaliacao)";
+        sql += " VALUES(?, ?, ?, ?, ?, ?)";
 
         try {
             connection = ConnectionFactory.getConnection();
@@ -226,6 +226,7 @@ public class RespostaDaoPostgres implements RespostaRepository {
             preparedStatement.setInt(3, respostaModel.getPerguntaId());
             preparedStatement.setInt(4,respostaModel.getInstituicaoId());
             preparedStatement.setInt(5, respostaModel.getUsuarioId());
+            preparedStatement.setInt(6, respostaModel.getAvaliacaoId());
 
             preparedStatement.execute();
 

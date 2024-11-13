@@ -302,12 +302,13 @@ public class AutoavaliacaoController {
     @GetMapping("/responder-questionario/{id}")
     public String getResponderQuestionarioPage(@PathVariable int id, final Model model, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
-        model.addAttribute("usuario", usuario);
+        session.setAttribute("avaliacaoSelecionada", id);
         List<QuestionarioModel> questionarios = showAllQuestionarios.showAllQuestionariosByAvaliacaoId(id);
 
         if (questionarios == null)
             questionarios = new ArrayList<>();
 
+        model.addAttribute("usuario", usuario);
         model.addAttribute("questionarios", questionarios);
 
         return "autoavaliacao/responder-questionario";
@@ -542,12 +543,14 @@ public class AutoavaliacaoController {
     @PostMapping("/enviar-respostas")
     public String enviarRespostas(final String respostasObjetivas, final String respostasSubjetivas, HttpSession session){
         UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        int avaliacaoId = (int) session.getAttribute("avaliacaoSelecionada");
 
         RespostaModel respostaModel = new RespostaModel();
         respostaModel.setRespostaObjetiva(respostasObjetivas);
         respostaModel.setRespostaSubjetiva(respostasSubjetivas);
         respostaModel.setInstituicaoId(usuario.getInstituicaoId());
         respostaModel.setUsuarioId(usuario.getId());
+        respostaModel.setAvaliacaoId(avaliacaoId);
 
         int resposta = createResposta.createResposta(respostaModel);
         System.out.println("Valor da resposta: " + resposta);
