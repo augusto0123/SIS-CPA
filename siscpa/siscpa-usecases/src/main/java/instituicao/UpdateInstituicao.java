@@ -30,4 +30,15 @@ public class UpdateInstituicao {
             return true;
         }
     }
+
+    public boolean updateFoto(int id, String foto){
+
+        boolean updateInstituicao = false;
+        try {
+            updateInstituicao =instituicaoRepository.updateFoto(id, foto);
+            return updateInstituicao;
+        } catch (Exception e){
+            return true;
+        }
+    }
 }

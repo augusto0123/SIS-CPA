@@ -12,11 +12,21 @@ public class InstituicaoModel {
     private String responsavelEmail;
     private String responsavelTelefone;
     private String situacao;
+
+    private String foto;
     private int endereco_id;
 
     private EnderecoModel endereco;
 
 //    Getters and Setters
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
     public EnderecoModel getEndereco() {
         return endereco;

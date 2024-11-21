@@ -39,4 +39,9 @@ public class InstituicaoRestController {
     public ResponseEntity<InstituicaoModel> findById(@PathVariable("id") final int id){
         return ResponseEntity.ok(instituicaoBackendConfiguration.findInstituicao().find(id));
     }
+
+    @PutMapping("/updateFoto/{id}")
+    public boolean getUpdateFoto(@PathVariable ("id")final int id, @RequestBody InstituicaoModel instituicaoModel){
+        return instituicaoBackendConfiguration.updateInstituicao().updateFoto(id, instituicaoModel.getFoto());
+    }
 }

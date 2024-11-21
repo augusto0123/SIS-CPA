@@ -13,4 +13,5 @@ public interface InstituicaoRepository {
     boolean update(InstituicaoModel instituicaoModel);
     boolean deleteById(int id);
     int create(InstituicaoModel instituicaoModel);
+    boolean updateFoto(int id, String foto);
 }

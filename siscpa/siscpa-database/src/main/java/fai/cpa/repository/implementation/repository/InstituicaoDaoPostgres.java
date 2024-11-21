@@ -43,6 +43,7 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
                 instituicao.setResponsavelEmail(resultSet.getString("email_responsavel"));
                 instituicao.setResponsavelTelefone(resultSet.getString("telefone_responsavel"));
                 instituicao.setEndereco_id(resultSet.getInt("id_endereco"));
+                instituicao.setFoto(resultSet.getString("foto"));
             }
             resultSet.close();
             preparedStatement.close();
@@ -206,6 +207,32 @@ public class InstituicaoDaoPostgres implements InstituicaoRepository {
                     throw new RuntimeException(ex);
                 }
             }
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean updateFoto(int id, String foto) {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String sql = "UPDATE instituicao SET foto = ? ";
+        sql += "WHERE id = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, foto);
+            preparedStatement.setInt(2, id);
+
+            preparedStatement.execute();
+            preparedStatement.close();
+
+            return false;
+
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

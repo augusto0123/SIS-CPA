@@ -20,7 +20,15 @@ public class CreateReuniaoCpa {
                 || reuniaoCpaModel.getPauta().isEmpty()){
             return -1;
         }
-        return reuniaoCpaRepository.create(reuniaoCpaModel);
+        int id = 0;
+        try {
+            id = reuniaoCpaRepository.create(reuniaoCpaModel);
+            reuniaoCpaModel.setId(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+        return id;
     }
 
 }

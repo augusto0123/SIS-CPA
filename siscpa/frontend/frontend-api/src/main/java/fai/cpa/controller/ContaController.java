@@ -111,13 +111,14 @@ public class ContaController {
         if (usuario != null){
             session.setAttribute("usuarioAtual",usuario);
 
+            if ("Administrador".equals(usuario.getTipo())) {
+                return "redirect:/instituicao/listar-instituicao";
+            }
+
             if (usuario.getInstituicaoId() == null || usuario.getTipo() == null) {
                 return "redirect:/not-found";
             }
 
-            if ("Administrador".equals(usuario.getTipo())) {
-                return "redirect:/instituicao/listar-instituicao";
-            }
             return "redirect:/instituicao/inicio";
         }
         return "redirect:/not-found";

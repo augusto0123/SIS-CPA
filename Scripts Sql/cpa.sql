@@ -28,6 +28,7 @@ CREATE TABLE instituicao
     nome_responsavel VARCHAR(200) NOT NULL,
     situacao VARCHAR(20) NOT NULL,
     id_endereco INTEGER NOT NULL,
+    foto TEXT,
     FOREIGN KEY (id_endereco) REFERENCES endereco(id) ON DELETE CASCADE);
 
 

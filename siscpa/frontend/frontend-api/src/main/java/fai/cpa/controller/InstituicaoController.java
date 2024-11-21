@@ -10,6 +10,7 @@ import fai.cpa.entities.ReuniaoCpaModel;
 import fai.cpa.entities.UsuarioModel;
 import fai.cpa.instituicao.CreateInstituicao;
 import fai.cpa.instituicao.ShowAllInstituicoes;
+import fai.cpa.instituicao.UpdateFoto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,14 +35,17 @@ public class InstituicaoController {
 
     private final ShowLastReuniao showLastReuniao;
 
+    private final UpdateFoto updateFoto;
 
-    public InstituicaoController(ShowAllInstituicoes showAllInstituicoes, CreateInstituicao createInstituicao, ShowAllUsuarios showAllUsuarios, ShowAllEdicoes showAllEdicoes, ShowAllReunioes showAllReunioes, ShowLastReuniao showLastReuniao) {
+
+    public InstituicaoController(ShowAllInstituicoes showAllInstituicoes, CreateInstituicao createInstituicao, ShowAllUsuarios showAllUsuarios, ShowAllEdicoes showAllEdicoes, ShowAllReunioes showAllReunioes, ShowLastReuniao showLastReuniao, UpdateFoto updateFoto) {
         this.showAllInstituicoes = showAllInstituicoes;
         this.createInstituicao = createInstituicao;
         this.showAllUsuarios = showAllUsuarios;
         this.showAllEdicoes = showAllEdicoes;
         this.showAllReunioes = showAllReunioes;
         this.showLastReuniao = showLastReuniao;
+        this.updateFoto = updateFoto;
     }
 
     @GetMapping("/inicio")
@@ -54,10 +58,16 @@ public class InstituicaoController {
         InstituicaoModel instituicao = showAllInstituicoes.findById(usuario.getInstituicaoId());
         ReuniaoCpaModel ultimaReuniao = showAllReunioes.showReuniaoComMaiorId();
 
-        if(edicoes == null
-        || reunioes == null){
+        if(edicoes == null){
             edicoes = new ArrayList<>();
+        }
+
+        if (reunioes == null){
             reunioes = new ArrayList<>();
+        }
+
+        if (ultimaReuniao == null){
+            ultimaReuniao = new ReuniaoCpaModel();
         }
 
 //        model.addAttribute("instituicaoId", instituicaoId);
@@ -182,4 +192,17 @@ public class InstituicaoController {
         return "redirect:/instituicao/listar-membro";
     }
 
+    @PostMapping("/update-foto")
+    public String updateFoto(final String base64Output, HttpSession session, final Model model){
+        UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        model.addAttribute("usuario", usuario);
+
+        final boolean update = updateFoto.updateFoto(usuario.getInstituicaoId(), base64Output);
+
+        if (!update){
+            return "redirect:/instituicao/inicio";
+        }
+
+        return "redirect:/not-found";
+    }
 }

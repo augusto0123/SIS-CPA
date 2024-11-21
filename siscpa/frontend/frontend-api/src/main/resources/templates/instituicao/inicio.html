@@ -43,8 +43,16 @@
 
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-body">
-                                    <img src="/assets/img/faculdade.jpg" alt="Faculdade FAI" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                                <div th:if="${instituicao.foto != null}" class="card-body">
+                                    <img th:src="${instituicao.foto}" alt="Imagemd a Faculdade" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                                </div>
+
+                                <div th:if="${instituicao.foto == null}" class="card-body">
+
+                                    <form id="foto" class="row g-3 needs-validation" novalidate method="POST" th:action="@{/instituicao/update-foto}">
+                                        <input type="file" id="fileInput" accept="image/*">
+                                        <textarea style="display:none;" id="base64Output" name="base64Output" rows="10" cols="50" placeholder="O Base64 aparecerá aqui..."></textarea>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -162,7 +170,31 @@
         </section>
     </main>
 
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+
+          const file = event.target.files[0];
+          const reader = new FileReader();
+
+          if (file) {
+            reader.onload = function(e) {
+              const base64String = e.target.result;
+              console.log(base64String)
+              document.getElementById('base64Output').value = base64String;
+             };
+
+               setTimeout(() => {
+                const formulario = document.getElementById('foto');
+                formulario.submit();
+               } ,500 )
+
+             reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
 </div>
 
 </body>
 </html>
+

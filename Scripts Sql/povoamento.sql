@@ -22,9 +22,6 @@ VALUES ('secretaria@fai-mg.br',
         'Ativa',
 		1);
 
-INSERT INTO reuniao_cpa (id_instituicao, id_membro_cpa, data_reuniao, horario, pauta) 
-VALUES (1, NULL, '2024-10-28', '19:30:00', 'Discussão sobre a nova diretriz da instituição');   
-
 INSERT INTO usuario (id_instituicao, nome, email, senha, telefone, tipo) VALUES
 (1, 'Augusto', 'aluno1@instituicao1.com', 'senha123', '123456789', 'Aluno'),
 (1, 'Eunice', 'professor1@instituicao1.com', 'senha123', '987654321', 'Professor'),
