@@ -1,11 +1,11 @@
 -- Excluir essa linhas: 2, 4 e 8 quando for criar banco
-drop database if exists cpa ;
+-- drop database if exists cpa ;
 
-create database cpa;
+-- create database cpa;
 
 begin;
 
-\c cpa;
+-- \c cpa;
 
 CREATE TABLE endereco 
     (id SERIAL PRIMARY KEY,

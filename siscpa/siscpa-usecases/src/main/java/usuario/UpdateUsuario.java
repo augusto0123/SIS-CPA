@@ -12,7 +12,7 @@ public class UpdateUsuario {
     }
 
     public boolean update(final UsuarioModel usuarioModel){
-        final UsuarioModel byId = usuarioRepositorty.findById(usuarioModel.getId());
+            final UsuarioModel byId = usuarioRepositorty.findById(usuarioModel.getId());
         byId.setTelefone(usuarioModel.getTelefone());
         byId.setEmail(usuarioModel.getEmail());
         byId.setNome(usuarioModel.getNome());

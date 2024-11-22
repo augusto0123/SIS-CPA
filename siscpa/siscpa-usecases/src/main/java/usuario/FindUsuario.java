@@ -55,7 +55,7 @@ public class FindUsuario {
         final List<UsuarioModel> usuarios = usuarioRepositorty.findByTipoAndInstituicaoId(tipo,instituicaoId);
         if (usuarios == null || usuarios.isEmpty()){
             final String message = "Nenhum usuário do tipo: (" + ") foi encontrado";
-            throw new NotFoundException(message);
+            return null;
         }
         return usuarios;
     }

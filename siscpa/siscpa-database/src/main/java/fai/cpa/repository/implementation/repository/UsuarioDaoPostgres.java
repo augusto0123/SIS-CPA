@@ -210,7 +210,31 @@ public class UsuarioDaoPostgres implements UsuarioRepositorty {
 
     @Override
     public boolean update(UsuarioModel usuarioModel) {
-        return false;
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String sql = "UPDATE usuario SET nome = ?, email = ?, senha = ?, tipo = ?";
+        sql += " WHERE id = ?;";
+
+        try {
+            connection = ConnectionFactory.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, usuarioModel.getNome());
+            preparedStatement.setString(2, usuarioModel.getEmail());
+            preparedStatement.setString(3, usuarioModel.getSenha());
+            preparedStatement.setString(4, usuarioModel.getTipo());
+            preparedStatement.setInt(5, usuarioModel.getId());
+
+            preparedStatement.execute();
+            preparedStatement.close();
+
+            return false;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

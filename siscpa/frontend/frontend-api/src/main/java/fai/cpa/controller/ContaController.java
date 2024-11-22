@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/conta")
@@ -142,6 +143,22 @@ public class ContaController {
         if (updateUsuario) {
             session.setAttribute("usuarioAtual", usuario);
             return "redirect:/instituicao/inicio";
+        }
+        return "redirect:/not-found";
+    }
+
+    @PostMapping("/update")
+    public String getUpdateUsuario(UsuarioModel usuarioModel, final HttpSession session){
+        final UsuarioModel usuario = (UsuarioModel) session.getAttribute("usuarioAtual");
+        boolean result = updateUsuario.updateAll(usuarioModel);
+
+
+        if (!result){
+            if (Objects.equals(usuario.getTipo(), "Administrador")){
+                return "redirect:/instituicao/listar-instituicao";
+        } else if (usuario.getTipo() != null) {
+                return "redirect:/instituicao/inicio";
+            }
         }
         return "redirect:/not-found";
     }

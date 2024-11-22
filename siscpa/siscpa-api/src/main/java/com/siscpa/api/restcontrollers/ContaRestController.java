@@ -67,4 +67,10 @@ public class ContaRestController {
     public Boolean vinularUsuario(@RequestBody UsuarioModel usuario){
         return contaBackendConfiguration.updateUsuario().updateById(usuario);
     }
+
+    @PutMapping("/update/{id}")
+    public boolean getUpdateUsuario(@PathVariable int id, @RequestBody UsuarioModel usuarioModel){
+        boolean result = contaBackendConfiguration.updateUsuario().update(usuarioModel);
+        return result;
+    }
 }

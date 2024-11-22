@@ -58,7 +58,7 @@
                 </li>
             </div>
 
-            <div th:if="${usuario.tipo != null}">
+            <div th:if="${usuario.tipo != null && usuario.tipo != 'Administrador'}">
                 <li class="nav-item dropdown pe-3" th:if="${usuario != null}">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                         <img src="/assets/img/usuario-de-perfil.png" alt="Profile" class="rounded-circle">
@@ -230,14 +230,17 @@
 <!--                    </li>-->
 <!--                </ul>-->
 <!--            </li>-->
-            <li class="nav-heading">Páginas</li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" th:href="@{/conta/perfil}">
-                    <i class="bi bi-person"></i>
-                    <span>Perfil</span>
-                </a>
-            </li>
+            <div th:if="${usuario.tipo != 'Administrador'}">
+                <li class="nav-heading">Páginas</li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" th:href="@{/conta/perfil}">
+                        <i class="bi bi-person"></i>
+                        <span>Perfil</span>
+                    </a>
+                </li>
+            </div>
         </ul>
     </aside>
 </div>

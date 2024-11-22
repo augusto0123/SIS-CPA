@@ -16,4 +16,10 @@ public class UpdateUsuario {
         boolean usuario = restService.put(resource, usuarioModel);
         return usuario;
     }
+
+    public boolean updateAll(final UsuarioModel usuarioModel){
+        final String resource = "/conta/update/" + usuarioModel.getId();
+        boolean result = restService.put(resource, usuarioModel);
+        return result;
+    }
 }

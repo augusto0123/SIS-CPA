@@ -29,40 +29,81 @@
             </nav>
         </div>
 
-        <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="POST" action="#">
-                <input type="text" name="query" placeholder="Pesquisar" title="Enter search keyword">
-                <button type="submit" title="Search" class="search-membro"><i class="bi bi-search"></i></button>
-            </form>
-        </div>
+<!--        <div class="search-bar">-->
+<!--            <form class="search-form d-flex align-items-center" method="POST" action="#">-->
+<!--                <input type="text" name="query" placeholder="Pesquisar" title="Enter search keyword">-->
+<!--                <button type="submit" title="Search" class="search-membro"><i class="bi bi-search"></i></button>-->
+<!--            </form>-->
+<!--        </div>-->
 
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-3" th:each="usuario, iterStat : ${usuarios}">
+                <div class="col-lg-3" th:each="usuarioA, iterStat : ${usuarios}">
 
                     <div class="card-membro">
                         <div class="card-body">
 
-                            <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/instituicao/criar-membro}">
+                                <form class="row g-3 needs-validation" novalidate method="POST" th:action="@{/conta/update}">
 
                                 <div class="card-body-membro">
 
                                     <i class="fa-solid fa-user"></i>
 
-                                    <h5 class="card-title" th:text="${usuario.nome}"></h5>
+                                    <h5 class="card-title" th:text="${usuarioA.nome}"></h5>
 
-                                    <select class="form-select" aria-label="Default select example" name="tema" id="tema" required>
-                                        <option value="Aluno" selected>Aluno</option>
-                                        <option value="Professor">Professor</option>
-                                        <option value="Colaborador">Colaborador</option>
-                                        <option value="Comunidade Externa">Comunidade Externa</option>
-                                        <option value="Membro CPA">Membro CPA</option>
+                                    <!--                                    <input type="hidden" name="id" id="id" th:field="${usuario.id}">-->
+
+                                    <input type="hidden" name="id" id="id" th:value="${usuarioA.id}">
+
+                                    <input type="hidden" name="nome" id="nome" th:value="${usuarioA.nome}">
+
+                                    <input type="hidden" name="email" id="email" th:value="${usuarioA.email}">
+
+                                    <input type="hidden" name="senha" id="senha" th:value="${usuarioA.senha}">
+
+                                    <!--                                    <input type="hidden" name="instituicaoId" id="instituicaoId" th:text="${usuario.instituicaoId}" th:value="${usuario.instituicaoId}">-->
+                                    <!--                                    <input type="hidden" name="id" id="id">-->
+
+                                    <!--                                    <input type="hidden" name="nome" id="nome">-->
+
+                                    <!--                                    <input type="hidden" name="email" id="email">-->
+
+                                    <!--                                    <input type="hidden" name="senha" id="senha">-->
+
+                                    <!--                                    <input type="hidden" name="telefone" id="telefone">-->
+
+                                    <!--                                    <input type="hidden" name="instituicaoId" id="instituicaoId">-->
+
+<!--                                    iiiiiiiiiiiiii-->
+
+<!--                                    <input type="hidden" name="id" id="id">-->
+
+<!--                                    <input type="hidden" name="nome" id="nome">-->
+
+<!--                                    <input type="hidden" name="email" id="email">-->
+
+<!--                                    <input type="hidden" name="senha" id="senha">-->
+
+<!--                                    <input type="hidden" name="telefone" id="telefone">-->
+
+<!--                                    <input type="hidden" name="instituicaoId" id="instituicaoId">-->
+
+
+                                    <select class="form-select" aria-label="Default select example" name="tipo" id="tipo">
+                                        <option value="Aluno" th:selected="${usuarioA.tipo == 'Aluno'}">Aluno</option>
+                                        <option value="Professor" th:selected="${usuarioA.tipo == 'Professor'}">Professor</option>
+                                        <option value="Colaborador" th:selected="${usuarioA.tipo == 'Colaborador'}">Colaborador</option>
+                                        <option value="Comunidade Externa" th:selected="${usuarioA.tipo == 'Comunidade Externa'}">Comunidade Externa</option>
+                                        <option value="Membro CPA" th:selected="${usuarioA.tipo == 'Membro CPA'}">Membro CPA</option>
                                     </select>
-
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">
+<!--                                <div class="input-group">-->
+<!--                                    <input type="hidden" name="id" id="id" th:field="${usuario.id}">-->
+<!--                                </div>-->
+
+                                <button class="btn btn-primary">
                                     Salvar
                                 </button>
 
