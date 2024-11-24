@@ -47,7 +47,7 @@
                                 <div class="form-label-span" th:text="${questionario.descricao}"></div>
                             </div>
 
-                            <div th:if="${usuario.tipo == questionario.categoria}">
+                            <div th:if="${usuario.tipo == questionario.categoria || usuario.tipo == 'Membro CPA'}">
                                 <a class="btn btn-primary"
                                    th:href="@{/autoavaliacao/responder-grupos/{id}(id=${questionario.id})}">
                                     Responder

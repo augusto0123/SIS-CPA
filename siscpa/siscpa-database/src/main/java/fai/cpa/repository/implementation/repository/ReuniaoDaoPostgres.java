@@ -5,6 +5,7 @@ import fai.cpa.repository.implementation.repository.connection.ConnectionFactory
 import port.ReuniaoCpaRepository;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -285,6 +286,8 @@ public class ReuniaoDaoPostgres implements ReuniaoCpaRepository {
     }
 
     private String formataData(String data) {
-        return data;
+        DateTimeFormatter formatterInput = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatterOutput = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return LocalDate.parse(data, formatterInput).format(formatterOutput);
     }
 }

@@ -5,6 +5,7 @@ import fai.cpa.repository.implementation.repository.connection.ConnectionFactory
 import port.EdicaoDeAutoavaliacaoRepository;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -219,8 +220,8 @@ public class EdicaoDeAutoavaliacaoDaoPostgres implements EdicaoDeAutoavaliacaoRe
     }
 
     private String formataData(String data) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime dateTime = LocalDateTime.parse(data, formatter);
-        return dateTime.toLocalDate().toString();
+        DateTimeFormatter formatterInput = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatterOutput = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return LocalDate.parse(data, formatterInput).format(formatterOutput);
     }
 }

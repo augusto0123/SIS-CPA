@@ -728,6 +728,11 @@ button:hover {
 .card-body {
   padding: 20px 20px 20px 20px;
 }
+
+.card-body-reuniao {
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+}
 .card-user{
     display:flex;
 }
@@ -873,6 +878,7 @@ button:hover {
   /* Toggle Sidebar Button */
   /* Search Bar */
 }
+
 
 .header .toggle-sidebar-btn {
   font-size: 32px;

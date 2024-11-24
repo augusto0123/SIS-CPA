@@ -47,13 +47,16 @@
                                     <img th:src="${instituicao.foto}" alt="Imagemd a Faculdade" class="img-fluid w-100 h-100" style="object-fit: cover;">
                                 </div>
 
-                                <div th:if="${instituicao.foto == null}" class="card-body">
+                                <div th:if="${usuario.tipo == 'Membro CPA'}">
+                                    <div th:if="${instituicao.foto == null}" class="card-body">
 
-                                    <form id="foto" class="row g-3 needs-validation" novalidate method="POST" th:action="@{/instituicao/update-foto}">
-                                        <input type="file" id="fileInput" accept="image/*">
-                                        <textarea style="display:none;" id="base64Output" name="base64Output" rows="10" cols="50" placeholder="O Base64 aparecerá aqui..."></textarea>
-                                    </form>
+                                        <form id="foto" class="row g-3 needs-validation" novalidate method="POST" th:action="@{/instituicao/update-foto}">
+                                            <input type="file" id="fileInput" accept="image/*">
+                                            <textarea style="display:none;" id="base64Output" name="base64Output" rows="10" cols="50" placeholder="O Base64 aparecerá aqui..."></textarea>
+                                        </form>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
 

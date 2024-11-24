@@ -71,8 +71,8 @@ CREATE TABLE edicao_autoavaliacao
     edicao INTEGER NOT NULL,
     ano_avaliacao VARCHAR(4) NOT NULL,
     descricao TEXT NOT NULL,
-    data_inicio TIMESTAMP NOT NULL,
-    data_fim TIMESTAMP NOT NULL,
+    data_inicio DATE NOT NULL,
+    data_fim DATE NOT NULL,
     situacao VARCHAR(30) CHECK (situacao IN ('Prevista', 'Em Andamento', 'Encerrada')),
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE);
 

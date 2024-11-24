@@ -2,32 +2,32 @@
 
 begin;
 
-INSERT INTO endereco (logradouro, numero, bairro, cidade, complemento)
-VALUES ('Av. Antônio de Cássia',
-        '472',
-        'Jardim Santo Antônio',
-        'Santa Rita do Sapucaí',
-        NULL);
+-- INSERT INTO endereco (logradouro, numero, bairro, cidade, complemento)
+-- VALUES ('Av. Antônio de Cássia',
+--         '472',
+--         'Jardim Santo Antônio',
+--         'Santa Rita do Sapucaí',
+--         NULL);
 
 
-INSERT INTO instituicao (email, cnpj, razao_social, nome_fantasia, telefone, email_responsavel, telefone_responsavel, nome_responsavel, situacao, id_endereco)
-VALUES ('secretaria@fai-mg.br',
-        '24.492.860/0003-10',
-        'Fundação Educandário Santarritense',
-        'FAI - Centro de Ensino Superior em Gestão, Tecnologia e Educação',
-        '(35) 3473-3000',
-        'diretoria@fai-mg.br',
-        '(11) 2222-3333',
-        'Alexandre Franco de Magalhães',
-        'Ativa',
-		1);
+-- INSERT INTO instituicao (email, cnpj, razao_social, nome_fantasia, telefone, email_responsavel, telefone_responsavel, nome_responsavel, situacao, id_endereco)
+-- VALUES ('secretaria@fai-mg.br',
+--         '24.492.860/0003-10',
+--         'Fundação Educandário Santarritense',
+--         'FAI - Centro de Ensino Superior em Gestão, Tecnologia e Educação',
+--         '(35) 3473-3000',
+--         'diretoria@fai-mg.br',
+--         '(11) 2222-3333',
+--         'Alexandre Franco de Magalhães',
+--         'Ativa',
+-- 		1);
 
 INSERT INTO usuario (id_instituicao, nome, email, senha, telefone, tipo) VALUES
-(1, 'Augusto', 'aluno1@instituicao1.com', 'senha123', '123456789', 'Aluno'),
-(1, 'Eunice', 'professor1@instituicao1.com', 'senha123', '987654321', 'Professor'),
-(1, 'Henrique', 'colaborador1@instituicao2.com', 'senha123', '111222333', 'Colaborador'),
-(1, 'Ana Júlia', 'membro1@instituicao2.com', 'senha123', '444555666', 'Membro CPA'),
-(NULL,'Gutinho', 'admin@administrador.com', 'senha123', '444555666', 'Administrador');
+-- (1, 'Ana Júlia', 'aluno1@instituicao1.com', 'senha123', '123456789', 'Aluno'),
+-- (1, 'Eunice', 'professor1@instituicao1.com', 'senha123', '987654321', 'Professor'),
+-- (1, 'Henrique', 'colaborador1@instituicao2.com', 'senha123', '111222333', 'Colaborador'),
+-- (1, 'Ana Júlia', 'membro1@instituicao2.com', 'senha123', '444555666', 'Membro CPA'),
+(NULL,'Augusto de Faria Oliveira', 'admin@administrador.com', 'senha123', '444555666', 'Administrador');
 
 -- INSERT INTO edicao_autoavaliacao (id_instituicao, edicao, ano_avaliacao, descricao, data_inicio, data_fim, situacao) VALUES 
 --         (1, 1, '2024', '
