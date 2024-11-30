@@ -32,7 +32,7 @@
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="avaliacao : ${avaliacoes}">
+                <div class="col-lg-6" th:each="avaliacao : ${avaliacoes}">
 
                     <h5 class="card-title-avaliacao-cadastrar">
                         <span th:text="${avaliacao.tema}"></span>
@@ -67,7 +67,7 @@
                                     <span th:text="${avaliacao.descricao}"></span>
                                 </div>
 
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disablebackdrop" th:if="${avaliacao.edicaoId == null || avaliacao.edicaoId == 0}">
                                     Vincular
                                 </button>
                             </div>

@@ -31,20 +31,20 @@
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="grupo : ${grupos}">
+                <div class="col-lg-6" th:each="grupo : ${grupos}">
 
                     <h5 class="card-title-grupo">
                         <span th:text="${grupo.tipo}"></span>
-                        <span th:text="${grupo.questionarioId}"></span>
+<!--                        <span th:text="${grupo.questionarioId}"></span>-->
 
-                        <i class="fa-solid fa-bookmark text-warning"></i>
+<!--                        <i class="fa-solid fa-bookmark text-warning"></i>-->
 
-                        <div th:if="${grupo.questionarioId != 0}">
-                            <i class="fa-solid fa-bookmark text-warning"
-                               data-bs-toggle="tooltip"
-                               th:title="'Esse grupo já está vinculado ao questionário ' + ${grupo.questionarioId}"
-                               style="cursor: pointer;"></i>
-                        </div>
+<!--                        <div th:if="${grupo.questionarioId != 0}">-->
+<!--                            <i class="fa-solid fa-bookmark text-warning"-->
+<!--                               data-bs-toggle="tooltip"-->
+<!--                               th:title="'Esse grupo já está vinculado ao questionário ' + ${grupo.questionarioId}"-->
+<!--                               style="cursor: pointer;"></i>-->
+<!--                        </div>-->
                     </h5>
 
                     <div class="card-grupo">

@@ -18,7 +18,7 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Relatórios das Edições</h1>
+            <h1>Relatórios por Avaliação</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-membroCPA.html">Inicio</a></li>
@@ -31,7 +31,7 @@
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-5 col-md-6 col-sm-12 mb-4 mx-4" th:each="avaliacao : ${avaliacoes}">
+                <div class="col-lg-6" th:each="avaliacao : ${avaliacoes}">
 
                     <h5 class="card-title-avaliacao-cadastrar" th:text="${avaliacao.tema}"></h5>
 

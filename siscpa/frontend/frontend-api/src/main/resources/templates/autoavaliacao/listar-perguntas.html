@@ -21,76 +21,65 @@
         </nav>
     </div>
 
-    <section class="section-pergunta">
-        <div class="row">
+        <section class="section-pergunta">
 
-            <div class="col-lg-5 col-sm-12 mb-4 mx-4" th:each="pergunta : ${perguntas}">
+                <!-- Perguntas Objetivas -->
+                <h2 class="title-tipo-pergunta">Perguntas Objetivas:</h2>
 
-                <div th:if="${pergunta.tipo == 'Objetiva'}">
-
-                    <h2 class="title-tipo-pergunta">Pergunta Objetiva:</h2>
-
-                    <div class="card-resposta">
-
-                        <div class="card-body-responder">
-
-                            <form class="row g-3 needs-validation" novalidate>
-                                <div class="mb-3">
-                                    <span class="form-label-span" th:text="${pergunta.descricao}"></span>
-                                </div>
-
-                                <div class="mb-3">
-                                    <div>
+                <div class="row">
+                    <div class="col-lg-4" th:each="pergunta : ${perguntas}" th:if="${pergunta.tipo == 'Objetiva'}">
+                        <div class="card-resposta">
+                            <div class="card-body-responder">
+                                <form class="row g-3 needs-validation" novalidate>
+                                    <div class="mb-3">
+                                        <span class="form-label-span" th:text="${pergunta.descricao}"></span>
+                                    </div>
+                                    <div class="mb-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert1" value="Discordo Totalmente" required>
+                                            <input class="form-check-input readonly-field" type="radio" name="likert" id="likert1" value="Discordo Totalmente" readonly>
                                             <label class="form-check-label" for="likert1">Discordo Totalmente</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert2" value="Discordo" required>
+                                            <input class="form-check-input readonly-field" type="radio" name="likert" id="likert2" value="Discordo" readonly>
                                             <label class="form-check-label" for="likert2">Discordo</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert3" value="Neutro" required>
+                                            <input class="form-check-input readonly-field" type="radio" name="likert" id="likert3" value="Neutro" readonly>
                                             <label class="form-check-label" for="likert3">Neutro</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert4" value="Concordo" required>
+                                            <input class="form-check-input readonly-field" type="radio" name="likert" id="likert4" value="Concordo" readonly>
                                             <label class="form-check-label" for="likert4">Concordo</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="likert" id="likert5" value="Concordo Totalmente" required>
+                                            <input class="form-check-input readonly-field" type="radio" name="likert" id="likert5" value="Concordo Totalmente" readonly>
                                             <label class="form-check-label" for="likert5">Concordo Totalmente</label>
                                         </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div th:if="${pergunta.tipo == 'Subjetiva'}">
-
-                    <h2 class="title-tipo-pergunta">Pergunta Subjetiva:</h2>
-
-                    <div class="card-resposta">
-
-                        <div class="card-body-responder">
-                            <form class="row g-3 needs-validation" novalidate>
-
-                                <div class="mb-3">
-                                    <label for="resposta" class="form-label-span" th:text="${pergunta.descricao}"></label>
-                                </div>
-                                <textarea class="form-control" id="resposta" rows="3" placeholder="Responda aqui..."></textarea>
-                            </form>
+                <!-- Perguntas Subjetivas -->
+                <h2 class="title-tipo-pergunta mt-5">Perguntas Subjetivas:</h2>
+                <div class="row">
+                    <div class="col-lg-4" th:each="pergunta : ${perguntas}" th:if="${pergunta.tipo == 'Subjetiva'}">
+                        <div class="card-resposta">
+                            <div class="card-body-responder">
+                                <form class="row g-3 needs-validation" novalidate>
+                                    <div class="mb-3">
+                                        <label for="resposta" class="form-label-span" th:text="${pergunta.descricao}"></label>
+                                    </div>
+                                    <textarea class="form-control readonly-field" id="resposta" rows="3" placeholder="Responda aqui..." readonly></textarea>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+        </section>
 
-<!--            <div class="col-lg-11">-->
-
-        </div>
-    </section>
     </main>
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
