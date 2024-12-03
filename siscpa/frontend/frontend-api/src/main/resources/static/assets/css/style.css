@@ -394,6 +394,18 @@ h6 {
   align-items:center;
 }
 
+.custom-title {
+    background-color: #6776F4; /* Cor de fundo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Sombra */
+    color: white; /* Cor do texto */
+    font-size: 28px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    text-align: center; /* Centralização */
+    padding: 5px; /* Espaçamento interno */
+    margin: 20px 0 30px 0; /* Margem */
+}
+
+
 .table-edicao {
     font-size: 15px;
     margin:15px 0;
@@ -862,11 +874,13 @@ button:hover {
   margin-bottom: -2px;
   border: none;
   color: #2c384e;
+  background-color: transparent; /* Garante fundo transparente */
 }
 
 .nav-tabs-bordered .nav-link:hover,
 .nav-tabs-bordered .nav-link:focus {
   color: #4154f1;
+   background-color: transparent;
 }
 
 .nav-tabs-bordered .nav-link.active {

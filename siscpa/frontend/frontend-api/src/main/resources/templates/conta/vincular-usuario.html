@@ -22,7 +22,7 @@
             <h1>Associar-se a um papel</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index-admin.html">Vincular Instituição</a></li>
+                    <li class="breadcrumb-item"><a href="#">Vincular Instituição</a></li>
                     <li class="breadcrumb-item active">Associar Papel</li>
                 </ol>
             </nav>
@@ -41,7 +41,6 @@
                             <form class="row g-3 needs-validation" method="POST" th:action="@{/conta/vincular-usuario}">
 
                                 <div class="card-body-membro">
-
 
                                     <div class="col-12">
                                         <input type="hidden" name="instituicaoId" class="form-control" id="instituicaoId" th:value="${instituicaoId}">

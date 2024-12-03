@@ -30,9 +30,20 @@
 
         <section class="section">
 
-            <div class="row">
+            <!-- Edições Previstas -->
+<!--            <h2 class="custom-title">-->
+<!--                Edições Previstas-->
+<!--            </h2>-->
 
-                <div class="col-lg-6" th:each="edicao : ${edicoes}">
+            <h2 style="width: 100%; font-size: 28px; font-weight: bold; color: #333; margin: 20px 0; text-align: center;
+                     border-bottom: 3px solid #0066cc; padding-bottom: 10px;">
+                Edições Previstas
+            </h2>
+
+            <div class="row">
+                <div class="col-lg-6" th:each="edicao : ${edicoes}" th:if="${edicao.situacao == 'Prevista'}">
+                    <!-- Mantém o código existente para exibição das edições -->
+                    <!-- O código do cartão está intacto -->
                     <h5 class="card-title-edicao-cadastrar d-flex">
                         Edição Nº: <span class="ms-2" th:text="${edicao.edicao}"></span>
                         <a th:href="@{/autoavaliacao/editar-edicao/{id} (id=${edicao.id})}" class="btn p-0 ms-auto" title="Editar">
@@ -45,32 +56,17 @@
                                 <div class="espaco-edicao">
                                     <i class="fa-solid fa-chart-simple"></i>
                                 </div>
-
                                 <ul class="situacao-lista">
-                                    <li class="situacao"
-                                        th:classappend="${edicao.situacao == 'Em Andamento'} ? 'bg-success' : ''"
-                                        th:if="${edicao.situacao == 'Em Andamento'}">
-                                        Situação: <span th:text="${edicao.situacao}"></span>
-                                    </li>
-                                    <li class="situacao"
-                                        th:classappend="${edicao.situacao == 'Prevista'} ? 'bg-warning' : ''"
-                                        th:if="${edicao.situacao == 'Prevista'}">
-                                        Situação: <span th:text="${edicao.situacao}"></span>
-                                    </li>
-                                    <li class="situacao"
-                                        th:classappend="${edicao.situacao == 'Encerrada'} ? 'bg-danger' : ''"
-                                        th:if="${edicao.situacao == 'Encerrada'}">
+                                    <li class="situacao bg-warning">
                                         Situação: <span th:text="${edicao.situacao}"></span>
                                     </li>
                                     <li class="data">Data / Início: <span th:text="${edicao.dataInicio}"></span></li>
                                     <li class="data">Data / Término: <span th:text="${edicao.dataFim}"></span></li>
                                 </ul>
                             </div>
-
                             <div class="table-edicao my-3">
                                 <div class="form-label-span" th:text="${edicao.descricao}"></div>
                             </div>
-
                             <div th:if="${edicao.situacao != 'Administrador'}">
                                 <a class="btn btn-primary"
                                    data-bs-toggle="modal"
@@ -80,7 +76,6 @@
                                     Vincular Avaliação
                                 </a>
                             </div>
-
                             <div class="modal fade" id="confirmLinkModal" tabindex="-1" aria-labelledby="confirmLinkModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -101,36 +96,165 @@
                         </div>
                     </div>
                 </div>
-
-                <script>
-                    function setEditionId(button) {
-                        const editionId = button.getAttribute('data-id');
-                        document.getElementById('editionId').textContent = editionId;
-
-                        // A o link de confirmação com o ID da edição
-                        const confirmLink = document.getElementById('confirmLink');
-                        confirmLink.setAttribute('href', `/autoavaliacao/vincular-avaliacao/${editionId}`);
-                    }
-                </script>
-
             </div>
+
+            <!-- Edições Em Andamento -->
+<!--            <h2 class="custom-title">-->
+<!--                Edições Em Andamento-->
+<!--            </h2>-->
+
+            <h2 style="width: 100%; font-size: 28px; font-weight: bold; color: #333; margin: 20px 0; text-align: center;
+                     border-bottom: 3px solid #0066cc; padding-bottom: 10px;">
+                Edições Em Andamento
+            </h2>
+
+            <div class="row">
+                <div class="col-lg-6" th:each="edicao : ${edicoes}" th:if="${edicao.situacao == 'Em Andamento'}">
+                    <!-- O mesmo bloco de código de exibição -->
+                    <h5 class="card-title-edicao-cadastrar d-flex">
+                        Edição Nº: <span class="ms-2" th:text="${edicao.edicao}"></span>
+                        <a th:href="@{/autoavaliacao/editar-edicao/{id} (id=${edicao.id})}" class="btn p-0 ms-auto" title="Editar">
+                            <i class="fa-solid fa-pen" style="cursor: pointer;"></i>
+                        </a>
+                    </h5>
+                    <div class="card-edicao">
+                        <div class="card-body-edicao">
+                            <div class="display-edicao">
+                                <div class="espaco-edicao">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                </div>
+                                <ul class="situacao-lista">
+                                    <li class="situacao bg-success">
+                                        Situação: <span th:text="${edicao.situacao}"></span>
+                                    </li>
+                                    <li class="data">Data / Início: <span th:text="${edicao.dataInicio}"></span></li>
+                                    <li class="data">Data / Término: <span th:text="${edicao.dataFim}"></span></li>
+                                </ul>
+                            </div>
+                            <div class="table-edicao my-3">
+                                <div class="form-label-span" th:text="${edicao.descricao}"></div>
+                            </div>
+<!--                            <div th:if="${edicao.situacao != 'Administrador'}">-->
+<!--                                <a class="btn btn-primary"-->
+<!--                                   data-bs-toggle="modal"-->
+<!--                                   data-bs-target="#confirmLinkModal"-->
+<!--                                   th:data-id="${edicao.id}"-->
+<!--                                   onclick="setEditionId(this)">-->
+<!--                                    Vincular Avaliação-->
+<!--                                </a>-->
+<!--                            </div>-->
+
+<!--                            <div class="modal fade" id="confirmLinkModal" tabindex="-1" aria-labelledby="confirmLinkModalLabel" aria-hidden="true">-->
+<!--                                <div class="modal-dialog">-->
+<!--                                    <div class="modal-content">-->
+<!--                                        <div class="modal-header">-->
+<!--                                            <h5 class="modal-title" id="confirmLinkModalLabel">Confirmar Vinculação</h5>-->
+<!--                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-body">-->
+<!--                                            Você deseja vincular uma avaliação à edição número <span id="editionId"></span>?-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>-->
+<!--                                            <a id="confirmLink" class="btn btn-primary">Confirmar</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edições Encerradas -->
+<!--            <h2 class="custom-title">-->
+<!--                Edições Encerradas-->
+<!--            </h2>-->
+
+            <h2 style="width: 100%; font-size: 28px; font-weight: bold; color: #333; margin: 20px 0; text-align: center;
+                     border-bottom: 3px solid #0066cc; padding-bottom: 10px;">
+                Edições Encerradas
+            </h2>
+
+            <div class="row">
+                <div class="col-lg-4" th:each="edicao : ${edicoes}" th:if="${edicao.situacao == 'Encerrada'}">
+                    <!-- O mesmo bloco de código de exibição -->
+                    <h5 class="card-title-edicao-cadastrar d-flex">
+                        Edição Nº: <span class="ms-2" th:text="${edicao.edicao}"></span>
+                        <a th:href="@{/autoavaliacao/editar-edicao/{id} (id=${edicao.id})}" class="btn p-0 ms-auto" title="Editar">
+                            <i class="fa-solid fa-pen" style="cursor: pointer;"></i>
+                        </a>
+                    </h5>
+                    <div class="card-edicao">
+                        <div class="card-body-edicao">
+                            <div class="display-edicao">
+                                <div class="espaco-edicao">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                </div>
+                                <ul class="situacao-lista">
+                                    <li class="situacao bg-danger">
+                                        Situação: <span th:text="${edicao.situacao}"></span>
+                                    </li>
+                                    <li class="data">Data / Início: <span th:text="${edicao.dataInicio}"></span></li>
+                                    <li class="data">Data / Término: <span th:text="${edicao.dataFim}"></span></li>
+                                </ul>
+                            </div>
+
+<!--                            <div class="table-edicao my-3">-->
+<!--                                <div class="form-label-span" th:text="${edicao.descricao}"></div>-->
+<!--                            </div>-->
+
+<!--                            <div th:if="${edicao.situacao != 'Administrador'}">-->
+<!--                                <a class="btn btn-primary"-->
+<!--                                   data-bs-toggle="modal"-->
+<!--                                   data-bs-target="#confirmLinkModal"-->
+<!--                                   th:data-id="${edicao.id}"-->
+<!--                                   onclick="setEditionId(this)">-->
+<!--                                    Vincular Avaliação-->
+<!--                                </a>-->
+<!--                            </div>-->
+
+<!--                            <div class="modal fade" id="confirmLinkModal" tabindex="-1" aria-labelledby="confirmLinkModalLabel" aria-hidden="true">-->
+<!--                                <div class="modal-dialog">-->
+<!--                                    <div class="modal-content">-->
+<!--                                        <div class="modal-header">-->
+<!--                                            <h5 class="modal-title" id="confirmLinkModalLabel">Confirmar Vinculação</h5>-->
+<!--                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-body">-->
+<!--                                            Você deseja vincular uma avaliação à edição número <span id="editionId"></span>?-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>-->
+<!--                                            <a id="confirmLink" class="btn btn-primary">Confirmar</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
     </main>
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="/assets/vendor/echarts/echarts.min.js"></script>
-    <script src="/assets/vendor/quill/quill.js"></script>
-    <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="/assets/vendor/php-email-form/validate.js"></script>
+    <script>
+        function setEditionId(button) {
+            const editionId = button.getAttribute('data-id');
+            document.getElementById('editionId').textContent = editionId;
 
-    <!-- Template Main JS File -->
-    <script src="/assets/js/main.js"></script>
+            // Define o link de confirmação com o ID da edição
+            const confirmLink = document.getElementById('confirmLink');
+            confirmLink.setAttribute('href', `/autoavaliacao/vincular-avaliacao/${editionId}`);
+        }
+    </script>
 
 </div>
 
